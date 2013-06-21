@@ -42,18 +42,18 @@
             this.dataGrid = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colSTT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMaKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenVatTu_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colNhomVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMaLoai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMaKho = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSoLuong_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colDonVi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDonVi_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.colDonGia_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colMaKho_Exit = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colMaLoai_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.colNhomVatTu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoLuong_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.colDonGia_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -62,11 +62,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colTenVatTu_Edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSoLuong_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDonVi_Edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDonGia_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colMaKho_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.colMaLoai_Edit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSoLuong_Edit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDonGia_Edit)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -82,29 +82,38 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Image = global::QLK_DongLuc.Properties.Resources.Xoa;
             this.btnXoa.Location = new System.Drawing.Point(271, 5);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 25);
             this.btnXoa.TabIndex = 6;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "  Xóa";
+            this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             // 
             // btnSua
             // 
+            this.btnSua.Image = global::QLK_DongLuc.Properties.Resources.Sua;
             this.btnSua.Location = new System.Drawing.Point(146, 5);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(100, 25);
             this.btnSua.TabIndex = 5;
-            this.btnSua.Text = "Sửa";
+            this.btnSua.Text = "  Sửa";
+            this.btnSua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = true;
             // 
             // btnThem
             // 
+            this.btnThem.Image = global::QLK_DongLuc.Properties.Resources.Them;
             this.btnThem.Location = new System.Drawing.Point(28, 5);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 25);
             this.btnThem.TabIndex = 4;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "  Thêm";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
             // 
             // groupControl1
@@ -222,6 +231,15 @@
             this.colSTT.VisibleIndex = 0;
             this.colSTT.Width = 92;
             // 
+            // colMaKho
+            // 
+            this.colMaKho.Caption = "Kho mặc định";
+            this.colMaKho.FieldName = "TenKho";
+            this.colMaKho.Name = "colMaKho";
+            this.colMaKho.Visible = true;
+            this.colMaKho.VisibleIndex = 1;
+            this.colMaKho.Width = 169;
+            // 
             // colMaVatTu
             // 
             this.colMaVatTu.Caption = "Mã vật tư";
@@ -243,6 +261,15 @@
             this.colTenVatTu_Edit.AutoHeight = false;
             this.colTenVatTu_Edit.Name = "colTenVatTu_Edit";
             // 
+            // colNhomVatTu
+            // 
+            this.colNhomVatTu.Caption = "Nhóm vật tư";
+            this.colNhomVatTu.FieldName = "TenNhom";
+            this.colNhomVatTu.Name = "colNhomVatTu";
+            this.colNhomVatTu.Visible = true;
+            this.colNhomVatTu.VisibleIndex = 2;
+            this.colNhomVatTu.Width = 145;
+            // 
             // colMaLoai
             // 
             this.colMaLoai.Caption = "Loại vật tư";
@@ -251,20 +278,6 @@
             this.colMaLoai.Visible = true;
             this.colMaLoai.VisibleIndex = 3;
             this.colMaLoai.Width = 134;
-            // 
-            // colMaKho
-            // 
-            this.colMaKho.Caption = "Kho mặc định";
-            this.colMaKho.FieldName = "TenKho";
-            this.colMaKho.Name = "colMaKho";
-            this.colMaKho.Visible = true;
-            this.colMaKho.VisibleIndex = 1;
-            this.colMaKho.Width = 169;
-            // 
-            // colSoLuong_Edit
-            // 
-            this.colSoLuong_Edit.AutoHeight = false;
-            this.colSoLuong_Edit.Name = "colSoLuong_Edit";
             // 
             // colDonVi
             // 
@@ -281,11 +294,6 @@
             this.colDonVi_Edit.AutoHeight = false;
             this.colDonVi_Edit.Name = "colDonVi_Edit";
             // 
-            // colDonGia_Edit
-            // 
-            this.colDonGia_Edit.AutoHeight = false;
-            this.colDonGia_Edit.Name = "colDonGia_Edit";
-            // 
             // colMaKho_Exit
             // 
             this.colMaKho_Exit.AutoHeight = false;
@@ -298,14 +306,15 @@
             this.colMaLoai_Edit.AutoHeight = false;
             this.colMaLoai_Edit.Name = "colMaLoai_Edit";
             // 
-            // colNhomVatTu
+            // colSoLuong_Edit
             // 
-            this.colNhomVatTu.Caption = "Nhóm vật tư";
-            this.colNhomVatTu.FieldName = "TenNhom";
-            this.colNhomVatTu.Name = "colNhomVatTu";
-            this.colNhomVatTu.Visible = true;
-            this.colNhomVatTu.VisibleIndex = 2;
-            this.colNhomVatTu.Width = 145;
+            this.colSoLuong_Edit.AutoHeight = false;
+            this.colSoLuong_Edit.Name = "colSoLuong_Edit";
+            // 
+            // colDonGia_Edit
+            // 
+            this.colDonGia_Edit.AutoHeight = false;
+            this.colDonGia_Edit.Name = "colDonGia_Edit";
             // 
             // frmVatTu
             // 
@@ -329,11 +338,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colTenVatTu_Edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colSoLuong_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colDonVi_Edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.colDonGia_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colMaKho_Exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.colMaLoai_Edit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colSoLuong_Edit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.colDonGia_Edit)).EndInit();
             this.ResumeLayout(false);
 
         }

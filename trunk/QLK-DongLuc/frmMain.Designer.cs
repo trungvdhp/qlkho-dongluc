@@ -72,8 +72,6 @@
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuanLyNguoiDung = new DevExpress.XtraBars.BarButtonItem();
@@ -178,8 +176,6 @@
             this.barButtonItem19,
             this.barButtonItem20,
             this.barButtonItem23,
-            this.barButtonItem24,
-            this.barButtonItem25,
             this.barButtonItem26,
             this.btnDangNhap,
             this.btnQuanLyNguoiDung,
@@ -244,8 +240,10 @@
             this.btnThoat.Hint = "Closes this program after prompting you to save unsaved data";
             this.btnThoat.Id = 20;
             this.btnThoat.ImageIndex = 6;
+            this.btnThoat.LargeGlyph = global::QLK_DongLuc.Properties.Resources.Thoat;
             this.btnThoat.LargeImageIndex = 6;
             this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // popupControlContainer1
             // 
@@ -300,6 +298,7 @@
             // 
             this.btnDangXuat.Caption = "Đăng xuất";
             this.btnDangXuat.Description = "Closes the active document.";
+            this.btnDangXuat.Glyph = global::QLK_DongLuc.Properties.Resources.DangXuat;
             this.btnDangXuat.Hint = "Closes the active document";
             this.btnDangXuat.Id = 3;
             this.btnDangXuat.ImageIndex = 2;
@@ -311,6 +310,7 @@
             // 
             this.btnDoiMatKhau.Caption = "Đổi mật khẩu";
             this.btnDoiMatKhau.Description = "Searches for the specified info.";
+            this.btnDoiMatKhau.Glyph = global::QLK_DongLuc.Properties.Resources.DoiMatKhau;
             this.btnDoiMatKhau.Hint = "Searches for the specified info";
             this.btnDoiMatKhau.Id = 15;
             this.btnDoiMatKhau.ImageIndex = 3;
@@ -406,20 +406,24 @@
             // 
             this.btnSaoLuu.Caption = "Sao lưu";
             this.btnSaoLuu.Id = 62;
+            this.btnSaoLuu.LargeGlyph = global::QLK_DongLuc.Properties.Resources.SaoLuu;
             this.btnSaoLuu.LargeImageIndex = 0;
             this.btnSaoLuu.Name = "btnSaoLuu";
             // 
             // btnPhucHoi
             // 
             this.btnPhucHoi.Caption = "Phục hồi";
+            this.btnPhucHoi.Glyph = global::QLK_DongLuc.Properties.Resources.PhucHoi;
             this.btnPhucHoi.Id = 63;
+            this.btnPhucHoi.LargeGlyph = global::QLK_DongLuc.Properties.Resources.PhucHoi;
             this.btnPhucHoi.LargeImageIndex = 0;
             this.btnPhucHoi.Name = "btnPhucHoi";
             // 
             // btnCauHinh
             // 
-            this.btnCauHinh.Caption = "Cấu hình kết nối";
+            this.btnCauHinh.Caption = "Cấu hình hệ thống";
             this.btnCauHinh.Id = 64;
+            this.btnCauHinh.LargeGlyph = global::QLK_DongLuc.Properties.Resources.CauHinhKetNoi;
             this.btnCauHinh.LargeImageIndex = 0;
             this.btnCauHinh.Name = "btnCauHinh";
             // 
@@ -428,6 +432,7 @@
             this.barButtonItem6.Caption = "Khách hàng";
             this.barButtonItem6.Id = 66;
             this.barButtonItem6.ImageIndex = 0;
+            this.barButtonItem6.LargeGlyph = global::QLK_DongLuc.Properties.Resources.KhachHang;
             this.barButtonItem6.LargeImageIndex = 0;
             this.barButtonItem6.LargeImageIndexDisabled = 0;
             this.barButtonItem6.Name = "barButtonItem6";
@@ -436,13 +441,15 @@
             // 
             this.barButtonItem7.Caption = "Nhà cung cấp";
             this.barButtonItem7.Id = 67;
+            this.barButtonItem7.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhaCungCap;
             this.barButtonItem7.LargeImageIndex = 0;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
             // barButtonItem8
             // 
-            this.barButtonItem8.Caption = "Kho";
+            this.barButtonItem8.Caption = "Kho vật tư";
             this.barButtonItem8.Id = 68;
+            this.barButtonItem8.LargeGlyph = global::QLK_DongLuc.Properties.Resources.Kho;
             this.barButtonItem8.LargeImageIndex = 0;
             this.barButtonItem8.Name = "barButtonItem8";
             // 
@@ -450,6 +457,7 @@
             // 
             this.barButtonItem9.Caption = "Đơn vị tính";
             this.barButtonItem9.Id = 69;
+            this.barButtonItem9.LargeGlyph = global::QLK_DongLuc.Properties.Resources.DonVi;
             this.barButtonItem9.LargeImageIndex = 0;
             this.barButtonItem9.Name = "barButtonItem9";
             // 
@@ -457,6 +465,7 @@
             // 
             this.barButtonItem10.Caption = "Nhóm vật tư";
             this.barButtonItem10.Id = 70;
+            this.barButtonItem10.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhomVatTu;
             this.barButtonItem10.LargeImageIndex = 0;
             this.barButtonItem10.Name = "barButtonItem10";
             // 
@@ -464,6 +473,7 @@
             // 
             this.barButtonItem11.Caption = "Loại vật tư";
             this.barButtonItem11.Id = 71;
+            this.barButtonItem11.LargeGlyph = global::QLK_DongLuc.Properties.Resources.LoaiVatTu;
             this.barButtonItem11.LargeImageIndex = 0;
             this.barButtonItem11.Name = "barButtonItem11";
             // 
@@ -471,6 +481,7 @@
             // 
             this.btnVatTu.Caption = "Vật tư";
             this.btnVatTu.Id = 72;
+            this.btnVatTu.LargeGlyph = global::QLK_DongLuc.Properties.Resources.VatTu;
             this.btnVatTu.LargeImageIndex = 0;
             this.btnVatTu.Name = "btnVatTu";
             this.btnVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVatTu_ItemClick);
@@ -479,6 +490,7 @@
             // 
             this.barButtonItem13.Caption = "Nhân viên";
             this.barButtonItem13.Id = 73;
+            this.barButtonItem13.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhanVien;
             this.barButtonItem13.LargeImageIndex = 0;
             this.barButtonItem13.Name = "barButtonItem13";
             // 
@@ -486,6 +498,7 @@
             // 
             this.btnNhapKho.Caption = "Nhập kho";
             this.btnNhapKho.Id = 75;
+            this.btnNhapKho.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhapKho;
             this.btnNhapKho.LargeImageIndex = 7;
             this.btnNhapKho.Name = "btnNhapKho";
             this.btnNhapKho.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapKho_ItemClick);
@@ -494,6 +507,7 @@
             // 
             this.barButtonItem15.Caption = "Xuất kho";
             this.barButtonItem15.Id = 76;
+            this.barButtonItem15.LargeGlyph = global::QLK_DongLuc.Properties.Resources.XuatKho;
             this.barButtonItem15.LargeImageIndex = 7;
             this.barButtonItem15.Name = "barButtonItem15";
             // 
@@ -501,6 +515,7 @@
             // 
             this.barButtonItem16.Caption = "Tồn kho";
             this.barButtonItem16.Id = 77;
+            this.barButtonItem16.LargeGlyph = global::QLK_DongLuc.Properties.Resources.TonKho;
             this.barButtonItem16.LargeImageIndex = 7;
             this.barButtonItem16.Name = "barButtonItem16";
             // 
@@ -508,6 +523,7 @@
             // 
             this.barButtonItem17.Caption = "Báo cáo";
             this.barButtonItem17.Id = 78;
+            this.barButtonItem17.LargeGlyph = global::QLK_DongLuc.Properties.Resources.BaoCao;
             this.barButtonItem17.LargeImageIndex = 7;
             this.barButtonItem17.Name = "barButtonItem17";
             // 
@@ -515,6 +531,7 @@
             // 
             this.barButtonItem18.Caption = "Chuyển kho";
             this.barButtonItem18.Id = 79;
+            this.barButtonItem18.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ChuyenKho;
             this.barButtonItem18.LargeImageIndex = 7;
             this.barButtonItem18.Name = "barButtonItem18";
             // 
@@ -522,13 +539,15 @@
             // 
             this.barButtonItem19.Caption = "Kiểm kê";
             this.barButtonItem19.Id = 80;
+            this.barButtonItem19.LargeGlyph = global::QLK_DongLuc.Properties.Resources.KiemKe;
             this.barButtonItem19.LargeImageIndex = 7;
             this.barButtonItem19.Name = "barButtonItem19";
             // 
             // barButtonItem20
             // 
-            this.barButtonItem20.Caption = "Tổng hợp Tồn kho";
+            this.barButtonItem20.Caption = "Tổng hợp Kho";
             this.barButtonItem20.Id = 81;
+            this.barButtonItem20.LargeGlyph = global::QLK_DongLuc.Properties.Resources.TongHop;
             this.barButtonItem20.LargeImageIndex = 7;
             this.barButtonItem20.Name = "barButtonItem20";
             // 
@@ -536,33 +555,22 @@
             // 
             this.barButtonItem23.Caption = "Nhập số dư Đầu kỳ";
             this.barButtonItem23.Id = 84;
+            this.barButtonItem23.LargeGlyph = global::QLK_DongLuc.Properties.Resources.DuDauKy;
             this.barButtonItem23.LargeImageIndex = 7;
             this.barButtonItem23.Name = "barButtonItem23";
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Caption = "Lịch sử Hàng háo";
-            this.barButtonItem24.Id = 85;
-            this.barButtonItem24.LargeImageIndex = 7;
-            this.barButtonItem24.Name = "barButtonItem24";
-            // 
-            // barButtonItem25
-            // 
-            this.barButtonItem25.Caption = "Quản lý Chứng từ";
-            this.barButtonItem25.Id = 86;
-            this.barButtonItem25.LargeImageIndex = 7;
-            this.barButtonItem25.Name = "barButtonItem25";
             // 
             // barButtonItem26
             // 
             this.barButtonItem26.Caption = "Tổng hợp Nhập Xuất Vật tư";
             this.barButtonItem26.Id = 87;
+            this.barButtonItem26.LargeGlyph = global::QLK_DongLuc.Properties.Resources.TongHopNhapXuat;
             this.barButtonItem26.LargeImageIndex = 7;
             this.barButtonItem26.Name = "barButtonItem26";
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.Caption = "Đăng nhập";
+            this.btnDangNhap.Glyph = global::QLK_DongLuc.Properties.Resources.DangNhap;
             this.btnDangNhap.Id = 90;
             this.btnDangNhap.ImageIndex = 1;
             this.btnDangNhap.Name = "btnDangNhap";
@@ -571,14 +579,16 @@
             // 
             this.btnQuanLyNguoiDung.Caption = "Quản lý người dùng";
             this.btnQuanLyNguoiDung.Id = 91;
+            this.btnQuanLyNguoiDung.LargeGlyph = global::QLK_DongLuc.Properties.Resources.QuanLyNguoiDung;
             this.btnQuanLyNguoiDung.LargeImageIndex = 4;
             this.btnQuanLyNguoiDung.LargeImageIndexDisabled = 4;
             this.btnQuanLyNguoiDung.Name = "btnQuanLyNguoiDung";
             // 
             // btnThongTin
             // 
-            this.btnThongTin.Caption = "Thông tin người dùng";
+            this.btnThongTin.Caption = "Thông tin nhắc nhở";
             this.btnThongTin.Id = 92;
+            this.btnThongTin.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ThongTinNhacNho;
             this.btnThongTin.LargeImageIndex = 3;
             this.btnThongTin.Name = "btnThongTin";
             // 
@@ -586,6 +596,7 @@
             // 
             this.btnNhatKy.Caption = "Nhật ký hệ thống";
             this.btnNhatKy.Id = 93;
+            this.btnNhatKy.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhatKyHeThong;
             this.btnNhatKy.LargeImageIndex = 3;
             this.btnNhatKy.Name = "btnNhatKy";
             // 
@@ -605,6 +616,7 @@
             // 
             this.barButtonItem5.Caption = "Tổ chức";
             this.barButtonItem5.Id = 96;
+            this.barButtonItem5.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ToChuc;
             this.barButtonItem5.Name = "barButtonItem5";
             // 
             // ribbonImageCollectionLarge
@@ -726,8 +738,6 @@
             // ribbonPageGroup7
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem23);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem24);
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem25);
             this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem26);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Công cụ";
@@ -819,6 +829,7 @@
             this.Controls.Add(this.popupControlContainer1);
             this.Controls.Add(this.popupControlContainer2);
             this.Controls.Add(this.ribbonStatusBar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "Phần mềm quản lý kho";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -900,8 +911,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem19;
         private DevExpress.XtraBars.BarButtonItem barButtonItem20;
         private DevExpress.XtraBars.BarButtonItem barButtonItem23;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem24;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem25;
         private DevExpress.XtraBars.BarButtonItem barButtonItem26;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
