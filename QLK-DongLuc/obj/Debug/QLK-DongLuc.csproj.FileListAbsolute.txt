@@ -1,0 +1,14 @@
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\bin\Debug\QLK-DongLuc.exe
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\bin\Debug\QLK-DongLuc.pdb
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK_DongLuc.Properties.Resources.resources
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK-DongLuc.csproj.GenerateResource.Cache
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK-DongLuc.exe.licenses
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK-DongLuc.exe
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK-DongLuc.pdb
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK_DongLuc.frmMain.resources
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\bin\Debug\QLK-DongLuc.exe.config
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\bin\Debug\EntityFramework.dll
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\bin\Debug\EntityFramework.xml
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK_DongLuc.Views.DanhMuc.frmVatTu.resources
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK-DongLuc.csprojResolveAssemblyReference.cache
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLK-DongLuc\obj\Debug\QLK_DongLuc.Views.QuanLyKho.frmNhapKho.resources

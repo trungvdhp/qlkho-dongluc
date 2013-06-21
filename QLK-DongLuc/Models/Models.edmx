@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="KhoVatTu" EntityType="Models.Store.KhoVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoaiPhieuNhap" EntityType="Models.Store.LoaiPhieuNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoaiVatTu" EntityType="Models.Store.LoaiVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NhaCungCap" EntityType="Models.Store.NhaCungCap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NhomVatTu" EntityType="Models.Store.NhomVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhieuNhap" EntityType="Models.Store.PhieuNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhieuNhapCT" EntityType="Models.Store.PhieuNhapCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Models.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VatTu" EntityType="Models.Store.VatTu" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_LoaiVatTu_NhomVatTu" Association="Models.Store.FK_LoaiVatTu_NhomVatTu">
+            <End Role="NhomVatTu" EntitySet="NhomVatTu" />
+            <End Role="LoaiVatTu" EntitySet="LoaiVatTu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhap_KhoVatTu" Association="Models.Store.FK_PhieuNhap_KhoVatTu">
+            <End Role="KhoVatTu" EntitySet="KhoVatTu" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhap_LoaiPhieuNhap" Association="Models.Store.FK_PhieuNhap_LoaiPhieuNhap">
+            <End Role="LoaiPhieuNhap" EntitySet="LoaiPhieuNhap" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhap_NhaCungCap" Association="Models.Store.FK_PhieuNhap_NhaCungCap">
+            <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhapCT_PhieuNhap" Association="Models.Store.FK_PhieuNhapCT_PhieuNhap">
+            <End Role="PhieuNhap" EntitySet="PhieuNhap" />
+            <End Role="PhieuNhapCT" EntitySet="PhieuNhapCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhapCT_VatTu" Association="Models.Store.FK_PhieuNhapCT_VatTu">
+            <End Role="VatTu" EntitySet="VatTu" />
+            <End Role="PhieuNhapCT" EntitySet="PhieuNhapCT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="KhoVatTu">
+          <Key>
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaKho" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenKho" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiPhieuNhap">
+          <Key>
+            <PropertyRef Name="MaLoaiNhap" />
+          </Key>
+          <Property Name="MaLoaiNhap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiNhap" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiVatTu">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MaNhom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NhaCungCap">
+          <Key>
+            <PropertyRef Name="MaNCC" />
+          </Key>
+          <Property Name="MaNCC" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenNCC" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NhomVatTu">
+          <Key>
+            <PropertyRef Name="MaNhom" />
+          </Key>
+          <Property Name="MaNhom" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="MaLoaiNhap" Type="int" Nullable="false" />
+          <Property Name="MaNCC" Type="int" Nullable="false" />
+          <Property Name="NgayNhap" Type="datetime" />
+          <Property Name="MaKho" Type="int" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhieuNhapCT">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="MaVatTu" Type="int" Nullable="false" />
+          <Property Name="DonVi" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SoLuong" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="DonGia" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VatTu">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaVatTu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TenVatTu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MaLoai" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="decimal" Scale="2" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="10" />
+          <Property Name="DonGia" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="MaKho" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LoaiVatTu_NhomVatTu">
+          <End Role="NhomVatTu" Type="Models.Store.NhomVatTu" Multiplicity="1" />
+          <End Role="LoaiVatTu" Type="Models.Store.LoaiVatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhomVatTu">
+              <PropertyRef Name="MaNhom" />
+            </Principal>
+            <Dependent Role="LoaiVatTu">
+              <PropertyRef Name="MaNhom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhap_KhoVatTu">
+          <End Role="KhoVatTu" Type="Models.Store.KhoVatTu" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.Store.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoVatTu">
+              <PropertyRef Name="MaKho" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaKho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhap_LoaiPhieuNhap">
+          <End Role="LoaiPhieuNhap" Type="Models.Store.LoaiPhieuNhap" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.Store.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhieuNhap">
+              <PropertyRef Name="MaLoaiNhap" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaLoaiNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhap_NhaCungCap">
+          <End Role="NhaCungCap" Type="Models.Store.NhaCungCap" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.Store.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhaCungCap">
+              <PropertyRef Name="MaNCC" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaNCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhapCT_PhieuNhap">
+          <End Role="PhieuNhap" Type="Models.Store.PhieuNhap" Multiplicity="1" />
+          <End Role="PhieuNhapCT" Type="Models.Store.PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="PhieuNhapCT">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhapCT_VatTu">
+          <End Role="VatTu" Type="Models.Store.VatTu" Multiplicity="1" />
+          <End Role="PhieuNhapCT" Type="Models.Store.PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VatTu">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="PhieuNhapCT">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLKContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="KhoVatTus" EntityType="Models.KhoVatTu" />
+          <EntitySet Name="LoaiPhieuNhaps" EntityType="Models.LoaiPhieuNhap" />
+          <EntitySet Name="LoaiVatTus" EntityType="Models.LoaiVatTu" />
+          <EntitySet Name="NhaCungCaps" EntityType="Models.NhaCungCap" />
+          <EntitySet Name="NhomVatTus" EntityType="Models.NhomVatTu" />
+          <EntitySet Name="PhieuNhaps" EntityType="Models.PhieuNhap" />
+          <EntitySet Name="PhieuNhapCTs" EntityType="Models.PhieuNhapCT" />
+          <EntitySet Name="sysdiagrams" EntityType="Models.sysdiagram" />
+          <EntitySet Name="VatTus" EntityType="Models.VatTu" />
+          <AssociationSet Name="FK_PhieuNhap_KhoVatTu" Association="Models.FK_PhieuNhap_KhoVatTu">
+            <End Role="KhoVatTu" EntitySet="KhoVatTus" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhap_LoaiPhieuNhap" Association="Models.FK_PhieuNhap_LoaiPhieuNhap">
+            <End Role="LoaiPhieuNhap" EntitySet="LoaiPhieuNhaps" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoaiVatTu_NhomVatTu" Association="Models.FK_LoaiVatTu_NhomVatTu">
+            <End Role="NhomVatTu" EntitySet="NhomVatTus" />
+            <End Role="LoaiVatTu" EntitySet="LoaiVatTus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhap_NhaCungCap" Association="Models.FK_PhieuNhap_NhaCungCap">
+            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+            <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhapCT_PhieuNhap" Association="Models.FK_PhieuNhapCT_PhieuNhap">
+            <End Role="PhieuNhap" EntitySet="PhieuNhaps" />
+            <End Role="PhieuNhapCT" EntitySet="PhieuNhapCTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuNhapCT_VatTu" Association="Models.FK_PhieuNhapCT_VatTu">
+            <End Role="VatTu" EntitySet="VatTus" />
+            <End Role="PhieuNhapCT" EntitySet="PhieuNhapCTs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="KhoVatTu">
+          <Key>
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaKho" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenKho" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PhieuNhaps" Relationship="Models.FK_PhieuNhap_KhoVatTu" FromRole="KhoVatTu" ToRole="PhieuNhap" />
+        </EntityType>
+        <EntityType Name="LoaiPhieuNhap">
+          <Key>
+            <PropertyRef Name="MaLoaiNhap" />
+          </Key>
+          <Property Name="MaLoaiNhap" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiNhap" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PhieuNhaps" Relationship="Models.FK_PhieuNhap_LoaiPhieuNhap" FromRole="LoaiPhieuNhap" ToRole="PhieuNhap" />
+        </EntityType>
+        <EntityType Name="LoaiVatTu">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaNhom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NhomVatTu" Relationship="Models.FK_LoaiVatTu_NhomVatTu" FromRole="LoaiVatTu" ToRole="NhomVatTu" />
+        </EntityType>
+        <EntityType Name="NhaCungCap">
+          <Key>
+            <PropertyRef Name="MaNCC" />
+          </Key>
+          <Property Name="MaNCC" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNCC" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PhieuNhaps" Relationship="Models.FK_PhieuNhap_NhaCungCap" FromRole="NhaCungCap" ToRole="PhieuNhap" />
+        </EntityType>
+        <EntityType Name="NhomVatTu">
+          <Key>
+            <PropertyRef Name="MaNhom" />
+          </Key>
+          <Property Name="MaNhom" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNhom" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="LoaiVatTus" Relationship="Models.FK_LoaiVatTu_NhomVatTu" FromRole="NhomVatTu" ToRole="LoaiVatTu" />
+        </EntityType>
+        <EntityType Name="PhieuNhap">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="MaLoaiNhap" Type="Int32" Nullable="false" />
+          <Property Name="MaNCC" Type="Int32" Nullable="false" />
+          <Property Name="NgayNhap" Type="DateTime" Precision="3" />
+          <Property Name="MaKho" Type="Int32" Nullable="false" />
+          <Property Name="MaNhanVien" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="KhoVatTu" Relationship="Models.FK_PhieuNhap_KhoVatTu" FromRole="PhieuNhap" ToRole="KhoVatTu" />
+          <NavigationProperty Name="LoaiPhieuNhap" Relationship="Models.FK_PhieuNhap_LoaiPhieuNhap" FromRole="PhieuNhap" ToRole="LoaiPhieuNhap" />
+          <NavigationProperty Name="NhaCungCap" Relationship="Models.FK_PhieuNhap_NhaCungCap" FromRole="PhieuNhap" ToRole="NhaCungCap" />
+          <NavigationProperty Name="PhieuNhapCTs" Relationship="Models.FK_PhieuNhapCT_PhieuNhap" FromRole="PhieuNhap" ToRole="PhieuNhapCT" />
+        </EntityType>
+        <EntityType Name="PhieuNhapCT">
+          <Key>
+            <PropertyRef Name="MaPhieuNhap" />
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaPhieuNhap" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="MaVatTu" Type="Int32" Nullable="false" />
+          <Property Name="DonVi" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="SoLuong" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="PhieuNhap" Relationship="Models.FK_PhieuNhapCT_PhieuNhap" FromRole="PhieuNhapCT" ToRole="PhieuNhap" />
+          <NavigationProperty Name="VatTu" Relationship="Models.FK_PhieuNhapCT_VatTu" FromRole="PhieuNhapCT" ToRole="VatTu" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VatTu">
+          <Key>
+            <PropertyRef Name="MaVatTu" />
+          </Key>
+          <Property Name="MaVatTu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TenVatTu" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MaLoai" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DonVi" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DonGia" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="MaKho" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PhieuNhapCTs" Relationship="Models.FK_PhieuNhapCT_VatTu" FromRole="VatTu" ToRole="PhieuNhapCT" />
+        </EntityType>
+        <Association Name="FK_PhieuNhap_KhoVatTu">
+          <End Role="KhoVatTu" Type="Models.KhoVatTu" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhoVatTu">
+              <PropertyRef Name="MaKho" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaKho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhap_LoaiPhieuNhap">
+          <End Role="LoaiPhieuNhap" Type="Models.LoaiPhieuNhap" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiPhieuNhap">
+              <PropertyRef Name="MaLoaiNhap" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaLoaiNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoaiVatTu_NhomVatTu">
+          <End Role="NhomVatTu" Type="Models.NhomVatTu" Multiplicity="1" />
+          <End Role="LoaiVatTu" Type="Models.LoaiVatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhomVatTu">
+              <PropertyRef Name="MaNhom" />
+            </Principal>
+            <Dependent Role="LoaiVatTu">
+              <PropertyRef Name="MaNhom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhap_NhaCungCap">
+          <End Role="NhaCungCap" Type="Models.NhaCungCap" Multiplicity="1" />
+          <End Role="PhieuNhap" Type="Models.PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhaCungCap">
+              <PropertyRef Name="MaNCC" />
+            </Principal>
+            <Dependent Role="PhieuNhap">
+              <PropertyRef Name="MaNCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhapCT_PhieuNhap">
+          <End Role="PhieuNhap" Type="Models.PhieuNhap" Multiplicity="1" />
+          <End Role="PhieuNhapCT" Type="Models.PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhieuNhap">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Principal>
+            <Dependent Role="PhieuNhapCT">
+              <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuNhapCT_VatTu">
+          <End Role="VatTu" Type="Models.VatTu" Multiplicity="1" />
+          <End Role="PhieuNhapCT" Type="Models.PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VatTu">
+              <PropertyRef Name="MaVatTu" />
+            </Principal>
+            <Dependent Role="PhieuNhapCT">
+              <PropertyRef Name="MaVatTu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="QLKContext">
+          <EntitySetMapping Name="KhoVatTus">
+            <EntityTypeMapping TypeName="Models.KhoVatTu">
+              <MappingFragment StoreEntitySet="KhoVatTu">
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+                <ScalarProperty Name="TenKho" ColumnName="TenKho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiPhieuNhaps">
+            <EntityTypeMapping TypeName="Models.LoaiPhieuNhap">
+              <MappingFragment StoreEntitySet="LoaiPhieuNhap">
+                <ScalarProperty Name="MaLoaiNhap" ColumnName="MaLoaiNhap" />
+                <ScalarProperty Name="TenLoaiNhap" ColumnName="TenLoaiNhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiVatTus">
+            <EntityTypeMapping TypeName="Models.LoaiVatTu">
+              <MappingFragment StoreEntitySet="LoaiVatTu">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+                <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhaCungCaps">
+            <EntityTypeMapping TypeName="Models.NhaCungCap">
+              <MappingFragment StoreEntitySet="NhaCungCap">
+                <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+                <ScalarProperty Name="TenNCC" ColumnName="TenNCC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhomVatTus">
+            <EntityTypeMapping TypeName="Models.NhomVatTu">
+              <MappingFragment StoreEntitySet="NhomVatTu">
+                <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+                <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuNhaps">
+            <EntityTypeMapping TypeName="Models.PhieuNhap">
+              <MappingFragment StoreEntitySet="PhieuNhap">
+                <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+                <ScalarProperty Name="MaLoaiNhap" ColumnName="MaLoaiNhap" />
+                <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhieuNhapCTs">
+            <EntityTypeMapping TypeName="Models.PhieuNhapCT">
+              <MappingFragment StoreEntitySet="PhieuNhapCT">
+                <ScalarProperty Name="MaPhieuNhap" ColumnName="MaPhieuNhap" />
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Models.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VatTus">
+            <EntityTypeMapping TypeName="Models.VatTu">
+              <MappingFragment StoreEntitySet="VatTu">
+                <ScalarProperty Name="MaVatTu" ColumnName="MaVatTu" />
+                <ScalarProperty Name="TenVatTu" ColumnName="TenVatTu" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
