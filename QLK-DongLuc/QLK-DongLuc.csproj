@@ -203,6 +203,99 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\QuanLyNguoiDung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\NhatKyHeThong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\DangNhap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\DangXuat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\ThongTinNhacNho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\DoiMatKhau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\CauHinhKetNoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\PhucHoi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\SaoLuu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\Them.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\Sua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\Xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\Thoat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\KhachHang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\NhaCungCap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\Kho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\VatTu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\NhanVien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\LoaiVatTu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\NhomVatTu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\ToChuc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\DonVi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\TonKho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\BaoCao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\XuatKho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\ChuyenKho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\NhapKho.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\KiemKe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\TongHop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\DuDauKy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Icon\TongHopNhapXuat.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

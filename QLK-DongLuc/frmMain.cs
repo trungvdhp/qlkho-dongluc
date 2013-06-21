@@ -44,7 +44,7 @@ namespace QLK_DongLuc
         }
 
         private void tabControl_CloseButtonClick(object sender, EventArgs e)
-        {// dong tab
+        {
             DevExpress.XtraTab.XtraTabControl tabControl = sender as DevExpress.XtraTab.XtraTabControl;
             DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs arg = e as DevExpress.XtraTab.ViewInfo.ClosePageButtonEventArgs;
             (arg.Page as DevExpress.XtraTab.XtraTabPage).Dispose();
@@ -60,6 +60,11 @@ namespace QLK_DongLuc
         {
             frmNhapKho frm = new frmNhapKho();
             OpenForm(frm, tabControl);
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
