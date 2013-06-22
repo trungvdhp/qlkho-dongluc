@@ -1,0 +1,8 @@
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\bin\Debug\QLKho-DongLuc.exe
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\bin\Debug\QLKho-DongLuc.pdb
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho_DongLuc.Form1.resources
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho_DongLuc.Properties.Resources.resources
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho-DongLuc.csproj.GenerateResource.Cache
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho-DongLuc.exe.licenses
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho-DongLuc.exe
+C:\Users\Tùng\Documents\Project\QLK-DongLuc\QLK-DongLuc\QLKho-DongLuc\QLKho-DongLuc\obj\Debug\QLKho-DongLuc.pdb
