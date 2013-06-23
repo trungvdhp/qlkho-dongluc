@@ -16,18 +16,18 @@ namespace QLKho_DongLuc.Models
     {
         public SYS_NguoiDung()
         {
-            this.SYS_SuKienNguoiDung = new HashSet<SYS_SuKienNguoiDung>();
             this.SYS_VaiTro = new HashSet<SYS_VaiTro>();
         }
     
         public int ID_nguoi_dung { get; set; }
+        public Nullable<int> ID_nhan_vien { get; set; }
         public string Tai_khoan { get; set; }
         public string Mat_khau { get; set; }
         public string Ten_day_du { get; set; }
         public int Hoat_dong { get; set; }
-        public int ID_nhan_vien { get; set; }
+        public Nullable<System.DateTime> Lan_dang_nhap_cuoi { get; set; }
+        public Nullable<System.TimeSpan> Thoi_gian_cho { get; set; }
     
-        public virtual ICollection<SYS_SuKienNguoiDung> SYS_SuKienNguoiDung { get; set; }
         public virtual ICollection<SYS_VaiTro> SYS_VaiTro { get; set; }
     }
 }

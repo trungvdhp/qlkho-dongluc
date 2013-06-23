@@ -23,6 +23,7 @@ namespace QLKho_DongLuc.Models
         public string Ten_nha_cung_cap { get; set; }
         public string Nguoi_dai_dien { get; set; }
         public string Dien_thoai { get; set; }
+        public string Dia_chi { get; set; }
         public string Email { get; set; }
         public string So_tai_khoan { get; set; }
     

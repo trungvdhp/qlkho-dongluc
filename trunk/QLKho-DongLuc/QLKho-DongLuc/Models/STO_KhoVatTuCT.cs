@@ -17,7 +17,9 @@ namespace QLKho_DongLuc.Models
         public int ID_kho { get; set; }
         public int ID_vat_tu { get; set; }
         public int SoLuong { get; set; }
-        public decimal Don_gia { get; set; }
+        public Nullable<decimal> Don_gia_nhap { get; set; }
+        public Nullable<decimal> Don_gia_xuat { get; set; }
+        public Nullable<int> ID_phieu_nhap { get; set; }
     
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual STO_VatTu STO_VatTu { get; set; }

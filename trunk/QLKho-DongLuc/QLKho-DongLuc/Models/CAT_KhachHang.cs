@@ -22,7 +22,7 @@ namespace QLKho_DongLuc.Models
         public int ID_khach_hang { get; set; }
         public string Ho_dem { get; set; }
         public string Ten { get; set; }
-        public string So_dien_thoai { get; set; }
+        public string Dien_thoai { get; set; }
         public string Dia_chi { get; set; }
         public int ID_nhan_vien { get; set; }
     

@@ -13,10 +13,10 @@ namespace QLKho_DongLuc.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLKhoContext : DbContext
+    public partial class QLKDongLucEntities : DbContext
     {
-        public QLKhoContext()
-            : base("name=QLKhoContext")
+        public QLKDongLucEntities()
+            : base("name=QLKDongLucEntities")
         {
         }
     
@@ -41,11 +41,9 @@ namespace QLKho_DongLuc.Models
         public DbSet<STO_NhomVatTu> STO_NhomVatTu { get; set; }
         public DbSet<STO_VatTu> STO_VatTu { get; set; }
         public DbSet<SYS_NguoiDung> SYS_NguoiDung { get; set; }
-        public DbSet<SYS_PhanHe> SYS_PhanHe { get; set; }
         public DbSet<SYS_Quyen> SYS_Quyen { get; set; }
         public DbSet<SYS_SuKienNguoiDung> SYS_SuKienNguoiDung { get; set; }
         public DbSet<SYS_VaiTro> SYS_VaiTro { get; set; }
-        public DbSet<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }
