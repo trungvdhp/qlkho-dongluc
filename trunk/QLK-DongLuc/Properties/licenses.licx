@@ -1,0 +1,6 @@
+DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v12.2
+DevExpress.XtraNavBar.NavBarControl, DevExpress.XtraNavBar.v12.2
+DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v12.2
+DevExpress.XtraBars.Ribbon.RibbonControl, DevExpress.XtraBars.v12.2
+DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v12.2
+DXAddin.Connect, DXAddin, Version=1.0.9.9, Culture=neutral, PublicKeyToken=1bade7d244b1b328
