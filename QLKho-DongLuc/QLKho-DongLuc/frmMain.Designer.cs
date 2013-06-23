@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
@@ -39,27 +40,19 @@
             this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.navbarImageListLarge = new System.Windows.Forms.ImageList();
-            this.navbarImageList = new System.Windows.Forms.ImageList();
-            this.gridControl = new DevExpress.XtraGrid.GridControl();
-            this.layoutView1 = new DevExpress.XtraGrid.Views.Layout.LayoutView();
-            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
+            this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
+            this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
-            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.iNew = new DevExpress.XtraBars.BarButtonItem();
-            this.iOpen = new DevExpress.XtraBars.BarButtonItem();
-            this.iSave = new DevExpress.XtraBars.BarButtonItem();
-            this.iSaveAs = new DevExpress.XtraBars.BarButtonItem();
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer();
+            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer(this.components);
             this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iClose = new DevExpress.XtraBars.BarButtonItem();
             this.iFind = new DevExpress.XtraBars.BarButtonItem();
-            this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
             this.siInfo = new DevExpress.XtraBars.BarStaticItem();
@@ -72,7 +65,7 @@
             this.iCenterTextAlign = new DevExpress.XtraBars.BarButtonItem();
             this.iRightTextAlign = new DevExpress.XtraBars.BarButtonItem();
             this.rgbiSkins = new DevExpress.XtraBars.RibbonGalleryBarItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.formatRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -84,9 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -106,7 +96,6 @@
             this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
             this.splitContainerControl.Panel1.Controls.Add(this.navBarControl);
             this.splitContainerControl.Panel1.Text = "Panel1";
-            this.splitContainerControl.Panel2.Controls.Add(this.gridControl);
             this.splitContainerControl.Panel2.Text = "Panel2";
             this.splitContainerControl.Size = new System.Drawing.Size(1100, 531);
             this.splitContainerControl.SplitterPosition = 165;
@@ -213,29 +202,6 @@
             this.navbarImageList.Images.SetKeyName(4, "Calendar_16x16.png");
             this.navbarImageList.Images.SetKeyName(5, "Tasks_16x16.png");
             // 
-            // gridControl
-            // 
-            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(0, 0);
-            this.gridControl.MainView = this.layoutView1;
-            this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(918, 519);
-            this.gridControl.TabIndex = 1;
-            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.layoutView1});
-            // 
-            // layoutView1
-            // 
-            this.layoutView1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.layoutView1.GridControl = this.gridControl;
-            this.layoutView1.Name = "layoutView1";
-            this.layoutView1.TemplateCard = this.layoutViewCard1;
-            // 
-            // layoutViewCard1
-            // 
-            this.layoutViewCard1.ExpandButtonLocation = DevExpress.Utils.GroupElementLocation.AfterText;
-            this.layoutViewCard1.Name = "layoutViewCard1";
-            // 
             // ribbonControl
             // 
             this.ribbonControl.ApplicationButtonDropDownControl = this.appMenu;
@@ -244,14 +210,9 @@
             this.ribbonControl.Images = this.ribbonImageCollection;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
-            this.iNew,
-            this.iOpen,
             this.iClose,
             this.iFind,
-            this.iSave,
-            this.iSaveAs,
             this.iExit,
-            this.iHelp,
             this.iAbout,
             this.siStatus,
             this.siInfo,
@@ -275,19 +236,10 @@
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl.Size = new System.Drawing.Size(1100, 142);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iNew);
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iOpen);
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iSave);
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iSaveAs);
-            this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
             // 
             // appMenu
             // 
             this.appMenu.BottomPaneControlContainer = this.popupControlContainer2;
-            this.appMenu.ItemLinks.Add(this.iNew);
-            this.appMenu.ItemLinks.Add(this.iOpen);
-            this.appMenu.ItemLinks.Add(this.iSave);
-            this.appMenu.ItemLinks.Add(this.iSaveAs);
             this.appMenu.ItemLinks.Add(this.iExit);
             this.appMenu.Name = "appMenu";
             this.appMenu.Ribbon = this.ribbonControl;
@@ -317,47 +269,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.buttonEdit.Size = new System.Drawing.Size(100, 20);
             this.buttonEdit.TabIndex = 0;
-            // 
-            // iNew
-            // 
-            this.iNew.Caption = "New";
-            this.iNew.Description = "Creates a new, blank file.";
-            this.iNew.Hint = "Creates a new, blank file";
-            this.iNew.Id = 1;
-            this.iNew.ImageIndex = 0;
-            this.iNew.LargeImageIndex = 0;
-            this.iNew.Name = "iNew";
-            // 
-            // iOpen
-            // 
-            this.iOpen.Caption = "&Open";
-            this.iOpen.Description = "Opens a file.";
-            this.iOpen.Hint = "Opens a file";
-            this.iOpen.Id = 2;
-            this.iOpen.ImageIndex = 1;
-            this.iOpen.LargeImageIndex = 1;
-            this.iOpen.Name = "iOpen";
-            this.iOpen.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // iSave
-            // 
-            this.iSave.Caption = "&Save";
-            this.iSave.Description = "Saves the active document.";
-            this.iSave.Hint = "Saves the active document";
-            this.iSave.Id = 16;
-            this.iSave.ImageIndex = 4;
-            this.iSave.LargeImageIndex = 4;
-            this.iSave.Name = "iSave";
-            // 
-            // iSaveAs
-            // 
-            this.iSaveAs.Caption = "Save As";
-            this.iSaveAs.Description = "Saves the active document in a different location.";
-            this.iSaveAs.Hint = "Saves the active document in a different location";
-            this.iSaveAs.Id = 17;
-            this.iSaveAs.ImageIndex = 5;
-            this.iSaveAs.LargeImageIndex = 5;
-            this.iSaveAs.Name = "iSaveAs";
             // 
             // iExit
             // 
@@ -439,16 +350,6 @@
             this.iFind.LargeImageIndex = 3;
             this.iFind.Name = "iFind";
             this.iFind.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // iHelp
-            // 
-            this.iHelp.Caption = "Help";
-            this.iHelp.Description = "Start the program help system.";
-            this.iHelp.Hint = "Start the program help system";
-            this.iHelp.Id = 22;
-            this.iHelp.ImageIndex = 7;
-            this.iHelp.LargeImageIndex = 7;
-            this.iHelp.Name = "iHelp";
             // 
             // iAbout
             // 
@@ -578,12 +479,8 @@
             // 
             // fileRibbonPageGroup
             // 
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iNew);
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iOpen);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iClose);
             this.fileRibbonPageGroup.ItemLinks.Add(this.iFind);
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iSave);
-            this.fileRibbonPageGroup.ItemLinks.Add(this.iSaveAs);
             this.fileRibbonPageGroup.Name = "fileRibbonPageGroup";
             this.fileRibbonPageGroup.Text = "File";
             // 
@@ -616,7 +513,6 @@
             // 
             // helpRibbonPageGroup
             // 
-            this.helpRibbonPageGroup.ItemLinks.Add(this.iHelp);
             this.helpRibbonPageGroup.ItemLinks.Add(this.iAbout);
             this.helpRibbonPageGroup.Name = "helpRibbonPageGroup";
             this.helpRibbonPageGroup.Text = "Help";
@@ -630,7 +526,7 @@
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1100, 27);
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -640,14 +536,13 @@
             this.Controls.Add(this.popupControlContainer1);
             this.Controls.Add(this.popupControlContainer2);
             this.Controls.Add(this.ribbonStatusBar);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Phần mềm quản lý kho công ty TNHH Đồng Lực";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
@@ -666,14 +561,9 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        private DevExpress.XtraBars.BarButtonItem iNew;
-        private DevExpress.XtraBars.BarButtonItem iOpen;
         private DevExpress.XtraBars.BarButtonItem iClose;
         private DevExpress.XtraBars.BarButtonItem iFind;
-        private DevExpress.XtraBars.BarButtonItem iSave;
-        private DevExpress.XtraBars.BarButtonItem iSaveAs;
         private DevExpress.XtraBars.BarButtonItem iExit;
-        private DevExpress.XtraBars.BarButtonItem iHelp;
         private DevExpress.XtraBars.BarButtonItem iAbout;
         private DevExpress.XtraBars.BarStaticItem siStatus;
         private DevExpress.XtraBars.BarStaticItem siInfo;
@@ -713,9 +603,6 @@
         private DevExpress.XtraNavBar.NavBarItem tasksItem;
         private System.Windows.Forms.ImageList navbarImageList;
         private System.Windows.Forms.ImageList navbarImageListLarge;
-        private DevExpress.XtraGrid.GridControl gridControl;
-        private DevExpress.XtraGrid.Views.Layout.LayoutView layoutView1;
-        private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
 
     }
 }
