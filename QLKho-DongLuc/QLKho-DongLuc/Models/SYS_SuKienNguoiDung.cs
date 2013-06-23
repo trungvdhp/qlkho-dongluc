@@ -15,14 +15,11 @@ namespace QLKho_DongLuc.Models
     public partial class SYS_SuKienNguoiDung
     {
         public int ID_su_kien { get; set; }
-        public int ID_phan_he { get; set; }
+        public int ID_nguoi_dung { get; set; }
+        public int ID_vai_tro { get; set; }
         public int Su_kien { get; set; }
         public string Noi_dung { get; set; }
         public System.DateTime Thoi_diem { get; set; }
         public string May_tram { get; set; }
-        public int ID_nguoi_dung { get; set; }
-    
-        public virtual SYS_NguoiDung SYS_NguoiDung { get; set; }
-        public virtual SYS_PhanHe SYS_PhanHe { get; set; }
     }
 }

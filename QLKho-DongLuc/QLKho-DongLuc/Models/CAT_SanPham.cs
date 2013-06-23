@@ -21,8 +21,10 @@ namespace QLKho_DongLuc.Models
     
         public int ID_san_pham { get; set; }
         public string Ma_san_pham { get; set; }
+        public string Ten_san_pham { get; set; }
         public int ID_nhan_vien { get; set; }
         public int ID_khach_hang { get; set; }
+        public decimal Chi_phi_lap_dat { get; set; }
     
         public virtual CAT_KhachHang CAT_KhachHang { get; set; }
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }

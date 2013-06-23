@@ -31,15 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
-            this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
-            this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.inboxItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.outboxItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.draftsItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.trashItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -76,7 +67,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -94,95 +84,13 @@
             this.splitContainerControl.Location = new System.Drawing.Point(0, 142);
             this.splitContainerControl.Name = "splitContainerControl";
             this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
-            this.splitContainerControl.Panel1.Controls.Add(this.navBarControl);
-            this.splitContainerControl.Panel1.Text = "Panel1";
+            this.splitContainerControl.Panel1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.splitContainerControl.Panel1.ShowCaption = true;
             this.splitContainerControl.Panel2.Text = "Panel2";
             this.splitContainerControl.Size = new System.Drawing.Size(1100, 531);
-            this.splitContainerControl.SplitterPosition = 165;
+            this.splitContainerControl.SplitterPosition = 0;
             this.splitContainerControl.TabIndex = 0;
             this.splitContainerControl.Text = "splitContainerControl1";
-            // 
-            // navBarControl
-            // 
-            this.navBarControl.ActiveGroup = this.mailGroup;
-            this.navBarControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.mailGroup,
-            this.organizerGroup});
-            this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.inboxItem,
-            this.outboxItem,
-            this.draftsItem,
-            this.trashItem,
-            this.calendarItem,
-            this.tasksItem});
-            this.navBarControl.LargeImages = this.navbarImageListLarge;
-            this.navBarControl.Location = new System.Drawing.Point(0, 0);
-            this.navBarControl.Name = "navBarControl";
-            this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
-            this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(165, 519);
-            this.navBarControl.SmallImages = this.navbarImageList;
-            this.navBarControl.StoreDefaultPaintStyleName = true;
-            this.navBarControl.TabIndex = 1;
-            this.navBarControl.Text = "navBarControl1";
-            // 
-            // mailGroup
-            // 
-            this.mailGroup.Caption = "Mail";
-            this.mailGroup.Expanded = true;
-            this.mailGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.inboxItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.outboxItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.draftsItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.trashItem)});
-            this.mailGroup.LargeImageIndex = 0;
-            this.mailGroup.Name = "mailGroup";
-            // 
-            // inboxItem
-            // 
-            this.inboxItem.Caption = "Inbox";
-            this.inboxItem.Name = "inboxItem";
-            this.inboxItem.SmallImageIndex = 0;
-            // 
-            // outboxItem
-            // 
-            this.outboxItem.Caption = "Outbox";
-            this.outboxItem.Name = "outboxItem";
-            this.outboxItem.SmallImageIndex = 1;
-            // 
-            // draftsItem
-            // 
-            this.draftsItem.Caption = "Drafts";
-            this.draftsItem.Name = "draftsItem";
-            this.draftsItem.SmallImageIndex = 2;
-            // 
-            // trashItem
-            // 
-            this.trashItem.Caption = "Trash";
-            this.trashItem.Name = "trashItem";
-            this.trashItem.SmallImageIndex = 3;
-            // 
-            // organizerGroup
-            // 
-            this.organizerGroup.Caption = "Organizer";
-            this.organizerGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.calendarItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.tasksItem)});
-            this.organizerGroup.LargeImageIndex = 1;
-            this.organizerGroup.Name = "organizerGroup";
-            // 
-            // calendarItem
-            // 
-            this.calendarItem.Caption = "Calendar";
-            this.calendarItem.Name = "calendarItem";
-            this.calendarItem.SmallImageIndex = 4;
-            // 
-            // tasksItem
-            // 
-            this.tasksItem.Caption = "Tasks";
-            this.tasksItem.Name = "tasksItem";
-            this.tasksItem.SmallImageIndex = 5;
             // 
             // navbarImageListLarge
             // 
@@ -273,7 +181,7 @@
             // iExit
             // 
             this.iExit.Caption = "Exit";
-            this.iExit.Description = "Closes this program after prompting you to save unsaved data.";
+            this.iExit.Description = "Thoát";
             this.iExit.Hint = "Closes this program after prompting you to save unsaved data";
             this.iExit.Id = 20;
             this.iExit.ImageIndex = 6;
@@ -502,7 +410,6 @@
             // 
             this.exitRibbonPageGroup.ItemLinks.Add(this.iExit);
             this.exitRibbonPageGroup.Name = "exitRibbonPageGroup";
-            this.exitRibbonPageGroup.Text = "Exit";
             // 
             // helpRibbonPage
             // 
@@ -542,7 +449,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
@@ -592,15 +498,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.Utils.ImageCollection ribbonImageCollection;
         private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
-        private DevExpress.XtraNavBar.NavBarControl navBarControl;
-        private DevExpress.XtraNavBar.NavBarGroup mailGroup;
-        private DevExpress.XtraNavBar.NavBarGroup organizerGroup;
-        private DevExpress.XtraNavBar.NavBarItem inboxItem;
-        private DevExpress.XtraNavBar.NavBarItem outboxItem;
-        private DevExpress.XtraNavBar.NavBarItem draftsItem;
-        private DevExpress.XtraNavBar.NavBarItem trashItem;
-        private DevExpress.XtraNavBar.NavBarItem calendarItem;
-        private DevExpress.XtraNavBar.NavBarItem tasksItem;
         private System.Windows.Forms.ImageList navbarImageList;
         private System.Windows.Forms.ImageList navbarImageListLarge;
 

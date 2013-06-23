@@ -144,9 +144,6 @@
     <Compile Include="Models\SYS_NguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SYS_PhanHe.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SYS_Quyen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -154,9 +151,6 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_VaiTro.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SYS_VaiTroQuyen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

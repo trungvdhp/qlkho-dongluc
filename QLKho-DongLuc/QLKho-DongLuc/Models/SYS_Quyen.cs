@@ -16,14 +16,14 @@ namespace QLKho_DongLuc.Models
     {
         public SYS_Quyen()
         {
-            this.SYS_VaiTroQuyen = new HashSet<SYS_VaiTroQuyen>();
+            this.SYS_VaiTro = new HashSet<SYS_VaiTro>();
         }
     
         public int ID_quyen { get; set; }
+        public int ID_cha { get; set; }
+        public string Ma_quyen { get; set; }
         public string Ten_quyen { get; set; }
-        public int ID_phan_he { get; set; }
     
-        public virtual SYS_PhanHe SYS_PhanHe { get; set; }
-        public virtual ICollection<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
+        public virtual ICollection<SYS_VaiTro> SYS_VaiTro { get; set; }
     }
 }

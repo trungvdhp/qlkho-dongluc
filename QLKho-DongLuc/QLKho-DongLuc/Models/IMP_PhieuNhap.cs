@@ -21,6 +21,7 @@ namespace QLKho_DongLuc.Models
     
         public int ID_phieu_nhap { get; set; }
         public string Ma_hoa_don { get; set; }
+        public string So_chung_tu_goc { get; set; }
         public int ID_loai_nhap { get; set; }
         public int ID_kho { get; set; }
         public int ID_nha_cung_cap { get; set; }
