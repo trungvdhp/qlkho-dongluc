@@ -1,0 +1,1610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Models.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="CAT_KhachHang" EntityType="Models.Store.CAT_KhachHang" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_NhaCungCap" EntityType="Models.Store.CAT_NhaCungCap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_NhanVien" EntityType="Models.Store.CAT_NhanVien" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CAT_SanPham" EntityType="Models.Store.CAT_SanPham" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EXP_LoaiXuat" EntityType="Models.Store.EXP_LoaiXuat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EXP_PhieuXuat" EntityType="Models.Store.EXP_PhieuXuat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EXP_PhieuXuatCT" EntityType="Models.Store.EXP_PhieuXuatCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IMP_LoaiNhap" EntityType="Models.Store.IMP_LoaiNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IMP_PhieuNhap" EntityType="Models.Store.IMP_PhieuNhap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IMP_PhieuNhapCT" EntityType="Models.Store.IMP_PhieuNhapCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STO_KhoVatTu" EntityType="Models.Store.STO_KhoVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STO_KhoVatTuCT" EntityType="Models.Store.STO_KhoVatTuCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STO_LoaiVatTu" EntityType="Models.Store.STO_LoaiVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STO_NhomVatTu" EntityType="Models.Store.STO_NhomVatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="STO_VatTu" EntityType="Models.Store.STO_VatTu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_NguoiDung" EntityType="Models.Store.SYS_NguoiDung" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_NguoiDungVaiTro" EntityType="Models.Store.SYS_NguoiDungVaiTro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_PhanHe" EntityType="Models.Store.SYS_PhanHe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_Quyen" EntityType="Models.Store.SYS_Quyen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_SuKienNguoiDung" EntityType="Models.Store.SYS_SuKienNguoiDung" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_VaiTro" EntityType="Models.Store.SYS_VaiTro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_VaiTroQuyen" EntityType="Models.Store.SYS_VaiTroQuyen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Models.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CAT_SanPham_CAT_KhachHang" Association="Models.Store.FK_CAT_SanPham_CAT_KhachHang">
+            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAT_SanPham_CAT_NhanVien" Association="Models.Store.FK_CAT_SanPham_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_CAT_NhanVien" Association="Models.Store.FK_EXP_PhieuXuat_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_CAT_SanPham" Association="Models.Store.FK_EXP_PhieuXuat_CAT_SanPham">
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_EXP_LoaiXuat" Association="Models.Store.FK_EXP_PhieuXuat_EXP_LoaiXuat">
+            <End Role="EXP_LoaiXuat" EntitySet="EXP_LoaiXuat" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_STO_KhoVatTu" Association="Models.Store.FK_EXP_PhieuXuat_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuatCT_EXP_PhieuXuat" Association="Models.Store.FK_EXP_PhieuXuatCT_EXP_PhieuXuat">
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+            <End Role="EXP_PhieuXuatCT" EntitySet="EXP_PhieuXuatCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuatCT_STO_VatTu" Association="Models.Store.FK_EXP_PhieuXuatCT_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="EXP_PhieuXuatCT" EntitySet="EXP_PhieuXuatCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhaCungCap" Association="Models.Store.FK_IMP_PhieuNhap_CAT_NhaCungCap">
+            <End Role="CAT_NhaCungCap" EntitySet="CAT_NhaCungCap" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhanVien" Association="Models.Store.FK_IMP_PhieuNhap_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_IMP_LoaiNhap" Association="Models.Store.FK_IMP_PhieuNhap_IMP_LoaiNhap">
+            <End Role="IMP_LoaiNhap" EntitySet="IMP_LoaiNhap" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_STO_KhoVatTu" Association="Models.Store.FK_IMP_PhieuNhap_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhapCT_IMP_PhieuNhap" Association="Models.Store.FK_IMP_PhieuNhapCT_IMP_PhieuNhap">
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+            <End Role="IMP_PhieuNhapCT" EntitySet="IMP_PhieuNhapCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_STO_KhoVatTu" Association="Models.Store.FK_STO_KhoVatTuCT_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_STO_VatTu" Association="Models.Store.FK_STO_KhoVatTuCT_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_LoaiVatTu_STO_NhomVatTu" Association="Models.Store.FK_STO_LoaiVatTu_STO_NhomVatTu">
+            <End Role="STO_NhomVatTu" EntitySet="STO_NhomVatTu" />
+            <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_VatTu_STO_LoaiVatTu" Association="Models.Store.FK_STO_VatTu_STO_LoaiVatTu">
+            <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_NguoiDungVaiTro_SYS_NguoiDung" Association="Models.Store.FK_SYS_NguoiDungVaiTro_SYS_NguoiDung">
+            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
+            <End Role="SYS_NguoiDungVaiTro" EntitySet="SYS_NguoiDungVaiTro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_NguoiDungVaiTro_SYS_VaiTro" Association="Models.Store.FK_SYS_NguoiDungVaiTro_SYS_VaiTro">
+            <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
+            <End Role="SYS_NguoiDungVaiTro" EntitySet="SYS_NguoiDungVaiTro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_Quyen_SYS_PhanHe" Association="Models.Store.FK_SYS_Quyen_SYS_PhanHe">
+            <End Role="SYS_PhanHe" EntitySet="SYS_PhanHe" />
+            <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_SuKienNguoiDung_SYS_NguoiDung" Association="Models.Store.FK_SYS_SuKienNguoiDung_SYS_NguoiDung">
+            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
+            <End Role="SYS_SuKienNguoiDung" EntitySet="SYS_SuKienNguoiDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_SuKienNguoiDung_SYS_PhanHe" Association="Models.Store.FK_SYS_SuKienNguoiDung_SYS_PhanHe">
+            <End Role="SYS_PhanHe" EntitySet="SYS_PhanHe" />
+            <End Role="SYS_SuKienNguoiDung" EntitySet="SYS_SuKienNguoiDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_VaiTroQuyen_SYS_Quyen" Association="Models.Store.FK_SYS_VaiTroQuyen_SYS_Quyen">
+            <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
+            <End Role="SYS_VaiTroQuyen" EntitySet="SYS_VaiTroQuyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_VaiTroQuyen_SYS_VaiTro" Association="Models.Store.FK_SYS_VaiTroQuyen_SYS_VaiTro">
+            <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
+            <End Role="SYS_VaiTroQuyen" EntitySet="SYS_VaiTroQuyen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAT_KhachHang">
+          <Key>
+            <PropertyRef Name="ID_khach_hang" />
+          </Key>
+          <Property Name="ID_khach_hang" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ho_dem" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ten" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="So_dien_thoai" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Dia_chi" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAT_NhaCungCap">
+          <Key>
+            <PropertyRef Name="ID_nha_cung_cap" />
+          </Key>
+          <Property Name="ID_nha_cung_cap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_nha_cung_cap" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Nguoi_dai_dien" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dien_thoai" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="So_tai_khoan" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CAT_NhanVien">
+          <Key>
+            <PropertyRef Name="ID_nhan_vien" />
+          </Key>
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ho_dem" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ten" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Gioi_tinh" Type="int" Nullable="false" />
+          <Property Name="Ngay_sinh" Type="datetime" Nullable="false" />
+          <Property Name="CMND" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ngay_cap" Type="datetime" Nullable="false" />
+          <Property Name="Noi_cap" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Dien_thoai" Type="varchar" MaxLength="50" />
+          <Property Name="Dia_chi" Type="varchar" MaxLength="50" />
+          <Property Name="Trang_thai" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAT_SanPham">
+          <Key>
+            <PropertyRef Name="ID_san_pham" />
+          </Key>
+          <Property Name="ID_san_pham" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_san_pham" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+          <Property Name="ID_khach_hang" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EXP_LoaiXuat">
+          <Key>
+            <PropertyRef Name="ID_loai_xuat" />
+          </Key>
+          <Property Name="ID_loai_xuat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_xuat" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ghi_chu" Type="ntext" />
+        </EntityType>
+        <EntityType Name="EXP_PhieuXuat">
+          <Key>
+            <PropertyRef Name="ID_phieu_xuat" />
+          </Key>
+          <Property Name="ID_phieu_xuat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_hoa_don" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ID_loai_xuat" Type="int" Nullable="false" />
+          <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="ID_san_pham" Type="int" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+          <Property Name="Ngay_xuat" Type="datetime" Nullable="false" />
+          <Property Name="Tong_tien" Type="money" Nullable="false" />
+          <Property Name="Ghi_chu" Type="ntext" />
+          <Property Name="Trang_thai" Type="int" Nullable="false" />
+          <Property Name="Ngay_sua" Type="datetime" />
+          <Property Name="ID_nguoi_sua" Type="int" />
+        </EntityType>
+        <EntityType Name="EXP_PhieuXuatCT">
+          <Key>
+            <PropertyRef Name="ID_phieu_xuat" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_phieu_xuat" Type="int" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="So_luong" Type="int" Nullable="false" />
+          <Property Name="Don_gia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMP_LoaiNhap">
+          <Key>
+            <PropertyRef Name="ID_loai_nhap" />
+          </Key>
+          <Property Name="ID_loai_nhap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_nhap" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ghi_chu" Type="ntext" />
+        </EntityType>
+        <EntityType Name="IMP_PhieuNhap">
+          <Key>
+            <PropertyRef Name="ID_phieu_nhap" />
+          </Key>
+          <Property Name="ID_phieu_nhap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_hoa_don" Type="varchar" MaxLength="10" />
+          <Property Name="ID_loai_nhap" Type="int" Nullable="false" />
+          <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="ID_nha_cung_cap" Type="int" Nullable="false" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+          <Property Name="ID_nhan_vien_nhap" Type="int" />
+          <Property Name="Ngay_nhap" Type="datetime" Nullable="false" />
+          <Property Name="Tong_tien" Type="money" Nullable="false" />
+          <Property Name="Ghi_chu" Type="ntext" />
+          <Property Name="Trang_thai" Type="int" Nullable="false" />
+          <Property Name="Ngay_sua" Type="datetime" />
+          <Property Name="ID_nguoi_sua" Type="int" />
+        </EntityType>
+        <EntityType Name="IMP_PhieuNhapCT">
+          <Key>
+            <PropertyRef Name="ID_phieu_nhap" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_phieu_nhap" Type="int" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="So_luong" Type="int" Nullable="false" />
+          <Property Name="Don_gia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STO_KhoVatTu">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+          </Key>
+          <Property Name="ID_kho" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_kho" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Dia_diem" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="STO_KhoVatTuCT">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="SoLuong" Type="int" Nullable="false" />
+          <Property Name="Don_gia" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STO_LoaiVatTu">
+          <Key>
+            <PropertyRef Name="ID_loai_vat_tu" />
+          </Key>
+          <Property Name="ID_loai_vat_tu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ghi_chu" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_nhom_vat_tu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STO_NhomVatTu">
+          <Key>
+            <PropertyRef Name="ID_nhom_vat_tu" />
+          </Key>
+          <Property Name="ID_nhom_vat_tu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_nhom_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ghi_chu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="STO_VatTu">
+          <Key>
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_vat_tu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_loai_vat_tu" Type="int" Nullable="false" />
+          <Property Name="Ten_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Don_vi" Type="float" Nullable="false" />
+          <Property Name="Mo_ta" Type="ntext" />
+        </EntityType>
+        <EntityType Name="SYS_NguoiDung">
+          <Key>
+            <PropertyRef Name="ID_nguoi_dung" />
+          </Key>
+          <Property Name="ID_nguoi_dung" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tai_khoan" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mat_khau" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ten_day_du" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Hoat_dong" Type="int" Nullable="false" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_NguoiDungVaiTro">
+          <Key>
+            <PropertyRef Name="ID_nguoi_dung" />
+            <PropertyRef Name="ID_vai_tro" />
+          </Key>
+          <Property Name="ID_nguoi_dung" Type="int" Nullable="false" />
+          <Property Name="ID_vai_tro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_PhanHe">
+          <Key>
+            <PropertyRef Name="ID_phan_he" />
+          </Key>
+          <Property Name="ID_phan_he" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Phan_he" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Mieu_ta" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SYS_Quyen">
+          <Key>
+            <PropertyRef Name="ID_quyen" />
+          </Key>
+          <Property Name="ID_quyen" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_quyen" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ID_phan_he" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_SuKienNguoiDung">
+          <Key>
+            <PropertyRef Name="ID_su_kien" />
+          </Key>
+          <Property Name="ID_su_kien" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_phan_he" Type="int" Nullable="false" />
+          <Property Name="Su_kien" Type="int" Nullable="false" />
+          <Property Name="Noi_dung" Type="ntext" Nullable="false" />
+          <Property Name="Thoi_diem" Type="datetime" Nullable="false" />
+          <Property Name="May_tram" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="ID_nguoi_dung" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SYS_VaiTro">
+          <Key>
+            <PropertyRef Name="ID_vai_tro" />
+          </Key>
+          <Property Name="ID_vai_tro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_vai_tro" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="Mo_ta" Type="int" />
+        </EntityType>
+        <EntityType Name="SYS_VaiTroQuyen">
+          <Key>
+            <PropertyRef Name="ID_vai_tro" />
+            <PropertyRef Name="ID_quyen" />
+          </Key>
+          <Property Name="ID_vai_tro" Type="int" Nullable="false" />
+          <Property Name="ID_quyen" Type="int" Nullable="false" />
+          <Property Name="Them" Type="int" Nullable="false" />
+          <Property Name="Sua" Type="int" Nullable="false" />
+          <Property Name="Xoa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_CAT_SanPham_CAT_KhachHang">
+          <End Role="CAT_KhachHang" Type="Models.Store.CAT_KhachHang" Multiplicity="1" />
+          <End Role="CAT_SanPham" Type="Models.Store.CAT_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_KhachHang">
+              <PropertyRef Name="ID_khach_hang" />
+            </Principal>
+            <Dependent Role="CAT_SanPham">
+              <PropertyRef Name="ID_khach_hang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAT_SanPham_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.Store.CAT_NhanVien" Multiplicity="1" />
+          <End Role="CAT_SanPham" Type="Models.Store.CAT_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="CAT_SanPham">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.Store.CAT_NhanVien" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.Store.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_CAT_SanPham">
+          <End Role="CAT_SanPham" Type="Models.Store.CAT_SanPham" Multiplicity="0..1" />
+          <End Role="EXP_PhieuXuat" Type="Models.Store.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_SanPham">
+              <PropertyRef Name="ID_san_pham" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_san_pham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_EXP_LoaiXuat">
+          <End Role="EXP_LoaiXuat" Type="Models.Store.EXP_LoaiXuat" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.Store.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXP_LoaiXuat">
+              <PropertyRef Name="ID_loai_xuat" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_loai_xuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.Store.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.Store.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuatCT_EXP_PhieuXuat">
+          <End Role="EXP_PhieuXuat" Type="Models.Store.EXP_PhieuXuat" Multiplicity="1" />
+          <End Role="EXP_PhieuXuatCT" Type="Models.Store.EXP_PhieuXuatCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_phieu_xuat" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuatCT">
+              <PropertyRef Name="ID_phieu_xuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuatCT_STO_VatTu">
+          <End Role="STO_VatTu" Type="Models.Store.STO_VatTu" Multiplicity="1" />
+          <End Role="EXP_PhieuXuatCT" Type="Models.Store.EXP_PhieuXuatCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuatCT">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_CAT_NhaCungCap">
+          <End Role="CAT_NhaCungCap" Type="Models.Store.CAT_NhaCungCap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.Store.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhaCungCap">
+              <PropertyRef Name="ID_nha_cung_cap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_nha_cung_cap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.Store.CAT_NhanVien" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.Store.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_IMP_LoaiNhap">
+          <End Role="IMP_LoaiNhap" Type="Models.Store.IMP_LoaiNhap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.Store.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_LoaiNhap">
+              <PropertyRef Name="ID_loai_nhap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_loai_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.Store.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.Store.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhapCT_IMP_PhieuNhap">
+          <End Role="IMP_PhieuNhap" Type="Models.Store.IMP_PhieuNhap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhapCT" Type="Models.Store.IMP_PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhapCT">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_KhoVatTuCT_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.Store.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="STO_KhoVatTuCT" Type="Models.Store.STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_KhoVatTuCT_STO_VatTu">
+          <End Role="STO_VatTu" Type="Models.Store.STO_VatTu" Multiplicity="1" />
+          <End Role="STO_KhoVatTuCT" Type="Models.Store.STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_LoaiVatTu_STO_NhomVatTu">
+          <End Role="STO_NhomVatTu" Type="Models.Store.STO_NhomVatTu" Multiplicity="1" />
+          <End Role="STO_LoaiVatTu" Type="Models.Store.STO_LoaiVatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_NhomVatTu">
+              <PropertyRef Name="ID_nhom_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_LoaiVatTu">
+              <PropertyRef Name="ID_nhom_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_VatTu_STO_LoaiVatTu">
+          <End Role="STO_LoaiVatTu" Type="Models.Store.STO_LoaiVatTu" Multiplicity="1" />
+          <End Role="STO_VatTu" Type="Models.Store.STO_VatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_LoaiVatTu">
+              <PropertyRef Name="ID_loai_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_VatTu">
+              <PropertyRef Name="ID_loai_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_NguoiDungVaiTro_SYS_NguoiDung">
+          <End Role="SYS_NguoiDung" Type="Models.Store.SYS_NguoiDung" Multiplicity="1" />
+          <End Role="SYS_NguoiDungVaiTro" Type="Models.Store.SYS_NguoiDungVaiTro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_NguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Principal>
+            <Dependent Role="SYS_NguoiDungVaiTro">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_NguoiDungVaiTro_SYS_VaiTro">
+          <End Role="SYS_VaiTro" Type="Models.Store.SYS_VaiTro" Multiplicity="1" />
+          <End Role="SYS_NguoiDungVaiTro" Type="Models.Store.SYS_NguoiDungVaiTro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_VaiTro">
+              <PropertyRef Name="ID_vai_tro" />
+            </Principal>
+            <Dependent Role="SYS_NguoiDungVaiTro">
+              <PropertyRef Name="ID_vai_tro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_Quyen_SYS_PhanHe">
+          <End Role="SYS_PhanHe" Type="Models.Store.SYS_PhanHe" Multiplicity="1" />
+          <End Role="SYS_Quyen" Type="Models.Store.SYS_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_PhanHe">
+              <PropertyRef Name="ID_phan_he" />
+            </Principal>
+            <Dependent Role="SYS_Quyen">
+              <PropertyRef Name="ID_phan_he" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_SuKienNguoiDung_SYS_NguoiDung">
+          <End Role="SYS_NguoiDung" Type="Models.Store.SYS_NguoiDung" Multiplicity="1" />
+          <End Role="SYS_SuKienNguoiDung" Type="Models.Store.SYS_SuKienNguoiDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_NguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Principal>
+            <Dependent Role="SYS_SuKienNguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_SuKienNguoiDung_SYS_PhanHe">
+          <End Role="SYS_PhanHe" Type="Models.Store.SYS_PhanHe" Multiplicity="1" />
+          <End Role="SYS_SuKienNguoiDung" Type="Models.Store.SYS_SuKienNguoiDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_PhanHe">
+              <PropertyRef Name="ID_phan_he" />
+            </Principal>
+            <Dependent Role="SYS_SuKienNguoiDung">
+              <PropertyRef Name="ID_phan_he" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_VaiTroQuyen_SYS_Quyen">
+          <End Role="SYS_Quyen" Type="Models.Store.SYS_Quyen" Multiplicity="1" />
+          <End Role="SYS_VaiTroQuyen" Type="Models.Store.SYS_VaiTroQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_Quyen">
+              <PropertyRef Name="ID_quyen" />
+            </Principal>
+            <Dependent Role="SYS_VaiTroQuyen">
+              <PropertyRef Name="ID_quyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_VaiTroQuyen_SYS_VaiTro">
+          <End Role="SYS_VaiTro" Type="Models.Store.SYS_VaiTro" Multiplicity="1" />
+          <End Role="SYS_VaiTroQuyen" Type="Models.Store.SYS_VaiTroQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_VaiTro">
+              <PropertyRef Name="ID_vai_tro" />
+            </Principal>
+            <Dependent Role="SYS_VaiTroQuyen">
+              <PropertyRef Name="ID_vai_tro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLKhoContext" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CAT_KhachHang" EntityType="Models.CAT_KhachHang" />
+          <EntitySet Name="CAT_NhaCungCap" EntityType="Models.CAT_NhaCungCap" />
+          <EntitySet Name="CAT_NhanVien" EntityType="Models.CAT_NhanVien" />
+          <EntitySet Name="CAT_SanPham" EntityType="Models.CAT_SanPham" />
+          <EntitySet Name="EXP_LoaiXuat" EntityType="Models.EXP_LoaiXuat" />
+          <EntitySet Name="EXP_PhieuXuat" EntityType="Models.EXP_PhieuXuat" />
+          <EntitySet Name="EXP_PhieuXuatCT" EntityType="Models.EXP_PhieuXuatCT" />
+          <EntitySet Name="IMP_LoaiNhap" EntityType="Models.IMP_LoaiNhap" />
+          <EntitySet Name="IMP_PhieuNhap" EntityType="Models.IMP_PhieuNhap" />
+          <EntitySet Name="IMP_PhieuNhapCT" EntityType="Models.IMP_PhieuNhapCT" />
+          <EntitySet Name="STO_KhoVatTu" EntityType="Models.STO_KhoVatTu" />
+          <EntitySet Name="STO_KhoVatTuCT" EntityType="Models.STO_KhoVatTuCT" />
+          <EntitySet Name="STO_LoaiVatTu" EntityType="Models.STO_LoaiVatTu" />
+          <EntitySet Name="STO_NhomVatTu" EntityType="Models.STO_NhomVatTu" />
+          <EntitySet Name="STO_VatTu" EntityType="Models.STO_VatTu" />
+          <EntitySet Name="SYS_NguoiDung" EntityType="Models.SYS_NguoiDung" />
+          <EntitySet Name="SYS_PhanHe" EntityType="Models.SYS_PhanHe" />
+          <EntitySet Name="SYS_Quyen" EntityType="Models.SYS_Quyen" />
+          <EntitySet Name="SYS_SuKienNguoiDung" EntityType="Models.SYS_SuKienNguoiDung" />
+          <EntitySet Name="SYS_VaiTro" EntityType="Models.SYS_VaiTro" />
+          <EntitySet Name="SYS_VaiTroQuyen" EntityType="Models.SYS_VaiTroQuyen" />
+          <EntitySet Name="sysdiagrams" EntityType="Models.sysdiagram" />
+          <AssociationSet Name="FK_CAT_SanPham_CAT_KhachHang" Association="Models.FK_CAT_SanPham_CAT_KhachHang">
+            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhaCungCap" Association="Models.FK_IMP_PhieuNhap_CAT_NhaCungCap">
+            <End Role="CAT_NhaCungCap" EntitySet="CAT_NhaCungCap" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAT_SanPham_CAT_NhanVien" Association="Models.FK_CAT_SanPham_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_CAT_NhanVien" Association="Models.FK_EXP_PhieuXuat_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhanVien" Association="Models.FK_IMP_PhieuNhap_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_CAT_SanPham" Association="Models.FK_EXP_PhieuXuat_CAT_SanPham">
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_EXP_LoaiXuat" Association="Models.FK_EXP_PhieuXuat_EXP_LoaiXuat">
+            <End Role="EXP_LoaiXuat" EntitySet="EXP_LoaiXuat" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuat_STO_KhoVatTu" Association="Models.FK_EXP_PhieuXuat_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuatCT_EXP_PhieuXuat" Association="Models.FK_EXP_PhieuXuatCT_EXP_PhieuXuat">
+            <End Role="EXP_PhieuXuat" EntitySet="EXP_PhieuXuat" />
+            <End Role="EXP_PhieuXuatCT" EntitySet="EXP_PhieuXuatCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EXP_PhieuXuatCT_STO_VatTu" Association="Models.FK_EXP_PhieuXuatCT_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="EXP_PhieuXuatCT" EntitySet="EXP_PhieuXuatCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_IMP_LoaiNhap" Association="Models.FK_IMP_PhieuNhap_IMP_LoaiNhap">
+            <End Role="IMP_LoaiNhap" EntitySet="IMP_LoaiNhap" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhap_STO_KhoVatTu" Association="Models.FK_IMP_PhieuNhap_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMP_PhieuNhapCT_IMP_PhieuNhap" Association="Models.FK_IMP_PhieuNhapCT_IMP_PhieuNhap">
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+            <End Role="IMP_PhieuNhapCT" EntitySet="IMP_PhieuNhapCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_STO_KhoVatTu" Association="Models.FK_STO_KhoVatTuCT_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_STO_VatTu" Association="Models.FK_STO_KhoVatTuCT_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_LoaiVatTu_STO_NhomVatTu" Association="Models.FK_STO_LoaiVatTu_STO_NhomVatTu">
+            <End Role="STO_NhomVatTu" EntitySet="STO_NhomVatTu" />
+            <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_VatTu_STO_LoaiVatTu" Association="Models.FK_STO_VatTu_STO_LoaiVatTu">
+            <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_SuKienNguoiDung_SYS_NguoiDung" Association="Models.FK_SYS_SuKienNguoiDung_SYS_NguoiDung">
+            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
+            <End Role="SYS_SuKienNguoiDung" EntitySet="SYS_SuKienNguoiDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_Quyen_SYS_PhanHe" Association="Models.FK_SYS_Quyen_SYS_PhanHe">
+            <End Role="SYS_PhanHe" EntitySet="SYS_PhanHe" />
+            <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_SuKienNguoiDung_SYS_PhanHe" Association="Models.FK_SYS_SuKienNguoiDung_SYS_PhanHe">
+            <End Role="SYS_PhanHe" EntitySet="SYS_PhanHe" />
+            <End Role="SYS_SuKienNguoiDung" EntitySet="SYS_SuKienNguoiDung" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_VaiTroQuyen_SYS_Quyen" Association="Models.FK_SYS_VaiTroQuyen_SYS_Quyen">
+            <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
+            <End Role="SYS_VaiTroQuyen" EntitySet="SYS_VaiTroQuyen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SYS_VaiTroQuyen_SYS_VaiTro" Association="Models.FK_SYS_VaiTroQuyen_SYS_VaiTro">
+            <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
+            <End Role="SYS_VaiTroQuyen" EntitySet="SYS_VaiTroQuyen" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_NguoiDungVaiTro" Association="Models.SYS_NguoiDungVaiTro">
+            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
+            <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAT_KhachHang">
+          <Key>
+            <PropertyRef Name="ID_khach_hang" />
+          </Key>
+          <Property Name="ID_khach_hang" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ho_dem" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ten" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="So_dien_thoai" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Dia_chi" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAT_SanPham" Relationship="Models.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_KhachHang" ToRole="CAT_SanPham" />
+        </EntityType>
+        <EntityType Name="CAT_NhaCungCap">
+          <Key>
+            <PropertyRef Name="ID_nha_cung_cap" />
+          </Key>
+          <Property Name="ID_nha_cung_cap" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_nha_cung_cap" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Nguoi_dai_dien" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Dien_thoai" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="So_tai_khoan" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="Models.FK_IMP_PhieuNhap_CAT_NhaCungCap" FromRole="CAT_NhaCungCap" ToRole="IMP_PhieuNhap" />
+        </EntityType>
+        <EntityType Name="CAT_NhanVien">
+          <Key>
+            <PropertyRef Name="ID_nhan_vien" />
+          </Key>
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ho_dem" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ten" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gioi_tinh" Type="Int32" Nullable="false" />
+          <Property Name="Ngay_sinh" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CMND" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Ngay_cap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Noi_cap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Dien_thoai" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Dia_chi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Trang_thai" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAT_SanPham" Relationship="Models.FK_CAT_SanPham_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="CAT_SanPham" />
+          <NavigationProperty Name="EXP_PhieuXuat" Relationship="Models.FK_EXP_PhieuXuat_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="EXP_PhieuXuat" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="Models.FK_IMP_PhieuNhap_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="IMP_PhieuNhap" />
+        </EntityType>
+        <EntityType Name="CAT_SanPham">
+          <Key>
+            <PropertyRef Name="ID_san_pham" />
+          </Key>
+          <Property Name="ID_san_pham" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_san_pham" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
+          <Property Name="ID_khach_hang" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CAT_KhachHang" Relationship="Models.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_SanPham" ToRole="CAT_KhachHang" />
+          <NavigationProperty Name="CAT_NhanVien" Relationship="Models.FK_CAT_SanPham_CAT_NhanVien" FromRole="CAT_SanPham" ToRole="CAT_NhanVien" />
+          <NavigationProperty Name="EXP_PhieuXuat" Relationship="Models.FK_EXP_PhieuXuat_CAT_SanPham" FromRole="CAT_SanPham" ToRole="EXP_PhieuXuat" />
+        </EntityType>
+        <EntityType Name="EXP_LoaiXuat">
+          <Key>
+            <PropertyRef Name="ID_loai_xuat" />
+          </Key>
+          <Property Name="ID_loai_xuat" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_xuat" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EXP_PhieuXuat" Relationship="Models.FK_EXP_PhieuXuat_EXP_LoaiXuat" FromRole="EXP_LoaiXuat" ToRole="EXP_PhieuXuat" />
+        </EntityType>
+        <EntityType Name="EXP_PhieuXuat">
+          <Key>
+            <PropertyRef Name="ID_phieu_xuat" />
+          </Key>
+          <Property Name="ID_phieu_xuat" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_hoa_don" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="ID_loai_xuat" Type="Int32" Nullable="false" />
+          <Property Name="ID_kho" Type="Int32" Nullable="false" />
+          <Property Name="ID_san_pham" Type="Int32" />
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
+          <Property Name="Ngay_xuat" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tong_tien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Trang_thai" Type="Int32" Nullable="false" />
+          <Property Name="Ngay_sua" Type="DateTime" Precision="3" />
+          <Property Name="ID_nguoi_sua" Type="Int32" />
+          <NavigationProperty Name="CAT_NhanVien" Relationship="Models.FK_EXP_PhieuXuat_CAT_NhanVien" FromRole="EXP_PhieuXuat" ToRole="CAT_NhanVien" />
+          <NavigationProperty Name="CAT_SanPham" Relationship="Models.FK_EXP_PhieuXuat_CAT_SanPham" FromRole="EXP_PhieuXuat" ToRole="CAT_SanPham" />
+          <NavigationProperty Name="EXP_LoaiXuat" Relationship="Models.FK_EXP_PhieuXuat_EXP_LoaiXuat" FromRole="EXP_PhieuXuat" ToRole="EXP_LoaiXuat" />
+          <NavigationProperty Name="STO_KhoVatTu" Relationship="Models.FK_EXP_PhieuXuat_STO_KhoVatTu" FromRole="EXP_PhieuXuat" ToRole="STO_KhoVatTu" />
+          <NavigationProperty Name="EXP_PhieuXuatCT" Relationship="Models.FK_EXP_PhieuXuatCT_EXP_PhieuXuat" FromRole="EXP_PhieuXuat" ToRole="EXP_PhieuXuatCT" />
+        </EntityType>
+        <EntityType Name="EXP_PhieuXuatCT">
+          <Key>
+            <PropertyRef Name="ID_phieu_xuat" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_phieu_xuat" Type="Int32" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="Int32" Nullable="false" />
+          <Property Name="So_luong" Type="Int32" Nullable="false" />
+          <Property Name="Don_gia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EXP_PhieuXuat" Relationship="Models.FK_EXP_PhieuXuatCT_EXP_PhieuXuat" FromRole="EXP_PhieuXuatCT" ToRole="EXP_PhieuXuat" />
+          <NavigationProperty Name="STO_VatTu" Relationship="Models.FK_EXP_PhieuXuatCT_STO_VatTu" FromRole="EXP_PhieuXuatCT" ToRole="STO_VatTu" />
+        </EntityType>
+        <EntityType Name="IMP_LoaiNhap">
+          <Key>
+            <PropertyRef Name="ID_loai_nhap" />
+          </Key>
+          <Property Name="ID_loai_nhap" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_nhap" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="Models.FK_IMP_PhieuNhap_IMP_LoaiNhap" FromRole="IMP_LoaiNhap" ToRole="IMP_PhieuNhap" />
+        </EntityType>
+        <EntityType Name="IMP_PhieuNhap">
+          <Key>
+            <PropertyRef Name="ID_phieu_nhap" />
+          </Key>
+          <Property Name="ID_phieu_nhap" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ma_hoa_don" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ID_loai_nhap" Type="Int32" Nullable="false" />
+          <Property Name="ID_kho" Type="Int32" Nullable="false" />
+          <Property Name="ID_nha_cung_cap" Type="Int32" Nullable="false" />
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
+          <Property Name="ID_nhan_vien_nhap" Type="Int32" />
+          <Property Name="Ngay_nhap" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tong_tien" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Trang_thai" Type="Int32" Nullable="false" />
+          <Property Name="Ngay_sua" Type="DateTime" Precision="3" />
+          <Property Name="ID_nguoi_sua" Type="Int32" />
+          <NavigationProperty Name="CAT_NhaCungCap" Relationship="Models.FK_IMP_PhieuNhap_CAT_NhaCungCap" FromRole="IMP_PhieuNhap" ToRole="CAT_NhaCungCap" />
+          <NavigationProperty Name="CAT_NhanVien" Relationship="Models.FK_IMP_PhieuNhap_CAT_NhanVien" FromRole="IMP_PhieuNhap" ToRole="CAT_NhanVien" />
+          <NavigationProperty Name="IMP_LoaiNhap" Relationship="Models.FK_IMP_PhieuNhap_IMP_LoaiNhap" FromRole="IMP_PhieuNhap" ToRole="IMP_LoaiNhap" />
+          <NavigationProperty Name="STO_KhoVatTu" Relationship="Models.FK_IMP_PhieuNhap_STO_KhoVatTu" FromRole="IMP_PhieuNhap" ToRole="STO_KhoVatTu" />
+          <NavigationProperty Name="IMP_PhieuNhapCT" Relationship="Models.FK_IMP_PhieuNhapCT_IMP_PhieuNhap" FromRole="IMP_PhieuNhap" ToRole="IMP_PhieuNhapCT" />
+        </EntityType>
+        <EntityType Name="IMP_PhieuNhapCT">
+          <Key>
+            <PropertyRef Name="ID_phieu_nhap" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_phieu_nhap" Type="Int32" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="Int32" Nullable="false" />
+          <Property Name="So_luong" Type="Int32" Nullable="false" />
+          <Property Name="Don_gia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="Models.FK_IMP_PhieuNhapCT_IMP_PhieuNhap" FromRole="IMP_PhieuNhapCT" ToRole="IMP_PhieuNhap" />
+        </EntityType>
+        <EntityType Name="STO_KhoVatTu">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+          </Key>
+          <Property Name="ID_kho" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_kho" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Dia_diem" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EXP_PhieuXuat" Relationship="Models.FK_EXP_PhieuXuat_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="EXP_PhieuXuat" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="Models.FK_IMP_PhieuNhap_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="IMP_PhieuNhap" />
+          <NavigationProperty Name="STO_KhoVatTuCT" Relationship="Models.FK_STO_KhoVatTuCT_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="STO_KhoVatTuCT" />
+        </EntityType>
+        <EntityType Name="STO_KhoVatTuCT">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_kho" Type="Int32" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="Int32" Nullable="false" />
+          <Property Name="SoLuong" Type="Int32" Nullable="false" />
+          <Property Name="Don_gia" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="STO_KhoVatTu" Relationship="Models.FK_STO_KhoVatTuCT_STO_KhoVatTu" FromRole="STO_KhoVatTuCT" ToRole="STO_KhoVatTu" />
+          <NavigationProperty Name="STO_VatTu" Relationship="Models.FK_STO_KhoVatTuCT_STO_VatTu" FromRole="STO_KhoVatTuCT" ToRole="STO_VatTu" />
+        </EntityType>
+        <EntityType Name="STO_LoaiVatTu">
+          <Key>
+            <PropertyRef Name="ID_loai_vat_tu" />
+          </Key>
+          <Property Name="ID_loai_vat_tu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_vat_tu" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID_nhom_vat_tu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="STO_NhomVatTu" Relationship="Models.FK_STO_LoaiVatTu_STO_NhomVatTu" FromRole="STO_LoaiVatTu" ToRole="STO_NhomVatTu" />
+          <NavigationProperty Name="STO_VatTu" Relationship="Models.FK_STO_VatTu_STO_LoaiVatTu" FromRole="STO_LoaiVatTu" ToRole="STO_VatTu" />
+        </EntityType>
+        <EntityType Name="STO_NhomVatTu">
+          <Key>
+            <PropertyRef Name="ID_nhom_vat_tu" />
+          </Key>
+          <Property Name="ID_nhom_vat_tu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_nhom_vat_tu" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ghi_chu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="STO_LoaiVatTu" Relationship="Models.FK_STO_LoaiVatTu_STO_NhomVatTu" FromRole="STO_NhomVatTu" ToRole="STO_LoaiVatTu" />
+        </EntityType>
+        <EntityType Name="STO_VatTu">
+          <Key>
+            <PropertyRef Name="ID_vat_tu" />
+          </Key>
+          <Property Name="ID_vat_tu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_loai_vat_tu" Type="Int32" Nullable="false" />
+          <Property Name="Ten_vat_tu" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Don_vi" Type="Double" Nullable="false" />
+          <Property Name="Mo_ta" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EXP_PhieuXuatCT" Relationship="Models.FK_EXP_PhieuXuatCT_STO_VatTu" FromRole="STO_VatTu" ToRole="EXP_PhieuXuatCT" />
+          <NavigationProperty Name="STO_KhoVatTuCT" Relationship="Models.FK_STO_KhoVatTuCT_STO_VatTu" FromRole="STO_VatTu" ToRole="STO_KhoVatTuCT" />
+          <NavigationProperty Name="STO_LoaiVatTu" Relationship="Models.FK_STO_VatTu_STO_LoaiVatTu" FromRole="STO_VatTu" ToRole="STO_LoaiVatTu" />
+        </EntityType>
+        <EntityType Name="SYS_NguoiDung">
+          <Key>
+            <PropertyRef Name="ID_nguoi_dung" />
+          </Key>
+          <Property Name="ID_nguoi_dung" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Tai_khoan" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mat_khau" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Ten_day_du" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Hoat_dong" Type="Int32" Nullable="false" />
+          <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SYS_SuKienNguoiDung" Relationship="Models.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="SYS_SuKienNguoiDung" />
+          <NavigationProperty Name="SYS_VaiTro" Relationship="Models.SYS_NguoiDungVaiTro" FromRole="SYS_NguoiDung" ToRole="SYS_VaiTro" />
+        </EntityType>
+        <EntityType Name="SYS_PhanHe">
+          <Key>
+            <PropertyRef Name="ID_phan_he" />
+          </Key>
+          <Property Name="ID_phan_he" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Phan_he" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Mieu_ta" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SYS_Quyen" Relationship="Models.FK_SYS_Quyen_SYS_PhanHe" FromRole="SYS_PhanHe" ToRole="SYS_Quyen" />
+          <NavigationProperty Name="SYS_SuKienNguoiDung" Relationship="Models.FK_SYS_SuKienNguoiDung_SYS_PhanHe" FromRole="SYS_PhanHe" ToRole="SYS_SuKienNguoiDung" />
+        </EntityType>
+        <EntityType Name="SYS_Quyen">
+          <Key>
+            <PropertyRef Name="ID_quyen" />
+          </Key>
+          <Property Name="ID_quyen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_quyen" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ID_phan_he" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SYS_PhanHe" Relationship="Models.FK_SYS_Quyen_SYS_PhanHe" FromRole="SYS_Quyen" ToRole="SYS_PhanHe" />
+          <NavigationProperty Name="SYS_VaiTroQuyen" Relationship="Models.FK_SYS_VaiTroQuyen_SYS_Quyen" FromRole="SYS_Quyen" ToRole="SYS_VaiTroQuyen" />
+        </EntityType>
+        <EntityType Name="SYS_SuKienNguoiDung">
+          <Key>
+            <PropertyRef Name="ID_su_kien" />
+          </Key>
+          <Property Name="ID_su_kien" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_phan_he" Type="Int32" Nullable="false" />
+          <Property Name="Su_kien" Type="Int32" Nullable="false" />
+          <Property Name="Noi_dung" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Thoi_diem" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="May_tram" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="ID_nguoi_dung" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SYS_NguoiDung" Relationship="Models.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" FromRole="SYS_SuKienNguoiDung" ToRole="SYS_NguoiDung" />
+          <NavigationProperty Name="SYS_PhanHe" Relationship="Models.FK_SYS_SuKienNguoiDung_SYS_PhanHe" FromRole="SYS_SuKienNguoiDung" ToRole="SYS_PhanHe" />
+        </EntityType>
+        <EntityType Name="SYS_VaiTro">
+          <Key>
+            <PropertyRef Name="ID_vai_tro" />
+          </Key>
+          <Property Name="ID_vai_tro" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_vai_tro" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Mo_ta" Type="Int32" />
+          <NavigationProperty Name="SYS_VaiTroQuyen" Relationship="Models.FK_SYS_VaiTroQuyen_SYS_VaiTro" FromRole="SYS_VaiTro" ToRole="SYS_VaiTroQuyen" />
+          <NavigationProperty Name="SYS_NguoiDung" Relationship="Models.SYS_NguoiDungVaiTro" FromRole="SYS_VaiTro" ToRole="SYS_NguoiDung" />
+        </EntityType>
+        <EntityType Name="SYS_VaiTroQuyen">
+          <Key>
+            <PropertyRef Name="ID_vai_tro" />
+            <PropertyRef Name="ID_quyen" />
+          </Key>
+          <Property Name="ID_vai_tro" Type="Int32" Nullable="false" />
+          <Property Name="ID_quyen" Type="Int32" Nullable="false" />
+          <Property Name="Them" Type="Int32" Nullable="false" />
+          <Property Name="Sua" Type="Int32" Nullable="false" />
+          <Property Name="Xoa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SYS_Quyen" Relationship="Models.FK_SYS_VaiTroQuyen_SYS_Quyen" FromRole="SYS_VaiTroQuyen" ToRole="SYS_Quyen" />
+          <NavigationProperty Name="SYS_VaiTro" Relationship="Models.FK_SYS_VaiTroQuyen_SYS_VaiTro" FromRole="SYS_VaiTroQuyen" ToRole="SYS_VaiTro" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_CAT_SanPham_CAT_KhachHang">
+          <End Role="CAT_KhachHang" Type="Models.CAT_KhachHang" Multiplicity="1" />
+          <End Role="CAT_SanPham" Type="Models.CAT_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_KhachHang">
+              <PropertyRef Name="ID_khach_hang" />
+            </Principal>
+            <Dependent Role="CAT_SanPham">
+              <PropertyRef Name="ID_khach_hang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_CAT_NhaCungCap">
+          <End Role="CAT_NhaCungCap" Type="Models.CAT_NhaCungCap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhaCungCap">
+              <PropertyRef Name="ID_nha_cung_cap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_nha_cung_cap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAT_SanPham_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.CAT_NhanVien" Multiplicity="1" />
+          <End Role="CAT_SanPham" Type="Models.CAT_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="CAT_SanPham">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.CAT_NhanVien" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="Models.CAT_NhanVien" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_CAT_SanPham">
+          <End Role="CAT_SanPham" Type="Models.CAT_SanPham" Multiplicity="0..1" />
+          <End Role="EXP_PhieuXuat" Type="Models.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_SanPham">
+              <PropertyRef Name="ID_san_pham" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_san_pham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_EXP_LoaiXuat">
+          <End Role="EXP_LoaiXuat" Type="Models.EXP_LoaiXuat" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXP_LoaiXuat">
+              <PropertyRef Name="ID_loai_xuat" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_loai_xuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuat_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="EXP_PhieuXuat" Type="Models.EXP_PhieuXuat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuatCT_EXP_PhieuXuat">
+          <End Role="EXP_PhieuXuat" Type="Models.EXP_PhieuXuat" Multiplicity="1" />
+          <End Role="EXP_PhieuXuatCT" Type="Models.EXP_PhieuXuatCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EXP_PhieuXuat">
+              <PropertyRef Name="ID_phieu_xuat" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuatCT">
+              <PropertyRef Name="ID_phieu_xuat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EXP_PhieuXuatCT_STO_VatTu">
+          <End Role="STO_VatTu" Type="Models.STO_VatTu" Multiplicity="1" />
+          <End Role="EXP_PhieuXuatCT" Type="Models.EXP_PhieuXuatCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="EXP_PhieuXuatCT">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_IMP_LoaiNhap">
+          <End Role="IMP_LoaiNhap" Type="Models.IMP_LoaiNhap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_LoaiNhap">
+              <PropertyRef Name="ID_loai_nhap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_loai_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhap_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="IMP_PhieuNhap" Type="Models.IMP_PhieuNhap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMP_PhieuNhapCT_IMP_PhieuNhap">
+          <End Role="IMP_PhieuNhap" Type="Models.IMP_PhieuNhap" Multiplicity="1" />
+          <End Role="IMP_PhieuNhapCT" Type="Models.IMP_PhieuNhapCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Principal>
+            <Dependent Role="IMP_PhieuNhapCT">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_KhoVatTuCT_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="Models.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="STO_KhoVatTuCT" Type="Models.STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_KhoVatTuCT_STO_VatTu">
+          <End Role="STO_VatTu" Type="Models.STO_VatTu" Multiplicity="1" />
+          <End Role="STO_KhoVatTuCT" Type="Models.STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_LoaiVatTu_STO_NhomVatTu">
+          <End Role="STO_NhomVatTu" Type="Models.STO_NhomVatTu" Multiplicity="1" />
+          <End Role="STO_LoaiVatTu" Type="Models.STO_LoaiVatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_NhomVatTu">
+              <PropertyRef Name="ID_nhom_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_LoaiVatTu">
+              <PropertyRef Name="ID_nhom_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_VatTu_STO_LoaiVatTu">
+          <End Role="STO_LoaiVatTu" Type="Models.STO_LoaiVatTu" Multiplicity="1" />
+          <End Role="STO_VatTu" Type="Models.STO_VatTu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_LoaiVatTu">
+              <PropertyRef Name="ID_loai_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_VatTu">
+              <PropertyRef Name="ID_loai_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_SuKienNguoiDung_SYS_NguoiDung">
+          <End Role="SYS_NguoiDung" Type="Models.SYS_NguoiDung" Multiplicity="1" />
+          <End Role="SYS_SuKienNguoiDung" Type="Models.SYS_SuKienNguoiDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_NguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Principal>
+            <Dependent Role="SYS_SuKienNguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_Quyen_SYS_PhanHe">
+          <End Role="SYS_PhanHe" Type="Models.SYS_PhanHe" Multiplicity="1" />
+          <End Role="SYS_Quyen" Type="Models.SYS_Quyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_PhanHe">
+              <PropertyRef Name="ID_phan_he" />
+            </Principal>
+            <Dependent Role="SYS_Quyen">
+              <PropertyRef Name="ID_phan_he" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_SuKienNguoiDung_SYS_PhanHe">
+          <End Role="SYS_PhanHe" Type="Models.SYS_PhanHe" Multiplicity="1" />
+          <End Role="SYS_SuKienNguoiDung" Type="Models.SYS_SuKienNguoiDung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_PhanHe">
+              <PropertyRef Name="ID_phan_he" />
+            </Principal>
+            <Dependent Role="SYS_SuKienNguoiDung">
+              <PropertyRef Name="ID_phan_he" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_VaiTroQuyen_SYS_Quyen">
+          <End Role="SYS_Quyen" Type="Models.SYS_Quyen" Multiplicity="1" />
+          <End Role="SYS_VaiTroQuyen" Type="Models.SYS_VaiTroQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_Quyen">
+              <PropertyRef Name="ID_quyen" />
+            </Principal>
+            <Dependent Role="SYS_VaiTroQuyen">
+              <PropertyRef Name="ID_quyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SYS_VaiTroQuyen_SYS_VaiTro">
+          <End Role="SYS_VaiTro" Type="Models.SYS_VaiTro" Multiplicity="1" />
+          <End Role="SYS_VaiTroQuyen" Type="Models.SYS_VaiTroQuyen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_VaiTro">
+              <PropertyRef Name="ID_vai_tro" />
+            </Principal>
+            <Dependent Role="SYS_VaiTroQuyen">
+              <PropertyRef Name="ID_vai_tro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_NguoiDungVaiTro">
+          <End Role="SYS_NguoiDung" Type="Models.SYS_NguoiDung" Multiplicity="*" />
+          <End Role="SYS_VaiTro" Type="Models.SYS_VaiTro" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="QLKhoContext">
+          <EntitySetMapping Name="CAT_KhachHang">
+            <EntityTypeMapping TypeName="Models.CAT_KhachHang">
+              <MappingFragment StoreEntitySet="CAT_KhachHang">
+                <ScalarProperty Name="ID_khach_hang" ColumnName="ID_khach_hang" />
+                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="So_dien_thoai" ColumnName="So_dien_thoai" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_NhaCungCap">
+            <EntityTypeMapping TypeName="Models.CAT_NhaCungCap">
+              <MappingFragment StoreEntitySet="CAT_NhaCungCap">
+                <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
+                <ScalarProperty Name="Ten_nha_cung_cap" ColumnName="Ten_nha_cung_cap" />
+                <ScalarProperty Name="Nguoi_dai_dien" ColumnName="Nguoi_dai_dien" />
+                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="So_tai_khoan" ColumnName="So_tai_khoan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_NhanVien">
+            <EntityTypeMapping TypeName="Models.CAT_NhanVien">
+              <MappingFragment StoreEntitySet="CAT_NhanVien">
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="Gioi_tinh" ColumnName="Gioi_tinh" />
+                <ScalarProperty Name="Ngay_sinh" ColumnName="Ngay_sinh" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="Ngay_cap" ColumnName="Ngay_cap" />
+                <ScalarProperty Name="Noi_cap" ColumnName="Noi_cap" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_SanPham">
+            <EntityTypeMapping TypeName="Models.CAT_SanPham">
+              <MappingFragment StoreEntitySet="CAT_SanPham">
+                <ScalarProperty Name="ID_san_pham" ColumnName="ID_san_pham" />
+                <ScalarProperty Name="Ma_san_pham" ColumnName="Ma_san_pham" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="ID_khach_hang" ColumnName="ID_khach_hang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXP_LoaiXuat">
+            <EntityTypeMapping TypeName="Models.EXP_LoaiXuat">
+              <MappingFragment StoreEntitySet="EXP_LoaiXuat">
+                <ScalarProperty Name="ID_loai_xuat" ColumnName="ID_loai_xuat" />
+                <ScalarProperty Name="Ten_loai_xuat" ColumnName="Ten_loai_xuat" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXP_PhieuXuat">
+            <EntityTypeMapping TypeName="Models.EXP_PhieuXuat">
+              <MappingFragment StoreEntitySet="EXP_PhieuXuat">
+                <ScalarProperty Name="ID_phieu_xuat" ColumnName="ID_phieu_xuat" />
+                <ScalarProperty Name="Ma_hoa_don" ColumnName="Ma_hoa_don" />
+                <ScalarProperty Name="ID_loai_xuat" ColumnName="ID_loai_xuat" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="ID_san_pham" ColumnName="ID_san_pham" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="Ngay_xuat" ColumnName="Ngay_xuat" />
+                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+                <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
+                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXP_PhieuXuatCT">
+            <EntityTypeMapping TypeName="Models.EXP_PhieuXuatCT">
+              <MappingFragment StoreEntitySet="EXP_PhieuXuatCT">
+                <ScalarProperty Name="ID_phieu_xuat" ColumnName="ID_phieu_xuat" />
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
+                <ScalarProperty Name="Don_gia" ColumnName="Don_gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMP_LoaiNhap">
+            <EntityTypeMapping TypeName="Models.IMP_LoaiNhap">
+              <MappingFragment StoreEntitySet="IMP_LoaiNhap">
+                <ScalarProperty Name="ID_loai_nhap" ColumnName="ID_loai_nhap" />
+                <ScalarProperty Name="Ten_loai_nhap" ColumnName="Ten_loai_nhap" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMP_PhieuNhap">
+            <EntityTypeMapping TypeName="Models.IMP_PhieuNhap">
+              <MappingFragment StoreEntitySet="IMP_PhieuNhap">
+                <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+                <ScalarProperty Name="Ma_hoa_don" ColumnName="Ma_hoa_don" />
+                <ScalarProperty Name="ID_loai_nhap" ColumnName="ID_loai_nhap" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="ID_nhan_vien_nhap" ColumnName="ID_nhan_vien_nhap" />
+                <ScalarProperty Name="Ngay_nhap" ColumnName="Ngay_nhap" />
+                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+                <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
+                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMP_PhieuNhapCT">
+            <EntityTypeMapping TypeName="Models.IMP_PhieuNhapCT">
+              <MappingFragment StoreEntitySet="IMP_PhieuNhapCT">
+                <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
+                <ScalarProperty Name="Don_gia" ColumnName="Don_gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_KhoVatTu">
+            <EntityTypeMapping TypeName="Models.STO_KhoVatTu">
+              <MappingFragment StoreEntitySet="STO_KhoVatTu">
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="Ten_kho" ColumnName="Ten_kho" />
+                <ScalarProperty Name="Dia_diem" ColumnName="Dia_diem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_KhoVatTuCT">
+            <EntityTypeMapping TypeName="Models.STO_KhoVatTuCT">
+              <MappingFragment StoreEntitySet="STO_KhoVatTuCT">
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="Don_gia" ColumnName="Don_gia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_LoaiVatTu">
+            <EntityTypeMapping TypeName="Models.STO_LoaiVatTu">
+              <MappingFragment StoreEntitySet="STO_LoaiVatTu">
+                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
+                <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_NhomVatTu">
+            <EntityTypeMapping TypeName="Models.STO_NhomVatTu">
+              <MappingFragment StoreEntitySet="STO_NhomVatTu">
+                <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
+                <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_VatTu">
+            <EntityTypeMapping TypeName="Models.STO_VatTu">
+              <MappingFragment StoreEntitySet="STO_VatTu">
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
+                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
+                <ScalarProperty Name="Ten_vat_tu" ColumnName="Ten_vat_tu" />
+                <ScalarProperty Name="Don_vi" ColumnName="Don_vi" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_NguoiDung">
+            <EntityTypeMapping TypeName="Models.SYS_NguoiDung">
+              <MappingFragment StoreEntitySet="SYS_NguoiDung">
+                <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="Mat_khau" ColumnName="Mat_khau" />
+                <ScalarProperty Name="Ten_day_du" ColumnName="Ten_day_du" />
+                <ScalarProperty Name="Hoat_dong" ColumnName="Hoat_dong" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_PhanHe">
+            <EntityTypeMapping TypeName="Models.SYS_PhanHe">
+              <MappingFragment StoreEntitySet="SYS_PhanHe">
+                <ScalarProperty Name="ID_phan_he" ColumnName="ID_phan_he" />
+                <ScalarProperty Name="Phan_he" ColumnName="Phan_he" />
+                <ScalarProperty Name="Mieu_ta" ColumnName="Mieu_ta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_Quyen">
+            <EntityTypeMapping TypeName="Models.SYS_Quyen">
+              <MappingFragment StoreEntitySet="SYS_Quyen">
+                <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
+                <ScalarProperty Name="Ten_quyen" ColumnName="Ten_quyen" />
+                <ScalarProperty Name="ID_phan_he" ColumnName="ID_phan_he" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_SuKienNguoiDung">
+            <EntityTypeMapping TypeName="Models.SYS_SuKienNguoiDung">
+              <MappingFragment StoreEntitySet="SYS_SuKienNguoiDung">
+                <ScalarProperty Name="ID_su_kien" ColumnName="ID_su_kien" />
+                <ScalarProperty Name="ID_phan_he" ColumnName="ID_phan_he" />
+                <ScalarProperty Name="Su_kien" ColumnName="Su_kien" />
+                <ScalarProperty Name="Noi_dung" ColumnName="Noi_dung" />
+                <ScalarProperty Name="Thoi_diem" ColumnName="Thoi_diem" />
+                <ScalarProperty Name="May_tram" ColumnName="May_tram" />
+                <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_VaiTro">
+            <EntityTypeMapping TypeName="Models.SYS_VaiTro">
+              <MappingFragment StoreEntitySet="SYS_VaiTro">
+                <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
+                <ScalarProperty Name="Ten_vai_tro" ColumnName="Ten_vai_tro" />
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_VaiTroQuyen">
+            <EntityTypeMapping TypeName="Models.SYS_VaiTroQuyen">
+              <MappingFragment StoreEntitySet="SYS_VaiTroQuyen">
+                <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
+                <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
+                <ScalarProperty Name="Them" ColumnName="Them" />
+                <ScalarProperty Name="Sua" ColumnName="Sua" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Models.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="SYS_NguoiDungVaiTro" TypeName="Models.SYS_NguoiDungVaiTro" StoreEntitySet="SYS_NguoiDungVaiTro">
+            <EndProperty Name="SYS_NguoiDung">
+              <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
+            </EndProperty>
+            <EndProperty Name="SYS_VaiTro">
+              <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
