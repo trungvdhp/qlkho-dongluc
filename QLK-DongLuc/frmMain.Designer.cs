@@ -467,6 +467,7 @@
             this.btnKhoVatTu.Id = 72;
             this.btnKhoVatTu.LargeImageIndex = 0;
             this.btnKhoVatTu.Name = "btnKhoVatTu";
+            this.btnKhoVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKhoVatTu_ItemClick);
             // 
             // btnNhomVatTu
             // 
@@ -474,6 +475,7 @@
             this.btnNhomVatTu.Id = 73;
             this.btnNhomVatTu.LargeImageIndex = 0;
             this.btnNhomVatTu.Name = "btnNhomVatTu";
+            this.btnNhomVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhomVatTu_ItemClick);
             // 
             // btnLoaiVatTu
             // 
@@ -481,6 +483,7 @@
             this.btnLoaiVatTu.Id = 74;
             this.btnLoaiVatTu.LargeImageIndex = 0;
             this.btnLoaiVatTu.Name = "btnLoaiVatTu";
+            this.btnLoaiVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaiVatTu_ItemClick);
             // 
             // btnVatTu
             // 
@@ -488,6 +491,7 @@
             this.btnVatTu.Id = 75;
             this.btnVatTu.LargeImageIndex = 0;
             this.btnVatTu.Name = "btnVatTu";
+            this.btnVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVatTu_ItemClick);
             // 
             // btnSanPham
             // 
@@ -495,6 +499,7 @@
             this.btnSanPham.Id = 76;
             this.btnSanPham.LargeImageIndex = 0;
             this.btnSanPham.Name = "btnSanPham";
+            this.btnSanPham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSanPham_ItemClick);
             // 
             // barButtonItem9
             // 
@@ -544,6 +549,7 @@
             this.btnNhaCungCap.Id = 83;
             this.btnNhaCungCap.LargeImageIndex = 0;
             this.btnNhaCungCap.Name = "btnNhaCungCap";
+            this.btnNhaCungCap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhaCungCap_ItemClick);
             // 
             // btnKhachHang
             // 
@@ -551,6 +557,7 @@
             this.btnKhachHang.Id = 84;
             this.btnKhachHang.LargeImageIndex = 0;
             this.btnKhachHang.Name = "btnKhachHang";
+            this.btnKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKhachHang_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 

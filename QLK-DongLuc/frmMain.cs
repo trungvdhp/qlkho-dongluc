@@ -66,7 +66,46 @@ namespace QLK_DongLuc
             OpenForm(frm, tabControl);
         }
 
+        private void btnSanPham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmSanPham frm = new DanhMuc.frmSanPham();
+            OpenForm(frm, tabControl);
+        }
 
+        private void btnNhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmNhacCungCap frm = new DanhMuc.frmNhacCungCap();
+            OpenForm(frm, tabControl);
+        }
 
+        private void btnKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmKhachHang frm = new DanhMuc.frmKhachHang();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnKhoVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmKhoVatTu frm = new DanhMuc.frmKhoVatTu();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnNhomVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmNhomVatTu frm = new DanhMuc.frmNhomVatTu();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnLoaiVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmLoaiVatTu frm = new DanhMuc.frmLoaiVatTu();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DanhMuc.frmVatTu frm = new DanhMuc.frmVatTu();
+            OpenForm(frm, tabControl);
+        }
     }
 }
