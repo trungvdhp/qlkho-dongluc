@@ -296,8 +296,26 @@
     <EmbeddedResource Include="Views\DanhMuc\frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmKhoVatTu.resx">
+      <DependentUpon>frmKhoVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmLoaiVatTu.resx">
+      <DependentUpon>frmLoaiVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmNhacCungCap.resx">
+      <DependentUpon>frmNhacCungCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DanhMuc\frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmNhomVatTu.resx">
+      <DependentUpon>frmNhomVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmSanPham.resx">
+      <DependentUpon>frmSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DanhMuc\frmVatTu.resx">
+      <DependentUpon>frmVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="Models\Model.edmx">
