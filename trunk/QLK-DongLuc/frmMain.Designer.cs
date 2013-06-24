@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
+            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -62,7 +63,6 @@
             this.btnSaoLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNhaCungCap = new DevExpress.XtraBars.BarButtonItem();
             this.btnKhoVatTu = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhomVatTu = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoaiVatTu = new DevExpress.XtraBars.BarButtonItem();
@@ -93,9 +93,11 @@
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.btnNhaCungCap = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
@@ -105,7 +107,6 @@
             this.popupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl
@@ -120,6 +121,14 @@
             this.splitContainerControl.SplitterPosition = 0;
             this.splitContainerControl.TabIndex = 0;
             this.splitContainerControl.Text = "splitContainerControl1";
+            // 
+            // tabControl
+            // 
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Size = new System.Drawing.Size(995, 548);
+            this.tabControl.TabIndex = 0;
             // 
             // navbarImageListLarge
             // 
@@ -168,7 +177,6 @@
             this.btnSaoLuu,
             this.btnPhucHoi,
             this.btnNhanVien,
-            this.btnNhaCungCap,
             this.btnKhoVatTu,
             this.btnNhomVatTu,
             this.btnLoaiVatTu,
@@ -179,10 +187,12 @@
             this.barButtonItem17,
             this.barButtonItem18,
             this.barButtonItem19,
-            this.barButtonItem20});
+            this.barButtonItem20,
+            this.btnNhaCungCap,
+            this.btnKhachHang});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 83;
+            this.ribbonControl.MaxItemId = 85;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -446,13 +456,6 @@
             this.btnNhanVien.LargeImageIndex = 0;
             this.btnNhanVien.Name = "btnNhanVien";
             // 
-            // btnNhaCungCap
-            // 
-            this.btnNhaCungCap.Caption = "Nhà cung cấp";
-            this.btnNhaCungCap.Id = 71;
-            this.btnNhaCungCap.LargeImageIndex = 0;
-            this.btnNhaCungCap.Name = "btnNhaCungCap";
-            // 
             // btnKhoVatTu
             // 
             this.btnKhoVatTu.Caption = "Kho vật tư";
@@ -600,7 +603,7 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btnNhaCungCap);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnNhaCungCap);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnKhachHang);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Đối tác";
             // 
@@ -675,13 +678,19 @@
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1012, 27);
             // 
-            // tabControl
+            // btnNhaCungCap
             // 
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.Size = new System.Drawing.Size(995, 548);
-            this.tabControl.TabIndex = 0;
+            this.btnNhaCungCap.Caption = "Nhà cung cấp";
+            this.btnNhaCungCap.Id = 83;
+            this.btnNhaCungCap.LargeImageIndex = 0;
+            this.btnNhaCungCap.Name = "btnNhaCungCap";
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.Caption = "Khách hàng";
+            this.btnKhachHang.Id = 84;
+            this.btnKhachHang.LargeImageIndex = 0;
+            this.btnKhachHang.Name = "btnKhachHang";
             // 
             // frmMain
             // 
@@ -699,6 +708,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
             this.splitContainerControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
@@ -709,7 +719,6 @@
             this.popupControlContainer1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -757,7 +766,6 @@
         private DevExpress.XtraBars.BarButtonItem btnPhucHoi;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.BarButtonItem btnNhanVien;
-        private DevExpress.XtraBars.BarButtonItem btnNhaCungCap;
         private DevExpress.XtraBars.BarButtonItem btnKhoVatTu;
         private DevExpress.XtraBars.BarButtonItem btnNhomVatTu;
         private DevExpress.XtraBars.BarButtonItem btnLoaiVatTu;
@@ -780,6 +788,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraTab.XtraTabControl tabControl;
+        private DevExpress.XtraBars.BarButtonItem btnNhaCungCap;
+        private DevExpress.XtraBars.BarButtonItem btnKhachHang;
 
     }
 }
