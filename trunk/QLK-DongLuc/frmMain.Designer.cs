@@ -74,6 +74,8 @@
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhaCungCap = new DevExpress.XtraBars.BarButtonItem();
+            this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -93,8 +95,6 @@
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.btnNhaCungCap = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
@@ -124,11 +124,14 @@
             // 
             // tabControl
             // 
+            this.tabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.Size = new System.Drawing.Size(995, 548);
             this.tabControl.TabIndex = 0;
+            this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             // 
             // navbarImageListLarge
             // 
@@ -247,6 +250,7 @@
             this.btnThoat.ImageIndex = 6;
             this.btnThoat.LargeImageIndex = 6;
             this.btnThoat.Name = "btnThoat";
+            this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
             // popupControlContainer1
             // 
@@ -455,6 +459,7 @@
             this.btnNhanVien.Id = 69;
             this.btnNhanVien.LargeImageIndex = 0;
             this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanVien_ItemClick);
             // 
             // btnKhoVatTu
             // 
@@ -532,6 +537,20 @@
             this.barButtonItem20.Id = 82;
             this.barButtonItem20.ImageIndex = 1;
             this.barButtonItem20.Name = "barButtonItem20";
+            // 
+            // btnNhaCungCap
+            // 
+            this.btnNhaCungCap.Caption = "Nhà cung cấp";
+            this.btnNhaCungCap.Id = 83;
+            this.btnNhaCungCap.LargeImageIndex = 0;
+            this.btnNhaCungCap.Name = "btnNhaCungCap";
+            // 
+            // btnKhachHang
+            // 
+            this.btnKhachHang.Caption = "Khách hàng";
+            this.btnKhachHang.Id = 84;
+            this.btnKhachHang.LargeImageIndex = 0;
+            this.btnKhachHang.Name = "btnKhachHang";
             // 
             // ribbonImageCollectionLarge
             // 
@@ -677,20 +696,6 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1012, 27);
-            // 
-            // btnNhaCungCap
-            // 
-            this.btnNhaCungCap.Caption = "Nhà cung cấp";
-            this.btnNhaCungCap.Id = 83;
-            this.btnNhaCungCap.LargeImageIndex = 0;
-            this.btnNhaCungCap.Name = "btnNhaCungCap";
-            // 
-            // btnKhachHang
-            // 
-            this.btnKhachHang.Caption = "Khách hàng";
-            this.btnKhachHang.Id = 84;
-            this.btnKhachHang.LargeImageIndex = 0;
-            this.btnKhachHang.Name = "btnKhachHang";
             // 
             // frmMain
             // 
