@@ -317,6 +317,15 @@
     <EmbeddedResource Include="Views\DanhMuc\frmVatTu.resx">
       <DependentUpon>frmVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
+      <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.resx">
+      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.resx">
+      <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
