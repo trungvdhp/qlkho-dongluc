@@ -69,7 +69,7 @@
             this.btnVatTu = new DevExpress.XtraBars.BarButtonItem();
             this.btnSanPham = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuNhap = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
@@ -186,7 +186,7 @@
             this.btnVatTu,
             this.btnSanPham,
             this.barButtonItem9,
-            this.barButtonItem16,
+            this.btnPhieuNhap,
             this.barButtonItem17,
             this.barButtonItem18,
             this.barButtonItem19,
@@ -507,13 +507,15 @@
             this.barButtonItem9.Id = 77;
             this.barButtonItem9.LargeImageIndex = 0;
             this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
             // 
-            // barButtonItem16
+            // btnPhieuNhap
             // 
-            this.barButtonItem16.Caption = "Lập phiếu nhập";
-            this.barButtonItem16.Id = 78;
-            this.barButtonItem16.ImageIndex = 1;
-            this.barButtonItem16.Name = "barButtonItem16";
+            this.btnPhieuNhap.Caption = "Lập phiếu nhập";
+            this.btnPhieuNhap.Id = 78;
+            this.btnPhieuNhap.ImageIndex = 1;
+            this.btnPhieuNhap.Name = "btnPhieuNhap";
+            this.btnPhieuNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuNhap_ItemClick);
             // 
             // barButtonItem17
             // 
@@ -655,7 +657,7 @@
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem9);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem16);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnPhieuNhap);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem19);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Quản lý nhập";
@@ -788,7 +790,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem16;
+        private DevExpress.XtraBars.BarButtonItem btnPhieuNhap;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
         private DevExpress.XtraBars.BarButtonItem barButtonItem19;

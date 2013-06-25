@@ -107,5 +107,17 @@ namespace QLK_DongLuc
             DanhMuc.frmVatTu frm = new DanhMuc.frmVatTu();
             OpenForm(frm, tabControl);
         }
+
+        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyNhap.frmPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmPhieuNhap();
+            OpenForm(frm, tabControl);
+        }
     }
 }
