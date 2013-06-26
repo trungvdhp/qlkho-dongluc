@@ -29,23 +29,6 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void frmKhoVatTu_Load(object sender, EventArgs e)
         {
             Load_gridControl();
-            gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            if (!haveInsert)
-            {
-                gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
-                haveInsert = true;
-                btnThem.Text = "Hủy";
-            }
-            else
-            {
-                gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                haveInsert = false;
-                btnThem.Text = "Thêm mới";
-            }
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
@@ -97,20 +80,22 @@ namespace QLK_DongLuc.Views.DanhMuc
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void DeleteCommand()
         {
             if (gridView.FocusedRowHandle < 0) return;
 
-            var result = XtraMessageBox.Show(btnXoa, "Chắc chắn xóa?", "Xóa" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
+            var result = XtraMessageBox.Show("Chắc chắn xóa?", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.No)
                 return;
-            
+
             int ID_kho = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_kho").ToString().Trim());
             var kho = db.STO_KhoVatTu.Where(p => p.ID_kho == ID_kho).First();
             db.STO_KhoVatTu.Remove(kho);
+
             if (db.SaveChanges() > 0)
                 MessageBox.Show("Xóa dữ liệu thành công.");
+
             Load_gridControl();
         }
 
@@ -118,7 +103,9 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
             {
-                btnXoa.PerformClick();
+                DeleteCommand();
+
+                //gridView.ShowPrintPreview(this);
             }
         }
     }
