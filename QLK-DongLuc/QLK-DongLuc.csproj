@@ -326,7 +326,9 @@
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.resx">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -345,6 +347,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

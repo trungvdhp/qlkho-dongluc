@@ -42,6 +42,11 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ID_khach_hang = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ID_khach_hang_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl)).BeginInit();
             this.panelControl.SuspendLayout();
@@ -52,6 +57,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ID_khach_hang_edit)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -183,6 +189,8 @@
             this.gridControl.Location = new System.Drawing.Point(3, 53);
             this.gridControl.MainView = this.gridView1;
             this.gridControl.Name = "gridControl";
+            this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.ID_khach_hang_edit});
             this.gridControl.Size = new System.Drawing.Size(778, 305);
             this.gridControl.TabIndex = 1;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -190,8 +198,48 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.ID_khach_hang,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
             this.gridView1.GridControl = this.gridControl;
             this.gridView1.Name = "gridView1";
+            // 
+            // ID_khach_hang
+            // 
+            this.ID_khach_hang.Caption = "ID_khach_hang";
+            this.ID_khach_hang.ColumnEdit = this.ID_khach_hang_edit;
+            this.ID_khach_hang.FieldName = "ID_khach_hang";
+            this.ID_khach_hang.Name = "ID_khach_hang";
+            this.ID_khach_hang.Visible = true;
+            this.ID_khach_hang.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "gridColumn3";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            // 
+            // ID_khach_hang_edit
+            // 
+            this.ID_khach_hang_edit.AutoHeight = false;
+            this.ID_khach_hang_edit.Name = "ID_khach_hang_edit";
             // 
             // frmKhachHang
             // 
@@ -212,6 +260,7 @@
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ID_khach_hang_edit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,5 +281,10 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtKhachHang;
+        private DevExpress.XtraGrid.Columns.GridColumn ID_khach_hang;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ID_khach_hang_edit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

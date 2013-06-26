@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
+using QLK_DongLuc.Models;
 
 
 namespace QLK_DongLuc
