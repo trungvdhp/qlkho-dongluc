@@ -103,9 +103,15 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
             {
-                DeleteCommand();
-
-                //gridView.ShowPrintPreview(this);
+                DeleteCommand();                
+            }
+            if ((e.KeyCode == Keys.Control | e.KeyCode == Keys.P) && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            {
+                if (!gridControl.IsPrintingAvailable)
+                {
+                    XtraMessageBox.Show("Not available printing.");
+                }
+                gridControl.ShowPrintPreview();
             }
         }
     }
