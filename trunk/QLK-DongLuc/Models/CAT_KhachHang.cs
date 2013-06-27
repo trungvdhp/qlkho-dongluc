@@ -24,8 +24,9 @@ namespace QLK_DongLuc.Models
         public string Ten { get; set; }
         public string Dien_thoai { get; set; }
         public string Dia_chi { get; set; }
-        public int ID_nhan_vien { get; set; }
+        public int ID_nguoi_tao { get; set; }
     
+        public virtual SYS_NguoiDung SYS_NguoiDung { get; set; }
         public virtual ICollection<CAT_SanPham> CAT_SanPham { get; set; }
     }
 }

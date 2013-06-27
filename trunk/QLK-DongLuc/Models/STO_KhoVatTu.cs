@@ -16,6 +16,7 @@ namespace QLK_DongLuc.Models
     {
         public STO_KhoVatTu()
         {
+            this.CAT_NhanVien = new HashSet<CAT_NhanVien>();
             this.EXP_PhieuXuat = new HashSet<EXP_PhieuXuat>();
             this.IMP_PhieuNhap = new HashSet<IMP_PhieuNhap>();
             this.STO_KhoVatTuCT = new HashSet<STO_KhoVatTuCT>();
@@ -25,6 +26,7 @@ namespace QLK_DongLuc.Models
         public string Ten_kho { get; set; }
         public string Dia_diem { get; set; }
     
+        public virtual ICollection<CAT_NhanVien> CAT_NhanVien { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
         public virtual ICollection<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }

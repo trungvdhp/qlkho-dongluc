@@ -12,16 +12,14 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SYS_SuKienNguoiDung
+    public partial class ViewCboVatTu
     {
-        public int ID_su_kien { get; set; }
-        public int ID_nguoi_dung { get; set; }
-        public int ID_vai_tro { get; set; }
-        public int Su_kien { get; set; }
-        public string Noi_dung { get; set; }
-        public System.DateTime Thoi_diem { get; set; }
-        public string May_tram { get; set; }
-    
-        public virtual SYS_NguoiDung SYS_NguoiDung { get; set; }
+        public int ID_vat_tu { get; set; }
+        public string Ten_vat_tu { get; set; }
+        public string Mo_ta { get; set; }
+        public string Ten_loai_vat_tu { get; set; }
+        public string Ten_nhom_vat_tu { get; set; }
+        public Nullable<double> Don_vi { get; set; }
+        public string Ma_va_tu { get; set; }
     }
 }

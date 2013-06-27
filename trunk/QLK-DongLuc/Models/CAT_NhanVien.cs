@@ -19,6 +19,8 @@ namespace QLK_DongLuc.Models
             this.CAT_SanPham = new HashSet<CAT_SanPham>();
             this.EXP_PhieuXuat = new HashSet<EXP_PhieuXuat>();
             this.IMP_PhieuNhap = new HashSet<IMP_PhieuNhap>();
+            this.IMP_PhieuNhap1 = new HashSet<IMP_PhieuNhap>();
+            this.SYS_NguoiDung = new HashSet<SYS_NguoiDung>();
         }
     
         public int ID_nhan_vien { get; set; }
@@ -35,8 +37,11 @@ namespace QLK_DongLuc.Models
         public string Email { get; set; }
         public int Trang_thai { get; set; }
     
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual ICollection<CAT_SanPham> CAT_SanPham { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
+        public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap1 { get; set; }
+        public virtual ICollection<SYS_NguoiDung> SYS_NguoiDung { get; set; }
     }
 }
