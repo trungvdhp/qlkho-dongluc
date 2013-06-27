@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QuanLyKhoDongLucModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QuanLyKhoDongLucModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="QuanLyKhoDongLucModelStoreContainer">
           <EntitySet Name="CAT_KhachHang" EntityType="QuanLyKhoDongLucModel.Store.CAT_KhachHang" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CAT_NhaCungCap" EntityType="QuanLyKhoDongLucModel.Store.CAT_NhaCungCap" store:Type="Tables" Schema="dbo" />
@@ -200,9 +200,9 @@
           <Property Name="ID_khach_hang" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Ho_dem" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ten" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Dien_thoai" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Dia_chi" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="ID_nguoi_tao" Type="int" Nullable="false" />
+          <Property Name="Dien_thoai" Type="varchar" MaxLength="50" />
+          <Property Name="Dia_chi" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID_nguoi_tao" Type="int" />
         </EntityType>
         <EntityType Name="CAT_NhaCungCap">
           <Key>
@@ -503,7 +503,7 @@
           <Property Name="Ma_vat_tu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
-          <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="1" />
+          <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="0..1" />
           <End Role="CAT_KhachHang" Type="QuanLyKhoDongLucModel.Store.CAT_KhachHang" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SYS_NguoiDung">
@@ -894,13 +894,11 @@
         <Property Name="ID_ton" Type="int" />
         <Property Name="So_luong" Type="float" />
       </EntityType>-->
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QuanLyKhoDongLucModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="CAT_KhachHang" EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" />
           <EntitySet Name="CAT_NhaCungCap" EntityType="QuanLyKhoDongLucModel.CAT_NhaCungCap" />
           <EntitySet Name="CAT_NhanVien" EntityType="QuanLyKhoDongLucModel.CAT_NhanVien" />
           <EntitySet Name="CAT_SanPham" EntityType="QuanLyKhoDongLucModel.CAT_SanPham" />
@@ -925,14 +923,6 @@
           <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" />
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" />
-          <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung">
-            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
-            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CAT_SanPham_CAT_KhachHang" Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang">
-            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
-            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
-          </AssociationSet>
           <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhaCungCap" Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap">
             <End Role="CAT_NhaCungCap" EntitySet="CAT_NhaCungCap" />
             <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
@@ -1045,20 +1035,16 @@
             <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
+          <EntitySet Name="CAT_KhachHang" EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" />
+          <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung">
+            <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
+            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAT_SanPham_CAT_KhachHang" Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang">
+            <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
+            <End Role="CAT_SanPham" EntitySet="CAT_SanPham" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="CAT_KhachHang">
-          <Key>
-            <PropertyRef Name="ID_khach_hang" />
-          </Key>
-          <Property Name="ID_khach_hang" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="Ho_dem" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Ten" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Dien_thoai" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="Dia_chi" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="ID_nguoi_tao" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SYS_NguoiDung" Relationship="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" FromRole="CAT_KhachHang" ToRole="SYS_NguoiDung" />
-          <NavigationProperty Name="CAT_SanPham" Relationship="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_KhachHang" ToRole="CAT_SanPham" />
-        </EntityType>
         <EntityType Name="CAT_NhaCungCap">
           <Key>
             <PropertyRef Name="ID_nha_cung_cap" />
@@ -1107,9 +1093,9 @@
           <Property Name="ID_nhan_vien" Type="Int32" Nullable="false" />
           <Property Name="ID_khach_hang" Type="Int32" Nullable="false" />
           <Property Name="Chi_phi_lap_dat" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <NavigationProperty Name="CAT_KhachHang" Relationship="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_SanPham" ToRole="CAT_KhachHang" />
           <NavigationProperty Name="CAT_NhanVien" Relationship="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_NhanVien" FromRole="CAT_SanPham" ToRole="CAT_NhanVien" />
           <NavigationProperty Name="EXP_PhieuXuat" Relationship="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_SanPham" FromRole="CAT_SanPham" ToRole="EXP_PhieuXuat" />
+          <NavigationProperty Name="CAT_KhachHang" Relationship="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_SanPham" ToRole="CAT_KhachHang" />
         </EntityType>
         <EntityType Name="EXP_LoaiXuat">
           <Key>
@@ -1288,12 +1274,12 @@
           <Property Name="Hoat_dong" Type="Int32" Nullable="false" />
           <Property Name="Lan_dang_nhap_cuoi" Type="DateTime" Precision="3" />
           <Property Name="Thoi_gian_cho" Type="Time" Precision="7" />
-          <NavigationProperty Name="CAT_KhachHang" Relationship="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="CAT_KhachHang" />
           <NavigationProperty Name="CAT_NhanVien" Relationship="QuanLyKhoDongLucModel.FK_SYS_NguoiDung_CAT_NhanVien" FromRole="SYS_NguoiDung" ToRole="CAT_NhanVien" />
           <NavigationProperty Name="EXP_PhieuXuat" Relationship="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="EXP_PhieuXuat" />
           <NavigationProperty Name="IMP_PhieuNhap" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="IMP_PhieuNhap" />
           <NavigationProperty Name="SYS_SuKienNguoiDung" Relationship="QuanLyKhoDongLucModel.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="SYS_SuKienNguoiDung" />
           <NavigationProperty Name="SYS_VaiTro" Relationship="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" FromRole="SYS_NguoiDung" ToRole="SYS_VaiTro" />
+          <NavigationProperty Name="CAT_KhachHang" Relationship="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="CAT_KhachHang" />
         </EntityType>
         <EntityType Name="SYS_Quyen">
           <Key>
@@ -1387,30 +1373,6 @@
           <Property Name="Don_vi" Type="Double" />
           <Property Name="Ma_vat_tu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
-          <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Multiplicity="1" />
-          <End Role="CAT_KhachHang" Type="QuanLyKhoDongLucModel.CAT_KhachHang" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SYS_NguoiDung">
-              <PropertyRef Name="ID_nguoi_dung" />
-            </Principal>
-            <Dependent Role="CAT_KhachHang">
-              <PropertyRef Name="ID_nguoi_tao" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CAT_SanPham_CAT_KhachHang">
-          <End Role="CAT_KhachHang" Type="QuanLyKhoDongLucModel.CAT_KhachHang" Multiplicity="1" />
-          <End Role="CAT_SanPham" Type="QuanLyKhoDongLucModel.CAT_SanPham" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CAT_KhachHang">
-              <PropertyRef Name="ID_khach_hang" />
-            </Principal>
-            <Dependent Role="CAT_SanPham">
-              <PropertyRef Name="ID_khach_hang" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_IMP_PhieuNhap_CAT_NhaCungCap">
           <End Role="CAT_NhaCungCap" Type="QuanLyKhoDongLucModel.CAT_NhaCungCap" Multiplicity="0..1" />
           <End Role="IMP_PhieuNhap" Type="QuanLyKhoDongLucModel.IMP_PhieuNhap" Multiplicity="*" />
@@ -1731,24 +1693,49 @@
           <End Role="SYS_Quyen" Type="QuanLyKhoDongLucModel.SYS_Quyen" Multiplicity="*" />
           <End Role="SYS_VaiTro" Type="QuanLyKhoDongLucModel.SYS_VaiTro" Multiplicity="*" />
         </Association>
+        <EntityType Name="CAT_KhachHang">
+          <Key>
+            <PropertyRef Name="ID_khach_hang" />
+          </Key>
+          <Property Type="Int32" Name="ID_khach_hang" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Ho_dem" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dien_thoai" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Dia_chi" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_nguoi_tao" />
+          <NavigationProperty Name="SYS_NguoiDung" Relationship="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" FromRole="CAT_KhachHang" ToRole="SYS_NguoiDung" />
+          <NavigationProperty Name="CAT_SanPham" Relationship="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" FromRole="CAT_KhachHang" ToRole="CAT_SanPham" />
+        </EntityType>
+        <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
+          <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="0..1" />
+          <End Type="QuanLyKhoDongLucModel.CAT_KhachHang" Role="CAT_KhachHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYS_NguoiDung">
+              <PropertyRef Name="ID_nguoi_dung" />
+            </Principal>
+            <Dependent Role="CAT_KhachHang">
+              <PropertyRef Name="ID_nguoi_tao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAT_SanPham_CAT_KhachHang">
+          <End Type="QuanLyKhoDongLucModel.CAT_KhachHang" Role="CAT_KhachHang" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.CAT_SanPham" Role="CAT_SanPham" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_KhachHang">
+              <PropertyRef Name="ID_khach_hang" />
+            </Principal>
+            <Dependent Role="CAT_SanPham">
+              <PropertyRef Name="ID_khach_hang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QuanLyKhoDongLucModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="CAT_KhachHang">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.CAT_KhachHang">
-              <MappingFragment StoreEntitySet="CAT_KhachHang">
-                <ScalarProperty Name="ID_khach_hang" ColumnName="ID_khach_hang" />
-                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
-                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
-                <ScalarProperty Name="ID_nguoi_tao" ColumnName="ID_nguoi_tao" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CAT_NhaCungCap">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.CAT_NhaCungCap">
               <MappingFragment StoreEntitySet="CAT_NhaCungCap">
@@ -2046,6 +2033,18 @@
               <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="CAT_KhachHang">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.CAT_KhachHang">
+              <MappingFragment StoreEntitySet="CAT_KhachHang">
+                <ScalarProperty Name="ID_nguoi_tao" ColumnName="ID_nguoi_tao" />
+                <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+                <ScalarProperty Name="Dien_thoai" ColumnName="Dien_thoai" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
+                <ScalarProperty Name="ID_khach_hang" ColumnName="ID_khach_hang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2060,7 +2059,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

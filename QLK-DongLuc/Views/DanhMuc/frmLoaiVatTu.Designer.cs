@@ -106,10 +106,6 @@
             this.gridView});
             this.gridControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
             // 
-            // sTOLoaiVatTuBindingSource
-            // 
-            this.sTOLoaiVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_LoaiVatTu);
-            // 
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -162,10 +158,6 @@
             this.repositoryItemGridLookUpEdit1.NullValuePromptShowForEmptyValue = true;
             this.repositoryItemGridLookUpEdit1.ValueMember = "ID_nhom_vat_tu";
             this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            // 
-            // sTONhomVatTuBindingSource
-            // 
-            this.sTONhomVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_NhomVatTu);
             // 
             // repositoryItemGridLookUpEdit1View
             // 

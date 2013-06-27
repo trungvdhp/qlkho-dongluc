@@ -55,10 +55,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sTOKhoVatTuBindingSource
-            // 
-            this.sTOKhoVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_KhoVatTu);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;

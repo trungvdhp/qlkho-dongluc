@@ -16,11 +16,11 @@ namespace QLK_DongLuc.Models
     {
         public SYS_NguoiDung()
         {
-            this.CAT_KhachHang = new HashSet<CAT_KhachHang>();
             this.EXP_PhieuXuat = new HashSet<EXP_PhieuXuat>();
             this.IMP_PhieuNhap = new HashSet<IMP_PhieuNhap>();
             this.SYS_SuKienNguoiDung = new HashSet<SYS_SuKienNguoiDung>();
             this.SYS_VaiTro = new HashSet<SYS_VaiTro>();
+            this.CAT_KhachHang = new HashSet<CAT_KhachHang>();
         }
     
         public int ID_nguoi_dung { get; set; }
@@ -32,11 +32,11 @@ namespace QLK_DongLuc.Models
         public Nullable<System.DateTime> Lan_dang_nhap_cuoi { get; set; }
         public Nullable<System.TimeSpan> Thoi_gian_cho { get; set; }
     
-        public virtual ICollection<CAT_KhachHang> CAT_KhachHang { get; set; }
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
         public virtual ICollection<SYS_SuKienNguoiDung> SYS_SuKienNguoiDung { get; set; }
         public virtual ICollection<SYS_VaiTro> SYS_VaiTro { get; set; }
+        public virtual ICollection<CAT_KhachHang> CAT_KhachHang { get; set; }
     }
 }

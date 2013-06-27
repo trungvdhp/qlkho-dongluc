@@ -79,10 +79,6 @@
             this.gridView});
             this.gridControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
             // 
-            // sTONhomVatTuBindingSource
-            // 
-            this.sTONhomVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_NhomVatTu);
-            // 
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
