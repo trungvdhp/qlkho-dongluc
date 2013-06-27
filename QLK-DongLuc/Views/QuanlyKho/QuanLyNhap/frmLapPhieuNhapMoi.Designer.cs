@@ -130,7 +130,7 @@
             this.grvPhieuNhapCT.OptionsCustomization.AllowFilter = false;
             this.grvPhieuNhapCT.OptionsCustomization.AllowGroup = false;
             this.grvPhieuNhapCT.OptionsCustomization.AllowSort = false;
-            this.grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grvPhieuNhapCT.OptionsView.ShowGroupPanel = false;
             this.grvPhieuNhapCT.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPhieuNhapCT_ValidateRow);
             // 

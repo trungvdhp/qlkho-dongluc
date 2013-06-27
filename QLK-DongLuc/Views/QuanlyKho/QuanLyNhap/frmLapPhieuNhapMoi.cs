@@ -95,7 +95,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             if (ID_vat_tu.Equals(0))
             {
                 bError = true;
-                sError += "\n Chưa chọn vật tư. ";
+                sError += "\n Chưa chọn vật tư.";
             }
 
             var So_luong = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "So_luong");
@@ -106,7 +106,22 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 sError += "\n Số lượng phải lớn hơn 0.";
             }
 
+            int n = grvPhieuNhapCT.RowCount;
 
+            for (int i = 0; i < n; i++)
+            {
+                if (i != e.RowHandle)
+                {
+                    var id = grvPhieuNhapCT.GetRowCellValue(i, "ID_vat_tu");
+
+                    if (ID_vat_tu.Equals(id))
+                    {
+                        bError = true;
+                        sError += "\n Vật tư đã nhập phải khác với các vật tư đã chọn.";
+                        break;
+                    }
+                }
+            }
 
             if (bError)
             {
