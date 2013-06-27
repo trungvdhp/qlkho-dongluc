@@ -4,46 +4,57 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e1bf8f3abd3a4991b220384a2a5ef6ab" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhaCungCap" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhanVien" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_SanPham" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_LoaiXuat" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_PhieuXuat" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_PhieuXuatCT" Width="1.5" PointX="10.5" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_LoaiNhap" Width="1.5" PointX="3.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_PhieuNhap" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_PhieuNhapCT" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_KhoVatTu" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_KhoVatTuCT" Width="1.5" PointX="10.5" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_LoaiVatTu" Width="1.5" PointX="6" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_NhomVatTu" Width="1.5" PointX="3.75" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_VatTu" Width="1.5" PointX="8.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_NguoiDung" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_Quyen" Width="1.5" PointX="8.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_SuKienNguoiDung" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_VaiTro" Width="1.5" PointX="11" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.sysdiagram" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_NhanVien" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_NhanVien" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_SanPham" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_EXP_LoaiXuat" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_STO_KhoVatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuatCT_EXP_PhieuXuat" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuatCT_STO_VatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_IMP_LoaiNhap" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_STO_KhoVatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_IMP_PhieuNhap" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_KhoVatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_LoaiVatTu_STO_NhomVatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_VatTu_STO_LoaiVatTu" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" ManuallyRouted="false" />
+      <Diagram DiagramId="e1bf8f3abd3a4991b220384a2a5ef6ab" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" Width="1.5" PointX="7.5" PointY="23.125" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhaCungCap" Width="1.5" PointX="5.25" PointY="13.25" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhanVien" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_SanPham" Width="1.5" PointX="9.75" PointY="17" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_LoaiXuat" Width="1.5" PointX="9.75" PointY="11" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_PhieuXuat" Width="1.5" PointX="12" PointY="15.625" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.EXP_PhieuXuatCT" Width="1.5" PointX="14.25" PointY="16.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_LoaiNhap" Width="1.5" PointX="5.25" PointY="16.625" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_PhieuNhap" Width="1.5" PointX="7.5" PointY="13.375" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.IMP_PhieuNhapCT" Width="1.5" PointX="9.75" PointY="13.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_KhoVatTu" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_KhoVatTuCT" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_LoaiVatTu" Width="1.5" PointX="1.5" PointY="7.375" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_NhomVatTu" Width="1.5" PointX="1.5" PointY="4.5" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.STO_VatTu" Width="1.5" PointX="3.75" PointY="7.125" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_NguoiDung" Width="1.5" PointX="5.25" PointY="20.875" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_Quyen" Width="1.5" PointX="8.25" PointY="26.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_SuKienNguoiDung" Width="1.5" PointX="7.5" PointY="19.875" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.SYS_VaiTro" Width="1.5" PointX="10.5" PointY="21.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboKhachHang" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" Width="1.5" PointX="3.75" PointY="3.75" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_NhanVien_STO_KhoVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_NhanVien" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_NhanVien" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien1" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_SYS_NguoiDung_CAT_NhanVien" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_SanPham" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_EXP_LoaiXuat" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_STO_KhoVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_SYS_NguoiDung" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuatCT_EXP_PhieuXuat" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_EXP_PhieuXuatCT_STO_VatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_IMP_LoaiNhap" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_STO_KhoVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_SYS_NguoiDung" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_IMP_PhieuNhap" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_STO_VatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_KhoVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_LoaiVatTu_STO_NhomVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_VatTu_STO_LoaiVatTu" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" Width="1.5" PointX="3.4109661837159497" PointY="21.295567164800861" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

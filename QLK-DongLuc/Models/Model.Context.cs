@@ -44,6 +44,9 @@ namespace QLK_DongLuc.Models
         public DbSet<SYS_Quyen> SYS_Quyen { get; set; }
         public DbSet<SYS_SuKienNguoiDung> SYS_SuKienNguoiDung { get; set; }
         public DbSet<SYS_VaiTro> SYS_VaiTro { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<ViewCboKhachHang> ViewCboKhachHang { get; set; }
+        public DbSet<ViewCboNhanVien> ViewCboNhanVien { get; set; }
+        public DbSet<ViewCboVatTu> ViewCboVatTu { get; set; }
     }
 }

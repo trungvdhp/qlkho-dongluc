@@ -117,7 +117,7 @@ namespace QLK_DongLuc
 
         private void btnPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyNhap.frmPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmPhieuNhap();
+            QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi();
             OpenForm(frm, tabControl);
         }
     }
