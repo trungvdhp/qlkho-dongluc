@@ -36,7 +36,7 @@
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDon_gia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
@@ -58,12 +58,12 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -78,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChungTuNhap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -110,7 +109,7 @@
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1});
             this.grdPhieuNhapCT.Size = new System.Drawing.Size(784, 299);
-            this.grdPhieuNhapCT.TabIndex = 2;
+            this.grdPhieuNhapCT.TabIndex = 8;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
             // 
@@ -124,8 +123,7 @@
             this.grvPhieuNhapCT.Appearance.HeaderPanel.Options.UseFont = true;
             this.grvPhieuNhapCT.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID_vat_tu,
-            this.colSo_luong,
-            this.colDon_gia});
+            this.colSo_luong});
             this.grvPhieuNhapCT.GridControl = this.grdPhieuNhapCT;
             this.grvPhieuNhapCT.Name = "grvPhieuNhapCT";
             this.grvPhieuNhapCT.NewItemRowText = "Nhấn vào đây để thêm chi tiết phiếu nhập";
@@ -134,6 +132,7 @@
             this.grvPhieuNhapCT.OptionsCustomization.AllowSort = false;
             this.grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.grvPhieuNhapCT.OptionsView.ShowGroupPanel = false;
+            this.grvPhieuNhapCT.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPhieuNhapCT_ValidateRow);
             // 
             // colID_vat_tu
             // 
@@ -161,13 +160,34 @@
             this.colSo_luong.Visible = true;
             this.colSo_luong.VisibleIndex = 1;
             // 
-            // colDon_gia
+            // repositoryItemSpinEdit1
             // 
-            this.colDon_gia.Caption = "Đơn giá";
-            this.colDon_gia.FieldName = "Don_gia";
-            this.colDon_gia.Name = "colDon_gia";
-            this.colDon_gia.Visible = true;
-            this.colDon_gia.VisibleIndex = 2;
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit1.MaxLength = 20;
+            this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.repositoryItemSpinEdit1.NullText = "1";
+            this.repositoryItemSpinEdit1.NullValuePrompt = "Nhập số lượng vật tư nhập";
+            this.repositoryItemSpinEdit1.NullValuePromptShowForEmptyValue = true;
             // 
             // panelControl1
             // 
@@ -212,7 +232,7 @@
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(70, 25);
             this.btnLuu.TabIndex = 0;
-            this.btnLuu.Text = "Lưu ";
+            this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // tableLayoutPanel2
@@ -255,7 +275,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ledKhoNhap.Properties.NullText = "";
             this.ledKhoNhap.Size = new System.Drawing.Size(280, 20);
-            this.ledKhoNhap.TabIndex = 1;
+            this.ledKhoNhap.TabIndex = 2;
             // 
             // ledNhanVienNhap
             // 
@@ -273,7 +293,7 @@
             this.mmoGhiChu.Location = new System.Drawing.Point(95, 87);
             this.mmoGhiChu.Name = "mmoGhiChu";
             this.mmoGhiChu.Size = new System.Drawing.Size(280, 48);
-            this.mmoGhiChu.TabIndex = 2;
+            this.mmoGhiChu.TabIndex = 3;
             // 
             // labelControl4
             // 
@@ -321,7 +341,7 @@
             this.btnThemVatTuMoi.Location = new System.Drawing.Point(94, 113);
             this.btnThemVatTuMoi.Name = "btnThemVatTuMoi";
             this.btnThemVatTuMoi.Size = new System.Drawing.Size(280, 25);
-            this.btnThemVatTuMoi.TabIndex = 0;
+            this.btnThemVatTuMoi.TabIndex = 7;
             this.btnThemVatTuMoi.Text = "Thêm danh mục vật tư mới";
             this.btnThemVatTuMoi.Click += new System.EventHandler(this.btnThemVatTuMoi_Click);
             // 
@@ -333,7 +353,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ledNhaCungCap.Properties.NullText = "";
             this.ledNhaCungCap.Size = new System.Drawing.Size(280, 20);
-            this.ledNhaCungCap.TabIndex = 1;
+            this.ledNhaCungCap.TabIndex = 5;
             // 
             // dteNgayNhap
             // 
@@ -352,7 +372,7 @@
             this.dteNgayNhap.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteNgayNhap.Size = new System.Drawing.Size(280, 20);
-            this.dteNgayNhap.TabIndex = 5;
+            this.dteNgayNhap.TabIndex = 6;
             // 
             // txtChungTuNhap
             // 
@@ -385,23 +405,6 @@
             this.labelControl5.TabIndex = 1;
             this.labelControl5.Text = "Nhà cung cấp";
             // 
-            // repositoryItemSpinEdit1
-            // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
-            this.repositoryItemSpinEdit1.NullValuePrompt = "Nhập số lượng vật tư nhập";
-            this.repositoryItemSpinEdit1.NullValuePromptShowForEmptyValue = true;
-            // 
             // frmLapPhieuNhapMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,6 +420,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -433,7 +437,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChungTuNhap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -451,7 +454,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
         private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
-        private DevExpress.XtraGrid.Columns.GridColumn colDon_gia;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.LookUpEdit ledNhanVienNhap;
         private DevExpress.XtraEditors.MemoEdit mmoGhiChu;

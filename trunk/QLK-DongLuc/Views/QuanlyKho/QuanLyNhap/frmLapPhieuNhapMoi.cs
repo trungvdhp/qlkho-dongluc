@@ -26,20 +26,95 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
         }
 
-        private void btnLamLai_Click(object sender, EventArgs e)
+        private void KiemTraDuLieu(ref int result)
         {
-            //this.Refresh();
+            if (ledNhanVienNhap.EditValue == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn một nhân viên nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ledNhanVienNhap.Focus();
+                result = 0;
+                return;
+            }
+
+            if (ledKhoNhap.EditValue == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn một kho nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ledKhoNhap.Focus();
+                result = 0;
+                return;
+            }
+
+            if (ledNhaCungCap.EditValue == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ledNhaCungCap.Focus();
+                result = 0;
+                return;
+            }
+
+            result = 1;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            
+            int rs = 0;
+            KiemTraDuLieu(ref rs);
+
+            if (rs == 1)
+            {
+                rs = PhieuNhapCtrl.Insert(1, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuNhap.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1, 1, 0, 1, db);
+
+                if (rs < 1)
+                {
+                    XtraMessageBox.Show("Thêm phiếu nhập mới không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                
+
+            }
+        }
+
+        private void btnLamLai_Click(object sender, EventArgs e)
+        {
+            //this.Refresh();
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
         {
             frmVatTu frm = new frmVatTu();
             frm.ShowDialog();
+        }
+
+        private void grvPhieuNhapCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            bool bError = false;
+            string sError = "";
+
+            var ID_vat_tu = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "ID_vat_tu");
+
+            if (ID_vat_tu.Equals(0))
+            {
+                bError = true;
+                sError += "\n Chưa chọn vật tư. ";
+            }
+
+            var So_luong = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "So_luong");
+
+            if (So_luong == null || double.Parse(So_luong.ToString()) == 0)
+            {
+                bError = true;
+                sError += "\n Số lượng phải lớn hơn 0.";
+            }
+
+
+
+            if (bError)
+            {
+                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
+                e.Valid = false;
+                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }

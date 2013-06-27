@@ -78,7 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< .mine
+    <Compile Include="Controllers\PhieuNhapCtrl.cs" />
+=======
     <Compile Include="Controllers\LoaiVatTu.cs" />
+>>>>>>> .r33
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
     <Compile Include="Controllers\KhachHangCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCtrl.cs" />

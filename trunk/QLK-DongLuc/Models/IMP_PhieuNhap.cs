@@ -20,19 +20,18 @@ namespace QLK_DongLuc.Models
         }
     
         public int ID_phieu_nhap { get; set; }
-        public string Ma_hoa_don { get; set; }
         public string So_chung_tu_goc { get; set; }
         public int ID_loai_nhap { get; set; }
         public int ID_kho { get; set; }
-        public int ID_nha_cung_cap { get; set; }
-        public int ID_nhan_vien { get; set; }
+        public Nullable<int> ID_nha_cung_cap { get; set; }
+        public Nullable<int> ID_nhan_vien_lap { get; set; }
         public Nullable<int> ID_nhan_vien_nhap { get; set; }
         public System.DateTime Ngay_nhap { get; set; }
         public decimal Tong_tien { get; set; }
         public string Ghi_chu { get; set; }
         public int Trang_thai { get; set; }
-        public Nullable<System.DateTime> Ngay_sua { get; set; }
-        public Nullable<int> ID_nguoi_sua { get; set; }
+        public int ID_nguoi_sua { get; set; }
+        public System.DateTime Ngay_sua { get; set; }
     
         public virtual CAT_NhaCungCap CAT_NhaCungCap { get; set; }
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }

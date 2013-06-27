@@ -10,28 +10,26 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class VatTuCtrl
+    public class PhieuNhapCtrl
     {
         public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
         {
             if(db == null) db = new QuanLyKhoDongLucEntities();
-            bs.DataSource = db.STO_VatTu.ToList();
+            bs.DataSource = db.IMP_PhieuNhap.ToList();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
         {
             if (db == null) db = new QuanLyKhoDongLucEntities();
-            lookUpEdit.Properties.Columns.Clear();
-            lookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Mo_ta", "Mô tả"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
 
-            lookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-            lookUpEdit.Properties.ValueMember = "ID_vat_tu";
+            lookUpEdit.Properties.Columns.Clear();
+            lookUpEdit.Properties.DataSource = db.IMP_PhieuNhap.ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("", ""));
+
+            lookUpEdit.Properties.DisplayMember = "";
+            lookUpEdit.Properties.ValueMember = "";
             lookUpEdit.Properties.NullText = "";
-            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn phiếu nhập";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
@@ -41,46 +39,46 @@ namespace QLK_DongLuc.Controllers
 
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("", ""));
 
-            gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-            gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
+            gridLookUpEdit.Properties.DisplayMember = "";
+            gridLookUpEdit.Properties.ValueMember = "";
             gridLookUpEdit.Properties.NullText = "";
-            gridLookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
+            gridLookUpEdit.Properties.NullValuePrompt = "Chọn phiếu nhập";
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object ID_nhan_vien_nhap, object ID_nha_cung_cap, object ID_kho, object So_chung_tu_goc, object Ngay_nhap, object Ghi_chu, int ID_nguoi_sua, object ID_nhan_vien_lap = null, int Trang_thai = 0, int ID_loai_nhap = 1, QuanLyKhoDongLucEntities db = null)
         {
-            if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            if (ID_kho == null || Ngay_nhap == null) return 0;
 
             if (db == null) db = new QuanLyKhoDongLucEntities();
 
-            var entity = new STO_VatTu();
-            entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-            entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
+            var entity = new IMP_PhieuNhap();
 
-            if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+            entity.ID_kho = (int)ID_kho;
+            entity.Ngay_nhap = (DateTime)Ngay_nhap;
+            entity.ID_nguoi_sua = ID_nguoi_sua;
+            entity.Ngay_sua = DateTime.Now;
+            entity.Trang_thai = Trang_thai;
+            entity.ID_loai_nhap = ID_loai_nhap;
 
-            if (Don_vi != null)
+            if (ID_loai_nhap == 2)
             {
-                double dv;
-                double.TryParse(Don_vi.ToString(), out dv);
-                if (dv == 0)
-                    entity.Don_vi = null;
-                else
-                    entity.Don_vi = dv;
+                entity.ID_nha_cung_cap = null;
+                entity.So_chung_tu_goc = null;
             }
             else
             {
-                entity.Don_vi = null;
+                if (ID_nha_cung_cap != null) entity.ID_nha_cung_cap = (int)ID_nha_cung_cap;
+                if (So_chung_tu_goc != null) entity.So_chung_tu_goc = So_chung_tu_goc.ToString();
             }
 
-            if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            if (ID_nhan_vien_lap != null) entity.ID_nhan_vien_lap = (int)ID_nhan_vien_lap;
+            if (ID_nhan_vien_nhap != null) entity.ID_nhan_vien_nhap = (int)ID_nhan_vien_nhap;
+            if (Ghi_chu != null) entity.Ghi_chu = Ghi_chu.ToString();
 
-            db.STO_VatTu.Add(entity);
+            db.IMP_PhieuNhap.Add(entity);
 
             return db.SaveChanges();
         }

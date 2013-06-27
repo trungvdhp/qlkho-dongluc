@@ -21,8 +21,9 @@ namespace QLK_DongLuc.Controllers
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
         {
             if (db == null) db = new QuanLyKhoDongLucEntities();
-            lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
 
+            lookUpEdit.Properties.Columns.Clear();
+            lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
 
@@ -36,8 +37,9 @@ namespace QLK_DongLuc.Controllers
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, QuanLyKhoDongLucEntities db = null)
         {
             if (db == null) db = new QuanLyKhoDongLucEntities();
-            gridLookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
 
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
 
