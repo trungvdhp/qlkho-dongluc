@@ -199,6 +199,7 @@
             this.btnReset.Size = new System.Drawing.Size(70, 25);
             this.btnReset.TabIndex = 0;
             this.btnReset.Text = "Làm lại";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSave
             // 
@@ -377,7 +378,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLapPhieuNhapMoi";
-            this.Text = "LẬP PHIẾU NHẬP MỚI";
+            this.Text = "Lập phiếu nhập mới";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();

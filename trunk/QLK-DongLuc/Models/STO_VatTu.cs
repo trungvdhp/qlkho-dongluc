@@ -23,7 +23,7 @@ namespace QLK_DongLuc.Models
     
         public int ID_vat_tu { get; set; }
         public int ID_loai_vat_tu { get; set; }
-        public string Ma_va_tu { get; set; }
+        public string Ma_vat_tu { get; set; }
         public string Ten_vat_tu { get; set; }
         public Nullable<double> Don_vi { get; set; }
         public string Mo_ta { get; set; }
