@@ -39,7 +39,6 @@ namespace QLK_DongLuc.Models
         public DbSet<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }
         public DbSet<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }
         public DbSet<STO_NhomVatTu> STO_NhomVatTu { get; set; }
-        public DbSet<STO_TonDauKy> STO_TonDauKy { get; set; }
         public DbSet<STO_VatTu> STO_VatTu { get; set; }
         public DbSet<SYS_NguoiDung> SYS_NguoiDung { get; set; }
         public DbSet<SYS_Quyen> SYS_Quyen { get; set; }
@@ -50,5 +49,6 @@ namespace QLK_DongLuc.Models
         public DbSet<ViewCboNhanVien> ViewCboNhanVien { get; set; }
         public DbSet<ViewCboVatTu> ViewCboVatTu { get; set; }
         public DbSet<ViewCboLoaiVatTu> ViewCboLoaiVatTu { get; set; }
+        public DbSet<STO_TonDauKy> STO_TonDauKy { get; set; }
     }
 }

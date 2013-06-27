@@ -43,5 +43,10 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
 
         }
+
+        private void gridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
+        {
+
+        }
     }
 }
