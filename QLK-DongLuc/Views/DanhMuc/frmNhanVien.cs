@@ -36,7 +36,6 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
             Load_gridControl(false); 
-            sTOKhoVatTuBindingSource.DataSource = db.STO_KhoVatTu.ToList();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

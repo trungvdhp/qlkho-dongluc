@@ -34,7 +34,7 @@ namespace QLK_DongLuc.Models
 					if (!list_row.Contains((double)vattu.STO_VatTu.Don_vi))
 					{
 						list_row.Add((double)vattu.STO_VatTu.Don_vi);
-						row = dt.NewRow();
+						row = dt.Rows.Add();
 						i = dt.Rows.IndexOf(row);
 						dt.Rows[i]["Don_vi"] = (double)vattu.STO_VatTu.Don_vi;
 						dt.Rows[i][vattu.STO_VatTu.Ten_vat_tu] = vattu.SoLuong;
@@ -50,6 +50,7 @@ namespace QLK_DongLuc.Models
 						}
 					}
 				}
+				dt.Columns["Don_vi"].ColumnName = @"Khẩu độ\Chủng loại";
 				return dt;
 			}
 			return new DataTable();

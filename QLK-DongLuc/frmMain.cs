@@ -120,5 +120,11 @@ namespace QLK_DongLuc
             QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi();
             OpenForm(frm, tabControl);
         }
+
+		private void btnVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			QuanlyKho.QuanLyTonKho.frmTonKho frm = new QuanlyKho.QuanLyTonKho.frmTonKho();
+			OpenForm(frm, tabControl);
+		}
     }
 }
