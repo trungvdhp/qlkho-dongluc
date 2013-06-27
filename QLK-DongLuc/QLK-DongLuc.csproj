@@ -352,6 +352,9 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhanVien.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_LoaiVatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
