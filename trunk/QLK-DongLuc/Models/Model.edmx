@@ -152,6 +152,14 @@
             <End Role="STO_NhomVatTu" EntitySet="STO_NhomVatTu" />
             <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
           </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_STO_VatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
           <AssociationSet Name="FK_STO_VatTu_STO_LoaiVatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_VatTu_STO_LoaiVatTu">
             <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
             <End Role="STO_VatTu" EntitySet="STO_VatTu" />
@@ -346,10 +354,12 @@
           <Key>
             <PropertyRef Name="ID_vat_tu" />
             <PropertyRef Name="Ky" />
+            <PropertyRef Name="ID_kho" />
           </Key>
           <Property Name="ID_vat_tu" Type="int" Nullable="false" />
           <Property Name="Ky" Type="datetime" Nullable="false" />
           <Property Name="Ton_dau_ky" Type="float" Nullable="false" />
+          <Property Name="ID_kho" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="STO_VatTu">
           <Key>
@@ -755,6 +765,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu">
+          <End Role="STO_KhoVatTu" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTu" Multiplicity="1" />
+          <End Role="STO_TonDauKy" Type="QuanLyKhoDongLucModel.Store.STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_TonDauKy_STO_VatTu">
+          <End Role="STO_VatTu" Type="QuanLyKhoDongLucModel.Store.STO_VatTu" Multiplicity="1" />
+          <End Role="STO_TonDauKy" Type="QuanLyKhoDongLucModel.Store.STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STO_VatTu_STO_LoaiVatTu">
           <End Role="STO_LoaiVatTu" Type="QuanLyKhoDongLucModel.Store.STO_LoaiVatTu" Multiplicity="1" />
           <End Role="STO_VatTu" Type="QuanLyKhoDongLucModel.Store.STO_VatTu" Multiplicity="*" />
@@ -858,7 +892,6 @@
           <EntitySet Name="STO_KhoVatTuCT" EntityType="QuanLyKhoDongLucModel.STO_KhoVatTuCT" />
           <EntitySet Name="STO_LoaiVatTu" EntityType="QuanLyKhoDongLucModel.STO_LoaiVatTu" />
           <EntitySet Name="STO_NhomVatTu" EntityType="QuanLyKhoDongLucModel.STO_NhomVatTu" />
-          <EntitySet Name="STO_TonDauKy" EntityType="QuanLyKhoDongLucModel.STO_TonDauKy" />
           <EntitySet Name="STO_VatTu" EntityType="QuanLyKhoDongLucModel.STO_VatTu" />
           <EntitySet Name="SYS_NguoiDung" EntityType="QuanLyKhoDongLucModel.SYS_NguoiDung" />
           <EntitySet Name="SYS_Quyen" EntityType="QuanLyKhoDongLucModel.SYS_Quyen" />
@@ -977,6 +1010,15 @@
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
           <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
+          <EntitySet Name="STO_TonDauKy" EntityType="QuanLyKhoDongLucModel.STO_TonDauKy" />
+          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_STO_VatTu" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu">
+            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1144,6 +1186,7 @@
           <NavigationProperty Name="EXP_PhieuXuat" Relationship="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="EXP_PhieuXuat" />
           <NavigationProperty Name="IMP_PhieuNhap" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="IMP_PhieuNhap" />
           <NavigationProperty Name="STO_KhoVatTuCT" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="STO_KhoVatTuCT" />
+          <NavigationProperty Name="STO_TonDauKy" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="STO_TonDauKy" />
         </EntityType>
         <EntityType Name="STO_KhoVatTuCT">
           <Key>
@@ -1179,15 +1222,6 @@
           <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STO_LoaiVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_LoaiVatTu_STO_NhomVatTu" FromRole="STO_NhomVatTu" ToRole="STO_LoaiVatTu" />
         </EntityType>
-        <EntityType Name="STO_TonDauKy">
-          <Key>
-            <PropertyRef Name="ID_vat_tu" />
-            <PropertyRef Name="Ky" />
-          </Key>
-          <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
-          <Property Type="DateTime" Name="Ky" Nullable="false" Precision="3" />
-          <Property Type="Double" Name="Ton_dau_ky" Nullable="false" />
-        </EntityType>
         <EntityType Name="STO_VatTu">
           <Key>
             <PropertyRef Name="ID_vat_tu" />
@@ -1202,6 +1236,7 @@
           <NavigationProperty Name="IMP_PhieuNhapCT" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_STO_VatTu" FromRole="STO_VatTu" ToRole="IMP_PhieuNhapCT" />
           <NavigationProperty Name="STO_KhoVatTuCT" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu" FromRole="STO_VatTu" ToRole="STO_KhoVatTuCT" />
           <NavigationProperty Name="STO_LoaiVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_VatTu_STO_LoaiVatTu" FromRole="STO_VatTu" ToRole="STO_LoaiVatTu" />
+          <NavigationProperty Name="STO_TonDauKy" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu" FromRole="STO_VatTu" ToRole="STO_TonDauKy" />
         </EntityType>
         <EntityType Name="SYS_NguoiDung">
           <Key>
@@ -1622,6 +1657,43 @@
           <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="STO_TonDauKy">
+          <Key>
+            <PropertyRef Name="ID_vat_tu" />
+            <PropertyRef Name="Ky" />
+            <PropertyRef Name="ID_kho" />
+          </Key>
+          <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
+          <Property Type="DateTime" Name="Ky" Nullable="false" Precision="3" />
+          <Property Type="Double" Name="Ton_dau_ky" Nullable="false" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu" FromRole="STO_TonDauKy" ToRole="STO_KhoVatTu" />
+          <NavigationProperty Name="STO_VatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu" FromRole="STO_TonDauKy" ToRole="STO_VatTu" />
+        </EntityType>
+        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu">
+          <End Type="QuanLyKhoDongLucModel.STO_KhoVatTu" Role="STO_KhoVatTu" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_TonDauKy_STO_VatTu">
+          <End Type="QuanLyKhoDongLucModel.STO_VatTu" Role="STO_VatTu" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_VatTu">
+              <PropertyRef Name="ID_vat_tu" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_vat_tu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1800,15 +1872,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="STO_TonDauKy">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.STO_TonDauKy">
-              <MappingFragment StoreEntitySet="STO_TonDauKy">
-                <ScalarProperty Name="Ton_dau_ky" ColumnName="Ton_dau_ky" />
-                <ScalarProperty Name="Ky" ColumnName="Ky" />
-                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="STO_VatTu">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.STO_VatTu">
               <MappingFragment StoreEntitySet="STO_VatTu">
@@ -1934,6 +1997,16 @@
                 <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
                 <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
                 <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_TonDauKy">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.STO_TonDauKy">
+              <MappingFragment StoreEntitySet="STO_TonDauKy">
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="Ton_dau_ky" ColumnName="Ton_dau_ky" />
+                <ScalarProperty Name="Ky" ColumnName="Ky" />
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

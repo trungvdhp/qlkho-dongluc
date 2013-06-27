@@ -17,5 +17,9 @@ namespace QLK_DongLuc.Models
         public int ID_vat_tu { get; set; }
         public System.DateTime Ky { get; set; }
         public double Ton_dau_ky { get; set; }
+        public int ID_kho { get; set; }
+    
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
+        public virtual STO_VatTu STO_VatTu { get; set; }
     }
 }
