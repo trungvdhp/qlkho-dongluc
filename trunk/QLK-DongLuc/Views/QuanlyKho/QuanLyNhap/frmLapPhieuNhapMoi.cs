@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QLK_DongLuc.Controllers;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Views.DanhMuc;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
@@ -25,9 +26,20 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
+        private void btnLamLai_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            //this.Refresh();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnThemVatTuMoi_Click(object sender, EventArgs e)
+        {
+            frmVatTu frm = new frmVatTu();
+            frm.ShowDialog();
         }
     }
 }
