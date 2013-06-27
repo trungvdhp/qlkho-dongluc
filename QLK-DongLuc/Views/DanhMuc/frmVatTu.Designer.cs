@@ -29,112 +29,39 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.Dia_diem_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.Ten_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.ID_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemGridLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.sTOLoaiVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.repositoryItemGridLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colMa_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDon_vi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colMo_ta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTOVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.label2 = new System.Windows.Forms.Label();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dia_diem_edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ten_kho_edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ID_kho_edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTOLoaiVatTuBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.DisplayMember = "Ten_nhom_vat_tu";
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.ValueMember = "ID_nhom_vat_tu";
-            // 
-            // Dia_diem_edit
-            // 
-            this.Dia_diem_edit.AutoHeight = false;
-            this.Dia_diem_edit.Name = "Dia_diem_edit";
-            // 
-            // Ten_kho_edit
-            // 
-            this.Ten_kho_edit.AutoHeight = false;
-            this.Ten_kho_edit.Name = "Ten_kho_edit";
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Danh sách nhóm vật tư";
-            this.gridColumn1.FieldName = "Ten_nhom_vat_tu";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            // 
-            // repositoryItemGridLookUpEdit1View
-            // 
-            this.repositoryItemGridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1});
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // ID_kho_edit
-            // 
-            this.ID_kho_edit.AutoHeight = false;
-            this.ID_kho_edit.Name = "ID_kho_edit";
-            // 
-            // repositoryItemGridLookUpEdit1
-            // 
-            this.repositoryItemGridLookUpEdit1.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit1.DisplayMember = "Ten_nhom_vat_tu";
-            this.repositoryItemGridLookUpEdit1.Name = "repositoryItemGridLookUpEdit1";
-            this.repositoryItemGridLookUpEdit1.NullValuePromptShowForEmptyValue = true;
-            this.repositoryItemGridLookUpEdit1.ValueMember = "ID_nhom_vat_tu";
-            this.repositoryItemGridLookUpEdit1.View = this.repositoryItemGridLookUpEdit1View;
-            // 
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID_vat_tu,
             this.colID_loai_vat_tu,
+            this.colMa_vat_tu,
             this.colTen_vat_tu,
             this.colDon_vi,
             this.colMo_ta});
@@ -142,7 +69,6 @@
             this.gridView.Name = "gridView";
             this.gridView.NewItemRowText = "Thêm mới dữ liệu tại đây";
             this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -158,43 +84,26 @@
             // colID_loai_vat_tu
             // 
             this.colID_loai_vat_tu.Caption = "Loại vật tư";
-            this.colID_loai_vat_tu.ColumnEdit = this.repositoryItemGridLookUpEdit2;
+            this.colID_loai_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.colID_loai_vat_tu.FieldName = "ID_loai_vat_tu";
             this.colID_loai_vat_tu.Name = "colID_loai_vat_tu";
             this.colID_loai_vat_tu.Visible = true;
             this.colID_loai_vat_tu.VisibleIndex = 0;
             // 
-            // repositoryItemGridLookUpEdit2
+            // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemGridLookUpEdit2.AutoHeight = false;
-            this.repositoryItemGridLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemGridLookUpEdit2.DataSource = this.sTOLoaiVatTuBindingSource;
-            this.repositoryItemGridLookUpEdit2.DisplayMember = "Ten_loai_vat_tu";
-            this.repositoryItemGridLookUpEdit2.Name = "repositoryItemGridLookUpEdit2";
-            this.repositoryItemGridLookUpEdit2.ValueMember = "ID_loai_vat_tu";
-            this.repositoryItemGridLookUpEdit2.View = this.repositoryItemGridLookUpEdit2View;
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
-            // sTOLoaiVatTuBindingSource
+            // colMa_vat_tu
             // 
-            this.sTOLoaiVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_LoaiVatTu);
-            // 
-            // repositoryItemGridLookUpEdit2View
-            // 
-            this.repositoryItemGridLookUpEdit2View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn2});
-            this.repositoryItemGridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit2View.Name = "repositoryItemGridLookUpEdit2View";
-            this.repositoryItemGridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Danh sách loại vật tư";
-            this.gridColumn2.FieldName = "Ten_loai_vat_tu";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
+            this.colMa_vat_tu.Caption = "Mã vật tư";
+            this.colMa_vat_tu.FieldName = "Ma_vat_tu";
+            this.colMa_vat_tu.Name = "colMa_vat_tu";
+            this.colMa_vat_tu.Visible = true;
+            this.colMa_vat_tu.VisibleIndex = 2;
             // 
             // colTen_vat_tu
             // 
@@ -207,10 +116,26 @@
             // colDon_vi
             // 
             this.colDon_vi.Caption = "Khẩu độ";
+            this.colDon_vi.ColumnEdit = this.repositoryItemSpinEdit1;
             this.colDon_vi.FieldName = "Don_vi";
             this.colDon_vi.Name = "colDon_vi";
             this.colDon_vi.Visible = true;
-            this.colDon_vi.VisibleIndex = 2;
+            this.colDon_vi.VisibleIndex = 4;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
             // 
             // colMo_ta
             // 
@@ -224,17 +149,13 @@
             // 
             this.gridControl.DataSource = this.sTOVatTuBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridControl_EmbeddedNavigator_ButtonClick);
             this.gridControl.Location = new System.Drawing.Point(13, 83);
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTextEdit1,
-            this.Ten_kho_edit,
-            this.Dia_diem_edit,
-            this.ID_kho_edit,
-            this.repositoryItemLookUpEdit1,
-            this.repositoryItemGridLookUpEdit1,
-            this.repositoryItemGridLookUpEdit2});
+            this.repositoryItemSpinEdit1,
+            this.repositoryItemLookUpEdit1});
             this.gridControl.Size = new System.Drawing.Size(758, 265);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -280,6 +201,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chú thích:";
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl2.Location = new System.Drawing.Point(91, 28);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(301, 26);
+            this.labelControl2.TabIndex = 16;
+            this.labelControl2.Text = "Chủng loại: là tên của vật tư (VD: Chốt nhựa, Chốt đồng,  ...) \r\n                " +
+    "   hay chủng loại của Nan cửa (VD: L1.0, L1.2, ...)";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -287,8 +218,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(325, 26);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Nếu là vật tư thì không cần nhập, ngược lại\r\nNếu là chủng loại của Nan của thì ph" +
-    "ải nhập khẩu độ (3.2, 3.3, ...)";
+            this.label2.Text = "Nếu là vật tư thì không cần nhập khẩu độ, ngược lại\r\nNếu là chủng loại của Nan củ" +
+    "a thì phải nhập khẩu độ (3.2, 3.3, ...)";
             // 
             // labelControl3
             // 
@@ -317,16 +248,6 @@
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Loại vật tư: là tên của loại vật tư (VD: Chốt, Nan cửa cuốn ...) ";
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl2.Location = new System.Drawing.Point(91, 28);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(301, 26);
-            this.labelControl2.TabIndex = 16;
-            this.labelControl2.Text = "Chủng loại: là tên của vật tư (VD: Chốt nhựa, Chốt đồng,  ...) \r\n                " +
-    "   hay chủng loại của Nan cửa (VD: L1.0, L1.2, ...)";
-            // 
             // frmVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,17 +257,9 @@
             this.Name = "frmVatTu";
             this.Text = "Danh sách vật tư - chủng loại";
             this.Load += new System.EventHandler(this.frmVatTu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Dia_diem_edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Ten_kho_edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ID_kho_edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sTOLoaiVatTuBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit2View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -358,17 +271,8 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Dia_diem_edit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Ten_kho_edit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ID_kho_edit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.GridControl gridControl;
-        private System.Windows.Forms.BindingSource sTOLoaiVatTuBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colID_loai_vat_tu;
@@ -376,15 +280,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDon_vi;
         private DevExpress.XtraGrid.Columns.GridColumn colMo_ta;
         private System.Windows.Forms.BindingSource sTOVatTuBindingSource;
-        private DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit repositoryItemGridLookUpEdit2;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit2View;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMa_vat_tu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
 
 
     }
