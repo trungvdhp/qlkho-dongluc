@@ -21,6 +21,7 @@ namespace QLK_DongLuc.Models
             this.IMP_PhieuNhap = new HashSet<IMP_PhieuNhap>();
             this.STO_KhoVatTuCT = new HashSet<STO_KhoVatTuCT>();
             this.STO_TonDauKy = new HashSet<STO_TonDauKy>();
+            this.STO_TonDauKy1 = new HashSet<STO_TonDauKy>();
         }
     
         public int ID_kho { get; set; }
@@ -32,5 +33,6 @@ namespace QLK_DongLuc.Models
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
         public virtual ICollection<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }
         public virtual ICollection<STO_TonDauKy> STO_TonDauKy { get; set; }
+        public virtual ICollection<STO_TonDauKy> STO_TonDauKy1 { get; set; }
     }
 }
