@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Grid;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
@@ -78,60 +79,95 @@ namespace QLK_DongLuc.Controllers
             if (ID_nhan_vien_nhap != null) entity.ID_nhan_vien_nhap = (int)ID_nhan_vien_nhap;
             if (Ghi_chu != null) entity.Ghi_chu = Ghi_chu.ToString();
 
-            db.IMP_PhieuNhap.Add(entity);
+            var pn = (IMP_PhieuNhap)db.IMP_PhieuNhap.Add(entity);
+            db.SaveChanges();
 
-            return db.SaveChanges();
+            return pn.ID_phieu_nhap;
         }
 
-        public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
+        public static int AddDetails(int ID_phieu_nhap, GridView gridViewDetails, QuanLyKhoDongLucEntities db = null)
         {
-            if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            if(ID_phieu_nhap < 1) return 0;
 
             if (db == null) db = new QuanLyKhoDongLucEntities();
 
-            int id = (int)ID_vat_tu;
-            var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
+            int n = gridViewDetails.RowCount;
 
-            if (entity == null) return 0;
-
-            entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-            entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
-
-            if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
-
-            if (Don_vi != null)
+            for(int i = 0; i < n; i++)
             {
-                double dv;
-                double.TryParse(Don_vi.ToString(), out dv);
-                if (dv == 0)
-                    entity.Don_vi = null;
+                IMP_PhieuNhapCT entity = (IMP_PhieuNhapCT)gridViewDetails.GetRow(i);
+
+                if (entity == null || entity.ID_vat_tu == 0 || entity.So_luong == 0) continue;
+
+                if (entity.ID_phieu_nhap == 0)
+                {
+                    //Thêm mới
+                    entity.ID_phieu_nhap = ID_phieu_nhap;
+                    db.IMP_PhieuNhapCT.Add(entity);
+                }
                 else
-                    entity.Don_vi = dv;
+                {
+                    //Cập nhật
+                    var item = db.IMP_PhieuNhapCT.FirstOrDefault(t => t.ID_phieu_nhap == entity.ID_phieu_nhap && t.ID_vat_tu == entity.ID_vat_tu);
+                    if (item != null)
+                    {
+                        item = entity;
+                    }
+                }
             }
-            else
-            {
-                entity.Don_vi = null;
-            }
-
-            if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
 
             return db.SaveChanges();
         }
 
-        public static int Delete(object ID_vat_tu, QuanLyKhoDongLucEntities db = null)
-        {
-            if (ID_vat_tu == null) return 0;
+        //public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
+        //{
+        //    if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+        //    if (db == null) db = new QuanLyKhoDongLucEntities();
 
-            int id = (int)ID_vat_tu;
-            var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
+        //    int id = (int)ID_vat_tu;
+        //    var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
 
-            if (entity == null) return 0;
+        //    if (entity == null) return 0;
 
-            db.STO_VatTu.Remove(entity);
+        //    entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
+        //    entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
 
-            return db.SaveChanges();
-        }
+        //    if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+
+        //    if (Don_vi != null)
+        //    {
+        //        double dv;
+        //        double.TryParse(Don_vi.ToString(), out dv);
+        //        if (dv == 0)
+        //            entity.Don_vi = null;
+        //        else
+        //            entity.Don_vi = dv;
+        //    }
+        //    else
+        //    {
+        //        entity.Don_vi = null;
+        //    }
+
+        //    if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+
+        //    return db.SaveChanges();
+        //}
+
+        //public static int Delete(object ID_vat_tu, QuanLyKhoDongLucEntities db = null)
+        //{
+        //    if (ID_vat_tu == null) return 0;
+
+        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+
+        //    int id = (int)ID_vat_tu;
+        //    var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
+
+        //    if (entity == null) return 0;
+
+        //    db.STO_VatTu.Remove(entity);
+
+        //    return db.SaveChanges();
+        //}
     }
 }
