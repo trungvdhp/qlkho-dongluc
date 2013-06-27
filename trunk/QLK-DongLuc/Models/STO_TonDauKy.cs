@@ -12,12 +12,10 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class STO_TonDauKy
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID_vat_tu { get; set; }
+        public System.DateTime Ky { get; set; }
+        public double Ton_dau_ky { get; set; }
     }
 }
