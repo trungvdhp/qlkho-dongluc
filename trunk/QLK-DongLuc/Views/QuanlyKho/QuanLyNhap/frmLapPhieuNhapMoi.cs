@@ -16,7 +16,13 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
     public partial class frmLapPhieuNhapMoi : DevExpress.XtraEditors.XtraForm
     {
         QuanLyKhoDongLucEntities db;
+        
         public frmLapPhieuNhapMoi()
+        {
+            InitForm();
+        }
+
+        private void InitForm()
         {
             InitializeComponent();
             db = new QuanLyKhoDongLucEntities();
@@ -52,6 +58,14 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
+            if (grvPhieuNhapCT.RowCount < 2)
+            {
+                XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu nhập.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                grvPhieuNhapCT.Focus();
+                result = 0;
+                return;
+            }
+
             result = 1;
         }
 
@@ -64,19 +78,29 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 rs = PhieuNhapCtrl.Insert(1, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuNhap.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1, 1, 0, 1, db);
 
-                if (rs < 1)
+                if (rs == 0)
                 {
                     XtraMessageBox.Show("Thêm phiếu nhập mới không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                
 
+                rs = PhieuNhapCtrl.AddDetails(rs, grvPhieuNhapCT, db);
+
+                if (rs == 0)
+                {
+                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập mới không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                XtraMessageBox.Show("Thêm phiếu nhập mới thành công.", "Thêm phiếu nhập mới", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                btnLamLai.PerformClick();
             }
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
-            //this.Refresh();
+            Utilities.ResetControls(this);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
@@ -130,6 +154,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
