@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4d7e4984b3d54c0e94e9a891acff7a73" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" Width="1.5" PointX="7.5" PointY="24.375" IsExpanded="true" />
+      <Diagram DiagramId="4d7e4984b3d54c0e94e9a891acff7a73" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhaCungCap" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_NhanVien" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_SanPham" Width="1.5" PointX="9.75" PointY="18.375" IsExpanded="true" />
@@ -30,8 +29,6 @@
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" ManuallyRouted="false" />
-        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_NhanVien_STO_KhoVatTu" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_NhanVien" ManuallyRouted="false" />
@@ -60,6 +57,9 @@
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.CAT_KhachHang" Width="1.5" PointX="9.0115671702714479" PointY="17.752511464875429" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

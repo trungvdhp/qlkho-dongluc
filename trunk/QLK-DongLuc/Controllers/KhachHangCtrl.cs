@@ -32,5 +32,60 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn khách hàng";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
+
+        public static int Insert(object Ho_dem, object Ten, object Dien_thoai, object Dia_chi, object ID_nguoi_tao, QuanLyKhoDongLucEntities db = null)
+        {
+            if (Ho_dem == null || Ten == null) return 0;
+
+            if (db == null) db = new QuanLyKhoDongLucEntities();
+
+            var entity = new CAT_KhachHang();
+
+            entity.Ho_dem = Ho_dem.ToString().Trim();
+            entity.Ten = Ten.ToString().Trim();
+            entity.Dien_thoai = (Dien_thoai != null) ? Dien_thoai.ToString().Trim() : string.Empty;
+            entity.Dia_chi = (Dia_chi != null) ? Dia_chi.ToString().Trim() : string.Empty;
+            entity.ID_nguoi_tao = (int?)null;
+
+            db.CAT_KhachHang.Add(entity);
+
+            return db.SaveChanges();
+        }
+
+        public static int Update(object ID_khach_hang, object Ho_dem, object Ten, object Dien_thoai, object Dia_chi, object ID_nguoi_tao, QuanLyKhoDongLucEntities db = null)
+        {
+            if (ID_khach_hang == null) return 0;
+
+            if (db == null) db = new QuanLyKhoDongLucEntities();
+
+            int id = (int)ID_khach_hang;
+            var entity = db.CAT_KhachHang.FirstOrDefault(p => p.ID_khach_hang == id);
+
+            if (entity == null) return 0;
+
+            entity.Ho_dem = Ho_dem.ToString().Trim();
+            entity.Ten = Ten.ToString().Trim();
+            entity.Dien_thoai = (Dien_thoai != null) ? Dien_thoai.ToString().Trim() : string.Empty;
+            entity.Dia_chi = (Dia_chi != null) ? Dia_chi.ToString().Trim() : string.Empty;
+            entity.ID_nguoi_tao = (int?)null;
+
+            return db.SaveChanges();
+        }
+
+        public static int Delete(object ID_khach_hang, QuanLyKhoDongLucEntities db = null)
+        {
+            if (ID_khach_hang == null) return 0;
+
+            if (db == null) db = new QuanLyKhoDongLucEntities();
+
+            int id = (int)ID_khach_hang;
+            var entity = db.CAT_KhachHang.FirstOrDefault(p => p.ID_khach_hang == id);
+
+            if (entity == null) return 0;
+
+            db.CAT_KhachHang.Remove(entity);
+
+            return db.SaveChanges();
+        }
     }
 }
