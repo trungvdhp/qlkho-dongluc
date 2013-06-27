@@ -15,6 +15,7 @@
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -78,6 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\KhachHangCtrl.cs" />
+    <Compile Include="Controllers\KhoVatTuCtrl.cs" />
+    <Compile Include="Controllers\NhaCungCapCtrl.cs" />
+    <Compile Include="Controllers\NhanVienCtrl.cs" />
+    <Compile Include="Controllers\VatTuCtrl.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,10 +147,13 @@
     <Compile Include="Models\STO_NhomVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STO_TonDauKy.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STO_VatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_NguoiDung.cs">
@@ -158,6 +166,15 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_VaiTro.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewCboKhachHang.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewCboNhanVien.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewCboVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -252,6 +269,12 @@
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.Designer.cs">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.Designer.cs">
+      <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.resx">
+      <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.resx">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
