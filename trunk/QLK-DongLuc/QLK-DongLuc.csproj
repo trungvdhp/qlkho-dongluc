@@ -78,11 +78,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LoaiVatTu.cs" />
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
     <Compile Include="Controllers\KhachHangCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCtrl.cs" />
     <Compile Include="Controllers\NhaCungCapCtrl.cs" />
     <Compile Include="Controllers\NhanVienCtrl.cs" />
+    <Compile Include="Controllers\NhomVatTu.cs" />
     <Compile Include="Controllers\VatTuCtrl.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -291,6 +293,12 @@
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapDonGia.Designer.cs">
       <DependentUpon>frmNhapDonGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.Designer.cs">
+      <DependentUpon>frmTonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +365,9 @@
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.resx">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.resx">
+      <DependentUpon>frmTonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.resx">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
@@ -416,8 +427,40 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\QuanlyKho\QuanLyTonKho\" />
+    <Content Include="Images\Calendar_16x16.png" />
+    <Content Include="Images\Drafts_16x16.png" />
+    <Content Include="Images\Inbox_16x16.png" />
+    <Content Include="Images\Mail_32x32.png" />
+    <Content Include="Images\Organizer_32x32.png" />
+    <Content Include="Images\Outbox_16x16.png" />
+    <Content Include="Images\Ribbon_AlignCenter_16x16.png" />
+    <Content Include="Images\Ribbon_AlignLeft_16x16.png" />
+    <Content Include="Images\Ribbon_AlignRight_16x16.png" />
+    <Content Include="Images\Ribbon_Bold_16x16.png" />
+    <Content Include="Images\Ribbon_Close_16x16.png" />
+    <Content Include="Images\Ribbon_Close_32x32.png" />
+    <Content Include="Images\Ribbon_Content_16x16.png" />
+    <Content Include="Images\Ribbon_Content_32x32.png" />
+    <Content Include="Images\Ribbon_Exit_16x16.png" />
+    <Content Include="Images\Ribbon_Exit_32x32.png" />
+    <Content Include="Images\Ribbon_Find_16x16.png" />
+    <Content Include="Images\Ribbon_Find_32x32.png" />
+    <Content Include="Images\Ribbon_Info_16x16.png" />
+    <Content Include="Images\Ribbon_Info_32x32.png" />
+    <Content Include="Images\Ribbon_Italic_16x16.png" />
+    <Content Include="Images\Ribbon_New_16x16.png" />
+    <Content Include="Images\Ribbon_New_32x32.png" />
+    <Content Include="Images\Ribbon_Open_16x16.png" />
+    <Content Include="Images\Ribbon_Open_32x32.png" />
+    <Content Include="Images\Ribbon_SaveAs_16x16.png" />
+    <Content Include="Images\Ribbon_SaveAs_32x32.png" />
+    <Content Include="Images\Ribbon_Save_16x16.png" />
+    <Content Include="Images\Ribbon_Save_32x32.png" />
+    <Content Include="Images\Ribbon_Underline_16x16.png" />
+    <Content Include="Images\Tasks_16x16.png" />
+    <Content Include="Images\Trash_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

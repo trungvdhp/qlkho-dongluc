@@ -152,12 +152,16 @@
             <End Role="STO_NhomVatTu" EntitySet="STO_NhomVatTu" />
             <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
           </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_CAT_NhanVien" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
           <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_STO_KhoVatTu">
             <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
             <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
           </AssociationSet>
-          <AssociationSet Name="FK_STO_TonDauKy_STO_VatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_STO_VatTu">
-            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
+          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu1" Association="QuanLyKhoDongLucModel.Store.FK_STO_TonDauKy_STO_KhoVatTu1">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
             <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
           </AssociationSet>
           <AssociationSet Name="FK_STO_VatTu_STO_LoaiVatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_VatTu_STO_LoaiVatTu">
@@ -289,19 +293,18 @@
             <PropertyRef Name="ID_phieu_nhap" />
           </Key>
           <Property Name="ID_phieu_nhap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Ma_hoa_don" Type="nvarchar" MaxLength="20" />
           <Property Name="So_chung_tu_goc" Type="nvarchar" MaxLength="20" />
           <Property Name="ID_loai_nhap" Type="int" Nullable="false" />
           <Property Name="ID_kho" Type="int" Nullable="false" />
-          <Property Name="ID_nha_cung_cap" Type="int" Nullable="false" />
-          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
+          <Property Name="ID_nha_cung_cap" Type="int" />
+          <Property Name="ID_nhan_vien_lap" Type="int" />
           <Property Name="ID_nhan_vien_nhap" Type="int" />
           <Property Name="Ngay_nhap" Type="datetime" Nullable="false" />
           <Property Name="Tong_tien" Type="money" Nullable="false" />
           <Property Name="Ghi_chu" Type="ntext" />
           <Property Name="Trang_thai" Type="int" Nullable="false" />
-          <Property Name="Ngay_sua" Type="datetime" />
-          <Property Name="ID_nguoi_sua" Type="int" />
+          <Property Name="ID_nguoi_sua" Type="int" Nullable="false" />
+          <Property Name="Ngay_sua" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="IMP_PhieuNhapCT">
           <Key>
@@ -352,13 +355,11 @@
         </EntityType>
         <EntityType Name="STO_TonDauKy">
           <Key>
-            <PropertyRef Name="ID_vat_tu" />
-            <PropertyRef Name="Ky" />
-            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="ID_ton" />
           </Key>
-          <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="ID_ton" Type="int" Nullable="false" />
           <Property Name="Ky" Type="datetime" Nullable="false" />
-          <Property Name="Ton_dau_ky" Type="float" Nullable="false" />
+          <Property Name="ID_nhan_vien" Type="int" Nullable="false" />
           <Property Name="ID_kho" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="STO_VatTu">
@@ -634,7 +635,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_CAT_NhaCungCap">
-          <End Role="CAT_NhaCungCap" Type="QuanLyKhoDongLucModel.Store.CAT_NhaCungCap" Multiplicity="1" />
+          <End Role="CAT_NhaCungCap" Type="QuanLyKhoDongLucModel.Store.CAT_NhaCungCap" Multiplicity="0..1" />
           <End Role="IMP_PhieuNhap" Type="QuanLyKhoDongLucModel.Store.IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CAT_NhaCungCap">
@@ -646,14 +647,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_CAT_NhanVien">
-          <End Role="CAT_NhanVien" Type="QuanLyKhoDongLucModel.Store.CAT_NhanVien" Multiplicity="1" />
+          <End Role="CAT_NhanVien" Type="QuanLyKhoDongLucModel.Store.CAT_NhanVien" Multiplicity="0..1" />
           <End Role="IMP_PhieuNhap" Type="QuanLyKhoDongLucModel.Store.IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CAT_NhanVien">
               <PropertyRef Name="ID_nhan_vien" />
             </Principal>
             <Dependent Role="IMP_PhieuNhap">
-              <PropertyRef Name="ID_nhan_vien" />
+              <PropertyRef Name="ID_nhan_vien_lap" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -694,7 +695,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_SYS_NguoiDung">
-          <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="0..1" />
+          <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="1" />
           <End Role="IMP_PhieuNhap" Type="QuanLyKhoDongLucModel.Store.IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SYS_NguoiDung">
@@ -765,6 +766,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STO_TonDauKy_CAT_NhanVien">
+          <End Role="CAT_NhanVien" Type="QuanLyKhoDongLucModel.Store.CAT_NhanVien" Multiplicity="1" />
+          <End Role="STO_TonDauKy" Type="QuanLyKhoDongLucModel.Store.STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STO_TonDauKy_STO_KhoVatTu">
           <End Role="STO_KhoVatTu" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTu" Multiplicity="1" />
           <End Role="STO_TonDauKy" Type="QuanLyKhoDongLucModel.Store.STO_TonDauKy" Multiplicity="*" />
@@ -777,15 +790,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_STO_TonDauKy_STO_VatTu">
-          <End Role="STO_VatTu" Type="QuanLyKhoDongLucModel.Store.STO_VatTu" Multiplicity="1" />
+        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu1">
+          <End Role="STO_KhoVatTu" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTu" Multiplicity="1" />
           <End Role="STO_TonDauKy" Type="QuanLyKhoDongLucModel.Store.STO_TonDauKy" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="STO_VatTu">
-              <PropertyRef Name="ID_vat_tu" />
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
             </Principal>
             <Dependent Role="STO_TonDauKy">
-              <PropertyRef Name="ID_vat_tu" />
+              <PropertyRef Name="ID_kho" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -873,6 +886,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'QuanLyKhoDongLuc.dbo.STO_TonDauKyCT' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="STO_TonDauKyCT">
+        <Property Name="ID_vat_tu" Type="int" />
+        <Property Name="ID_ton" Type="int" />
+        <Property Name="So_luong" Type="float" />
+      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -892,6 +913,7 @@
           <EntitySet Name="STO_KhoVatTuCT" EntityType="QuanLyKhoDongLucModel.STO_KhoVatTuCT" />
           <EntitySet Name="STO_LoaiVatTu" EntityType="QuanLyKhoDongLucModel.STO_LoaiVatTu" />
           <EntitySet Name="STO_NhomVatTu" EntityType="QuanLyKhoDongLucModel.STO_NhomVatTu" />
+          <EntitySet Name="STO_TonDauKy" EntityType="QuanLyKhoDongLucModel.STO_TonDauKy" />
           <EntitySet Name="STO_VatTu" EntityType="QuanLyKhoDongLucModel.STO_VatTu" />
           <EntitySet Name="SYS_NguoiDung" EntityType="QuanLyKhoDongLucModel.SYS_NguoiDung" />
           <EntitySet Name="SYS_Quyen" EntityType="QuanLyKhoDongLucModel.SYS_Quyen" />
@@ -899,6 +921,7 @@
           <EntitySet Name="SYS_VaiTro" EntityType="QuanLyKhoDongLucModel.SYS_VaiTro" />
           <EntitySet Name="sysdiagrams" EntityType="QuanLyKhoDongLucModel.sysdiagrams" />
           <EntitySet Name="ViewCboKhachHang" EntityType="QuanLyKhoDongLucModel.ViewCboKhachHang" />
+          <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" />
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" />
           <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung">
@@ -932,6 +955,10 @@
           <AssociationSet Name="FK_IMP_PhieuNhap_CAT_NhanVien1" Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien1">
             <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
             <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_CAT_NhanVien" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_CAT_NhanVien">
+            <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
           </AssociationSet>
           <AssociationSet Name="FK_SYS_NguoiDung_CAT_NhanVien" Association="QuanLyKhoDongLucModel.FK_SYS_NguoiDung_CAT_NhanVien">
             <End Role="CAT_NhanVien" EntitySet="CAT_NhanVien" />
@@ -985,6 +1012,14 @@
             <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
             <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
           </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu1" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu1">
+            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
+            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
+          </AssociationSet>
           <AssociationSet Name="FK_STO_KhoVatTuCT_STO_VatTu" Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu">
             <End Role="STO_VatTu" EntitySet="STO_VatTu" />
             <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
@@ -1008,16 +1043,6 @@
           <AssociationSet Name="SYS_VaiTroQuyen" Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen">
             <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
-          </AssociationSet>
-          <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
-          <EntitySet Name="STO_TonDauKy" EntityType="QuanLyKhoDongLucModel.STO_TonDauKy" />
-          <AssociationSet Name="FK_STO_TonDauKy_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu">
-            <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
-            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STO_TonDauKy_STO_VatTu" Association="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu">
-            <End Role="STO_VatTu" EntitySet="STO_VatTu" />
-            <End Role="STO_TonDauKy" EntitySet="STO_TonDauKy" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
@@ -1068,6 +1093,7 @@
           <NavigationProperty Name="EXP_PhieuXuat" Relationship="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="EXP_PhieuXuat" />
           <NavigationProperty Name="IMP_PhieuNhap" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="IMP_PhieuNhap" />
           <NavigationProperty Name="IMP_PhieuNhap1" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien1" FromRole="CAT_NhanVien" ToRole="IMP_PhieuNhap" />
+          <NavigationProperty Name="STO_TonDauKy" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="STO_TonDauKy" />
           <NavigationProperty Name="SYS_NguoiDung" Relationship="QuanLyKhoDongLucModel.FK_SYS_NguoiDung_CAT_NhanVien" FromRole="CAT_NhanVien" ToRole="SYS_NguoiDung" />
         </EntityType>
         <EntityType Name="CAT_SanPham">
@@ -1142,19 +1168,18 @@
             <PropertyRef Name="ID_phieu_nhap" />
           </Key>
           <Property Type="Int32" Name="ID_phieu_nhap" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Ma_hoa_don" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="So_chung_tu_goc" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ID_loai_nhap" Nullable="false" />
           <Property Type="Int32" Name="ID_kho" Nullable="false" />
-          <Property Type="Int32" Name="ID_nha_cung_cap" Nullable="false" />
-          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
+          <Property Type="Int32" Name="ID_nha_cung_cap" />
+          <Property Type="Int32" Name="ID_nhan_vien_lap" />
           <Property Type="Int32" Name="ID_nhan_vien_nhap" />
           <Property Type="DateTime" Name="Ngay_nhap" Nullable="false" Precision="3" />
           <Property Type="Decimal" Name="Tong_tien" Nullable="false" Precision="19" Scale="4" />
           <Property Type="String" Name="Ghi_chu" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Trang_thai" Nullable="false" />
-          <Property Type="DateTime" Name="Ngay_sua" Precision="3" />
-          <Property Type="Int32" Name="ID_nguoi_sua" />
+          <Property Type="Int32" Name="ID_nguoi_sua" Nullable="false" />
+          <Property Type="DateTime" Name="Ngay_sua" Nullable="false" Precision="3" />
           <NavigationProperty Name="CAT_NhaCungCap" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap" FromRole="IMP_PhieuNhap" ToRole="CAT_NhaCungCap" />
           <NavigationProperty Name="CAT_NhanVien" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien" FromRole="IMP_PhieuNhap" ToRole="CAT_NhanVien" />
           <NavigationProperty Name="CAT_NhanVien1" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhanVien1" FromRole="IMP_PhieuNhap" ToRole="CAT_NhanVien" />
@@ -1187,6 +1212,7 @@
           <NavigationProperty Name="IMP_PhieuNhap" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="IMP_PhieuNhap" />
           <NavigationProperty Name="STO_KhoVatTuCT" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="STO_KhoVatTuCT" />
           <NavigationProperty Name="STO_TonDauKy" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu" FromRole="STO_KhoVatTu" ToRole="STO_TonDauKy" />
+          <NavigationProperty Name="STO_TonDauKy1" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu1" FromRole="STO_KhoVatTu" ToRole="STO_TonDauKy" />
         </EntityType>
         <EntityType Name="STO_KhoVatTuCT">
           <Key>
@@ -1222,6 +1248,18 @@
           <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STO_LoaiVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_LoaiVatTu_STO_NhomVatTu" FromRole="STO_NhomVatTu" ToRole="STO_LoaiVatTu" />
         </EntityType>
+        <EntityType Name="STO_TonDauKy">
+          <Key>
+            <PropertyRef Name="ID_ton" />
+          </Key>
+          <Property Type="Int32" Name="ID_ton" Nullable="false" />
+          <Property Type="DateTime" Name="Ky" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <NavigationProperty Name="CAT_NhanVien" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_CAT_NhanVien" FromRole="STO_TonDauKy" ToRole="CAT_NhanVien" />
+          <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu" FromRole="STO_TonDauKy" ToRole="STO_KhoVatTu" />
+          <NavigationProperty Name="STO_KhoVatTu1" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu1" FromRole="STO_TonDauKy" ToRole="STO_KhoVatTu" />
+        </EntityType>
         <EntityType Name="STO_VatTu">
           <Key>
             <PropertyRef Name="ID_vat_tu" />
@@ -1236,7 +1274,6 @@
           <NavigationProperty Name="IMP_PhieuNhapCT" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_STO_VatTu" FromRole="STO_VatTu" ToRole="IMP_PhieuNhapCT" />
           <NavigationProperty Name="STO_KhoVatTuCT" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu" FromRole="STO_VatTu" ToRole="STO_KhoVatTuCT" />
           <NavigationProperty Name="STO_LoaiVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_VatTu_STO_LoaiVatTu" FromRole="STO_VatTu" ToRole="STO_LoaiVatTu" />
-          <NavigationProperty Name="STO_TonDauKy" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu" FromRole="STO_VatTu" ToRole="STO_TonDauKy" />
         </EntityType>
         <EntityType Name="SYS_NguoiDung">
           <Key>
@@ -1312,6 +1349,17 @@
           <Property Type="String" Name="Dia_chi" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Dien_thoai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="ViewCboLoaiVatTu">
+          <Key>
+            <PropertyRef Name="ID_loai_vat_tu" />
+            <PropertyRef Name="Ten_loai_vat_tu" />
+            <PropertyRef Name="Ten_nhom_vat_tu" />
+          </Key>
+          <Property Type="Int32" Name="ID_loai_vat_tu" Nullable="false" />
+          <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="ViewCboNhanVien">
           <Key>
             <PropertyRef Name="ID_nhan_vien" />
@@ -1363,7 +1411,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_CAT_NhaCungCap">
-          <End Type="QuanLyKhoDongLucModel.CAT_NhaCungCap" Role="CAT_NhaCungCap" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.CAT_NhaCungCap" Role="CAT_NhaCungCap" Multiplicity="0..1" />
           <End Type="QuanLyKhoDongLucModel.IMP_PhieuNhap" Role="IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CAT_NhaCungCap">
@@ -1411,14 +1459,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_CAT_NhanVien">
-          <End Type="QuanLyKhoDongLucModel.CAT_NhanVien" Role="CAT_NhanVien" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.CAT_NhanVien" Role="CAT_NhanVien" Multiplicity="0..1" />
           <End Type="QuanLyKhoDongLucModel.IMP_PhieuNhap" Role="IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CAT_NhanVien">
               <PropertyRef Name="ID_nhan_vien" />
             </Principal>
             <Dependent Role="IMP_PhieuNhap">
-              <PropertyRef Name="ID_nhan_vien" />
+              <PropertyRef Name="ID_nhan_vien_lap" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1431,6 +1479,18 @@
             </Principal>
             <Dependent Role="IMP_PhieuNhap">
               <PropertyRef Name="ID_nhan_vien_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_TonDauKy_CAT_NhanVien">
+          <End Type="QuanLyKhoDongLucModel.CAT_NhanVien" Role="CAT_NhanVien" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAT_NhanVien">
+              <PropertyRef Name="ID_nhan_vien" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_nhan_vien" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1543,7 +1603,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_IMP_PhieuNhap_SYS_NguoiDung">
-          <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="0..1" />
+          <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="1" />
           <End Type="QuanLyKhoDongLucModel.IMP_PhieuNhap" Role="IMP_PhieuNhap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SYS_NguoiDung">
@@ -1586,6 +1646,30 @@
               <PropertyRef Name="ID_kho" />
             </Principal>
             <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu">
+          <End Type="QuanLyKhoDongLucModel.STO_KhoVatTu" Role="STO_KhoVatTu" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
+              <PropertyRef Name="ID_kho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu1">
+          <End Type="QuanLyKhoDongLucModel.STO_KhoVatTu" Role="STO_KhoVatTu" Multiplicity="1" />
+          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STO_KhoVatTu">
+              <PropertyRef Name="ID_kho" />
+            </Principal>
+            <Dependent Role="STO_TonDauKy">
               <PropertyRef Name="ID_kho" />
             </Dependent>
           </ReferentialConstraint>
@@ -1645,54 +1729,6 @@
         <Association Name="SYS_VaiTroQuyen">
           <End Type="QuanLyKhoDongLucModel.SYS_Quyen" Role="SYS_Quyen" Multiplicity="*" />
           <End Type="QuanLyKhoDongLucModel.SYS_VaiTro" Role="SYS_VaiTro" Multiplicity="*" />
-        </Association>
-        <EntityType Name="ViewCboLoaiVatTu">
-          <Key>
-            <PropertyRef Name="ID_loai_vat_tu" />
-            <PropertyRef Name="Ten_loai_vat_tu" />
-            <PropertyRef Name="Ten_nhom_vat_tu" />
-          </Key>
-          <Property Type="Int32" Name="ID_loai_vat_tu" Nullable="false" />
-          <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="STO_TonDauKy">
-          <Key>
-            <PropertyRef Name="ID_vat_tu" />
-            <PropertyRef Name="Ky" />
-            <PropertyRef Name="ID_kho" />
-          </Key>
-          <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
-          <Property Type="DateTime" Name="Ky" Nullable="false" Precision="3" />
-          <Property Type="Double" Name="Ton_dau_ky" Nullable="false" />
-          <Property Type="Int32" Name="ID_kho" Nullable="false" />
-          <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_KhoVatTu" FromRole="STO_TonDauKy" ToRole="STO_KhoVatTu" />
-          <NavigationProperty Name="STO_VatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_TonDauKy_STO_VatTu" FromRole="STO_TonDauKy" ToRole="STO_VatTu" />
-        </EntityType>
-        <Association Name="FK_STO_TonDauKy_STO_KhoVatTu">
-          <End Type="QuanLyKhoDongLucModel.STO_KhoVatTu" Role="STO_KhoVatTu" Multiplicity="1" />
-          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STO_KhoVatTu">
-              <PropertyRef Name="ID_kho" />
-            </Principal>
-            <Dependent Role="STO_TonDauKy">
-              <PropertyRef Name="ID_kho" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_STO_TonDauKy_STO_VatTu">
-          <End Type="QuanLyKhoDongLucModel.STO_VatTu" Role="STO_VatTu" Multiplicity="1" />
-          <End Type="QuanLyKhoDongLucModel.STO_TonDauKy" Role="STO_TonDauKy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="STO_VatTu">
-              <PropertyRef Name="ID_vat_tu" />
-            </Principal>
-            <Dependent Role="STO_TonDauKy">
-              <PropertyRef Name="ID_vat_tu" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -1805,19 +1841,18 @@
           <EntitySetMapping Name="IMP_PhieuNhap">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.IMP_PhieuNhap">
               <MappingFragment StoreEntitySet="IMP_PhieuNhap">
-                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
                 <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
+                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
                 <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
                 <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
                 <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
                 <ScalarProperty Name="Ngay_nhap" ColumnName="Ngay_nhap" />
                 <ScalarProperty Name="ID_nhan_vien_nhap" ColumnName="ID_nhan_vien_nhap" />
-                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="ID_nhan_vien_lap" ColumnName="ID_nhan_vien_lap" />
                 <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
                 <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
                 <ScalarProperty Name="ID_loai_nhap" ColumnName="ID_loai_nhap" />
                 <ScalarProperty Name="So_chung_tu_goc" ColumnName="So_chung_tu_goc" />
-                <ScalarProperty Name="Ma_hoa_don" ColumnName="Ma_hoa_don" />
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1869,6 +1904,16 @@
                 <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
                 <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
                 <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STO_TonDauKy">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.STO_TonDauKy">
+              <MappingFragment StoreEntitySet="STO_TonDauKy">
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="Ky" ColumnName="Ky" />
+                <ScalarProperty Name="ID_ton" ColumnName="ID_ton" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1951,6 +1996,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ViewCboLoaiVatTu">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiVatTu">
+              <MappingFragment StoreEntitySet="ViewCboLoaiVatTu">
+                <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
+                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ViewCboNhanVien">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboNhanVien">
               <MappingFragment StoreEntitySet="ViewCboNhanVien">
@@ -1990,26 +2045,6 @@
               <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="ViewCboLoaiVatTu">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiVatTu">
-              <MappingFragment StoreEntitySet="ViewCboLoaiVatTu">
-                <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
-                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
-                <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
-                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="STO_TonDauKy">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.STO_TonDauKy">
-              <MappingFragment StoreEntitySet="STO_TonDauKy">
-                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
-                <ScalarProperty Name="Ton_dau_ky" ColumnName="Ton_dau_ky" />
-                <ScalarProperty Name="Ky" ColumnName="Ky" />
-                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
