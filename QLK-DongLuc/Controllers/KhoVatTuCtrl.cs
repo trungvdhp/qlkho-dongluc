@@ -28,6 +28,7 @@ namespace QLK_DongLuc.Controllers
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
         {
             if (db == null) db = new QuanLyKhoDongLucEntities();
+            lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.STO_KhoVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_diem", "Địa điểm"));

@@ -20,6 +20,7 @@ namespace QLK_DongLuc.Controllers
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
         {
             if (db == null) db = new QuanLyKhoDongLucEntities();
+            lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.CAT_NhaCungCap.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nha_cung_cap", "Nhà cung cấp"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nguoi_dai_dien", "Người đại diện"));
