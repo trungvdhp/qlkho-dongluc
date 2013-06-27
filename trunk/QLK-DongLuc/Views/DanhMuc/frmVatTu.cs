@@ -104,7 +104,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (ID_loai_vat_tu.Equals(0))
             {
                 bError = true;
-                sError += "\nChưa chọn loại vật tư. ";
+                sError += "\n Chưa chọn loại vật tư. ";
             }
 
             var Ten_vat_tu = gridView.GetRowCellValue(e.RowHandle, "Ten_vat_tu");
@@ -112,13 +112,14 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (Ten_vat_tu == null || Ten_vat_tu.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "\nChưa điền tên vật tư (chủng loại). ";
+                sError += "\n Chưa điền tên vật tư (chủng loại). ";
             }
 
             if (bError)
             {
+                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
-                XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
