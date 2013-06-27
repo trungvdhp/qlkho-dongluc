@@ -129,6 +129,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\STO_KhoVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
