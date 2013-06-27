@@ -36,7 +36,7 @@
             this.colMa_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDon_vi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colMo_ta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTOVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,7 +49,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -116,26 +116,33 @@
             // colDon_vi
             // 
             this.colDon_vi.Caption = "Khẩu độ";
-            this.colDon_vi.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.colDon_vi.ColumnEdit = this.repositoryItemSpinEdit2;
             this.colDon_vi.FieldName = "Don_vi";
             this.colDon_vi.Name = "colDon_vi";
             this.colDon_vi.Visible = true;
-            this.colDon_vi.VisibleIndex = 4;
+            this.colDon_vi.VisibleIndex = 3;
             // 
-            // repositoryItemSpinEdit1
+            // repositoryItemSpinEdit2
             // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
-            1,
+            this.repositoryItemSpinEdit2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit2.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit2.Increment = new decimal(new int[] {
+            5,
             0,
             0,
             65536});
-            this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.repositoryItemSpinEdit2.MaxLength = 10;
+            this.repositoryItemSpinEdit2.MaxValue = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            this.repositoryItemSpinEdit2.NullValuePrompt = "Nhập khẩu độ";
+            this.repositoryItemSpinEdit2.NullValuePromptShowForEmptyValue = true;
             // 
             // colMo_ta
             // 
@@ -143,7 +150,7 @@
             this.colMo_ta.FieldName = "Mo_ta";
             this.colMo_ta.Name = "colMo_ta";
             this.colMo_ta.Visible = true;
-            this.colMo_ta.VisibleIndex = 3;
+            this.colMo_ta.VisibleIndex = 4;
             // 
             // gridControl
             // 
@@ -154,8 +161,8 @@
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemSpinEdit1,
-            this.repositoryItemLookUpEdit1});
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemSpinEdit2});
             this.gridControl.Size = new System.Drawing.Size(758, 265);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -259,7 +266,7 @@
             this.Load += new System.EventHandler(this.frmVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -287,8 +294,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.Columns.GridColumn colMa_vat_tu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
 
 
     }

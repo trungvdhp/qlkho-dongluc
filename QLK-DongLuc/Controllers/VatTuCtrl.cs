@@ -63,7 +63,19 @@ namespace QLK_DongLuc.Controllers
 
             if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
 
-            if (Don_vi != null && Don_vi != "") entity.Don_vi = double.Parse(Don_vi.ToString());
+            if (Don_vi != null)
+            {
+                double dv;
+                double.TryParse(Don_vi.ToString(), out dv);
+                if (dv == 0)
+                    entity.Don_vi = null;
+                else
+                    entity.Don_vi = dv;
+            }
+            else
+            {
+                entity.Don_vi = null;
+            }
 
             if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
 
@@ -88,7 +100,19 @@ namespace QLK_DongLuc.Controllers
 
             if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
 
-            if (Don_vi != null && Don_vi != "") entity.Don_vi = double.Parse(Don_vi.ToString());
+            if (Don_vi != null)
+            {
+                double dv;
+                double.TryParse(Don_vi.ToString(), out dv);
+                if (dv == 0)
+                    entity.Don_vi = null;
+                else
+                    entity.Don_vi = dv;
+            }
+            else
+            {
+                entity.Don_vi = null;
+            }
 
             if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
 
