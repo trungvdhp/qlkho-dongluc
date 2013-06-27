@@ -78,11 +78,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< .mine
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
-=======
     <Compile Include="Controllers\LoaiVatTu.cs" />
->>>>>>> .r33
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
     <Compile Include="Controllers\KhachHangCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCtrl.cs" />
@@ -126,6 +123,7 @@
     <Compile Include="Models\IMP_PhieuNhapCT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,7 +139,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\STO_KhoVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

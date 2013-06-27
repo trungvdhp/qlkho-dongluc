@@ -14,12 +14,13 @@ namespace QLK_DongLuc.Models
     
     public partial class STO_TonDauKy
     {
-        public int ID_vat_tu { get; set; }
+        public int ID_ton { get; set; }
         public System.DateTime Ky { get; set; }
-        public double Ton_dau_ky { get; set; }
+        public int ID_nhan_vien { get; set; }
         public int ID_kho { get; set; }
     
+        public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
-        public virtual STO_VatTu STO_VatTu { get; set; }
+        public virtual STO_KhoVatTu STO_KhoVatTu1 { get; set; }
     }
 }
