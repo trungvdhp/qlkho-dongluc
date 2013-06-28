@@ -15,5 +15,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             InitializeComponent();
         }
+
+        private void frmDanhSachPhieuNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
