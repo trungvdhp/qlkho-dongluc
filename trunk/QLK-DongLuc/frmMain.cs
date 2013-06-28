@@ -133,17 +133,48 @@ namespace QLK_DongLuc
             OpenForm(frm, tabControl);
         }
 
-		private void btnTonDauKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			QuanlyKho.QuanLyTonKho.frmTonDauKy frm = new QuanlyKho.QuanLyTonKho.frmTonDauKy();
-			OpenForm(frm, tabControl);
-		}
+        private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HeThong.frmDangNhap frm = new HeThong.frmDangNhap();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                btnDangNhap.Enabled = false;
+                btnDangXuat.Enabled = true;
+                btnDoiMatKhau.Enabled = true;
 
-		private void btnGhiTonDauKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
+                if (Program.CurrentUser.ID_nhan_vien == null)
+                {
+                    btnQuanLyNguoiDung.Enabled = true;
+                    btnNhatKy.Enabled = true;
+                    btnNhacNho.Enabled = true;
+                    btnSaoLuu.Enabled = true;
+                    btnCauHinh.Enabled = true;
+                    btnPhucHoi.Enabled = true;
+                }
+                else
+                {
+                    btnQuanLyNguoiDung.Enabled = false; 
+                    btnNhatKy.Enabled = false;
+                    btnNhacNho.Enabled = false;
+                    btnSaoLuu.Enabled = false;
+                    btnCauHinh.Enabled = false;
+                    btnPhucHoi.Enabled = false;
+                }
+            }
+        }
 
-			QuanlyKho.QuanLyTonKho.frmTonKho frm = new QuanlyKho.QuanLyTonKho.frmTonKho();
-			OpenForm(frm, tabControl);
-		}
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.CurrentUser = null;
+            XtraMessageBox.Show("Đăng xuất thành công khỏi hệ thống!", "Đăng xuất thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            btnDangNhap.Enabled = true;
+            btnDangNhap.PerformClick();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            btnDangNhap.PerformClick();
+        }
     }
 }

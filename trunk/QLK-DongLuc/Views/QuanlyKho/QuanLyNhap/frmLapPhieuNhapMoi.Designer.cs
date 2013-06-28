@@ -416,7 +416,6 @@
             this.MinimizeBox = false;
             this.Name = "frmLapPhieuNhapMoi";
             this.Text = "Lập phiếu nhập mới";
-            this.Load += new System.EventHandler(this.frmLapPhieuNhapMoi_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();

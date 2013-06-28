@@ -44,7 +44,6 @@
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSetPassword = new DevExpress.XtraEditors.SimpleButton();
             this.btnSetTimeOut = new DevExpress.XtraEditors.SimpleButton();
             this.btnMoTaiKhoan = new DevExpress.XtraEditors.SimpleButton();
             this.btnKhoa = new DevExpress.XtraEditors.SimpleButton();
@@ -238,7 +237,6 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.btnSetPassword);
             this.panelControl1.Controls.Add(this.btnSetTimeOut);
             this.panelControl1.Controls.Add(this.btnMoTaiKhoan);
             this.panelControl1.Controls.Add(this.btnKhoa);
@@ -251,21 +249,14 @@
             this.panelControl1.Size = new System.Drawing.Size(855, 40);
             this.panelControl1.TabIndex = 12;
             // 
-            // btnSetPassword
-            // 
-            this.btnSetPassword.Location = new System.Drawing.Point(376, 8);
-            this.btnSetPassword.Name = "btnSetPassword";
-            this.btnSetPassword.Size = new System.Drawing.Size(107, 25);
-            this.btnSetPassword.TabIndex = 7;
-            this.btnSetPassword.Text = "Đặt lại mật khẩu";
-            // 
             // btnSetTimeOut
             // 
-            this.btnSetTimeOut.Location = new System.Drawing.Point(489, 8);
+            this.btnSetTimeOut.Location = new System.Drawing.Point(376, 8);
             this.btnSetTimeOut.Name = "btnSetTimeOut";
             this.btnSetTimeOut.Size = new System.Drawing.Size(152, 25);
             this.btnSetTimeOut.TabIndex = 7;
             this.btnSetTimeOut.Text = "Hẹn giờ tự động đăng xuất";
+            this.btnSetTimeOut.Visible = false;
             // 
             // btnMoTaiKhoan
             // 
@@ -274,6 +265,7 @@
             this.btnMoTaiKhoan.Size = new System.Drawing.Size(85, 25);
             this.btnMoTaiKhoan.TabIndex = 7;
             this.btnMoTaiKhoan.Text = "Mở tài khoản";
+            this.btnMoTaiKhoan.Click += new System.EventHandler(this.btnMoTaiKhoan_Click);
             // 
             // btnKhoa
             // 
@@ -282,6 +274,7 @@
             this.btnKhoa.Size = new System.Drawing.Size(85, 25);
             this.btnKhoa.TabIndex = 7;
             this.btnKhoa.Text = "Khóa tài khoản";
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
             // 
             // btnThem
             // 
@@ -290,6 +283,7 @@
             this.btnThem.Size = new System.Drawing.Size(85, 25);
             this.btnThem.TabIndex = 8;
             this.btnThem.Text = "Tạo tài khoản";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
@@ -298,6 +292,7 @@
             this.btnSua.Size = new System.Drawing.Size(85, 25);
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa tài khoản";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // gridView1
             // 
@@ -376,9 +371,8 @@
         private DevExpress.XtraEditors.SimpleButton btnKhoa;
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnSua;
-        private DevExpress.XtraEditors.SimpleButton btnSetTimeOut;
-        private DevExpress.XtraEditors.SimpleButton btnSetPassword;
         private DevExpress.XtraEditors.SimpleButton btnMoTaiKhoan;
+        private DevExpress.XtraEditors.SimpleButton btnSetTimeOut;
 
     }
 }

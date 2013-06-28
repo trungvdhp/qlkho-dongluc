@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraGrid;
+using System.Security.Cryptography;
 
 namespace QLK_DongLuc.Controllers
 {
@@ -49,7 +50,15 @@ namespace QLK_DongLuc.Controllers
                     ResetControls((Control)control);
                 }
             }
+        }
 
+        public static string CreateSHAHash(string Phrase)
+        {
+            SHA512Managed HashTool = new SHA512Managed();
+            Byte[] PhraseAsByte = System.Text.Encoding.UTF8.GetBytes(string.Concat(Phrase));
+            Byte[] EncryptedBytes = HashTool.ComputeHash(PhraseAsByte);
+            HashTool.Clear();
+            return Convert.ToBase64String(EncryptedBytes);
         }
 	}
 }

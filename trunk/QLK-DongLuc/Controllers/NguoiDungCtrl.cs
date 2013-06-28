@@ -18,122 +18,77 @@ namespace QLK_DongLuc.Controllers
             bs.DataSource = db.ViewNguoiDung.ToList();
         }
 
-        //public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
-        //    lookUpEdit.Properties.Columns.Clear();
-        //    lookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
-        //    lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-        //    lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
-        //    lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Mo_ta", "Mô tả"));
-        //    lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+        public static int Insert(object ID_nhan_vien, string Tai_khoan, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        {
+            if (db == null) db = new QuanLyKhoDongLucEntities();
 
-        //    lookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-        //    lookUpEdit.Properties.ValueMember = "ID_vat_tu";
-        //    lookUpEdit.Properties.NullText = "";
-        //    lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
-        //    lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
-        //}
+            var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan);
 
-        //public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (entity == null) entity = new SYS_NguoiDung();
+            else return -1;
 
-        //    gridLookUpEdit.Properties.Columns.Clear();
-        //    gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            entity.Tai_khoan = Tai_khoan;
+            entity.Ten_day_du = Ten_day_du;
+            entity.ID_trang_thai = ID_trang_thai;
+            entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
+            entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
 
-        //    gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-        //    gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
-        //    gridLookUpEdit.Properties.NullText = "";
-        //    gridLookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
-        //    gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
-        //}
+            if (ID_nhan_vien != null) entity.ID_nhan_vien = (int?)ID_nhan_vien;
 
-        //public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            db.SYS_NguoiDung.Add(entity);
 
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            return db.SaveChanges();
+        }
 
-        //    var entity = new STO_VatTu();
-        //    entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-        //    entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
+        public static int Update(int ID_nguoi_dung, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        {
+            if (db == null) db = new QuanLyKhoDongLucEntities();
 
-        //    if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+            var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
-        //    if (Don_vi != null)
-        //    {
-        //        double dv;
-        //        double.TryParse(Don_vi.ToString(), out dv);
-        //        if (dv == 0)
-        //            entity.Don_vi = null;
-        //        else
-        //            entity.Don_vi = dv;
-        //    }
-        //    else
-        //    {
-        //        entity.Don_vi = null;
-        //    }
+            if (entity == null) return 0;
 
-        //    if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            entity.Ten_day_du = Ten_day_du;
+            entity.ID_trang_thai = ID_trang_thai;
+            entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
+            if(Mat_khau != "") entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
 
-        //    db.STO_VatTu.Add(entity);
+            return db.SaveChanges();
+        }
 
-        //    return db.SaveChanges();
-        //}
+        public static int ChangeState(int ID_nguoi_dung, bool isLooked, QuanLyKhoDongLucEntities db = null)
+        {
+            if (db == null) db = new QuanLyKhoDongLucEntities();
 
-        //public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (entity == null) return 0;
 
-        //    int id = (int)ID_vat_tu;
-        //    var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
+            entity.ID_trang_thai = isLooked ? 3 : 1;
 
-        //    if (entity == null) return 0;
+            return db.SaveChanges();
+        }
 
-        //    entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-        //    entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
+        public static int ChangeTimeOut(int ID_nguoi_dung, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        {
+            if (db == null) db = new QuanLyKhoDongLucEntities();
 
-        //    if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+            var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
-        //    if (Don_vi != null)
-        //    {
-        //        double dv;
-        //        double.TryParse(Don_vi.ToString(), out dv);
-        //        if (dv == 0)
-        //            entity.Don_vi = null;
-        //        else
-        //            entity.Don_vi = dv;
-        //    }
-        //    else
-        //    {
-        //        entity.Don_vi = null;
-        //    }
+            if (entity == null) return 0;
 
-        //    if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
 
-        //    return db.SaveChanges();
-        //}
+            return db.SaveChanges();
+        }
 
-        //public static int Delete(object ID_vat_tu, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_vat_tu == null) return 0;
+        public static SYS_NguoiDung Login(string Tai_khoan, string Mat_khau, QuanLyKhoDongLucEntities db = null)
+        {
+            if (db == null) db = new QuanLyKhoDongLucEntities();
 
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            string pass =  Utilities.CreateSHAHash(Mat_khau);
 
-        //    int id = (int)ID_vat_tu;
-        //    var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
-
-        //    if (entity == null) return 0;
-
-        //    db.STO_VatTu.Remove(entity);
-
-        //    return db.SaveChanges();
-        //}
+            return db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
+        }
     }
 }
