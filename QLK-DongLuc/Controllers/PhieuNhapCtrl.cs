@@ -17,6 +17,7 @@ namespace QLK_DongLuc.Controllers
         {
             if(db == null) db = new QuanLyKhoDongLucEntities();
             bs.DataSource = db.IMP_PhieuNhap.ToList();
+            
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
