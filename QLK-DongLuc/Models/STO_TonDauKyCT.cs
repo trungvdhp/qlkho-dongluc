@@ -12,11 +12,13 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ViewCboNhanVien
+    public partial class STO_TonDauKyCT
     {
-        public int ID_nhan_vien { get; set; }
-        public string Ho_ten { get; set; }
-        public Nullable<int> ID_kho { get; set; }
-        public string Ten_kho { get; set; }
+        public int ID_vat_tu { get; set; }
+        public int ID_ton { get; set; }
+        public Nullable<double> So_luong { get; set; }
+    
+        public virtual STO_TonDauKy STO_TonDauKy { get; set; }
+        public virtual STO_VatTu STO_VatTu { get; set; }
     }
 }

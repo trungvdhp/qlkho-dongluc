@@ -30,6 +30,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
+            dteNgayNhap.EditValue = DateTime.Now;
         }
 
         private void KiemTraDuLieu(ref int result)

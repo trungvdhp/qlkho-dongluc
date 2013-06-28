@@ -26,8 +26,8 @@ namespace QLK_DongLuc.Models
         public int ID_khach_hang { get; set; }
         public decimal Chi_phi_lap_dat { get; set; }
     
+        public virtual CAT_KhachHang CAT_KhachHang { get; set; }
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }
-        public virtual CAT_KhachHang CAT_KhachHang { get; set; }
     }
 }

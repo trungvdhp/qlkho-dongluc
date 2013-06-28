@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\NguoiDungCtrl.cs" />
     <Compile Include="Controllers\SanPhamCtrl.cs" />
     <Compile Include="Controllers\Utilities.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
@@ -156,6 +157,9 @@
     <Compile Include="Models\STO_TonDauKy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\STO_TonDauKyCT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\STO_VatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -171,6 +175,9 @@
     <Compile Include="Models\SYS_SuKienNguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SYS_TrangThaiNguoiDung.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SYS_VaiTro.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -184,6 +191,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewCboVatTu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewNguoiDung.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewPhieuNhap.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -359,6 +372,12 @@
     <EmbeddedResource Include="Views\DanhMuc\frmVatTu.resx">
       <DependentUpon>frmVatTu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmQuanLyNguoiDung.resx">
+      <DependentUpon>frmQuanLyNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,10 +415,12 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhanVien.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.IMP_PhieuNhap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_LoaiVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewNguoiDung.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -12,11 +12,18 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ViewCboNhanVien
+    public partial class ViewPhieuNhap
     {
-        public int ID_nhan_vien { get; set; }
-        public string Ho_ten { get; set; }
-        public Nullable<int> ID_kho { get; set; }
+        public string So_chung_tu_goc { get; set; }
+        public string Ten_loai_nhap { get; set; }
+        public string Ten_nha_cung_cap { get; set; }
+        public System.DateTime Ngay_nhap { get; set; }
+        public decimal Tong_tien { get; set; }
+        public string Nguoi_sua { get; set; }
+        public string Nhan_vien_nhap { get; set; }
+        public string Nhan_vien_lap { get; set; }
+        public int ID_phieu_nhap { get; set; }
         public string Ten_kho { get; set; }
+        public System.DateTime Ngay_sua { get; set; }
     }
 }

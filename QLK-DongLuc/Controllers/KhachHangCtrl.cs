@@ -22,11 +22,11 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new QuanLyKhoDongLucEntities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboKhachHang.ToList();
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HoTen", "Họ tên"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ho_ten", "Họ tên"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_chi", "Địa chỉ"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dien_thoai", "Điện thoại"));
 
-            lookUpEdit.Properties.DisplayMember = "HoTen";
+            lookUpEdit.Properties.DisplayMember = "Ho_ten";
             lookUpEdit.Properties.ValueMember = "ID_khach_hang";
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn khách hàng";
