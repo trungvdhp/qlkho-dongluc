@@ -16,7 +16,7 @@ namespace QLK_DongLuc.Models
     public partial class QuanLyKhoDongLucEntities : DbContext
     {
         public QuanLyKhoDongLucEntities()
-            : base("name=QuanLyKhoDongLucEntities")
+            : base("name=Entities")
         {
         }
     
