@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
@@ -20,7 +21,8 @@ namespace QLK_DongLuc
 
             DevExpress.Skins.SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-
+            QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+            CurrentUser = db.SYS_NguoiDung.First();
             Application.Run(new frmMain());
         }
     }
