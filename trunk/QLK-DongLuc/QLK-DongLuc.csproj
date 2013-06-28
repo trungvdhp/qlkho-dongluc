@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SanPhamCtrl.cs" />
     <Compile Include="Controllers\Utilities.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
     <Compile Include="Controllers\LoaiVatTu.cs" />
