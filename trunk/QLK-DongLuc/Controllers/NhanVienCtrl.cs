@@ -22,9 +22,9 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new QuanLyKhoDongLucEntities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboNhanVien.ToList();
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("HoTen","Họ tên"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ho_ten","Họ tên"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Kho"));
-            lookUpEdit.Properties.DisplayMember = "HoTen";
+            lookUpEdit.Properties.DisplayMember = "Ho_ten";
             lookUpEdit.Properties.ValueMember = "ID_nhan_vien";
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhân viên";

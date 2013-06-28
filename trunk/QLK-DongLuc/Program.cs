@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
+using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc
 {
     static class Program
     {
+        public static SYS_NguoiDung CurrentUser { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

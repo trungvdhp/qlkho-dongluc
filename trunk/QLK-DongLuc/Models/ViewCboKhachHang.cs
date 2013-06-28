@@ -15,7 +15,7 @@ namespace QLK_DongLuc.Models
     public partial class ViewCboKhachHang
     {
         public int ID_khach_hang { get; set; }
-        public string HoTen { get; set; }
+        public string Ho_ten { get; set; }
         public string Dia_chi { get; set; }
         public string Dien_thoai { get; set; }
     }

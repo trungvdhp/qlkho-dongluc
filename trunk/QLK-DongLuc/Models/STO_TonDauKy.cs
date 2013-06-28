@@ -14,6 +14,11 @@ namespace QLK_DongLuc.Models
     
     public partial class STO_TonDauKy
     {
+        public STO_TonDauKy()
+        {
+            this.STO_TonDauKyCT = new HashSet<STO_TonDauKyCT>();
+        }
+    
         public int ID_ton { get; set; }
         public System.DateTime Ky { get; set; }
         public int ID_nhan_vien { get; set; }
@@ -22,5 +27,6 @@ namespace QLK_DongLuc.Models
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual STO_KhoVatTu STO_KhoVatTu1 { get; set; }
+        public virtual ICollection<STO_TonDauKyCT> STO_TonDauKyCT { get; set; }
     }
 }
