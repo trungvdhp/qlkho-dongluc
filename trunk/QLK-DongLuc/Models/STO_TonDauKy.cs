@@ -26,7 +26,6 @@ namespace QLK_DongLuc.Models
     
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
-        public virtual STO_KhoVatTu STO_KhoVatTu1 { get; set; }
         public virtual ICollection<STO_TonDauKyCT> STO_TonDauKyCT { get; set; }
     }
 }

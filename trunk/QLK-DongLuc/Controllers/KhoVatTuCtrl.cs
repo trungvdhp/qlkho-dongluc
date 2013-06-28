@@ -39,6 +39,29 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-
+		/// <summary>
+		/// Load các kho trong tồn đầu kỳ
+		/// </summary>
+		/// <param name="lookUpEdit"></param>
+		/// <param name="From"></param>
+		/// <param name="To"></param>
+		/// <param name="db"></param>
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, DateTime From, DateTime To, QuanLyKhoDongLucEntities db = null)
+		{
+			if (db == null) db = new QuanLyKhoDongLucEntities();
+			lookUpEdit.Properties.Columns.Clear();
+			lookUpEdit.Properties.DataSource = db.STO_TonDauKy.Where(t => t.Ky >= From && t.Ky <= To).Select(t => new { 
+				Ten_kho = t.STO_KhoVatTu.Ten_kho,
+				ID_kho = t.ID_kho,
+				Dia_diem = t.STO_KhoVatTu.Dia_diem,
+			}).Distinct().ToList();
+			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
+			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_diem", "Địa điểm"));
+			lookUpEdit.Properties.DisplayMember = "Ten_kho";
+			lookUpEdit.Properties.ValueMember = "ID_kho";
+			lookUpEdit.Properties.NullText = "";
+			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn kho";
+			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+		}
     }
 }

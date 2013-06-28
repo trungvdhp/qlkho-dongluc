@@ -132,5 +132,18 @@ namespace QLK_DongLuc
             HeThong.frmQuanLyNguoiDung frm = new HeThong.frmQuanLyNguoiDung();
             OpenForm(frm, tabControl);
         }
+
+		private void btnTonDauKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+			QuanlyKho.QuanLyTonKho.frmTonDauKy frm = new QuanlyKho.QuanLyTonKho.frmTonDauKy();
+			OpenForm(frm, tabControl);
+		}
+
+		private void btnGhiTonDauKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+		{
+
+			QuanlyKho.QuanLyTonKho.frmTonKho frm = new QuanlyKho.QuanLyTonKho.frmTonKho();
+			OpenForm(frm, tabControl);
+		}
     }
 }

@@ -39,9 +39,17 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho
 		{
 			int ID_kho = Convert.ToInt32(ledKhoVT.EditValue);
 			int ID_loai_vat_tu = Convert.ToInt32(ledLoaiVT.EditValue);
-
+			gridView1.Columns.Clear();
 			gridTonKho.DataSource = Kho.TonKho(ID_kho, ID_loai_vat_tu);
 			gridView1.Columns[0].Width = 120;
+		}
+
+		private void btnLuuTonDauKy_Click(object sender, EventArgs e)
+		{
+			int ID_kho = Convert.ToInt32(ledKhoVT.EditValue);
+
+			TonDauKy.Luu(ID_kho, 1);
+			MessageBox.Show("Lưu thành công!", "Thông báo");
 		}
 	}
 }
