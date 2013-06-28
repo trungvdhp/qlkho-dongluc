@@ -101,6 +101,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnLamLai_Click(object sender, EventArgs e)
         {
             Utilities.ResetControls(this);
+            txtChungTuNhap.Focus();
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
