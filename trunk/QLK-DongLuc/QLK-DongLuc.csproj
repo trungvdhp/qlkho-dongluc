@@ -262,12 +262,6 @@
     <Compile Include="Views\HeThong\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmDoiMatKhau.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\HeThong\frmDoiMatKhau.Designer.cs">
-      <DependentUpon>frmDoiMatKhau.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\HeThong\frmNhatKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,11 +286,11 @@
     <Compile Include="Views\HeThong\frmTaoTaiKhoan.Designer.cs">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmThongTin.cs">
+    <Compile Include="Views\HeThong\frmCapNhatTaiKhoanCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\HeThong\frmThongTin.Designer.cs">
-      <DependentUpon>frmThongTin.cs</DependentUpon>
+    <Compile Include="Views\HeThong\frmCapNhatTaiKhoanCaNhan.Designer.cs">
+      <DependentUpon>frmCapNhatTaiKhoanCaNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -396,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HeThong\frmTaoTaiKhoan.resx">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmCapNhatTaiKhoanCaNhan.resx">
+      <DependentUpon>frmCapNhatTaiKhoanCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>

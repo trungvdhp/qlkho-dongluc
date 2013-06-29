@@ -146,7 +146,7 @@ namespace QLK_DongLuc
             {
                 btnDangNhap.Enabled = false;
                 btnDangXuat.Enabled = true;
-                btnDoiMatKhau.Enabled = true;
+                btnCapNhatTaiKhoan.Enabled = true;
 
                 if (Program.CurrentUser.ID_nhan_vien == null)
                 {
@@ -195,6 +195,12 @@ namespace QLK_DongLuc
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             btnThoat.PerformClick();
+        }
+
+        private void btnCapNhatTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HeThong.frmCapNhatTaiKhoanCaNhan frm = new HeThong.frmCapNhatTaiKhoanCaNhan();
+            frm.ShowDialog();
         }
     }
 }

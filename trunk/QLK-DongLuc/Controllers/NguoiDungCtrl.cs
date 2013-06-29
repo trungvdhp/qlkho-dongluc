@@ -51,9 +51,34 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_day_du = Ten_day_du;
             entity.ID_trang_thai = ID_trang_thai;
             entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
-            if(Mat_khau != "") entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
+
+            if(Mat_khau != "") 
+                entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
 
             return db.SaveChanges();
+        }
+
+        public static int Update(int ID_nguoi_dung, string Mat_khau, string Ten_day_du, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
+
+            if (entity == null) return 0;
+
+            entity.Ten_day_du = Ten_day_du;
+
+            if (Mat_khau != "") 
+                entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
+
+            int rs = db.SaveChanges();
+
+            if (rs != 0)
+            {
+                Program.CurrentUser = entity;
+            }
+
+            return rs;
         }
 
         public static int ChangeState(int ID_nguoi_dung, bool isLooked, Entities db = null)
