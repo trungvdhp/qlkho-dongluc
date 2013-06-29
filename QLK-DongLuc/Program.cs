@@ -21,7 +21,7 @@ namespace QLK_DongLuc
 
             DevExpress.Skins.SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-            QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+            Entities db = new Entities();
             CurrentUser = db.SYS_NguoiDung.First();
             Application.Run(new frmMain());
         }

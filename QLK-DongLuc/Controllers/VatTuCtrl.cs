@@ -12,15 +12,15 @@ namespace QLK_DongLuc.Controllers
 {
     public class VatTuCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if(db == null) db = new QuanLyKhoDongLucEntities();
+            if(db == null) db = new Entities();
             bs.DataSource = db.STO_VatTu.ToList();
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
@@ -35,9 +35,9 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
@@ -52,11 +52,11 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
         {
             if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = new STO_VatTu();
             entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
@@ -85,11 +85,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
+        public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
         {
             if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_vat_tu;
             var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
@@ -120,11 +120,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Delete(object ID_vat_tu, QuanLyKhoDongLucEntities db = null)
+        public static int Delete(object ID_vat_tu, Entities db = null)
         {
             if (ID_vat_tu == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_vat_tu;
             var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);

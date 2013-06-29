@@ -10,9 +10,9 @@ namespace QLK_DongLuc.Controllers
 {
 	class NhomVatTu
 	{
-		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_NhomVatTu.ToList();
 			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Nhóm vật tư"));

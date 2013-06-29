@@ -11,21 +11,21 @@ namespace QLK_DongLuc.Controllers
 {
     public class SanPhamCtrl
     {
-        public static void LoadBindingSource(BindingSource bindingSource, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             bindingSource.DataSource = db.CAT_SanPham.ToList();
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
         }
 
-        public static int Insert(object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, Entities db = null)
         {
             if (Ma_san_pham == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = new CAT_SanPham();
 
@@ -40,11 +40,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_san_pham, object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, QuanLyKhoDongLucEntities db = null)
+        public static int Update(object ID_san_pham, object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, Entities db = null)
         {
             if (ID_san_pham == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_san_pham;
             var entity = db.CAT_SanPham.FirstOrDefault(p => p.ID_san_pham == id);
@@ -60,11 +60,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Delete(object ID_san_pham, QuanLyKhoDongLucEntities db = null)
+        public static int Delete(object ID_san_pham, Entities db = null)
         {
             if (ID_san_pham == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_san_pham;
             var entity = db.CAT_SanPham.FirstOrDefault(p => p.ID_san_pham == id);

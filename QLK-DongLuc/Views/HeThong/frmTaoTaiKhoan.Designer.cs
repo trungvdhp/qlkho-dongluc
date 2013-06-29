@@ -170,7 +170,6 @@
             this.txtMatKhau.Properties.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(254, 20);
             this.txtMatKhau.TabIndex = 4;
-            this.txtMatKhau.ToolTip = "Mật khẩu mặc định là:1234a@";
             this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
             // labelControl6

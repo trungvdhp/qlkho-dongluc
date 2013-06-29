@@ -23,7 +23,7 @@ namespace QLK_DongLuc.Views.HeThong
 
             if (user == null)
             {
-                XtraMessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nHoặc tài khoản này đã bị khóa!\nVui lòng liên hệ giám đốc để kiểm tra lại.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 txtTenDangNhap.Focus();
             }
@@ -33,6 +33,42 @@ namespace QLK_DongLuc.Views.HeThong
                 //XtraMessageBox.Show("Đăng nhập thành công vào hệ thống!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Bạn có thực sự muốn thoát khỏi hệ thống không!", "Thoát khỏi hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                NguoiDungCtrl.Logout();
+                Application.ExitThread();
+            }
+        }
+
+        private void txtMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtMatKhau.Text = "";
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                txtTenDangNhap.SelectAll();
+                txtTenDangNhap.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btnDangNhap.Focus();
+            }
+        }
+
+        private void frmDangNhap_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(this.DialogResult != DialogResult.OK)
+                btnThoat.PerformClick();
         }
     }
 }

@@ -11,15 +11,15 @@ namespace QLK_DongLuc.Controllers
 {
     public class NhaCungCapCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             bs.DataSource = db.CAT_NhaCungCap.ToList();
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.CAT_NhaCungCap.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nha_cung_cap", "Nhà cung cấp"));
@@ -34,11 +34,11 @@ namespace QLK_DongLuc.Controllers
         }
 
 
-        public static int Insert(object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, Entities db = null)
         {
             if (Ten_nha_cung_cap == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = new CAT_NhaCungCap();
 
@@ -54,11 +54,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_nha_cung_cap, object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, QuanLyKhoDongLucEntities db = null)
+        public static int Update(object ID_nha_cung_cap, object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, Entities db = null)
         {
             if (ID_nha_cung_cap == null || Ten_nha_cung_cap == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_nha_cung_cap;
             var entity = db.CAT_NhaCungCap.FirstOrDefault(p => p.ID_nha_cung_cap == id);
@@ -75,11 +75,11 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Delete(object ID_nha_cung_cap, QuanLyKhoDongLucEntities db = null)
+        public static int Delete(object ID_nha_cung_cap, Entities db = null)
         {
             if (ID_nha_cung_cap == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int id = (int)ID_nha_cung_cap;
             var entity = db.CAT_NhaCungCap.FirstOrDefault(p => p.ID_nha_cung_cap == id);

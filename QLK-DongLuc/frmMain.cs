@@ -17,6 +17,7 @@ namespace QLK_DongLuc
     using DanhMuc = QLK_DongLuc.Views.DanhMuc;
     using HeThong = QLK_DongLuc.Views.HeThong;
     using QuanlyKho = QLK_DongLuc.Views.QuanlyKho;
+    using QLK_DongLuc.Controllers;
 
     public partial class frmMain : XtraForm
     {
@@ -58,7 +59,11 @@ namespace QLK_DongLuc
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Application.Exit();
+            if (XtraMessageBox.Show("Bạn có thực sự muốn thoát khỏi hệ thống không!", "Thoát khỏi hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                NguoiDungCtrl.Logout();
+                Application.ExitThread();
+            }
         }
 
         private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -136,6 +141,7 @@ namespace QLK_DongLuc
         private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             HeThong.frmDangNhap frm = new HeThong.frmDangNhap();
+
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 btnDangNhap.Enabled = false;
@@ -150,6 +156,7 @@ namespace QLK_DongLuc
                     btnSaoLuu.Enabled = true;
                     btnCauHinh.Enabled = true;
                     btnPhucHoi.Enabled = true;
+                    lblInfo.Caption = "giám đốc " + Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "";
                 }
                 else
                 {
@@ -159,13 +166,16 @@ namespace QLK_DongLuc
                     btnSaoLuu.Enabled = false;
                     btnCauHinh.Enabled = false;
                     btnPhucHoi.Enabled = false;
+                    lblInfo.Caption = "nhân viên " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
                 }
             }
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            NguoiDungCtrl.Logout();
             Program.CurrentUser = null;
+
             XtraMessageBox.Show("Đăng xuất thành công khỏi hệ thống!", "Đăng xuất thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             btnDangNhap.Enabled = true;
@@ -175,6 +185,16 @@ namespace QLK_DongLuc
         private void frmMain_Load(object sender, EventArgs e)
         {
             btnDangNhap.PerformClick();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            btnThoat.PerformClick();
         }
     }
 }

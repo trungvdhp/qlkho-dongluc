@@ -11,23 +11,23 @@ namespace QLK_DongLuc.Controllers
 {
     public class KhoVatTuCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             bs.DataSource = db.STO_KhoVatTu.ToList();
         }
 
-        public static void LoadComboBox(System.Windows.Forms.ComboBox cbo, QuanLyKhoDongLucEntities db = null)
+        public static void LoadComboBox(System.Windows.Forms.ComboBox cbo, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             cbo.DisplayMember = "Ten_kho";
             cbo.ValueMember = "ID_kho";
             cbo.DataSource = db.STO_KhoVatTu.ToList();
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.STO_KhoVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
@@ -46,9 +46,9 @@ namespace QLK_DongLuc.Controllers
 		/// <param name="From"></param>
 		/// <param name="To"></param>
 		/// <param name="db"></param>
-		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, DateTime From, DateTime To, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, DateTime From, DateTime To, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_TonDauKy.Where(t => t.Ky >= From && t.Ky <= To).Select(t => new { 
 				Ten_kho = t.STO_KhoVatTu.Ten_kho,

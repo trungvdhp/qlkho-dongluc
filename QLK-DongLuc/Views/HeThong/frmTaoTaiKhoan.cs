@@ -13,13 +13,13 @@ namespace QLK_DongLuc.Views.HeThong
 {
     public partial class frmTaoTaiKhoan : DevExpress.XtraEditors.XtraForm
     {
-        QuanLyKhoDongLucEntities db;
+        Entities db;
 
         public frmTaoTaiKhoan()
         {
             InitializeComponent();
 
-            db = new QuanLyKhoDongLucEntities();
+            db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVien, db);
         }
 

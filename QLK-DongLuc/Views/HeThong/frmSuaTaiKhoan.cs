@@ -13,14 +13,14 @@ namespace QLK_DongLuc.Views.HeThong
 {
     public partial class frmSuaTaiKhoan : DevExpress.XtraEditors.XtraForm
     {
-        QuanLyKhoDongLucEntities db;
+        Entities db;
         public ViewNguoiDung user;
 
         public frmSuaTaiKhoan(ViewNguoiDung _user)
         {
             InitializeComponent();
             user = _user;
-            db = new QuanLyKhoDongLucEntities();
+            db = new Entities();
         }
 
         private void btnSuaTaiKhoan_Click(object sender, EventArgs e)

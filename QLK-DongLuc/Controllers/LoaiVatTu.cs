@@ -10,9 +10,9 @@ namespace QLK_DongLuc.Controllers
 {
 	class LoaiVatTu
 	{
-		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_LoaiVatTu.ToList();
 			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
@@ -22,9 +22,9 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
 		}
-		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_nhom_vat_tu, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_nhom_vat_tu, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_LoaiVatTu.Where(t=>t.ID_nhom_vat_tu==ID_nhom_vat_tu).ToList();
 			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
@@ -41,9 +41,9 @@ namespace QLK_DongLuc.Controllers
 		/// <param name="lookUpEdit"></param>
 		/// <param name="ID_ton"></param>
 		/// <param name="db"></param>
-		public static void LoadLookUpEditTonKho(LookUpEdit lookUpEdit, int ID_ton, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEditTonKho(LookUpEdit lookUpEdit, int ID_ton, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_TonDauKyCT.Where(t => t.ID_ton == ID_ton).Select(t=>new{
 				ID_loai_vat_tu = t.STO_VatTu.ID_loai_vat_tu,
