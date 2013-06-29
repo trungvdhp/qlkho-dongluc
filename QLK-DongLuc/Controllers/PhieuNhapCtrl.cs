@@ -125,13 +125,39 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
+        /// <summary>
+        /// Xóa phiếu nhập
+        /// </summary>
+        /// <param name="ID_phieu_nhap">ID phiếu nhập</param>
+        /// <param name="db"></param>
+        /// <returns>
+        /// Trả về 0 nếu không tìm thấy phiếu nhập cần xóa hoặc có lỗi khi xóa phiếu nhập
+        /// Trả về -1 nếu người dùng xóa một phiếu mà phiếu đó đã bị giám đốc khóa hoặc phiếu đó không do người dùng tạo hoặc 
+        /// Trả về -2 nếu người dùng là giám đốc mà phiếu cần xóa đã được xác thực không thể xóa
+        /// Trả về > 0 nếu xóa thành công.
+        /// </returns>
         public static int Delete(int ID_phieu_nhap, Entities db = null)
         {
+            if(db == null) db = new Entities();
+
             var entity = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
 
-            if (entity == null) return 0;
+            if (entity == null) 
+                return 0;
 
-            //if(Program.CurrentUser.ID_nhan_vien != null && entity.)
+            if (entity.Trang_thai == -1) 
+                return -1;
+
+            // Nếu là nhân viên và phiếu cần xóa bị khóa hoặc nhân viên hiện tại không phải là người lập phiếu
+            if(Program.CurrentUser.ID_nhan_vien != null)
+            {
+                if(entity.Trang_thai == 1 || Program.CurrentUser.ID_nhan_vien != entity.ID_nhan_vien_lap) 
+                    return -2;
+            }
+
+            // Ngoài các trường hợp trên thì xóa được;
+            db.IMP_PhieuNhapCT.RemoveRange(entity.IMP_PhieuNhapCT);
+            db.IMP_PhieuNhap.Remove(entity);
 
             return db.SaveChanges();
         }

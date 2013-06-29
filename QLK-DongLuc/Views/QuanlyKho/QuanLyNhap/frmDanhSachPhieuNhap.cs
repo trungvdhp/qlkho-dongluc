@@ -41,5 +41,57 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             if(pn != null)
                 PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource, db);
         }
+
+        private void btnNhapMoi_Click(object sender, EventArgs e)
+        {
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
+            frm.ShowDialog();
+        }
+
+        private void btnNhapLai_Click(object sender, EventArgs e)
+        {
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(2);
+            frm.ShowDialog();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
+
+            if (XtraMessageBox.Show("Các dữ liệu bị xóa sẽ không thể phục hồi!\nBạn có thực sự muốn xóa phiếu nhập này hay không?", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                int rs = PhieuNhapCtrl.Delete(pn.ID_phieu_nhap, db);
+
+                if (rs == -1)
+                {
+                    XtraMessageBox.Show("Phiếu nhập này đã được xác thực và không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (rs == -2)
+                {
+                    XtraMessageBox.Show("Phiếu nhập này đã bị giám đốc khóa. Nhân viên không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (rs == 0)
+                {
+                    XtraMessageBox.Show("Xóa phiếu nhập không thành công!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Xóa phiếu nhập thành công!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+                }
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
+
+            if (pn != null)
+            {
+                frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn);
+                frm.ShowDialog();
+            }
+        }
     }
 }

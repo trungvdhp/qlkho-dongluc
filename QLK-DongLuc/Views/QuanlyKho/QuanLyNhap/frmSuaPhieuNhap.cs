@@ -6,32 +6,27 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Repository;
 using QLK_DongLuc.Controllers;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Views.DanhMuc;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmLapPhieuNhapMoi : DevExpress.XtraEditors.XtraForm
+    public partial class frmSuaPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
         Entities db;
-        int ID_loai_nhap;
+        ViewPhieuNhap pn;
 
-        public frmLapPhieuNhapMoi(int _ID_loai_nhap = 1)
-        {
-            ID_loai_nhap = ID_loai_nhap;
-            InitForm();
-        }
-
-        private void InitForm()
+        public frmSuaPhieuNhap(ViewPhieuNhap phieu_nhap)
         {
             InitializeComponent();
             db = new Entities();
+            pn = phieu_nhap;
+            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
 
-            if (ID_loai_nhap == 1)
+            if (pn.ID_loai_nhap == 1)
                 NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             else
             {
@@ -40,7 +35,38 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             }
 
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            dteNgayNhap.EditValue = DateTime.Now;
+        }
+
+        private void frmSuaPhieuNhap_Load(object sender, EventArgs e)
+        {
+            ledNhanVienNhap.EditValue = pn.ID_nhan_vien_nhap;
+            ledKhoNhap.EditValue = pn.ID_kho;
+            mmoGhiChu.Text = pn.Ghi_chu;
+            txtChungTuGoc.Text = pn.So_chung_tu_goc;
+            ledNhaCungCap.EditValue = pn.ID_nha_cung_cap;
+            dteNgayNhap.EditValue = pn.Ngay_nhap;
+
+
+            PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource, db);
+
+            if (Program.CurrentUser.ID_nhan_vien == null)
+            {
+                ledNhanVienNhap.Properties.ReadOnly = true;
+                ledKhoNhap.Properties.ReadOnly = true;
+                ledNhaCungCap.Properties.ReadOnly = true;
+                mmoGhiChu.Properties.ReadOnly = true;
+                txtChungTuGoc.Properties.ReadOnly = true;
+                dteNgayNhap.Properties.ReadOnly = true;
+                ledNhanVienNhap.Properties.ReadOnly = true;
+                colID_vat_tu.ColumnEdit.ReadOnly = true;
+                colSo_luong.ColumnEdit.ReadOnly = true;
+                grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+            }
+            else
+            {
+                colDon_gia.Visible = false;
+                colThanh_tien.Visible = false;
+            }
         }
 
         private void KiemTraDuLieu(ref int result)
@@ -61,7 +87,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
-            if (ID_loai_nhap == 1 && ledNhaCungCap.EditValue == null)
+            if (pn.ID_loai_nhap == 1 && ledNhaCungCap.EditValue == null)
             {
                 XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledNhaCungCap.Focus();
@@ -87,7 +113,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, 0, ID_loai_nhap, db);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, 0, pn.ID_loai_nhap, db);
 
                 if (rs == 0)
                 {

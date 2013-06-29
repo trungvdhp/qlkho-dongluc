@@ -30,5 +30,9 @@ namespace QLK_DongLuc.Models
         public Nullable<int> ID_nha_cung_cap { get; set; }
         public Nullable<int> ID_nhan_vien_nhap { get; set; }
         public Nullable<int> ID_nhan_vien_lap { get; set; }
+        public string Ghi_chu { get; set; }
+        public int ID_loai_nhap { get; set; }
+        public int Expr1 { get; set; }
+        public int ID_nguoi_sua { get; set; }
     }
 }

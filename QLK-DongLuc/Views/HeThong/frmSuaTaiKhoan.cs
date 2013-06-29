@@ -60,6 +60,9 @@ namespace QLK_DongLuc.Views.HeThong
                 else
                 {
                     XtraMessageBox.Show("Sửa tài khoản người dùng thành công.", "Sửa tài khoản người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //user.Ten_day_du = txtTenDayDu.Text;
+                    //user.ID_trang_thai = chkKichHoatTaiKhoan.Checked ? 1 : 3;
+                    //user.Thoi_gian_cho = TimeSpan.Parse(tedThoiGianCho.Text);
                     btnLamLai.PerformClick();
                 }
             }

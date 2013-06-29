@@ -142,6 +142,7 @@
             this.txtTenDangNhap.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(212, 20);
             this.txtTenDangNhap.TabIndex = 0;
+            this.txtTenDangNhap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTenDangNhap_KeyDown);
             // 
             // labelControl1
             // 

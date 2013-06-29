@@ -25,7 +25,8 @@ namespace QLK_DongLuc.Views.HeThong
             {
                 XtraMessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nHoặc tài khoản này đã bị khóa!\nVui lòng liên hệ giám đốc để kiểm tra lại.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                txtTenDangNhap.Focus();
+                txtMatKhau.Focus();
+                txtMatKhau.SelectAll();
             }
             else
             {
@@ -69,6 +70,18 @@ namespace QLK_DongLuc.Views.HeThong
         {
             if(this.DialogResult != DialogResult.OK)
                 btnThoat.PerformClick();
+        }
+
+        private void txtTenDangNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Down)
+            {
+                txtMatKhau.Focus();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtTenDangNhap.Text = "";
+            }
         }
     }
 }
