@@ -91,7 +91,12 @@
       [ViewPhieuNhap].[Nhan_vien_lap] AS [Nhan_vien_lap], 
       [ViewPhieuNhap].[ID_phieu_nhap] AS [ID_phieu_nhap], 
       [ViewPhieuNhap].[Ten_kho] AS [Ten_kho], 
-      [ViewPhieuNhap].[Ngay_sua] AS [Ngay_sua]
+      [ViewPhieuNhap].[Ngay_sua] AS [Ngay_sua], 
+      [ViewPhieuNhap].[Trang_thai] AS [Trang_thai], 
+      [ViewPhieuNhap].[ID_kho] AS [ID_kho], 
+      [ViewPhieuNhap].[ID_nha_cung_cap] AS [ID_nha_cung_cap], 
+      [ViewPhieuNhap].[ID_nhan_vien_lap] AS [ID_nhan_vien_lap], 
+      [ViewPhieuNhap].[ID_nhan_vien_nhap] AS [ID_nhan_vien_nhap]
       FROM [dbo].[ViewPhieuNhap] AS [ViewPhieuNhap]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.Store.FK_CAT_KhachHang_SYS_NguoiDung">
@@ -590,6 +595,8 @@
             <PropertyRef Name="ID_phieu_nhap" />
             <PropertyRef Name="Ten_kho" />
             <PropertyRef Name="Ngay_sua" />
+            <PropertyRef Name="Trang_thai" />
+            <PropertyRef Name="ID_kho" />
           </Key>
           <Property Name="So_chung_tu_goc" Type="nvarchar" MaxLength="20" />
           <Property Name="Ten_loai_nhap" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -602,6 +609,11 @@
           <Property Name="ID_phieu_nhap" Type="int" Nullable="false" />
           <Property Name="Ten_kho" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ngay_sua" Type="datetime" Nullable="false" />
+          <Property Name="Trang_thai" Type="nvarchar" Nullable="false" MaxLength="13" />
+          <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="ID_nha_cung_cap" Type="int" />
+          <Property Name="ID_nhan_vien_lap" Type="int" />
+          <Property Name="ID_nhan_vien_nhap" Type="int" />
         </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
           <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="0..1" />
@@ -1563,6 +1575,8 @@
             <PropertyRef Name="ID_phieu_nhap" />
             <PropertyRef Name="Ten_kho" />
             <PropertyRef Name="Ngay_sua" />
+            <PropertyRef Name="Trang_thai" />
+            <PropertyRef Name="ID_kho" />
           </Key>
           <Property Type="String" Name="So_chung_tu_goc" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_loai_nhap" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1575,6 +1589,11 @@
           <Property Type="Int32" Name="ID_phieu_nhap" Nullable="false" />
           <Property Type="String" Name="Ten_kho" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Ngay_sua" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <Property Type="Int32" Name="ID_nha_cung_cap" />
+          <Property Type="Int32" Name="ID_nhan_vien_nhap" />
+          <Property Type="Int32" Name="ID_nhan_vien_lap" />
         </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
           <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="0..1" />
@@ -2278,6 +2297,11 @@
           <EntitySetMapping Name="ViewPhieuNhap">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewPhieuNhap">
               <MappingFragment StoreEntitySet="ViewPhieuNhap">
+                <ScalarProperty Name="ID_nhan_vien_lap" ColumnName="ID_nhan_vien_lap" />
+                <ScalarProperty Name="ID_nhan_vien_nhap" ColumnName="ID_nhan_vien_nhap" />
+                <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
                 <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
                 <ScalarProperty Name="Ten_kho" ColumnName="Ten_kho" />
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />

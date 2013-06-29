@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grdNguoiDung = new DevExpress.XtraGrid.GridControl();
-            this.viewNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewNguoiDungBindingSource = new System.Windows.Forms.BindingSource();
             this.grvNguoiDung = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTai_khoan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_day_du = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -164,11 +163,11 @@
             this.repositoryItemDateEdit1.AutoHeight = false;
             this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.repositoryItemDateEdit1.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.repositoryItemDateEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.repositoryItemDateEdit1.EditFormat.FormatString = "dd/MM/yyyy";
+            this.repositoryItemDateEdit1.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.repositoryItemDateEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.repositoryItemDateEdit1.Mask.EditMask = "dd/MM/yyyy";
+            this.repositoryItemDateEdit1.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.repositoryItemDateEdit1.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
             this.repositoryItemDateEdit1.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

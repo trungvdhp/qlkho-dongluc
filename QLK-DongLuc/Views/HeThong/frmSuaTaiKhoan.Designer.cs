@@ -127,6 +127,7 @@
             this.txtTenDayDu.Properties.MaxLength = 50;
             this.txtTenDayDu.Properties.NullValuePrompt = "Nhập tên đầy đủ";
             this.txtTenDayDu.Properties.NullValuePromptShowForEmptyValue = true;
+            this.txtTenDayDu.Properties.ReadOnly = true;
             this.txtTenDayDu.Size = new System.Drawing.Size(254, 20);
             this.txtTenDayDu.TabIndex = 0;
             // 

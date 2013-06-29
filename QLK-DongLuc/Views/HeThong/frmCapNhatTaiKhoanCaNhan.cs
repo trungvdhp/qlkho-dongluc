@@ -65,6 +65,7 @@ namespace QLK_DongLuc.Views.HeThong
             txtNhanVien.Text = Program.CurrentUser.ID_nhan_vien == null ? "Giám đốc" : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten;
             chkNhanVien.Checked = Program.CurrentUser.ID_nhan_vien != null ? true : false;
             txtTenDayDu.Text = Program.CurrentUser.Ten_day_du;
+            txtTenDayDu.Properties.ReadOnly = chkNhanVien.Checked;
         }
 
         private void txtMatKhau_Leave(object sender, EventArgs e)
