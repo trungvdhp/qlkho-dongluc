@@ -55,7 +55,7 @@ namespace QLK_DongLuc.Views.HeThong
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Sửa tài khoản người dùng không thành công.", "Sửa tài khoản người dùng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Sửa tài khoản người dùng không thành công!\nCó thể do lỗi hệ thống hoặc không có thông tin gì thay đổi!", "Sửa tài khoản người dùng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {

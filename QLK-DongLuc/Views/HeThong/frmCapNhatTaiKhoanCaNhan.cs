@@ -48,7 +48,7 @@ namespace QLK_DongLuc.Views.HeThong
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Cập nhật thông tin cá nhân không thành công.", "Cập nhật thông tin cá nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Cập nhật thông tin cá nhân không thành công!\nCó thể do lỗi hệ thống hoặc không có thông tin gì thay đổi.", "Cập nhật thông tin cá nhân", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
