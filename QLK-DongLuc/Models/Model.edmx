@@ -47,6 +47,12 @@
       [ViewCboLoaiVatTu].[Ten_nhom_vat_tu] AS [Ten_nhom_vat_tu]
       FROM [dbo].[ViewCboLoaiVatTu] AS [ViewCboLoaiVatTu]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.Store.ViewCboLoaiXuat" store:Type="Views" store:Schema="dbo" store:Name="ViewCboLoaiXuat">
+            <DefiningQuery>SELECT 
+      [ViewCboLoaiXuat].[ID_loai_xuat] AS [ID_loai_xuat], 
+      [ViewCboLoaiXuat].[Ten_loai_xuat] AS [Ten_loai_xuat]
+      FROM [dbo].[ViewCboLoaiXuat] AS [ViewCboLoaiXuat]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.Store.ViewCboNhanVien" store:Type="Views" store:Schema="dbo" store:Name="ViewCboNhanVien">
             <DefiningQuery>SELECT 
       [ViewCboNhanVien].[ID_nhan_vien] AS [ID_nhan_vien], 
@@ -530,6 +536,17 @@
           <Property Name="Ten_loai_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ghi_chu" Type="nvarchar" MaxLength="50" />
           <Property Name="Ten_nhom_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'QuanLyKhoDongLuc.dbo.ViewCboLoaiXuat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ViewCboLoaiXuat">
+          <Key>
+            <PropertyRef Name="ID_loai_xuat" />
+            <PropertyRef Name="Ten_loai_xuat" />
+          </Key>
+          <Property Name="ID_loai_xuat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ten_loai_xuat" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'QuanLyKhoDongLuc.dbo.ViewCboNhanVien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1196,6 +1213,7 @@
             <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
+          <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" />
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1981,6 +1999,14 @@
           <End Type="QuanLyKhoDongLucModel.SYS_Quyen" Role="SYS_Quyen" Multiplicity="*" />
           <End Type="QuanLyKhoDongLucModel.SYS_VaiTro" Role="SYS_VaiTro" Multiplicity="*" />
         </Association>
+        <EntityType Name="ViewCboLoaiXuat">
+          <Key>
+            <PropertyRef Name="ID_loai_xuat" />
+            <PropertyRef Name="Ten_loai_xuat" />
+          </Key>
+          <Property Type="Int32" Name="ID_loai_xuat" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Ten_loai_xuat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2354,6 +2380,14 @@
               <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="ViewCboLoaiXuat">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiXuat">
+              <MappingFragment StoreEntitySet="ViewCboLoaiXuat">
+                <ScalarProperty Name="Ten_loai_xuat" ColumnName="Ten_loai_xuat" />
+                <ScalarProperty Name="ID_loai_xuat" ColumnName="ID_loai_xuat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
