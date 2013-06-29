@@ -30,6 +30,7 @@
         {
             this.btnDangNhap = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
@@ -47,15 +48,16 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(140, 5);
+            this.btnDangNhap.Location = new System.Drawing.Point(100, 5);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(85, 23);
-            this.btnDangNhap.TabIndex = 9;
+            this.btnDangNhap.TabIndex = 2;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnThoat);
             this.panelControl2.Controls.Add(this.btnDangNhap);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 100);
@@ -63,6 +65,15 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(350, 40);
             this.panelControl2.TabIndex = 1;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(191, 5);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(85, 23);
+            this.btnThoat.TabIndex = 3;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -90,7 +101,7 @@
             this.groupControl1.Margin = new System.Windows.Forms.Padding(0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(350, 100);
-            this.groupControl1.TabIndex = 2;
+            this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Đăng nhập";
             // 
             // txtMatKhau
@@ -106,8 +117,8 @@
             this.txtMatKhau.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtMatKhau.Properties.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(212, 20);
-            this.txtMatKhau.TabIndex = 11;
-            this.txtMatKhau.ToolTip = "Mật khẩu mặc định là:1234a@";
+            this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             // 
             // labelControl6
             // 
@@ -130,7 +141,7 @@
             this.txtTenDangNhap.Properties.NullValuePrompt = "Nhập tên đăng nhập ít nhất 3 ký tự";
             this.txtTenDangNhap.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(212, 20);
-            this.txtTenDangNhap.TabIndex = 10;
+            this.txtTenDangNhap.TabIndex = 0;
             // 
             // labelControl1
             // 
@@ -152,6 +163,7 @@
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDangNhap_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -174,5 +186,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtTenDangNhap;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnThoat;
     }
 }

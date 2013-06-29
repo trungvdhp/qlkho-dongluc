@@ -13,7 +13,7 @@ namespace QLK_DongLuc.Controllers
 	{
 		public static void Luu(int ID_kho, int ID_nhan_vien)
 		{
-			using (var db = new QuanLyKhoDongLucEntities())
+			using (var db = new Entities())
 			{
 				STO_TonDauKy tondauky = new STO_TonDauKy()
 				{
@@ -37,7 +37,7 @@ namespace QLK_DongLuc.Controllers
 
 		public static DataTable ThongKe(int ID_ton,int ID_loai_vat_tu)
 		{
-			QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+			Entities db = new Entities();
 			var list_vattu = db.STO_TonDauKyCT.Where(t => t.ID_ton == ID_ton && t.STO_VatTu.ID_loai_vat_tu == ID_loai_vat_tu).ToList();
 			var dt = new DataTable();
 			var list_title = new List<int>();
@@ -82,9 +82,9 @@ namespace QLK_DongLuc.Controllers
 			return new DataTable();
 		}
 
-		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_kho,DateTime From, DateTime To, QuanLyKhoDongLucEntities db = null)
+		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_kho,DateTime From, DateTime To, Entities db = null)
 		{
-			if (db == null) db = new QuanLyKhoDongLucEntities();
+			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
 			lookUpEdit.Properties.DataSource = db.STO_TonDauKy.Where(t => t.ID_kho == ID_kho && t.Ky >= From && t.Ky <= To).ToList();
 			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ky", "Kỳ"));

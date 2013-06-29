@@ -12,15 +12,15 @@ namespace QLK_DongLuc.Controllers
 {
     public class LoaiVatTuCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if(db == null) db = new QuanLyKhoDongLucEntities();
+            if(db == null) db = new Entities();
             bs.DataSource = db.STO_LoaiVatTu.ToList();
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
@@ -34,9 +34,9 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();

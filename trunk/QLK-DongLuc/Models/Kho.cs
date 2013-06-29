@@ -11,7 +11,7 @@ namespace QLK_DongLuc.Models
 	{
 		public static DataTable TonKho(int ID_kho, int ID_loai_vat_tu)
 		{
-			QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+			Entities db = new Entities();
 			var list_vattu = db.STO_KhoVatTuCT.Where(t => t.ID_kho==ID_kho && t.STO_VatTu.ID_loai_vat_tu == ID_loai_vat_tu).ToList();
 			var dt = new DataTable();
 			var list_title = new List<int>();

@@ -13,7 +13,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmKhoVatTu : DevExpress.XtraEditors.XtraForm
     {
-        QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+        Entities db = new Entities();
 
         public frmKhoVatTu()
         {

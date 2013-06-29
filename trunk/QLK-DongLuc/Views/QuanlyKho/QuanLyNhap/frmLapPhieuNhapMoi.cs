@@ -15,7 +15,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
     public partial class frmLapPhieuNhapMoi : DevExpress.XtraEditors.XtraForm
     {
-        QuanLyKhoDongLucEntities db;
+        Entities db;
         
         public frmLapPhieuNhapMoi()
         {
@@ -25,7 +25,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void InitForm()
         {
             InitializeComponent();
-            db = new QuanLyKhoDongLucEntities();
+            db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);

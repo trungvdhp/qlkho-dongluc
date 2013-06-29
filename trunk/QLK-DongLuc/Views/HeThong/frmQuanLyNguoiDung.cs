@@ -13,7 +13,7 @@ namespace QLK_DongLuc.Views.HeThong
 {
     public partial class frmQuanLyNguoiDung : DevExpress.XtraEditors.XtraForm
     {
-        QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
+        Entities db = new Entities();
 
         public frmQuanLyNguoiDung()
         {

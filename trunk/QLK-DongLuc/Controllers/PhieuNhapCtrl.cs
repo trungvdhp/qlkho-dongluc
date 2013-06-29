@@ -13,16 +13,16 @@ namespace QLK_DongLuc.Controllers
 {
     public class PhieuNhapCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if(db == null) db = new QuanLyKhoDongLucEntities();
+            if(db == null) db = new Entities();
             bs.DataSource = db.IMP_PhieuNhap.ToList();
             
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.IMP_PhieuNhap.ToList();
@@ -35,9 +35,9 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, QuanLyKhoDongLucEntities db = null)
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
@@ -50,11 +50,11 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
-        public static int Insert(object ID_nhan_vien_nhap, object ID_nha_cung_cap, object ID_kho, object So_chung_tu_goc, object Ngay_nhap, object Ghi_chu, int ID_nguoi_sua, object ID_nhan_vien_lap = null, int Trang_thai = 0, int ID_loai_nhap = 1, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object ID_nhan_vien_nhap, object ID_nha_cung_cap, object ID_kho, object So_chung_tu_goc, object Ngay_nhap, object Ghi_chu, int ID_nguoi_sua, object ID_nhan_vien_lap = null, int Trang_thai = 0, int ID_loai_nhap = 1, Entities db = null)
         {
             if (ID_kho == null || Ngay_nhap == null) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = new IMP_PhieuNhap();
 
@@ -86,11 +86,11 @@ namespace QLK_DongLuc.Controllers
             return pn.ID_phieu_nhap;
         }
 
-        public static int AddDetails(int ID_phieu_nhap, GridView gridViewDetails, QuanLyKhoDongLucEntities db = null)
+        public static int AddDetails(int ID_phieu_nhap, GridView gridViewDetails, Entities db = null)
         {
             if(ID_phieu_nhap < 1) return 0;
 
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             int n = gridViewDetails.RowCount;
 

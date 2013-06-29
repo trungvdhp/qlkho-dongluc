@@ -12,15 +12,15 @@ namespace QLK_DongLuc.Controllers
 {
     public class NguoiDungCtrl
     {
-        public static void LoadBindingSource(BindingSource bs, QuanLyKhoDongLucEntities db = null)
+        public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
-            if(db == null) db = new QuanLyKhoDongLucEntities();
+            if(db == null) db = new Entities();
             bs.DataSource = db.ViewNguoiDung.ToList();
         }
 
-        public static int Insert(object ID_nhan_vien, string Tai_khoan, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        public static int Insert(object ID_nhan_vien, string Tai_khoan, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan);
 
@@ -40,9 +40,9 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Update(int ID_nguoi_dung, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        public static int Update(int ID_nguoi_dung, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
@@ -56,9 +56,9 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int ChangeState(int ID_nguoi_dung, bool isLooked, QuanLyKhoDongLucEntities db = null)
+        public static int ChangeState(int ID_nguoi_dung, bool isLooked, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
@@ -69,9 +69,9 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int ChangeTimeOut(int ID_nguoi_dung, string Thoi_gian_cho, QuanLyKhoDongLucEntities db = null)
+        public static int ChangeTimeOut(int ID_nguoi_dung, string Thoi_gian_cho, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             var entity = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
 
@@ -82,13 +82,45 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static SYS_NguoiDung Login(string Tai_khoan, string Mat_khau, QuanLyKhoDongLucEntities db = null)
+        public static SYS_NguoiDung Login(string Tai_khoan, string Mat_khau, Entities db = null)
         {
-            if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
             string pass =  Utilities.CreateSHAHash(Mat_khau);
 
-            return db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
+            var user = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
+
+            if (user != null)
+            {
+                if (user.ID_trang_thai == 3) return null;
+
+                if (user.ID_trang_thai == 1)
+                    user.ID_trang_thai = 2;
+
+                user.Lan_dang_nhap_cuoi = DateTime.Now;
+
+                if (db.SaveChanges() == 0) return null;
+            }
+
+            return user;
+        }
+
+        public static void Logout(Entities db = null)
+        {
+            if (Program.CurrentUser == null) return;
+
+            if (db == null) db = new Entities();
+
+            var user = db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == Program.CurrentUser.ID_nguoi_dung);
+
+            if (user != null)
+            {
+                if (user.ID_trang_thai != 3)
+                {
+                    user.ID_trang_thai = 1;
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }
