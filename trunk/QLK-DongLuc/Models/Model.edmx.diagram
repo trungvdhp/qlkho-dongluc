@@ -66,6 +66,7 @@
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" Width="1.5" PointX="4.3930136805367717" PointY="1.440428406670889" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
