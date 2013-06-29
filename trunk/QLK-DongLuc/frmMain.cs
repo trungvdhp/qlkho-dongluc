@@ -114,13 +114,13 @@ namespace QLK_DongLuc
             OpenForm(frm, tabControl);
         }
 
-        private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void barDanhSachPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap();
             OpenForm(frm, tabControl);
         }
 
-        private void btnPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnNhapMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi();
             OpenForm(frm, tabControl);
@@ -201,6 +201,13 @@ namespace QLK_DongLuc
         {
             HeThong.frmCapNhatTaiKhoanCaNhan frm = new HeThong.frmCapNhatTaiKhoanCaNhan();
             frm.ShowDialog();
+        }
+
+        private void btnNhapLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi(2);
+            frm.Text = "Lập phiếu nhập lại";
+            OpenForm(frm, tabControl);
         }
     }
 }

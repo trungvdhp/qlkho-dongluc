@@ -26,6 +26,7 @@ namespace QLK_DongLuc.Views.HeThong
         private void chkNhanVien_CheckedChanged(object sender, EventArgs e)
         {
             ledNhanVien.Enabled = chkNhanVien.Checked;
+            txtTenDayDu.Properties.ReadOnly = chkNhanVien.Checked;
         }
 
         private void ledNhanVienNhap_Properties_EditValueChanged(object sender, EventArgs e)

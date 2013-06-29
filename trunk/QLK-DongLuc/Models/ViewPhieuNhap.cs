@@ -25,5 +25,10 @@ namespace QLK_DongLuc.Models
         public int ID_phieu_nhap { get; set; }
         public string Ten_kho { get; set; }
         public System.DateTime Ngay_sua { get; set; }
+        public string Trang_thai { get; set; }
+        public int ID_kho { get; set; }
+        public Nullable<int> ID_nha_cung_cap { get; set; }
+        public Nullable<int> ID_nhan_vien_nhap { get; set; }
+        public Nullable<int> ID_nhan_vien_lap { get; set; }
     }
 }

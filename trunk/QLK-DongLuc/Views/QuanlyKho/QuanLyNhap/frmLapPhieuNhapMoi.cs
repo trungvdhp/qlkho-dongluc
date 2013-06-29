@@ -16,9 +16,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
     public partial class frmLapPhieuNhapMoi : DevExpress.XtraEditors.XtraForm
     {
         Entities db;
-        
-        public frmLapPhieuNhapMoi()
+        int ID_loai_nhap;
+
+        public frmLapPhieuNhapMoi(int _ID_loai_nhap = 1)
         {
+            ID_loai_nhap = ID_loai_nhap;
             InitForm();
         }
 
@@ -28,7 +30,15 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
-            NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
+
+            if (ID_loai_nhap == 1)
+                NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
+            else
+            {
+                txtChungTuGoc.Properties.ReadOnly = true;
+                ledNhaCungCap.Enabled = false;
+            }
+
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = DateTime.Now;
         }
@@ -51,7 +61,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
-            if (ledNhaCungCap.EditValue == null)
+            if (ID_loai_nhap == 1 && ledNhaCungCap.EditValue == null)
             {
                 XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledNhaCungCap.Focus();
@@ -77,11 +87,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(1, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuNhap.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1, 1, 0, 1, db);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, 0, ID_loai_nhap, db);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm phiếu nhập mới không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Thêm phiếu nhập không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -89,11 +99,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập mới không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //Xoa phieu nhap vua tao
                     return;
                 }
 
-                XtraMessageBox.Show("Thêm phiếu nhập mới thành công.", "Thêm phiếu nhập mới", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Thêm phiếu nhập thành công.", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 btnLamLai.PerformClick();
             }
@@ -102,7 +113,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnLamLai_Click(object sender, EventArgs e)
         {
             Utilities.ResetControls(this);
-            txtChungTuNhap.Focus();
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)

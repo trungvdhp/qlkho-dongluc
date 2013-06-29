@@ -72,6 +72,7 @@ namespace QLK_DongLuc.Views.HeThong
             txtNhanVien.Text = user.Nhan_vien;
             chkNhanVien.Checked = user.ID_nhan_vien != null ? true : false;
             txtTenDayDu.Text = user.Ten_day_du;
+            txtTenDayDu.Properties.ReadOnly = chkNhanVien.Checked;
             tedThoiGianCho.EditValue = new DateTime().Add(user.Thoi_gian_cho.Value);
             chkKichHoatTaiKhoan.Checked = user.ID_trang_thai == 3 ? false : true; 
         }

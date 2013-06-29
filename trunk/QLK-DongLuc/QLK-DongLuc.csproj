@@ -78,9 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\PhieuNhapCTCtrl.cs" />
     <Compile Include="Controllers\NguoiDungCtrl.cs" />
     <Compile Include="Controllers\SanPhamCtrl.cs" />
     <Compile Include="Controllers\TonDauKy.cs" />
+    <Compile Include="Controllers\TuyChonTimKiemCtrl.cs" />
     <Compile Include="Controllers\Utilities.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
     <Compile Include="Controllers\LoaiVatTu.cs" />
@@ -182,6 +184,7 @@
     <Compile Include="Models\SYS_VaiTro.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TuyChonTimKiem.cs" />
     <Compile Include="Models\ViewCboKhachHang.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -437,6 +440,7 @@
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewNguoiDung.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewPhieuNhap.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
