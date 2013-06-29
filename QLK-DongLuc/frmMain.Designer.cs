@@ -55,7 +55,7 @@
             this.iRightTextAlign = new DevExpress.XtraBars.BarButtonItem();
             this.rgbiSkins = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.btnQuanLyNguoiDung = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCapNhatTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhacNho = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
             this.btnCauHinh = new DevExpress.XtraBars.BarButtonItem();
@@ -174,7 +174,7 @@
             this.iRightTextAlign,
             this.rgbiSkins,
             this.btnQuanLyNguoiDung,
-            this.btnDoiMatKhau,
+            this.btnCapNhatTaiKhoan,
             this.btnNhacNho,
             this.btnNhatKy,
             this.btnCauHinh,
@@ -417,13 +417,14 @@
             this.btnQuanLyNguoiDung.Name = "btnQuanLyNguoiDung";
             this.btnQuanLyNguoiDung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyNguoiDung_ItemClick);
             // 
-            // btnDoiMatKhau
+            // btnCapNhatTaiKhoan
             // 
-            this.btnDoiMatKhau.Caption = "Đổi mật khẩu";
-            this.btnDoiMatKhau.Enabled = false;
-            this.btnDoiMatKhau.Id = 63;
-            this.btnDoiMatKhau.ImageIndex = 1;
-            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnCapNhatTaiKhoan.Caption = "Cập nhật tài khoản";
+            this.btnCapNhatTaiKhoan.Enabled = false;
+            this.btnCapNhatTaiKhoan.Id = 63;
+            this.btnCapNhatTaiKhoan.ImageIndex = 1;
+            this.btnCapNhatTaiKhoan.Name = "btnCapNhatTaiKhoan";
+            this.btnCapNhatTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCapNhatTaiKhoan_ItemClick);
             // 
             // btnNhacNho
             // 
@@ -604,7 +605,7 @@
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnQuanLyNguoiDung);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnDangNhap);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnDangXuat);
-            this.fileRibbonPageGroup.ItemLinks.Add(this.btnDoiMatKhau);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.btnCapNhatTaiKhoan);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnNhacNho);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnNhatKy);
             this.fileRibbonPageGroup.Name = "fileRibbonPageGroup";
@@ -795,7 +796,7 @@
         private System.Windows.Forms.ImageList navbarImageList;
         private System.Windows.Forms.ImageList navbarImageListLarge;
         private DevExpress.XtraBars.BarButtonItem btnQuanLyNguoiDung;
-        private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
+        private DevExpress.XtraBars.BarButtonItem btnCapNhatTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnNhacNho;
         private DevExpress.XtraBars.BarButtonItem btnNhatKy;
         private DevExpress.XtraBars.BarButtonItem btnCauHinh;
