@@ -40,7 +40,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             }
 
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-          
             dteNgayNhap.EditValue = DateTime.Now;
         }
 
@@ -106,14 +105,14 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             result = 1;
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void Luu(int Trang_thai)
         {
             int rs = 0;
             KiemTraDuLieu(ref rs);
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, ID_loai_nhap, 0, db);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, ID_loai_nhap, db);
 
                 if (rs == 0)
                 {
@@ -121,7 +120,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     return;
                 }
 
-                rs = PhieuNhapCtrl.AddDetails(rs, grvPhieuNhapCT, db);
+                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, db);
 
                 if (rs == 0)
                 {
@@ -136,6 +135,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                 btnLamLai.PerformClick();
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            Luu(0);
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
@@ -201,9 +205,9 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             this.Close();
         }
 
-        private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
+        private void btnXacThuc_Click(object sender, EventArgs e)
         {
-
+            Luu(1);
         }
     }
 }
