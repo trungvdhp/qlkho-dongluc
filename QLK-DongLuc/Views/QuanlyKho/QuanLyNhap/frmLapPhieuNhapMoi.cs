@@ -35,7 +35,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             else
             {
-                txtChungTuGoc.Properties.ReadOnly = true;
+                txtChungTuGoc.Enabled = false;
                 ledNhaCungCap.Enabled = false;
             }
 

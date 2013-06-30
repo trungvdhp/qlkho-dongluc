@@ -26,13 +26,13 @@ namespace QLK_DongLuc.Models
         public string Ten_kho { get; set; }
         public System.DateTime Ngay_sua { get; set; }
         public string Trang_thai { get; set; }
-        public int ID_kho { get; set; }
         public Nullable<int> ID_nha_cung_cap { get; set; }
-        public Nullable<int> ID_nhan_vien_nhap { get; set; }
         public Nullable<int> ID_nhan_vien_lap { get; set; }
+        public Nullable<int> ID_nhan_vien_nhap { get; set; }
         public string Ghi_chu { get; set; }
         public int ID_loai_nhap { get; set; }
-        public int Expr1 { get; set; }
+        public int ID_trang_thai { get; set; }
         public int ID_nguoi_sua { get; set; }
+        public int ID_kho { get; set; }
     }
 }
