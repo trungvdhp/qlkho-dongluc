@@ -21,8 +21,6 @@ namespace QLK_DongLuc
 
     public partial class frmMain : XtraForm
     {
-        int indexCurrentTabPage = -1;
-
         public frmMain()
         {
             InitializeComponent();
@@ -43,7 +41,6 @@ namespace QLK_DongLuc
                 if (tab.Text == frm.Text)
                 {
                     tabControl.SelectedTabPage = tab;
-                    indexCurrentTabPage = tabControl.SelectedTabPageIndex;
                     return;
                 }
             }
@@ -51,12 +48,10 @@ namespace QLK_DongLuc
             DevExpress.XtraTab.XtraTabPage XTabPage = new DevExpress.XtraTab.XtraTabPage { Text = frm.Text };
             XTabControl.TabPages.Add(XTabPage);
             XTabControl.SelectedTabPage = XTabPage;
-            indexCurrentTabPage = tabControl.SelectedTabPageIndex;
             frm.WindowState = FormWindowState.Maximized;
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.TopLevel = false;
             frm.Parent = XTabPage;
-            frm.Tag = indexCurrentTabPage;
             frm.Show();
             frm.Dock = DockStyle.Fill;
         }
@@ -271,8 +266,8 @@ namespace QLK_DongLuc
 
         private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyXuat.LapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.LapPhieuXuatMoi();
-            OpenForm(frm, tabControl);
+            //QuanlyKho.QuanLyXuat.LapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.LapPhieuXuatMoi();
+            //OpenForm(frm, tabControl);
         }
     }
 }
