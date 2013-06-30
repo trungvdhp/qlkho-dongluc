@@ -13,6 +13,7 @@ namespace QLK_DongLuc.Controllers
 {
     class PhieuXuatCtrl
     {
+        // load  data cho các đối tượng lưới
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if (db == null) db = new Entities();
@@ -30,7 +31,7 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new Entities();
 
             lookUpEdit.Properties.Columns.Clear();
-            lookUpEdit.Properties.DataSource = db.EXP_PhieuXuat.ToList();
+            lookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("", ""));
 
             lookUpEdit.Properties.DisplayMember = "";
@@ -47,7 +48,6 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.EXP_PhieuXuat.ToList();
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("", ""));
-
             gridLookUpEdit.Properties.DisplayMember = "";
             gridLookUpEdit.Properties.ValueMember = "";
             gridLookUpEdit.Properties.NullText = "";
@@ -77,7 +77,7 @@ namespace QLK_DongLuc.Controllers
             }
             entity.ID_nhan_vien = (int)ID_nhan_vien;
             entity.Ngay_xuat = (DateTime)Ngay_xuat;
-            entity.Tong_tien = (decimal)Tong_tien;
+            entity.Tong_tien = 0;
             entity.Ghi_chu = Ghi_chu.ToString();
             entity.Trang_thai = (int)Trang_thai;
             entity.Ngay_sua = DateTime.Now;
@@ -89,10 +89,10 @@ namespace QLK_DongLuc.Controllers
             // trả lại mã phiếu xuất.
             return result.ID_phieu_xuat;
         }
-
-        public static int AddDetails(int ID_phieu_nhap, GridView gridViewDetails, Entities db = null)
+        // thêm chi tiết phiếu xuất
+        public static int AddDetails(int ID_phieu_xuat, GridView gridViewDetails, Entities db = null)
         {
-            if (ID_phieu_nhap < 1) return 0;
+            if (ID_phieu_xuat < 1) return 0;
 
             if (db == null) db = new Entities();
 
@@ -100,20 +100,20 @@ namespace QLK_DongLuc.Controllers
 
             for (int i = 0; i < n; i++)
             {
-                IMP_PhieuNhapCT entity = (IMP_PhieuNhapCT)gridViewDetails.GetRow(i);
+                EXP_PhieuXuatCT entity = (EXP_PhieuXuatCT)gridViewDetails.GetRow(i);
 
-                if (entity == null || entity.ID_vat_tu == 0 || entity.So_luong == 0) continue;
+                if (entity == null || entity.ID_vat_tu == 0 || entity.So_luong == 0 ) continue;
 
-                if (entity.ID_phieu_nhap == 0)
+                if (entity.ID_phieu_xuat == 0)
                 {
-                    //Thêm mới
-                    entity.ID_phieu_nhap = ID_phieu_nhap;
-                    db.IMP_PhieuNhapCT.Add(entity);
+                    //Thêm mới chi tiết
+                    entity.ID_phieu_xuat = ID_phieu_xuat;
+                    db.EXP_PhieuXuatCT.Add(entity);
                 }
                 else
                 {
                     //Cập nhật
-                    var item = db.IMP_PhieuNhapCT.FirstOrDefault(t => t.ID_phieu_nhap == entity.ID_phieu_nhap && t.ID_vat_tu == entity.ID_vat_tu);
+                    var item = db.EXP_PhieuXuatCT.FirstOrDefault(t => t.ID_phieu_xuat == entity.ID_phieu_xuat && t.ID_vat_tu == entity.ID_vat_tu);
                     if (item != null)
                     {
                         item = entity;
@@ -125,7 +125,7 @@ namespace QLK_DongLuc.Controllers
         }
 
         /// <summary>
-        /// Xóa phiếu nhập
+        /// Xóa phiếu xuất
         /// </summary>
         /// <param name="ID_phieu_nhap">ID phiếu nhập</param>
         /// <param name="db"></param>
@@ -135,11 +135,11 @@ namespace QLK_DongLuc.Controllers
         /// Trả về -2 nếu người dùng là giám đốc mà phiếu cần xóa đã được xác thực không thể xóa
         /// Trả về > 0 nếu xóa thành công.
         /// </returns>
-        public static int Delete(int ID_phieu_nhap, Entities db = null)
+        public static int Delete(int ID_phieu_xuat, Entities db = null)
         {
             if (db == null) db = new Entities();
 
-            var entity = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
+            var entity = db.EXP_PhieuXuat.FirstOrDefault(t => t.ID_phieu_xuat == ID_phieu_xuat);
 
             if (entity == null)
                 return 0;
@@ -150,14 +150,13 @@ namespace QLK_DongLuc.Controllers
             // Nếu là nhân viên và phiếu cần xóa bị khóa hoặc nhân viên hiện tại không phải là người lập phiếu
             if (Program.CurrentUser.ID_nhan_vien != null)
             {
-                if (entity.Trang_thai == 1 || Program.CurrentUser.ID_nhan_vien != entity.ID_nhan_vien_lap)
+                if (entity.Trang_thai == 1 || Program.CurrentUser.ID_nhan_vien != entity.ID_nhan_vien)
                     return -2;
             }
 
             // Ngoài các trường hợp trên thì xóa được;
-            db.IMP_PhieuNhapCT.RemoveRange(entity.IMP_PhieuNhapCT);
-            db.IMP_PhieuNhap.Remove(entity);
-
+            db.EXP_PhieuXuatCT.RemoveRange(entity.EXP_PhieuXuatCT);
+            db.EXP_PhieuXuat.Remove(entity);
             return db.SaveChanges();
         }
     }

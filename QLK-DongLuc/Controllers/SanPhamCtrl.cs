@@ -19,6 +19,23 @@ namespace QLK_DongLuc.Controllers
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+            // lấy dữ liệu
+            var sanpham = from sp in db.CAT_SanPham
+                          join nv in db.CAT_NhanVien on sp.ID_nhan_vien equals nv.ID_nhan_vien
+                          select new { sp.ID_san_pham, sp.Ten_san_pham, nv.Ho_dem, nv.Ten };
+            lookUpEdit.Properties.DataSource = sanpham.ToList();
+            // đẩy vào cột 
+            //lookUpEdit.Properties.DataSource = db.ViewCatSanPham.ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_san_pham", "Tên Sản Phẩm"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ho_dem", "Họ Đệm"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten", "Tên"));
+            lookUpEdit.Properties.DisplayMember = "Ten_san_pham";
+            lookUpEdit.Properties.ValueMember = "ID_san_pham";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn sản phẩm";
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
         public static int Insert(object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, Entities db = null)
