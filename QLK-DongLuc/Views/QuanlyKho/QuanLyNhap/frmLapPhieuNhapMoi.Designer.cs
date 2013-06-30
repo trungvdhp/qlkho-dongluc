@@ -111,6 +111,7 @@
             this.grdPhieuNhapCT.TabIndex = 2;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
+            this.grdPhieuNhapCT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdPhieuNhapCT_KeyDown);
             // 
             // iMPPhieuNhapCTBindingSource
             // 

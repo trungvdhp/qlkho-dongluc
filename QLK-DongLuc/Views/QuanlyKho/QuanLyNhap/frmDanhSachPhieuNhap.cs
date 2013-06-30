@@ -51,6 +51,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnNhapLai_Click(object sender, EventArgs e)
         {
             frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(2);
+            frm.Text = "Lập phiếu nhập lại";
             frm.ShowDialog();
         }
 

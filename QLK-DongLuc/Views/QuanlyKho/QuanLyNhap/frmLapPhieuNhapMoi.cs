@@ -20,13 +20,13 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         public frmLapPhieuNhapMoi(int _ID_loai_nhap = 1)
         {
+            InitializeComponent();
             ID_loai_nhap = ID_loai_nhap;
             InitForm();
         }
 
         private void InitForm()
         {
-            InitializeComponent();
             db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
@@ -42,6 +42,31 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = DateTime.Now;
         }
+
+        private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && grvPhieuNhapCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            {
+                grvPhieuNhapCT.DeleteRow(grvPhieuNhapCT.FocusedRowHandle);
+            }
+
+            if (e.KeyCode == Keys.Enter && grvPhieuNhapCT.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
+            {
+                grvPhieuNhapCT.CloseEditor();
+                grvPhieuNhapCT.UpdateCurrentRow();
+            }
+
+            if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
+            {
+                if (!grdPhieuNhapCT.IsPrintingAvailable)
+                {
+                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                grdPhieuNhapCT.ShowPrintPreview();
+            }
+        }
+
 
         private void KiemTraDuLieu(ref int result)
         {
@@ -87,7 +112,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, 0, ID_loai_nhap, db);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, ID_loai_nhap, 0, db);
 
                 if (rs == 0)
                 {
