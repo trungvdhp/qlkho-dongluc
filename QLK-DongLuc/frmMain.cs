@@ -242,5 +242,11 @@ namespace QLK_DongLuc
             frm.Text = "Lập phiếu nhập lại";
             OpenForm(frm, tabControl);
         }
+
+        private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyXuat.LapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.LapPhieuXuatMoi();
+            OpenForm(frm, tabControl);
+        }
     }
 }

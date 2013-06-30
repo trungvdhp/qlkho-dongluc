@@ -55,7 +55,7 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
         //insert phiếu xuất
-        public static int Insert(object Ma_hoa_don, object ID_loai_xuat, object ID_kho, object ID_san_pham, object ID_nhan_vien, object Ngay_xuat, object Tong_tien,Object Ghi_chu, Object Trang_thai,Object ID_nguoi_sua, Entities db = null)
+        public static int Insert(object Ma_hoa_don, object ID_loai_xuat, object ID_kho, object ID_san_pham, object ID_nhan_vien, object Ngay_xuat, decimal Tong_tien,Object Ghi_chu, Object Trang_thai,Object ID_nguoi_sua, Entities db = null)
         {
             if (ID_kho == null || Ngay_xuat == null) return 0;
 
@@ -71,21 +71,33 @@ namespace QLK_DongLuc.Controllers
             {
                 entity.ID_san_pham = null;
             }
-            else
+            else if (ID_san_pham != null)
             {
                 entity.ID_san_pham = (int)ID_san_pham;
             }
+            else
+            {
+                entity.ID_san_pham = null;
+            }
             entity.ID_nhan_vien = (int)ID_nhan_vien;
             entity.Ngay_xuat = (DateTime)Ngay_xuat;
-            entity.Tong_tien = 0;
+            entity.Tong_tien = Tong_tien;
             entity.Ghi_chu = Ghi_chu.ToString();
             entity.Trang_thai = (int)Trang_thai;
             entity.Ngay_sua = DateTime.Now;
             entity.ID_nguoi_sua = (int)ID_nguoi_sua;
            // add đôi tượng khởi tạo và trong model
+            string st = "Ma hoa don:" + entity.Ma_hoa_don+"Loai xuat:"+entity.ID_loai_xuat+"Ngay xuat:"+entity.Ngay_xuat+"tong tien: "+entity.Tong_tien;
             var result = (EXP_PhieuXuat)db.EXP_PhieuXuat.Add(entity);
             // lưu lại sự thay đổi vào trong csdl
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch
+            {
+                MessageBox.Show(st);
+            }
             // trả lại mã phiếu xuất.
             return result.ID_phieu_xuat;
         }
@@ -160,30 +172,30 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static int Insert_(object Ngay_xuat,Entities db = null)
-        {
+        //public static int Insert_(object Ngay_xuat,Entities db = null)
+        //{
             
-            var entity = new EXP_PhieuXuat();
+        //    var entity = new EXP_PhieuXuat();
 
-            // gán các thuộc tính cho đối tượng, ID_loai_xuat=1 => xuất cho sản phẩm, ID_loai_xuat=2 => xuất thanh lý
-            entity.Ma_hoa_don = "HDX001";
-            entity.ID_loai_xuat = 1;
-            entity.ID_kho = 3;
-            entity.ID_san_pham = 2;
-            entity.ID_nhan_vien = 1;
-            entity.Ngay_xuat = (DateTime)Ngay_xuat;
-            entity.Tong_tien = 0;
-            entity.Ghi_chu = "Ghi chú";
-            entity.Trang_thai = 1;
-            entity.Ngay_sua = DateTime.Now;
-            entity.ID_nguoi_sua = 1;
-            // add đôi tượng khởi tạo và trong model
-            var result = (EXP_PhieuXuat)db.EXP_PhieuXuat.Add(entity);
-            // lưu lại sự thay đổi vào trong csdl
-            db.SaveChanges();
-            // trả lại mã phiếu xuất.
-            return result.ID_phieu_xuat;
-        }
+        //    // gán các thuộc tính cho đối tượng, ID_loai_xuat=1 => xuất cho sản phẩm, ID_loai_xuat=2 => xuất thanh lý
+        //    entity.Ma_hoa_don = "HDX001";
+        //    entity.ID_loai_xuat = 1;
+        //    entity.ID_kho = 3;
+        //    entity.ID_san_pham = 2;
+        //    entity.ID_nhan_vien = 1;
+        //    entity.Ngay_xuat = (DateTime)Ngay_xuat;
+        //    entity.Tong_tien = 0;
+        //    entity.Ghi_chu = "Ghi chú";
+        //    entity.Trang_thai = 1;
+        //    entity.Ngay_sua = DateTime.Now;
+        //    entity.ID_nguoi_sua = 1;
+        //    // add đôi tượng khởi tạo và trong model
+        //    var result = (EXP_PhieuXuat)db.EXP_PhieuXuat.Add(entity);
+        //    // lưu lại sự thay đổi vào trong csdl
+        //    db.SaveChanges();
+        //    // trả lại mã phiếu xuất.
+        //    return result.ID_phieu_xuat;
+        //}
 
     }
 }
