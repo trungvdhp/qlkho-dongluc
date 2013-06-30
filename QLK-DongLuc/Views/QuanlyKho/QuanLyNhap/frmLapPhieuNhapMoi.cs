@@ -202,7 +202,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            frmMain.CloseCurrentForm(this.Parent);
         }
 
         private void btnXacThuc_Click(object sender, EventArgs e)

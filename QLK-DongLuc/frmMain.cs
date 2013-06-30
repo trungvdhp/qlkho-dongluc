@@ -21,6 +21,8 @@ namespace QLK_DongLuc
 
     public partial class frmMain : XtraForm
     {
+        int indexCurrentTabPage = -1;
+
         public frmMain()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace QLK_DongLuc
                 if (tab.Text == frm.Text)
                 {
                     tabControl.SelectedTabPage = tab;
+                    indexCurrentTabPage = tabControl.SelectedTabPageIndex;
                     return;
                 }
             }
@@ -48,12 +51,35 @@ namespace QLK_DongLuc
             DevExpress.XtraTab.XtraTabPage XTabPage = new DevExpress.XtraTab.XtraTabPage { Text = frm.Text };
             XTabControl.TabPages.Add(XTabPage);
             XTabControl.SelectedTabPage = XTabPage;
+            indexCurrentTabPage = tabControl.SelectedTabPageIndex;
             frm.WindowState = FormWindowState.Maximized;
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.TopLevel = false;
             frm.Parent = XTabPage;
+            frm.Tag = indexCurrentTabPage;
             frm.Show();
             frm.Dock = DockStyle.Fill;
+        }
+
+        private void CloseAllForm()
+        {
+            List<DevExpress.XtraTab.XtraTabPage> collection = new List<DevExpress.XtraTab.XtraTabPage>();
+
+            foreach (DevExpress.XtraTab.XtraTabPage tab in tabControl.TabPages)
+            {
+                collection.Add(tab);
+            }
+
+            foreach (DevExpress.XtraTab.XtraTabPage tab in collection)
+            {
+                tabControl.TabPages.Remove(tab);
+            }
+        }
+        public static void CloseCurrentForm(Control parent)
+        {
+            DevExpress.XtraTab.XtraTabPage tabPage = parent as DevExpress.XtraTab.XtraTabPage;
+            DevExpress.XtraTab.XtraTabControl tabControl = tabPage.Parent as DevExpress.XtraTab.XtraTabControl;
+            tabControl.TabPages.Remove(tabPage);
         }
         #endregion
 
@@ -199,7 +225,7 @@ namespace QLK_DongLuc
         {
             NguoiDungCtrl.Logout();
             Program.CurrentUser = null;
-
+            CloseAllForm();
             XtraMessageBox.Show("Đăng xuất thành công khỏi hệ thống!", "Đăng xuất thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             btnDangNhap.Enabled = true;

@@ -47,11 +47,11 @@
             this.ID_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOLoaiVatTuBindingSource)).BeginInit();
@@ -230,6 +230,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chú thích:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(382, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "(Bắt buộc phải nhập)";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl3.Location = new System.Drawing.Point(121, 54);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(211, 13);
+            this.labelControl3.TabIndex = 9;
+            this.labelControl3.Text = "Diễn giải: là ghi chú, giải thích về  loại vật tư";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -257,24 +275,6 @@
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Loại vật tư: là tên của loại vật tư (VD: loại Giá đỡ, Tụ, ...) ";
             // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl3.Location = new System.Drawing.Point(121, 54);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(211, 13);
-            this.labelControl3.TabIndex = 9;
-            this.labelControl3.Text = "Diễn giải: là ghi chú, giải thích về  loại vật tư";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(382, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "(Bắt buộc phải nhập)";
-            // 
             // frmLoaiVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,7 +282,7 @@
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmLoaiVatTu";
-            this.Text = "frmLoaiVatTu";
+            this.Text = "Danh sách loại vật tư";
             this.Load += new System.EventHandler(this.frmLoaiVatTu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
