@@ -40,6 +40,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             }
 
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
+          
             dteNgayNhap.EditValue = DateTime.Now;
         }
 
@@ -198,6 +199,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
