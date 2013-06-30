@@ -203,6 +203,7 @@
             // 
             // btnThoat
             // 
+            this.btnThoat.Image = global::QLK_DongLuc.Properties.Resources.button_close;
             this.btnThoat.Location = new System.Drawing.Point(237, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(70, 25);
@@ -212,6 +213,7 @@
             // 
             // btnIn
             // 
+            this.btnIn.Image = global::QLK_DongLuc.Properties.Resources.button_print;
             this.btnIn.Location = new System.Drawing.Point(85, 5);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(70, 25);
@@ -220,6 +222,7 @@
             // 
             // btnLamLai
             // 
+            this.btnLamLai.Image = global::QLK_DongLuc.Properties.Resources.button_refresh;
             this.btnLamLai.Location = new System.Drawing.Point(161, 5);
             this.btnLamLai.Name = "btnLamLai";
             this.btnLamLai.Size = new System.Drawing.Size(70, 25);
@@ -229,6 +232,7 @@
             // 
             // btnLuu
             // 
+            this.btnLuu.Image = global::QLK_DongLuc.Properties.Resources.button_save;
             this.btnLuu.Location = new System.Drawing.Point(9, 5);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(70, 25);
@@ -261,7 +265,7 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(3, 0);
+            this.groupControl1.Location = new System.Drawing.Point(398, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(389, 142);
@@ -334,7 +338,7 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(398, 0);
+            this.groupControl2.Location = new System.Drawing.Point(3, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(389, 142);

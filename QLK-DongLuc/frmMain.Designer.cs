@@ -549,6 +549,7 @@
             // barButtonItem18
             // 
             this.barButtonItem18.Caption = "Lập phiếu xuất";
+            this.barButtonItem18.Glyph = global::QLK_DongLuc.Properties.Resources.LapPhieuXuatMoi_16x16;
             this.barButtonItem18.Id = 80;
             this.barButtonItem18.ImageIndex = 1;
             this.barButtonItem18.Name = "barButtonItem18";
@@ -565,6 +566,7 @@
             // barButtonItem20
             // 
             this.barButtonItem20.Caption = "Thanh lý vật tư";
+            this.barButtonItem20.Glyph = global::QLK_DongLuc.Properties.Resources.ThanhLyVatTu_16x16;
             this.barButtonItem20.Id = 82;
             this.barButtonItem20.ImageIndex = 1;
             this.barButtonItem20.Name = "barButtonItem20";

@@ -118,70 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="NhatKyHeThong_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\NhatKyHeThong_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\button-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="QuanLyNguoiDung_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\QuanLyNguoiDung_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PhucHoi_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\PhucHoi_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KhoVatTu_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\KhoVatTu_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LapPhieuNhapLai_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\LapPhieuNhapLai_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ThanhLyVatTu_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ThanhLyVatTu_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DangXuat_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\DangXuat_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LapPhieuXuatMoi_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\LapPhieuXuatMoi_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DanhSachPhieuNhap_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\DanhSachPhieuNhap_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CapNhatTaiKhoan_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\CapNhatTaiKhoan_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DangNhap_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\DangNhap_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LapPhieuNhapLai_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\LapPhieuNhapLai_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QuanLyNguoiDung_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\QuanLyNguoiDung_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button-modify" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\button-modify.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="button-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\button-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\button-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button-close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\button-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LapPhieuNhapMoi_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\LapPhieuNhapMoi_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ThongTinNhacNho_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ThongTinNhacNho_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CauHinhHeThong_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\CauHinhHeThong_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DanhSachPhieuXuat_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\DanhSachPhieuXuat_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ThongTinNhacNho_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\ThongTinNhacNho_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SaoLuu_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\SaoLuu_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DanhSachPhieuNhap_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\DanhSachPhieuNhap_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NhanVien_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\NhanVien_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LapPhieuXuatMoi_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\LapPhieuXuatMoi_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LapPhieuNhapMoi_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\LapPhieuNhapMoi_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DangNhap_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\DangNhap_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaoLuu_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\SaoLuu_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KhoVatTu_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\KhoVatTu_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CapNhatTaiKhoan_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\CapNhatTaiKhoan_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DanhSachPhieuXuat_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\DanhSachPhieuXuat_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-accept" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-accept.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DangXuat_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\DangXuat_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NhatKyHeThong_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\NhatKyHeThong_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PhucHoi_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\PhucHoi_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button-savelock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\button-savelock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
