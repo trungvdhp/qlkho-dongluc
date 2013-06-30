@@ -159,6 +159,32 @@ namespace QLK_DongLuc.Controllers
             db.EXP_PhieuXuat.Remove(entity);
             return db.SaveChanges();
         }
+
+        public static int Insert_(object Ngay_xuat,Entities db = null)
+        {
+            
+            var entity = new EXP_PhieuXuat();
+
+            // gán các thuộc tính cho đối tượng, ID_loai_xuat=1 => xuất cho sản phẩm, ID_loai_xuat=2 => xuất thanh lý
+            entity.Ma_hoa_don = "HDX001";
+            entity.ID_loai_xuat = 1;
+            entity.ID_kho = 3;
+            entity.ID_san_pham = 2;
+            entity.ID_nhan_vien = 1;
+            entity.Ngay_xuat = (DateTime)Ngay_xuat;
+            entity.Tong_tien = 0;
+            entity.Ghi_chu = "Ghi chú";
+            entity.Trang_thai = 1;
+            entity.Ngay_sua = DateTime.Now;
+            entity.ID_nguoi_sua = 1;
+            // add đôi tượng khởi tạo và trong model
+            var result = (EXP_PhieuXuat)db.EXP_PhieuXuat.Add(entity);
+            // lưu lại sự thay đổi vào trong csdl
+            db.SaveChanges();
+            // trả lại mã phiếu xuất.
+            return result.ID_phieu_xuat;
+        }
+
     }
 }
 
