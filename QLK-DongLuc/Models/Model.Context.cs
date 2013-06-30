@@ -48,14 +48,14 @@ namespace QLK_DongLuc.Models
         public DbSet<SYS_TrangThaiNguoiDung> SYS_TrangThaiNguoiDung { get; set; }
         public DbSet<SYS_VaiTro> SYS_VaiTro { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<ViewCatSanPham> ViewCatSanPham { get; set; }
         public DbSet<ViewCboKhachHang> ViewCboKhachHang { get; set; }
         public DbSet<ViewCboLoaiVatTu> ViewCboLoaiVatTu { get; set; }
+        public DbSet<ViewCboLoaiXuat> ViewCboLoaiXuat { get; set; }
         public DbSet<ViewCboNhanVien> ViewCboNhanVien { get; set; }
         public DbSet<ViewCboVatTu> ViewCboVatTu { get; set; }
         public DbSet<ViewNguoiDung> ViewNguoiDung { get; set; }
-        public DbSet<ViewCboLoaiXuat> ViewCboLoaiXuat { get; set; }
-        public DbSet<ViewCatSanPham> ViewCatSanPham { get; set; }
-        public DbSet<ViewPhieuXuat> ViewPhieuXuat { get; set; }
         public DbSet<ViewPhieuNhap> ViewPhieuNhap { get; set; }
+        public DbSet<ViewPhieuXuat> ViewPhieuXuat { get; set; }
     }
 }

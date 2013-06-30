@@ -418,7 +418,7 @@
           </Key>
           <Property Name="ID_kho" Type="int" Nullable="false" />
           <Property Name="ID_vat_tu" Type="int" Nullable="false" />
-          <Property Name="SoLuong" Type="float" Nullable="false" />
+          <Property Name="So_luong" Type="float" Nullable="false" />
           <Property Name="Don_gia_nhap" Type="money" />
           <Property Name="Don_gia_xuat" Type="money" />
           <Property Name="ID_phieu_nhap" Type="int" />
@@ -1169,11 +1169,15 @@
           <EntitySet Name="SYS_TrangThaiNguoiDung" EntityType="QuanLyKhoDongLucModel.SYS_TrangThaiNguoiDung" />
           <EntitySet Name="SYS_VaiTro" EntityType="QuanLyKhoDongLucModel.SYS_VaiTro" />
           <EntitySet Name="sysdiagrams" EntityType="QuanLyKhoDongLucModel.sysdiagrams" />
+          <EntitySet Name="ViewCatSanPham" EntityType="QuanLyKhoDongLucModel.ViewCatSanPham" />
           <EntitySet Name="ViewCboKhachHang" EntityType="QuanLyKhoDongLucModel.ViewCboKhachHang" />
           <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
+          <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" />
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" />
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" />
           <EntitySet Name="ViewNguoiDung" EntityType="QuanLyKhoDongLucModel.ViewNguoiDung" />
+          <EntitySet Name="ViewPhieuNhap" EntityType="QuanLyKhoDongLucModel.ViewPhieuNhap" />
+          <EntitySet Name="ViewPhieuXuat" EntityType="QuanLyKhoDongLucModel.ViewPhieuXuat" />
           <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung">
             <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
             <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
@@ -1302,10 +1306,6 @@
             <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
-          <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" />
-          <EntitySet Name="ViewCatSanPham" EntityType="QuanLyKhoDongLucModel.ViewCatSanPham" />
-          <EntitySet Name="ViewPhieuXuat" EntityType="QuanLyKhoDongLucModel.ViewPhieuXuat" />
-          <EntitySet Name="ViewPhieuNhap" EntityType="QuanLyKhoDongLucModel.ViewPhieuNhap" />
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1482,7 +1482,7 @@
           </Key>
           <Property Type="Int32" Name="ID_kho" Nullable="false" />
           <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
-          <Property Type="Double" Name="SoLuong" Nullable="false" />
+          <Property Type="Double" Name="So_luong" Nullable="false" />
           <Property Type="Decimal" Name="Don_gia_nhap" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="Don_gia_xuat" Precision="19" Scale="4" />
           <Property Type="Int32" Name="ID_phieu_nhap" />
@@ -1619,6 +1619,24 @@
           <Property Type="Int32" Name="version" />
           <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="ViewCatSanPham">
+          <Key>
+            <PropertyRef Name="ID_san_pham" />
+            <PropertyRef Name="Ma_san_pham" />
+            <PropertyRef Name="Ten_san_pham" />
+            <PropertyRef Name="Nhan_vien" />
+            <PropertyRef Name="ID_nhan_vien" />
+            <PropertyRef Name="Ho_dem" />
+            <PropertyRef Name="Ten" />
+          </Key>
+          <Property Type="Int32" Name="ID_san_pham" Nullable="false" />
+          <Property Type="String" Name="Ma_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ten_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nhan_vien" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
+          <Property Type="String" Name="Ho_dem" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="ViewCboKhachHang">
           <Key>
             <PropertyRef Name="ID_khach_hang" />
@@ -1639,6 +1657,14 @@
           <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewCboLoaiXuat">
+          <Key>
+            <PropertyRef Name="ID_loai_xuat" />
+            <PropertyRef Name="Ten_loai_xuat" />
+          </Key>
+          <Property Type="Int32" Name="ID_loai_xuat" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Ten_loai_xuat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewCboNhanVien">
           <Key>
@@ -1683,6 +1709,77 @@
           <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
           <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Nhan_vien" MaxLength="101" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewPhieuNhap">
+          <Key>
+            <PropertyRef Name="Ngay_nhap" />
+            <PropertyRef Name="Tong_tien" />
+            <PropertyRef Name="ID_phieu_nhap" />
+            <PropertyRef Name="Ngay_sua" />
+            <PropertyRef Name="Trang_thai" />
+            <PropertyRef Name="ID_loai_nhap" />
+            <PropertyRef Name="ID_trang_thai" />
+            <PropertyRef Name="ID_nguoi_sua" />
+            <PropertyRef Name="ID_kho" />
+          </Key>
+          <Property Type="String" Name="So_chung_tu_goc" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_loai_nhap" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_nha_cung_cap" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Ngay_nhap" Nullable="false" Precision="3" />
+          <Property Type="Decimal" Name="Tong_tien" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="Nguoi_sua" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nhan_vien_nhap" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nhan_vien_lap" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_phieu_nhap" Nullable="false" />
+          <Property Type="String" Name="Ten_kho" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Ngay_sua" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_nha_cung_cap" />
+          <Property Type="Int32" Name="ID_nhan_vien_lap" />
+          <Property Type="Int32" Name="ID_nhan_vien_nhap" />
+          <Property Type="String" Name="Ghi_chu" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_loai_nhap" Nullable="false" />
+          <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
+          <Property Type="Int32" Name="ID_nguoi_sua" Nullable="false" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ViewPhieuXuat">
+          <Key>
+            <PropertyRef Name="ID_phieu_xuat" />
+            <PropertyRef Name="Ma_hoa_don" />
+            <PropertyRef Name="ID_loai_xuat" />
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="Ngay_xuat" />
+            <PropertyRef Name="ID_nhan_vien" />
+            <PropertyRef Name="Tong_tien" />
+            <PropertyRef Name="Trang_thai" />
+            <PropertyRef Name="Ten_day_du" />
+            <PropertyRef Name="Ten_san_pham" />
+            <PropertyRef Name="Ten_loai_xuat" />
+            <PropertyRef Name="Ten_kho" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Ho_dem" />
+            <PropertyRef Name="Ten" />
+          </Key>
+          <Property Type="Int32" Name="ID_phieu_xuat" Nullable="false" />
+          <Property Type="String" Name="Ma_hoa_don" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_loai_xuat" Nullable="false" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <Property Type="Int32" Name="ID_san_pham" />
+          <Property Type="DateTime" Name="Ngay_xuat" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
+          <Property Type="Decimal" Name="Tong_tien" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="String" Name="Ghi_chu" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Trang_thai" Nullable="false" />
+          <Property Type="DateTime" Name="Ngay_sua" Precision="3" />
+          <Property Type="Int32" Name="ID_nguoi_sua" />
+          <Property Type="String" Name="Ten_day_du" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_loai_xuat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_kho" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Expr1" Nullable="false" />
+          <Property Type="String" Name="Ho_dem" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
           <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="0..1" />
@@ -2052,103 +2149,6 @@
           <End Type="QuanLyKhoDongLucModel.SYS_Quyen" Role="SYS_Quyen" Multiplicity="*" />
           <End Type="QuanLyKhoDongLucModel.SYS_VaiTro" Role="SYS_VaiTro" Multiplicity="*" />
         </Association>
-        <EntityType Name="ViewCboLoaiXuat">
-          <Key>
-            <PropertyRef Name="ID_loai_xuat" />
-            <PropertyRef Name="Ten_loai_xuat" />
-          </Key>
-          <Property Type="Int32" Name="ID_loai_xuat" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Ten_loai_xuat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ViewCatSanPham">
-          <Key>
-            <PropertyRef Name="ID_san_pham" />
-            <PropertyRef Name="Ma_san_pham" />
-            <PropertyRef Name="Ten_san_pham" />
-            <PropertyRef Name="Nhan_vien" />
-            <PropertyRef Name="ID_nhan_vien" />
-            <PropertyRef Name="Ho_dem" />
-            <PropertyRef Name="Ten" />
-          </Key>
-          <Property Type="Int32" Name="ID_san_pham" Nullable="false" />
-          <Property Type="String" Name="Ma_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Ten_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Nhan_vien" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
-          <Property Type="String" Name="Ho_dem" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ViewPhieuXuat">
-          <Key>
-            <PropertyRef Name="ID_phieu_xuat" />
-            <PropertyRef Name="Ma_hoa_don" />
-            <PropertyRef Name="ID_loai_xuat" />
-            <PropertyRef Name="ID_kho" />
-            <PropertyRef Name="Ngay_xuat" />
-            <PropertyRef Name="ID_nhan_vien" />
-            <PropertyRef Name="Tong_tien" />
-            <PropertyRef Name="Trang_thai" />
-            <PropertyRef Name="Ten_day_du" />
-            <PropertyRef Name="Ten_san_pham" />
-            <PropertyRef Name="Ten_loai_xuat" />
-            <PropertyRef Name="Ten_kho" />
-            <PropertyRef Name="Expr1" />
-            <PropertyRef Name="Ho_dem" />
-            <PropertyRef Name="Ten" />
-          </Key>
-          <Property Type="Int32" Name="ID_phieu_xuat" Nullable="false" />
-          <Property Type="String" Name="Ma_hoa_don" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_loai_xuat" Nullable="false" />
-          <Property Type="Int32" Name="ID_kho" Nullable="false" />
-          <Property Type="Int32" Name="ID_san_pham" />
-          <Property Type="DateTime" Name="Ngay_xuat" Nullable="false" Precision="3" />
-          <Property Type="Int32" Name="ID_nhan_vien" Nullable="false" />
-          <Property Type="Decimal" Name="Tong_tien" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="String" Name="Ghi_chu" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Trang_thai" Nullable="false" />
-          <Property Type="DateTime" Name="Ngay_sua" Precision="3" />
-          <Property Type="Int32" Name="ID_nguoi_sua" />
-          <Property Type="String" Name="Ten_day_du" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_san_pham" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_loai_xuat" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_kho" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Expr1" Nullable="false" />
-          <Property Type="String" Name="Ho_dem" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ViewPhieuNhap">
-          <Key>
-            <PropertyRef Name="Ngay_nhap" />
-            <PropertyRef Name="Tong_tien" />
-            <PropertyRef Name="ID_phieu_nhap" />
-            <PropertyRef Name="Ngay_sua" />
-            <PropertyRef Name="Trang_thai" />
-            <PropertyRef Name="ID_loai_nhap" />
-            <PropertyRef Name="ID_trang_thai" />
-            <PropertyRef Name="ID_nguoi_sua" />
-            <PropertyRef Name="ID_kho" />
-          </Key>
-          <Property Type="String" Name="So_chung_tu_goc" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_loai_nhap" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_nha_cung_cap" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Ngay_nhap" Nullable="false" Precision="3" />
-          <Property Type="Decimal" Name="Tong_tien" Nullable="false" Precision="19" Scale="4" />
-          <Property Type="String" Name="Nguoi_sua" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Nhan_vien_nhap" MaxLength="101" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Nhan_vien_lap" MaxLength="101" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_phieu_nhap" Nullable="false" />
-          <Property Type="String" Name="Ten_kho" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Ngay_sua" Nullable="false" Precision="3" />
-          <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_nha_cung_cap" />
-          <Property Type="Int32" Name="ID_nhan_vien_lap" />
-          <Property Type="Int32" Name="ID_nhan_vien_nhap" />
-          <Property Type="String" Name="Ghi_chu" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_loai_nhap" Nullable="false" />
-          <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
-          <Property Type="Int32" Name="ID_nguoi_sua" Nullable="false" />
-          <Property Type="Int32" Name="ID_kho" Nullable="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2301,7 +2301,7 @@
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
                 <ScalarProperty Name="Don_gia_xuat" ColumnName="Don_gia_xuat" />
                 <ScalarProperty Name="Don_gia_nhap" ColumnName="Don_gia_nhap" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
                 <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
                 <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
               </MappingFragment>
@@ -2422,6 +2422,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ViewCatSanPham">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCatSanPham">
+              <MappingFragment StoreEntitySet="ViewCatSanPham">
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="Nhan_vien" ColumnName="Nhan_vien" />
+                <ScalarProperty Name="Ten_san_pham" ColumnName="Ten_san_pham" />
+                <ScalarProperty Name="Ma_san_pham" ColumnName="Ma_san_pham" />
+                <ScalarProperty Name="ID_san_pham" ColumnName="ID_san_pham" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ViewCboKhachHang">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboKhachHang">
               <MappingFragment StoreEntitySet="ViewCboKhachHang">
@@ -2439,6 +2452,14 @@
                 <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
                 <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
                 <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCboLoaiXuat">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiXuat">
+              <MappingFragment StoreEntitySet="ViewCboLoaiXuat">
+                <ScalarProperty Name="Ten_loai_xuat" ColumnName="Ten_loai_xuat" />
+                <ScalarProperty Name="ID_loai_xuat" ColumnName="ID_loai_xuat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2480,40 +2501,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="SYS_NguoiDungVaiTro" TypeName="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" StoreEntitySet="SYS_NguoiDungVaiTro">
-            <EndProperty Name="SYS_VaiTro">
-              <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
-            </EndProperty>
-            <EndProperty Name="SYS_NguoiDung">
-              <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="SYS_VaiTroQuyen" TypeName="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" StoreEntitySet="SYS_VaiTroQuyen">
-            <EndProperty Name="SYS_VaiTro">
-              <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
-            </EndProperty>
-            <EndProperty Name="SYS_Quyen">
-              <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="ViewCboLoaiXuat">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiXuat">
-              <MappingFragment StoreEntitySet="ViewCboLoaiXuat">
-                <ScalarProperty Name="Ten_loai_xuat" ColumnName="Ten_loai_xuat" />
-                <ScalarProperty Name="ID_loai_xuat" ColumnName="ID_loai_xuat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ViewCatSanPham">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCatSanPham">
-              <MappingFragment StoreEntitySet="ViewCatSanPham">
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="Ho_dem" ColumnName="Ho_dem" />
-                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
-                <ScalarProperty Name="Nhan_vien" ColumnName="Nhan_vien" />
-                <ScalarProperty Name="Ten_san_pham" ColumnName="Ten_san_pham" />
-                <ScalarProperty Name="Ma_san_pham" ColumnName="Ma_san_pham" />
-                <ScalarProperty Name="ID_san_pham" ColumnName="ID_san_pham" />
+          <EntitySetMapping Name="ViewPhieuNhap">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewPhieuNhap">
+              <MappingFragment StoreEntitySet="ViewPhieuNhap">
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
+                <ScalarProperty Name="ID_trang_thai" ColumnName="ID_trang_thai" />
+                <ScalarProperty Name="ID_loai_nhap" ColumnName="ID_loai_nhap" />
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="ID_nhan_vien_nhap" ColumnName="ID_nhan_vien_nhap" />
+                <ScalarProperty Name="ID_nhan_vien_lap" ColumnName="ID_nhan_vien_lap" />
+                <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+                <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
+                <ScalarProperty Name="Ten_kho" ColumnName="Ten_kho" />
+                <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+                <ScalarProperty Name="Nhan_vien_lap" ColumnName="Nhan_vien_lap" />
+                <ScalarProperty Name="Nhan_vien_nhap" ColumnName="Nhan_vien_nhap" />
+                <ScalarProperty Name="Nguoi_sua" ColumnName="Nguoi_sua" />
+                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
+                <ScalarProperty Name="Ngay_nhap" ColumnName="Ngay_nhap" />
+                <ScalarProperty Name="Ten_nha_cung_cap" ColumnName="Ten_nha_cung_cap" />
+                <ScalarProperty Name="Ten_loai_nhap" ColumnName="Ten_loai_nhap" />
+                <ScalarProperty Name="So_chung_tu_goc" ColumnName="So_chung_tu_goc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2542,32 +2552,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewPhieuNhap">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewPhieuNhap">
-              <MappingFragment StoreEntitySet="ViewPhieuNhap">
-                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
-                <ScalarProperty Name="ID_nguoi_sua" ColumnName="ID_nguoi_sua" />
-                <ScalarProperty Name="ID_trang_thai" ColumnName="ID_trang_thai" />
-                <ScalarProperty Name="ID_loai_nhap" ColumnName="ID_loai_nhap" />
-                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
-                <ScalarProperty Name="ID_nhan_vien_nhap" ColumnName="ID_nhan_vien_nhap" />
-                <ScalarProperty Name="ID_nhan_vien_lap" ColumnName="ID_nhan_vien_lap" />
-                <ScalarProperty Name="ID_nha_cung_cap" ColumnName="ID_nha_cung_cap" />
-                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
-                <ScalarProperty Name="Ngay_sua" ColumnName="Ngay_sua" />
-                <ScalarProperty Name="Ten_kho" ColumnName="Ten_kho" />
-                <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
-                <ScalarProperty Name="Nhan_vien_lap" ColumnName="Nhan_vien_lap" />
-                <ScalarProperty Name="Nhan_vien_nhap" ColumnName="Nhan_vien_nhap" />
-                <ScalarProperty Name="Nguoi_sua" ColumnName="Nguoi_sua" />
-                <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
-                <ScalarProperty Name="Ngay_nhap" ColumnName="Ngay_nhap" />
-                <ScalarProperty Name="Ten_nha_cung_cap" ColumnName="Ten_nha_cung_cap" />
-                <ScalarProperty Name="Ten_loai_nhap" ColumnName="Ten_loai_nhap" />
-                <ScalarProperty Name="So_chung_tu_goc" ColumnName="So_chung_tu_goc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <AssociationSetMapping Name="SYS_NguoiDungVaiTro" TypeName="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" StoreEntitySet="SYS_NguoiDungVaiTro">
+            <EndProperty Name="SYS_VaiTro">
+              <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
+            </EndProperty>
+            <EndProperty Name="SYS_NguoiDung">
+              <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SYS_VaiTroQuyen" TypeName="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" StoreEntitySet="SYS_VaiTroQuyen">
+            <EndProperty Name="SYS_VaiTro">
+              <ScalarProperty Name="ID_vai_tro" ColumnName="ID_vai_tro" />
+            </EndProperty>
+            <EndProperty Name="SYS_Quyen">
+              <ScalarProperty Name="ID_quyen" ColumnName="ID_quyen" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

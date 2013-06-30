@@ -37,7 +37,7 @@ namespace QLK_DongLuc.Models
 						row = dt.Rows.Add();
 						i = dt.Rows.IndexOf(row);
 						dt.Rows[i]["Don_vi"] = (double)vattu.STO_VatTu.Don_vi;
-						dt.Rows[i][vattu.STO_VatTu.Ten_vat_tu] = vattu.SoLuong;
+						dt.Rows[i][vattu.STO_VatTu.Ten_vat_tu] = vattu.So_luong;
 					}
 					else
 					{
@@ -46,7 +46,7 @@ namespace QLK_DongLuc.Models
 						{
 							row = rows[0];
 							i = dt.Rows.IndexOf(row);
-							dt.Rows[i][vattu.STO_VatTu.Ten_vat_tu] = vattu.SoLuong;
+							dt.Rows[i][vattu.STO_VatTu.Ten_vat_tu] = vattu.So_luong;
 						}
 					}
 				}

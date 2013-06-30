@@ -16,7 +16,7 @@ namespace QLK_DongLuc.Models
     {
         public int ID_kho { get; set; }
         public int ID_vat_tu { get; set; }
-        public double SoLuong { get; set; }
+        public double So_luong { get; set; }
         public Nullable<decimal> Don_gia_nhap { get; set; }
         public Nullable<decimal> Don_gia_xuat { get; set; }
         public Nullable<int> ID_phieu_nhap { get; set; }

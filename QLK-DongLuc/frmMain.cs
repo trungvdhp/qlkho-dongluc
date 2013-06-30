@@ -148,24 +148,48 @@ namespace QLK_DongLuc
                 btnDangXuat.Enabled = true;
                 btnCapNhatTaiKhoan.Enabled = true;
 
+                // Nếu là giám đốc
                 if (Program.CurrentUser.ID_nhan_vien == null)
                 {
+                    // Chuc nang he thong
                     btnQuanLyNguoiDung.Enabled = true;
                     btnNhatKy.Enabled = true;
                     btnNhacNho.Enabled = true;
                     btnSaoLuu.Enabled = true;
                     btnCauHinh.Enabled = true;
                     btnPhucHoi.Enabled = true;
+
+                    // Chuc nang quan ly kho
+                    btnNhapMoi.Enabled = false;
+                    btnNhapLai.Enabled = false;
+
+                    // Chức năng quản lý danh mục
+                    btnNhomVatTu.Enabled = true;
+                    btnNhaCungCap.Enabled = true;
+                    btnNhanVien.Enabled = true;
+
                     lblInfo.Caption = "giám đốc " + Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "";
                 }
+                // Nếu là nhân viên
                 else
                 {
+                    // Chuc nang he thong
                     btnQuanLyNguoiDung.Enabled = false; 
                     btnNhatKy.Enabled = false;
                     btnNhacNho.Enabled = false;
                     btnSaoLuu.Enabled = false;
                     btnCauHinh.Enabled = false;
                     btnPhucHoi.Enabled = false;
+
+                    // Chuc nang quan ly kho
+                    btnNhapMoi.Enabled = true;
+                    btnNhapLai.Enabled = true;
+
+                    // Chức năng quản lý danh mục
+                    btnNhomVatTu.Enabled = false;
+                    btnNhaCungCap.Enabled = false;
+                    btnNhanVien.Enabled = false;
+
                     lblInfo.Caption = "nhân viên " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
                 }
             }
@@ -194,7 +218,16 @@ namespace QLK_DongLuc
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            btnThoat.PerformClick();
+            //btnThoat.PerformClick();
+            if (XtraMessageBox.Show("Bạn có thực sự muốn thoát khỏi hệ thống không!", "Thoát khỏi hệ thống", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                NguoiDungCtrl.Logout();
+                Application.ExitThread();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnCapNhatTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

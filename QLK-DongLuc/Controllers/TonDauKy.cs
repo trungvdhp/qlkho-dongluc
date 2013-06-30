@@ -27,7 +27,7 @@ namespace QLK_DongLuc.Controllers
 					tondauky.STO_TonDauKyCT.Add(new STO_TonDauKyCT()
 					{
 						ID_vat_tu = vt.ID_vat_tu,
-						So_luong = vt.SoLuong
+						So_luong = vt.So_luong
 					});
 				}
 				db.STO_TonDauKy.Add(tondauky);

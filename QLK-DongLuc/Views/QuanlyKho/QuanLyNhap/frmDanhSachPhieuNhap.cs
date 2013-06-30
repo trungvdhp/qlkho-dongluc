@@ -20,7 +20,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             InitializeComponent();
             db = new Entities();
             TuyChonTimKiemCtrl.LoadLookUpEdit(ledTuyChon);
-            PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+            PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
         }
 
@@ -32,6 +32,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 colTong_tien.Visible = false;
                 colDon_gia.Visible = false;
             }
+            else
+            {
+                btnNhapLai.Visible = false;
+                btnNhapMoi.Visible = false;
+            }
         }
 
         private void grvPhieuNhap_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -39,7 +44,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
 
             if(pn != null)
-                PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource, db);
+                PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
         }
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
@@ -65,11 +70,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                 if (rs == -1)
                 {
-                    XtraMessageBox.Show("Phiếu nhập này đã được xác thực và không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (rs == -2)
-                {
-                    XtraMessageBox.Show("Phiếu nhập này đã bị giám đốc khóa. Nhân viên không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Phiếu nhập này đã được xác thực hàng đã vào kho và không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else if (rs == 0)
                 {
@@ -91,7 +92,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             if (pn != null)
             {
                 frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn);
-                frm.ShowDialog();
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+                    PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
+                }
             }
         }
     }

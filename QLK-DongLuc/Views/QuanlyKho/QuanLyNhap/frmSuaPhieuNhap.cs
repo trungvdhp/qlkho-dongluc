@@ -64,16 +64,62 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 colSo_luong.ColumnEdit.ReadOnly = true;
 
                 grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+
+                if (pn.ID_trang_thai == -1)
+                {
+                    // Khóa cột
+                    colDon_gia.ColumnEdit.ReadOnly = true;
+                    colThanh_tien.ColumnEdit.ReadOnly = true;
+                    // Khóa nút
+                    btnLuu.Enabled = false;
+                    btnXacThuc.Enabled = false;
+
+                    this.Text = "Sửa phiếu nhập - Giám đốc đã xác thực đơn giá của phiếu nhập nên chỉ có thể xem";
+                }
+                else if (pn.ID_trang_thai == 0)
+                {
+                    // Khóa cột
+                    colDon_gia.ColumnEdit.ReadOnly = true;
+                    colThanh_tien.ColumnEdit.ReadOnly = true;
+                    // Khóa nút
+                    btnLuu.Enabled = false;
+                    btnXacThuc.Enabled = false;
+                    this.Text = "Sửa phiếu nhập - Nhân viên chưa xác thực hàng đã vào kho nên giám đốc chỉ có thể xem";
+                }
+                else
+                {
+                    this.Text = "Sửa phiếu nhập - Giám đốc nhập đơn giá";
+                }
             }
             else
             {
-                // Khóa nút
-                btnLuuVaKhoa.Enabled = false;
-                btnXacThuc.Enabled = false;
-
                 // Ẩn cột
                 colDon_gia.Visible = false;
                 colThanh_tien.Visible = false;
+
+                if (pn.ID_trang_thai != 0)
+                {
+                    // Khóa nút
+                    btnLuu.Enabled = false;
+                    btnXacThuc.Enabled = false;
+                    // Khóa nhập
+                    ledNhanVienNhap.Properties.ReadOnly = true;
+                    ledKhoNhap.Properties.ReadOnly = true;
+                    ledNhaCungCap.Properties.ReadOnly = true;
+                    mmoGhiChu.Properties.ReadOnly = true;
+                    txtChungTuGoc.Properties.ReadOnly = true;
+                    dteNgayNhap.Properties.ReadOnly = true;
+
+                    // Khóa cột
+                    colID_vat_tu.ColumnEdit.ReadOnly = true;
+                    colSo_luong.ColumnEdit.ReadOnly = true;
+
+                    grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+
+                    this.Text = "Sửa phiếu nhập - Nhân viên đã xác thực hàng vào kho nên chỉ có thể xem";
+                }
+                else
+                    this.Text = "Nhân viên sửa phiếu nhập";
             }
         }
 
@@ -127,7 +173,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
-            if (grvPhieuNhapCT.RowCount < 2)
+            if (grvPhieuNhapCT.RowCount < 2 && Program.CurrentUser.ID_nhan_vien != null)
             {
                 XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu nhập.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 grvPhieuNhapCT.Focus();
@@ -138,42 +184,31 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             result = 1;
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void Luu(int Trang_thai)
         {
             int rs = 0;
-            rs = PhieuNhapCtrl.UpdateDetails(pn.ID_phieu_nhap, 0, grvPhieuNhapCT, db);
-            //KiemTraDuLieu(ref rs);
+            KiemTraDuLieu(ref rs);
 
-            //if (rs == 1)
-            //{
-            //    rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, Program.CurrentUser.ID_nguoi_dung, Program.CurrentUser.ID_nhan_vien, 0, pn.ID_loai_nhap, db);
+            if (rs == 1)
+            {
+                rs = PhieuNhapCtrl.Update(pn.ID_phieu_nhap, grvPhieuNhapCT, ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, pn.ID_loai_nhap, Trang_thai, db);
 
-            //    if (rs == 0)
-            //    {
-            //        XtraMessageBox.Show("Thêm phiếu nhập không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
+                if (rs == 0)
+                {
+                    XtraMessageBox.Show("Sửa phiếu nhập không thành công. Vui lòng thử lại!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-            //    rs = PhieuNhapCtrl.AddDetails(rs, grvPhieuNhapCT, db);
+                XtraMessageBox.Show("Sửa phiếu nhập thành công!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //    if (rs == 0)
-            //    {
-            //        XtraMessageBox.Show("Thêm chi tiết phiếu nhập không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            //        PhieuNhapCtrl.Delete(rs, db);
-
-            //        return;
-            //    }
-
-            //    XtraMessageBox.Show("Thêm phiếu nhập thành công.", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //    btnLamLai.PerformClick();
-            //}
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
-        private void btnLamLai_Click(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
-            frmSuaPhieuNhap_Load(sender, e);
+            int Trang_thai = Program.CurrentUser.ID_nhan_vien == null ? 1 : 0;
+            Luu(Trang_thai);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
@@ -201,6 +236,17 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 bError = true;
                 sError += "\n Số lượng phải lớn hơn 0.";
+            }
+
+            var Don_gia = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "Don_gia");
+
+            if (Program.CurrentUser.ID_nhan_vien == null)
+            {
+                if (Don_gia == null || double.Parse(Don_gia.ToString()) < 0)
+                {
+                    bError = true;
+                    sError += "\n Đơn giá phải lớn hơn hoặc bằng 0.";
+                }
             }
 
             int n = grvPhieuNhapCT.RowCount;
@@ -232,6 +278,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnXacThuc_Click(object sender, EventArgs e)
+        {
+            int Trang_thai = Program.CurrentUser.ID_nhan_vien == null ? -1 : 1;
+            Luu(Trang_thai);
         }
     }
 }

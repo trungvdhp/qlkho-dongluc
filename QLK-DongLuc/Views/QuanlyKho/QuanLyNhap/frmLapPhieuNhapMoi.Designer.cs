@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapPhieuNhapMoi));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
             this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -38,6 +39,7 @@
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnXacThuc = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
@@ -192,6 +194,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnXacThuc);
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnIn);
             this.panelControl1.Controls.Add(this.btnLamLai);
@@ -202,10 +205,20 @@
             this.panelControl1.Size = new System.Drawing.Size(784, 35);
             this.panelControl1.TabIndex = 3;
             // 
+            // btnXacThuc
+            // 
+            this.btnXacThuc.Image = global::QLK_DongLuc.Properties.Resources.button_accept;
+            this.btnXacThuc.Location = new System.Drawing.Point(85, 5);
+            this.btnXacThuc.Name = "btnXacThuc";
+            this.btnXacThuc.Size = new System.Drawing.Size(75, 25);
+            this.btnXacThuc.TabIndex = 5;
+            this.btnXacThuc.Text = "Xác thực";
+            this.btnXacThuc.Click += new System.EventHandler(this.btnXacThuc_Click);
+            // 
             // btnThoat
             // 
-            this.btnThoat.Image = global::QLK_DongLuc.Properties.Resources.button_close;
-            this.btnThoat.Location = new System.Drawing.Point(237, 5);
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.Location = new System.Drawing.Point(319, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(70, 25);
             this.btnThoat.TabIndex = 4;
@@ -214,8 +227,8 @@
             // 
             // btnIn
             // 
-            this.btnIn.Image = global::QLK_DongLuc.Properties.Resources.button_print;
-            this.btnIn.Location = new System.Drawing.Point(85, 5);
+            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Location = new System.Drawing.Point(166, 5);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(70, 25);
             this.btnIn.TabIndex = 2;
@@ -223,8 +236,8 @@
             // 
             // btnLamLai
             // 
-            this.btnLamLai.Image = global::QLK_DongLuc.Properties.Resources.button_refresh;
-            this.btnLamLai.Location = new System.Drawing.Point(161, 5);
+            this.btnLamLai.Image = ((System.Drawing.Image)(resources.GetObject("btnLamLai.Image")));
+            this.btnLamLai.Location = new System.Drawing.Point(242, 5);
             this.btnLamLai.Name = "btnLamLai";
             this.btnLamLai.Size = new System.Drawing.Size(70, 25);
             this.btnLamLai.TabIndex = 3;
@@ -233,7 +246,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Image = global::QLK_DongLuc.Properties.Resources.button_save;
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
             this.btnLuu.Location = new System.Drawing.Point(9, 5);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(70, 25);
@@ -266,7 +279,7 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(398, 0);
+            this.groupControl1.Location = new System.Drawing.Point(3, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(389, 142);
@@ -339,7 +352,7 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(3, 0);
+            this.groupControl2.Location = new System.Drawing.Point(398, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(389, 142);
@@ -427,7 +440,6 @@
             this.MinimizeBox = false;
             this.Name = "frmLapPhieuNhapMoi";
             this.Text = "Lập phiếu nhập mới";
-            this.Load += new System.EventHandler(this.frmLapPhieuNhapMoi_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
@@ -485,5 +497,6 @@
         private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
         private DevExpress.XtraEditors.SimpleButton btnThemVatTuMoi;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnXacThuc;
     }
 }

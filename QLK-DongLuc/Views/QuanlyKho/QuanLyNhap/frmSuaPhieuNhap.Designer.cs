@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaPhieuNhap));
             this.btnThemVatTuMoi = new DevExpress.XtraEditors.SimpleButton();
             this.ledNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
             this.dteNgayNhap = new DevExpress.XtraEditors.DateEdit();
@@ -44,11 +46,9 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnXacThuc = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLuuVaKhoa = new DevExpress.XtraEditors.SimpleButton();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -60,7 +60,7 @@
             this.colThanh_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
@@ -94,6 +94,7 @@
             this.btnThemVatTuMoi.Size = new System.Drawing.Size(280, 25);
             this.btnThemVatTuMoi.TabIndex = 7;
             this.btnThemVatTuMoi.Text = "Thêm danh mục vật tư mới";
+            this.btnThemVatTuMoi.Click += new System.EventHandler(this.btnThemVatTuMoi_Click);
             // 
             // ledNhaCungCap
             // 
@@ -222,43 +223,35 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(394, 0);
+            this.groupControl1.Location = new System.Drawing.Point(3, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(386, 142);
+            this.groupControl1.Size = new System.Drawing.Size(385, 142);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin đối tượng nhập";
             // 
             // btnThoat
             // 
-            this.btnThoat.Image = global::QLK_DongLuc.Properties.Resources.button_close;
-            this.btnThoat.Location = new System.Drawing.Point(419, 5);
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.Location = new System.Drawing.Point(242, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(70, 25);
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnIn
             // 
-            this.btnIn.Image = global::QLK_DongLuc.Properties.Resources.button_print;
-            this.btnIn.Location = new System.Drawing.Point(267, 5);
+            this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
+            this.btnIn.Location = new System.Drawing.Point(166, 5);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(70, 25);
             this.btnIn.TabIndex = 2;
             this.btnIn.Text = "In";
             // 
-            // btnLamLai
-            // 
-            this.btnLamLai.Image = global::QLK_DongLuc.Properties.Resources.button_refresh;
-            this.btnLamLai.Location = new System.Drawing.Point(343, 5);
-            this.btnLamLai.Name = "btnLamLai";
-            this.btnLamLai.Size = new System.Drawing.Size(70, 25);
-            this.btnLamLai.TabIndex = 3;
-            this.btnLamLai.Text = "Làm lại";
-            // 
             // btnLuu
             // 
-            this.btnLuu.Image = global::QLK_DongLuc.Properties.Resources.button_save;
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
             this.btnLuu.Location = new System.Drawing.Point(9, 5);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(70, 25);
@@ -270,9 +263,7 @@
             // 
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnIn);
-            this.panelControl1.Controls.Add(this.btnLamLai);
             this.panelControl1.Controls.Add(this.btnXacThuc);
-            this.panelControl1.Controls.Add(this.btnLuuVaKhoa);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
@@ -283,20 +274,12 @@
             // btnXacThuc
             // 
             this.btnXacThuc.Image = global::QLK_DongLuc.Properties.Resources.button_accept;
-            this.btnXacThuc.Location = new System.Drawing.Point(186, 5);
+            this.btnXacThuc.Location = new System.Drawing.Point(85, 5);
             this.btnXacThuc.Name = "btnXacThuc";
             this.btnXacThuc.Size = new System.Drawing.Size(75, 25);
             this.btnXacThuc.TabIndex = 1;
             this.btnXacThuc.Text = "Xác thực";
-            // 
-            // btnLuuVaKhoa
-            // 
-            this.btnLuuVaKhoa.Image = global::QLK_DongLuc.Properties.Resources.button_savelock;
-            this.btnLuuVaKhoa.Location = new System.Drawing.Point(85, 5);
-            this.btnLuuVaKhoa.Name = "btnLuuVaKhoa";
-            this.btnLuuVaKhoa.Size = new System.Drawing.Size(95, 25);
-            this.btnLuuVaKhoa.TabIndex = 1;
-            this.btnLuuVaKhoa.Text = "Lưu và khóa";
+            this.btnXacThuc.Click += new System.EventHandler(this.btnXacThuc_Click);
             // 
             // repositoryItemSpinEdit1
             // 
@@ -346,10 +329,10 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(3, 0);
+            this.groupControl2.Location = new System.Drawing.Point(394, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(385, 142);
+            this.groupControl2.Size = new System.Drawing.Size(386, 142);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thông tin chứng từ nhà cung cấp";
             // 
@@ -388,6 +371,7 @@
             this.grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grvPhieuNhapCT.OptionsView.ShowFooter = true;
             this.grvPhieuNhapCT.OptionsView.ShowGroupPanel = false;
+            this.grvPhieuNhapCT.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPhieuNhapCT_ValidateRow);
             // 
             // colDon_gia
             // 
@@ -556,7 +540,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnIn;
-        private DevExpress.XtraEditors.SimpleButton btnLamLai;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
@@ -573,7 +556,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn colThanh_tien;
         private DevExpress.XtraEditors.SimpleButton btnXacThuc;
-        private DevExpress.XtraEditors.SimpleButton btnLuuVaKhoa;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
 
 
