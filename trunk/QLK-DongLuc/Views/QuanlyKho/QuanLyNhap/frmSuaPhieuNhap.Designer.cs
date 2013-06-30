@@ -222,16 +222,17 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(3, 0);
+            this.groupControl1.Location = new System.Drawing.Point(394, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(385, 142);
+            this.groupControl1.Size = new System.Drawing.Size(386, 142);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Thông tin đối tượng nhập";
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(399, 5);
+            this.btnThoat.Image = global::QLK_DongLuc.Properties.Resources.button_close;
+            this.btnThoat.Location = new System.Drawing.Point(419, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(70, 25);
             this.btnThoat.TabIndex = 4;
@@ -239,7 +240,8 @@
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(247, 5);
+            this.btnIn.Image = global::QLK_DongLuc.Properties.Resources.button_print;
+            this.btnIn.Location = new System.Drawing.Point(267, 5);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(70, 25);
             this.btnIn.TabIndex = 2;
@@ -247,7 +249,8 @@
             // 
             // btnLamLai
             // 
-            this.btnLamLai.Location = new System.Drawing.Point(323, 5);
+            this.btnLamLai.Image = global::QLK_DongLuc.Properties.Resources.button_refresh;
+            this.btnLamLai.Location = new System.Drawing.Point(343, 5);
             this.btnLamLai.Name = "btnLamLai";
             this.btnLamLai.Size = new System.Drawing.Size(70, 25);
             this.btnLamLai.TabIndex = 3;
@@ -255,6 +258,7 @@
             // 
             // btnLuu
             // 
+            this.btnLuu.Image = global::QLK_DongLuc.Properties.Resources.button_save;
             this.btnLuu.Location = new System.Drawing.Point(9, 5);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(70, 25);
@@ -278,7 +282,8 @@
             // 
             // btnXacThuc
             // 
-            this.btnXacThuc.Location = new System.Drawing.Point(166, 5);
+            this.btnXacThuc.Image = global::QLK_DongLuc.Properties.Resources.button_accept;
+            this.btnXacThuc.Location = new System.Drawing.Point(186, 5);
             this.btnXacThuc.Name = "btnXacThuc";
             this.btnXacThuc.Size = new System.Drawing.Size(75, 25);
             this.btnXacThuc.TabIndex = 1;
@@ -286,9 +291,10 @@
             // 
             // btnLuuVaKhoa
             // 
+            this.btnLuuVaKhoa.Image = global::QLK_DongLuc.Properties.Resources.button_savelock;
             this.btnLuuVaKhoa.Location = new System.Drawing.Point(85, 5);
             this.btnLuuVaKhoa.Name = "btnLuuVaKhoa";
-            this.btnLuuVaKhoa.Size = new System.Drawing.Size(75, 25);
+            this.btnLuuVaKhoa.Size = new System.Drawing.Size(95, 25);
             this.btnLuuVaKhoa.TabIndex = 1;
             this.btnLuuVaKhoa.Text = "Lưu và khóa";
             // 
@@ -340,10 +346,10 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(394, 0);
+            this.groupControl2.Location = new System.Drawing.Point(3, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(386, 142);
+            this.groupControl2.Size = new System.Drawing.Size(385, 142);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thông tin chứng từ nhà cung cấp";
             // 
