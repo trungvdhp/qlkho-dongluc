@@ -187,10 +187,16 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TuyChonTimKiem.cs" />
+    <Compile Include="Models\ViewCatSanPham.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewCboKhachHang.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewCboLoaiVatTu.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewCboLoaiXuat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewCboNhanVien.cs">
@@ -203,6 +209,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewPhieuNhap.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewPhieuXuat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -469,12 +478,38 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Images\button-accept.png" />
+    <Content Include="Images\button-add.png" />
+    <Content Include="Images\button-close.png" />
+    <Content Include="Images\button-delete.png" />
+    <Content Include="Images\button-modify.png" />
+    <Content Include="Images\button-new.png" />
+    <Content Include="Images\button-print.png" />
+    <Content Include="Images\button-refresh.png" />
+    <Content Include="Images\button-save.png" />
+    <Content Include="Images\button-savelock.png" />
+    <Content Include="Images\button-search.png" />
     <Content Include="Images\Calendar_16x16.png" />
+    <Content Include="Images\CapNhatTaiKhoan_16x16.png" />
+    <Content Include="Images\CauHinhHeThong_32x32.png" />
+    <Content Include="Images\DangNhap_16x16.png" />
+    <Content Include="Images\DangXuat_16x16.png" />
+    <Content Include="Images\DanhSachPhieuNhap_32x32.png" />
+    <Content Include="Images\DanhSachPhieuXuat_32x32.png" />
     <Content Include="Images\Drafts_16x16.png" />
     <Content Include="Images\Inbox_16x16.png" />
+    <Content Include="Images\KhoVatTu_32x32.png" />
+    <Content Include="Images\LapPhieuNhapLai_16x16.png" />
+    <Content Include="Images\LapPhieuNhapMoi_16x16.png" />
+    <Content Include="Images\LapPhieuXuatMoi_16x16.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\Mail_32x32.png" />
+    <Content Include="Images\NhanVien_32x32.png" />
+    <Content Include="Images\NhatKyHeThong_32x32.png" />
     <Content Include="Images\Organizer_32x32.png" />
     <Content Include="Images\Outbox_16x16.png" />
+    <Content Include="Images\PhucHoi_32x32.png" />
+    <Content Include="Images\QuanLyNguoiDung_32x32.png" />
     <Content Include="Images\Ribbon_AlignCenter_16x16.png" />
     <Content Include="Images\Ribbon_AlignLeft_16x16.png" />
     <Content Include="Images\Ribbon_AlignRight_16x16.png" />
@@ -499,7 +534,10 @@
     <Content Include="Images\Ribbon_Save_16x16.png" />
     <Content Include="Images\Ribbon_Save_32x32.png" />
     <Content Include="Images\Ribbon_Underline_16x16.png" />
+    <Content Include="Images\SaoLuu_32x32.png" />
     <Content Include="Images\Tasks_16x16.png" />
+    <Content Include="Images\ThanhLyVatTu_16x16.png" />
+    <Content Include="Images\ThongTinNhacNho_32x32.png" />
     <Content Include="Images\Trash_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
