@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
-            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource();
+            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhap = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTen_loai_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_kho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,7 +45,7 @@
             this.colTong_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -125,10 +126,10 @@
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdPhieuNhap.EmbeddedNavigator.CustomButtons.AddRange(new DevExpress.XtraEditors.NavigatorCustomButton[] {
             new DevExpress.XtraEditors.NavigatorCustomButton()});
-            this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
+            this.grdPhieuNhap.Location = new System.Drawing.Point(711, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(702, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(294, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -271,14 +272,14 @@
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(711, 3);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(702, 369);
             this.grdPhieuNhapCT.TabIndex = 10;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
@@ -459,15 +460,17 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Image = global::QLK_DongLuc.Properties.Resources.button_delete;
             this.btnXoa.Location = new System.Drawing.Point(626, 11);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 20);
+            this.btnXoa.Size = new System.Drawing.Size(79, 20);
             this.btnXoa.TabIndex = 10;
             this.btnXoa.Text = "Xóa phiếu";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
+            this.btnSua.Image = global::QLK_DongLuc.Properties.Resources.button_modify;
             this.btnSua.Location = new System.Drawing.Point(545, 11);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 20);
@@ -477,24 +480,27 @@
             // 
             // btnNhapLai
             // 
+            this.btnNhapLai.Image = global::QLK_DongLuc.Properties.Resources.button_add;
             this.btnNhapLai.Location = new System.Drawing.Point(707, 11);
             this.btnNhapLai.Name = "btnNhapLai";
-            this.btnNhapLai.Size = new System.Drawing.Size(108, 20);
+            this.btnNhapLai.Size = new System.Drawing.Size(125, 20);
             this.btnNhapLai.TabIndex = 10;
             this.btnNhapLai.Text = "Lập phiếu nhập lại";
             this.btnNhapLai.Click += new System.EventHandler(this.btnNhapLai_Click);
             // 
             // btnNhapMoi
             // 
-            this.btnNhapMoi.Location = new System.Drawing.Point(821, 11);
+            this.btnNhapMoi.Image = global::QLK_DongLuc.Properties.Resources.button_new;
+            this.btnNhapMoi.Location = new System.Drawing.Point(838, 11);
             this.btnNhapMoi.Name = "btnNhapMoi";
-            this.btnNhapMoi.Size = new System.Drawing.Size(108, 20);
+            this.btnNhapMoi.Size = new System.Drawing.Size(124, 20);
             this.btnNhapMoi.TabIndex = 10;
             this.btnNhapMoi.Text = "Lập phiếu nhập mới";
             this.btnNhapMoi.Click += new System.EventHandler(this.btnNhapMoi_Click);
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Image = global::QLK_DongLuc.Properties.Resources.button_search;
             this.btnTimKiem.Location = new System.Drawing.Point(464, 11);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(75, 20);
