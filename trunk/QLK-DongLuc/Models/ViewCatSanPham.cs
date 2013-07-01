@@ -17,6 +17,8 @@ namespace QLK_DongLuc.Models
         public int ID_san_pham { get; set; }
         public string Ma_san_pham { get; set; }
         public string Ten_san_pham { get; set; }
+        public string Nhan_vien { get; set; }
+        public int ID_nhan_vien { get; set; }
         public string Ho_dem { get; set; }
         public string Ten { get; set; }
     }

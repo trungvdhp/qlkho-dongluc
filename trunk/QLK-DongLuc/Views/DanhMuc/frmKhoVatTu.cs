@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Controllers;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -48,8 +49,21 @@ namespace QLK_DongLuc.Views.DanhMuc
             kho.Ten_kho = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_kho").ToString().Trim();
             kho.Dia_diem = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_diem").ToString().Trim();
 
-            if (db.SaveChanges() > 0)
-                XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (db.SaveChanges() == 0)
+                XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void UpdateGiaXuatCommand()
+        {
+            STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
+            var rs = KhoVatTuCTCtrl.Update(kho.ID_kho, kho.ID_vat_tu, kho.Don_gia_xuat, db);
+
+            if (rs == 0)
+            {
+                XtraMessageBox.Show("Sửa đơn giá xuất không thành công.", "Sửa đơn giá xuất", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                KhoVatTuCTCtrl.LoadBindingSource(kho.ID_kho, sTOKhoVatTuCTBindingSource);
+            }
+
         }
 
         private void DeleteCommand()
@@ -72,6 +86,16 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void frmKhoVatTu_Load(object sender, EventArgs e)
         {
             gridControl_Load();
+            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1);
+
+            if (Program.CurrentUser.ID_nhan_vien != null)
+            {
+                gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+                colTen_kho.ColumnEdit.ReadOnly = true;
+                colDia_diem.ColumnEdit.ReadOnly = true;
+                colDon_gia_nhap.Visible = false;
+                colDon_gia_xuat.ColumnEdit.ReadOnly= true;
+            }
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
@@ -132,6 +156,49 @@ namespace QLK_DongLuc.Views.DanhMuc
                     XtraMessageBox.Show("Not available printing.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 gridControl.ShowPrintPreview();
+            }
+        }
+
+        private void gridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            STO_KhoVatTu kho = (STO_KhoVatTu)gridView.GetFocusedRow();
+
+            if (kho != null)
+               KhoVatTuCTCtrl.LoadBindingSource(kho.ID_kho, sTOKhoVatTuCTBindingSource);
+        }
+
+        private void grvKhoVatTuCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            bool bError = false;
+            string sError = "";
+
+            var Don_gia = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, "Don_gia_xuat");
+
+            if (Program.CurrentUser.ID_nhan_vien == null)
+            {
+                if (Don_gia == null || double.Parse(Don_gia.ToString()) < 0)
+                {
+                    bError = true;
+                    sError += "\n Đơn giá xuất phải lớn hơn hoặc bằng 0.";
+                }
+            }
+
+            if (bError)
+            {
+                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
+                e.Valid = false;
+                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+            if (view.IsNewItemRow(e.RowHandle))
+            {
+            }
+            else
+            {
+                UpdateGiaXuatCommand();
             }
         }
     }

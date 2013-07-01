@@ -17,6 +17,7 @@ namespace QLK_DongLuc.Models
         public IMP_PhieuNhap()
         {
             this.IMP_PhieuNhapCT = new HashSet<IMP_PhieuNhapCT>();
+            this.STO_KhoVatTuCT = new HashSet<STO_KhoVatTuCT>();
         }
     
         public int ID_phieu_nhap { get; set; }
@@ -40,5 +41,6 @@ namespace QLK_DongLuc.Models
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual SYS_NguoiDung SYS_NguoiDung { get; set; }
         public virtual ICollection<IMP_PhieuNhapCT> IMP_PhieuNhapCT { get; set; }
+        public virtual ICollection<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }
     }
 }

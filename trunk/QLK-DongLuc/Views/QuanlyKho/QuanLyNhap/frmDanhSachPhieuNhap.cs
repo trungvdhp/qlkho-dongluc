@@ -91,7 +91,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (pn != null)
             {
-                frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn);
+                frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn.ID_phieu_nhap);
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {

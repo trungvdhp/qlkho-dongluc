@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -15,13 +16,19 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
     public partial class frmSuaPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
         Entities db;
-        ViewPhieuNhap pn;
+        IMP_PhieuNhap pn;
 
-        public frmSuaPhieuNhap(ViewPhieuNhap phieu_nhap)
+        public frmSuaPhieuNhap(int ID_phieu_nhap)
         {
             InitializeComponent();
             db = new Entities();
-            pn = phieu_nhap;
+            pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
+
+            if (pn == null)
+            {
+                XtraMessageBox.Show("Có lỗi xảy ra, không tìm thấy phiếu nhập!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnThoat.PerformClick();
+            }
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
@@ -65,7 +72,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                 grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
 
-                if (pn.ID_trang_thai == -1)
+                if (pn.Trang_thai == -1)
                 {
                     // Khóa cột
                     colDon_gia.ColumnEdit.ReadOnly = true;
@@ -76,7 +83,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                     this.Text = "Sửa phiếu nhập - Giám đốc đã xác thực đơn giá của phiếu nhập nên chỉ có thể xem";
                 }
-                else if (pn.ID_trang_thai == 0)
+                else if (pn.Trang_thai == 0)
                 {
                     // Khóa cột
                     colDon_gia.ColumnEdit.ReadOnly = true;
@@ -97,7 +104,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 colDon_gia.Visible = false;
                 colThanh_tien.Visible = false;
 
-                if (pn.ID_trang_thai != 0)
+                if (pn.Trang_thai != 0)
                 {
                     // Khóa nút
                     btnLuu.Enabled = false;

@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.sTOKhoVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sTOKhoVatTuBindingSource = new System.Windows.Forms.BindingSource();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_kho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -40,53 +44,128 @@
             this.Ten_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.Dia_diem_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ID_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
+            this.grdKhoVatTuCT = new DevExpress.XtraGrid.GridControl();
+            this.sTOKhoVatTuCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.grvKhoVatTuCT = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.colDon_gia_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDon_gia_xuat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.colThanh_tien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOKhoVatTuBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ten_kho_edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dia_diem_edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID_kho_edit)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdKhoVatTuCT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOKhoVatTuCTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvKhoVatTuCT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.gridControl, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 361);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 361);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.Red;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1008, 60);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Chú thích:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(245, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "(Bắt buộc phải nhập)";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl2.Location = new System.Drawing.Point(94, 35);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(187, 13);
+            this.labelControl2.TabIndex = 1;
+            this.labelControl2.Text = "Địa điểm: là địa điểm nơi đặt kho vật tư";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl1.Location = new System.Drawing.Point(94, 15);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(145, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Tên kho: là tên của kho vật tư";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.05556F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.94444F));
+            this.tableLayoutPanel2.Controls.Add(this.gridControl, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.grdKhoVatTuCT, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 60);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1008, 301);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // gridControl
             // 
             this.gridControl.DataSource = this.sTOKhoVatTuBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl.Location = new System.Drawing.Point(13, 63);
+            this.gridControl.Location = new System.Drawing.Point(0, 0);
             this.gridControl.MainView = this.gridView;
+            this.gridControl.Margin = new System.Windows.Forms.Padding(0);
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.Ten_kho_edit,
             this.Dia_diem_edit,
             this.ID_kho_edit});
-            this.gridControl.Size = new System.Drawing.Size(758, 285);
-            this.gridControl.TabIndex = 3;
+            this.gridControl.Size = new System.Drawing.Size(434, 301);
+            this.gridControl.TabIndex = 15;
             this.gridControl.UseEmbeddedNavigator = true;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -106,8 +185,9 @@
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridView.OptionsView.ShowGroupPanel = false;
             this.gridView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-            this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
+            this.gridView.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView_FocusedRowChanged);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
             // 
             // colID_kho
@@ -159,66 +239,196 @@
             this.ID_kho_edit.AutoHeight = false;
             this.ID_kho_edit.Name = "ID_kho_edit";
             // 
-            // groupBox1
+            // grdKhoVatTuCT
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.labelControl2);
-            this.groupBox1.Controls.Add(this.labelControl1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.ForeColor = System.Drawing.Color.Red;
-            this.groupBox1.Location = new System.Drawing.Point(13, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(758, 54);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chú thích:";
+            this.grdKhoVatTuCT.DataSource = this.sTOKhoVatTuCTBindingSource;
+            this.grdKhoVatTuCT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdKhoVatTuCT.Location = new System.Drawing.Point(437, 0);
+            this.grdKhoVatTuCT.MainView = this.grvKhoVatTuCT;
+            this.grdKhoVatTuCT.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grdKhoVatTuCT.Name = "grdKhoVatTuCT";
+            this.grdKhoVatTuCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemSpinEdit1,
+            this.repositoryItemSpinEdit2,
+            this.repositoryItemSpinEdit3});
+            this.grdKhoVatTuCT.Size = new System.Drawing.Size(568, 298);
+            this.grdKhoVatTuCT.TabIndex = 14;
+            this.grdKhoVatTuCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvKhoVatTuCT});
             // 
-            // labelControl1
+            // sTOKhoVatTuCTBindingSource
             // 
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl1.Location = new System.Drawing.Point(94, 15);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(145, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Tên kho: là tên của kho vật tư";
+            this.sTOKhoVatTuCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_KhoVatTuCT);
             // 
-            // labelControl2
+            // grvKhoVatTuCT
             // 
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl2.Location = new System.Drawing.Point(94, 35);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(187, 13);
-            this.labelControl2.TabIndex = 1;
-            this.labelControl2.Text = "Địa điểm: là địa điểm nơi đặt kho vật tư";
+            this.grvKhoVatTuCT.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grvKhoVatTuCT.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvKhoVatTuCT.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID_vat_tu,
+            this.colSo_luong,
+            this.colDon_gia_nhap,
+            this.colDon_gia_xuat,
+            this.colThanh_tien});
+            this.grvKhoVatTuCT.GridControl = this.grdKhoVatTuCT;
+            this.grvKhoVatTuCT.Name = "grvKhoVatTuCT";
+            this.grvKhoVatTuCT.NewItemRowText = "Nhấn vào đây để thêm chi tiết phiếu nhập";
+            this.grvKhoVatTuCT.OptionsCustomization.AllowFilter = false;
+            this.grvKhoVatTuCT.OptionsCustomization.AllowGroup = false;
+            this.grvKhoVatTuCT.OptionsCustomization.AllowSort = false;
+            this.grvKhoVatTuCT.OptionsView.ShowFooter = true;
+            this.grvKhoVatTuCT.OptionsView.ShowGroupPanel = false;
+            this.grvKhoVatTuCT.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvKhoVatTuCT_ValidateRow);
             // 
-            // label1
+            // colID_vat_tu
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(245, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "(Bắt buộc phải nhập)";
+            this.colID_vat_tu.Caption = "Vật tư";
+            this.colID_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
+            this.colID_vat_tu.FieldName = "ID_vat_tu";
+            this.colID_vat_tu.Name = "colID_vat_tu";
+            this.colID_vat_tu.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colID_vat_tu.Visible = true;
+            this.colID_vat_tu.VisibleIndex = 0;
+            // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.repositoryItemLookUpEdit1.ReadOnly = true;
+            // 
+            // colSo_luong
+            // 
+            this.colSo_luong.Caption = "Số lượng";
+            this.colSo_luong.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.colSo_luong.FieldName = "So_luong";
+            this.colSo_luong.Name = "colSo_luong";
+            this.colSo_luong.OptionsColumn.AllowEdit = false;
+            this.colSo_luong.Visible = true;
+            this.colSo_luong.VisibleIndex = 1;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit1.MaxLength = 20;
+            this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            this.repositoryItemSpinEdit1.NullText = "1";
+            this.repositoryItemSpinEdit1.NullValuePrompt = "Nhập số lượng vật tư nhập";
+            this.repositoryItemSpinEdit1.ReadOnly = true;
+            // 
+            // colDon_gia_nhap
+            // 
+            this.colDon_gia_nhap.Caption = "Đơn giá nhập";
+            this.colDon_gia_nhap.DisplayFormat.FormatString = "N0";
+            this.colDon_gia_nhap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colDon_gia_nhap.FieldName = "Don_gia_nhap";
+            this.colDon_gia_nhap.Name = "colDon_gia_nhap";
+            this.colDon_gia_nhap.OptionsColumn.AllowEdit = false;
+            this.colDon_gia_nhap.Visible = true;
+            this.colDon_gia_nhap.VisibleIndex = 2;
+            // 
+            // colDon_gia_xuat
+            // 
+            this.colDon_gia_xuat.Caption = "Đơn giá xuất";
+            this.colDon_gia_xuat.ColumnEdit = this.repositoryItemSpinEdit2;
+            this.colDon_gia_xuat.FieldName = "Don_gia_xuat";
+            this.colDon_gia_xuat.Name = "colDon_gia_xuat";
+            this.colDon_gia_xuat.Visible = true;
+            this.colDon_gia_xuat.VisibleIndex = 3;
+            // 
+            // repositoryItemSpinEdit2
+            // 
+            this.repositoryItemSpinEdit2.AutoHeight = false;
+            this.repositoryItemSpinEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit2.DisplayFormat.FormatString = "N0";
+            this.repositoryItemSpinEdit2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit2.EditFormat.FormatString = "N0";
+            this.repositoryItemSpinEdit2.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit2.IsFloatValue = false;
+            this.repositoryItemSpinEdit2.Mask.EditMask = "N0";
+            this.repositoryItemSpinEdit2.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
+            // 
+            // colThanh_tien
+            // 
+            this.colThanh_tien.Caption = "Thành tiền";
+            this.colThanh_tien.ColumnEdit = this.repositoryItemSpinEdit3;
+            this.colThanh_tien.DisplayFormat.FormatString = "N2";
+            this.colThanh_tien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colThanh_tien.FieldName = "Thanh_tien";
+            this.colThanh_tien.Name = "colThanh_tien";
+            this.colThanh_tien.OptionsColumn.AllowEdit = false;
+            this.colThanh_tien.OptionsColumn.ReadOnly = true;
+            this.colThanh_tien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Thanh_tien", "{0:N2}")});
+            this.colThanh_tien.UnboundExpression = "[Don_gia_xuat] * [So_luong]";
+            this.colThanh_tien.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.colThanh_tien.Visible = true;
+            this.colThanh_tien.VisibleIndex = 4;
+            // 
+            // repositoryItemSpinEdit3
+            // 
+            this.repositoryItemSpinEdit3.AutoHeight = false;
+            this.repositoryItemSpinEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit3.DisplayFormat.FormatString = "N2";
+            this.repositoryItemSpinEdit3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit3.EditFormat.FormatString = "N2";
+            this.repositoryItemSpinEdit3.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit3.Mask.EditMask = "N2";
+            this.repositoryItemSpinEdit3.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
             // 
             // frmKhoVatTu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.ClientSize = new System.Drawing.Size(1008, 361);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmKhoVatTu";
             this.Text = "Danh sách kho vật tư";
             this.Load += new System.EventHandler(this.frmKhoVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sTOKhoVatTuBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ten_kho_edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dia_diem_edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ID_kho_edit)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdKhoVatTuCT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sTOKhoVatTuCTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvKhoVatTuCT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -227,6 +437,11 @@
 
         private System.Windows.Forms.BindingSource sTOKhoVatTuBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.Columns.GridColumn colID_kho;
@@ -236,10 +451,18 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Ten_kho_edit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit Dia_diem_edit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit ID_kho_edit;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.GridControl grdKhoVatTuCT;
+        private System.Windows.Forms.BindingSource sTOKhoVatTuCTBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvKhoVatTuCT;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDon_gia_nhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colDon_gia_xuat;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn colThanh_tien;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
 
     }
 }
