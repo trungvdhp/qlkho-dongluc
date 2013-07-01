@@ -67,16 +67,16 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 dteNgayNhap.Properties.ReadOnly = true;
 
                 // Khóa cột
-                colID_vat_tu.ColumnEdit.ReadOnly = true;
-                colSo_luong.ColumnEdit.ReadOnly = true;
+                colID_vat_tu.OptionsColumn.AllowEdit = false;
+                colSo_luong.OptionsColumn.AllowEdit = false;
 
                 grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
 
                 if (pn.Trang_thai == -1)
                 {
                     // Khóa cột
-                    colDon_gia.ColumnEdit.ReadOnly = true;
-                    colThanh_tien.ColumnEdit.ReadOnly = true;
+                    colDon_gia.OptionsColumn.AllowEdit = false;
+                    colThanh_tien.OptionsColumn.AllowEdit = false;
                     // Khóa nút
                     btnLuu.Enabled = false;
                     btnXacThuc.Enabled = false;
@@ -86,8 +86,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 else if (pn.Trang_thai == 0)
                 {
                     // Khóa cột
-                    colDon_gia.ColumnEdit.ReadOnly = true;
-                    colThanh_tien.ColumnEdit.ReadOnly = true;
+                    colDon_gia.OptionsColumn.AllowEdit = false;
+                    colThanh_tien.OptionsColumn.AllowEdit = false;
                     // Khóa nút
                     btnLuu.Enabled = false;
                     btnXacThuc.Enabled = false;
@@ -118,8 +118,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     dteNgayNhap.Properties.ReadOnly = true;
 
                     // Khóa cột
-                    colID_vat_tu.ColumnEdit.ReadOnly = true;
-                    colSo_luong.ColumnEdit.ReadOnly = true;
+                    colID_vat_tu.OptionsColumn.AllowEdit = false;
+                    colSo_luong.OptionsColumn.AllowEdit = false;
 
                     grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
 

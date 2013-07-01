@@ -91,10 +91,10 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (Program.CurrentUser.ID_nhan_vien != null)
             {
                 gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-                colTen_kho.ColumnEdit.ReadOnly = true;
-                colDia_diem.ColumnEdit.ReadOnly = true;
+                colTen_kho.OptionsColumn.AllowEdit = false;
+                colDia_diem.OptionsColumn.AllowEdit = false;
                 colDon_gia_nhap.Visible = false;
-                colDon_gia_xuat.ColumnEdit.ReadOnly= true;
+                colDon_gia_xuat.OptionsColumn.AllowEdit = false;
             }
         }
 
