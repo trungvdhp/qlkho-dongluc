@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhSachPhieuNhap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
-            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource();
+            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhap = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTen_loai_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_kho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +46,7 @@
             this.colTong_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -127,10 +128,10 @@
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdPhieuNhap.EmbeddedNavigator.CustomButtons.AddRange(new DevExpress.XtraEditors.NavigatorCustomButton[] {
             new DevExpress.XtraEditors.NavigatorCustomButton()});
-            this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
+            this.grdPhieuNhap.Location = new System.Drawing.Point(711, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(702, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(294, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -276,14 +277,14 @@
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(711, 3);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(702, 369);
             this.grdPhieuNhapCT.TabIndex = 10;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
@@ -425,6 +426,7 @@
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(25, 25);
             this.btnThoat.TabIndex = 20;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // ledTuyChon
             // 
