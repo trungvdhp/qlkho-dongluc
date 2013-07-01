@@ -77,6 +77,7 @@
             this.btnNhaCungCap = new DevExpress.XtraBars.BarButtonItem();
             this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnVT = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -195,10 +196,11 @@
             this.barButtonItem20,
             this.btnNhaCungCap,
             this.btnKhachHang,
-            this.btnVT});
+            this.btnVT,
+            this.barButtonItem1});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 86;
+            this.ribbonControl.MaxItemId = 87;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -435,7 +437,7 @@
             // 
             this.btnNhacNho.Caption = "Thông tin nhắc nhở";
             this.btnNhacNho.Id = 64;
-            this.btnNhacNho.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ThongTinNhacNho_32x32;
+            this.btnNhacNho.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ThongTinNhacNho_32x321;
             this.btnNhacNho.LargeImageIndex = 0;
             this.btnNhacNho.Name = "btnNhacNho";
             // 
@@ -451,7 +453,7 @@
             // 
             this.btnCauHinh.Caption = "Cấu hình hệ thống";
             this.btnCauHinh.Id = 66;
-            this.btnCauHinh.LargeGlyph = global::QLK_DongLuc.Properties.Resources.CauHinhHeThong_32x32;
+            this.btnCauHinh.LargeGlyph = global::QLK_DongLuc.Properties.Resources.CauHinhHeThong_32x321;
             this.btnCauHinh.LargeImageIndex = 0;
             this.btnCauHinh.Name = "btnCauHinh";
             // 
@@ -493,6 +495,7 @@
             // 
             this.btnNhomVatTu.Caption = "Nhóm vật tư";
             this.btnNhomVatTu.Id = 73;
+            this.btnNhomVatTu.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhomVatTu_64x64;
             this.btnNhomVatTu.LargeImageIndex = 0;
             this.btnNhomVatTu.Name = "btnNhomVatTu";
             this.btnNhomVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhomVatTu_ItemClick);
@@ -501,6 +504,7 @@
             // 
             this.btnLoaiVatTu.Caption = "Loại vật tư";
             this.btnLoaiVatTu.Id = 74;
+            this.btnLoaiVatTu.LargeGlyph = global::QLK_DongLuc.Properties.Resources.LoaiVatTu_64x64;
             this.btnLoaiVatTu.LargeImageIndex = 0;
             this.btnLoaiVatTu.Name = "btnLoaiVatTu";
             this.btnLoaiVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoaiVatTu_ItemClick);
@@ -509,6 +513,7 @@
             // 
             this.btnVatTu.Caption = "Vật tư";
             this.btnVatTu.Id = 75;
+            this.btnVatTu.LargeGlyph = global::QLK_DongLuc.Properties.Resources.VatTu_32x32;
             this.btnVatTu.LargeImageIndex = 0;
             this.btnVatTu.Name = "btnVatTu";
             this.btnVatTu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVatTu_ItemClick);
@@ -517,6 +522,7 @@
             // 
             this.btnSanPham.Caption = "Sản phẩm";
             this.btnSanPham.Id = 76;
+            this.btnSanPham.LargeGlyph = global::QLK_DongLuc.Properties.Resources.SanPham_32x32;
             this.btnSanPham.LargeImageIndex = 0;
             this.btnSanPham.Name = "btnSanPham";
             this.btnSanPham.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSanPham_ItemClick);
@@ -542,6 +548,7 @@
             // barButtonItem17
             // 
             this.barButtonItem17.Caption = "Danh sách phiếu xuất";
+            this.barButtonItem17.Enabled = false;
             this.barButtonItem17.Id = 79;
             this.barButtonItem17.LargeGlyph = global::QLK_DongLuc.Properties.Resources.DanhSachPhieuXuat_32x32;
             this.barButtonItem17.LargeImageIndex = 0;
@@ -579,6 +586,7 @@
             // 
             this.btnNhaCungCap.Caption = "Nhà cung cấp";
             this.btnNhaCungCap.Id = 83;
+            this.btnNhaCungCap.LargeGlyph = global::QLK_DongLuc.Properties.Resources.NhaCungCap_32x32;
             this.btnNhaCungCap.LargeImageIndex = 0;
             this.btnNhaCungCap.Name = "btnNhaCungCap";
             this.btnNhaCungCap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhaCungCap_ItemClick);
@@ -587,17 +595,26 @@
             // 
             this.btnKhachHang.Caption = "Khách hàng";
             this.btnKhachHang.Id = 84;
+            this.btnKhachHang.LargeGlyph = global::QLK_DongLuc.Properties.Resources.KhachHang_128x128;
             this.btnKhachHang.LargeImageIndex = 0;
             this.btnKhachHang.Name = "btnKhachHang";
             this.btnKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKhachHang_ItemClick);
             // 
             // btnVT
             // 
-            this.btnVT.Caption = "Vật tư";
+            this.btnVT.Caption = "Vật tư tồn kho";
             this.btnVT.Id = 85;
+            this.btnVT.LargeGlyph = global::QLK_DongLuc.Properties.Resources.ThongKeHangTonKho_32x32;
             this.btnVT.LargeImageIndex = 0;
             this.btnVT.Name = "btnVT";
             this.btnVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVT_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Tồn kho";
+            this.barButtonItem1.Id = 86;
+            this.barButtonItem1.LargeGlyph = global::QLK_DongLuc.Properties.Resources.HangTonKho_32x32;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // ribbonImageCollectionLarge
             // 
@@ -711,6 +728,7 @@
             // ribbonPageGroup6
             // 
             this.ribbonPageGroup6.ItemLinks.Add(this.btnVT);
+            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Quản lý tồn kho";
             // 
@@ -852,6 +870,7 @@
         private DevExpress.XtraBars.BarButtonItem btnKhachHang;
 		private DevExpress.XtraBars.BarButtonItem btnVT;
         private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
 
     }
 }
