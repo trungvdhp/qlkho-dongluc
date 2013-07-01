@@ -134,5 +134,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             grvPhieuNhap.ActiveFilterString = "[Ngay_nhap] >= '" + begin.ToShortDateString() + "' AND [Ngay_nhap] <= '" + end.ToShortDateString() + "'";
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            frmMain.CloseCurrentForm(this.Parent);
+        }
     }
 }
