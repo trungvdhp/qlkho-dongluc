@@ -15,7 +15,7 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
-            bs.DataSource = db.ViewNguoiDung.ToList();
+            bs.DataSource = db.ViewNguoiDung.Where(t => t.ID_nguoi_dung != Program.CurrentUser.ID_nguoi_dung).ToList();
         }
 
         public static int Insert(object ID_nhan_vien, string Tai_khoan, string Mat_khau, string Ten_day_du, int ID_trang_thai, string Thoi_gian_cho, Entities db = null)
@@ -121,6 +121,8 @@ namespace QLK_DongLuc.Controllers
 
                 if (user.ID_trang_thai == 1)
                     user.ID_trang_thai = 2;
+                else
+                    return null;
 
                 user.Lan_dang_nhap_cuoi = DateTime.Now;
 
