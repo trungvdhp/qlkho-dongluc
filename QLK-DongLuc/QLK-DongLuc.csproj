@@ -82,6 +82,7 @@
     <Compile Include="Controllers\LoaiXuat.cs" />
     <Compile Include="Controllers\PhieuNhapCTCtrl.cs" />
     <Compile Include="Controllers\NguoiDungCtrl.cs" />
+    <Compile Include="Controllers\PhieuXuatCTCtrl.cs" />
     <Compile Include="Controllers\PhieuXuatCtrl.cs" />
     <Compile Include="Controllers\SanPhamCtrl.cs" />
     <Compile Include="Controllers\TonDauKy.cs" />
@@ -337,17 +338,17 @@
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.Designer.cs">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmPhieuXuat.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmPhieuXuat.Designer.cs">
-      <DependentUpon>frmPhieuXuat.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.designer.cs">
+      <DependentUpon>frmLapPhieuXuatMoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmThanhLy.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmThanhLy.Designer.cs">
-      <DependentUpon>frmThanhLy.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.Designer.cs">
+      <DependentUpon>frmXuatThanhLy.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -418,6 +419,12 @@
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.resx">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.resx">
+      <DependentUpon>frmLapPhieuXuatMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.resx">
+      <DependentUpon>frmXuatThanhLy.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -440,6 +447,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhanVien.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.EXP_PhieuXuatCT.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.IMP_PhieuNhap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTuCT.datasource" />

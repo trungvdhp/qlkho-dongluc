@@ -284,7 +284,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            frmMain.CloseCurrentForm(this.Parent);
+            this.Close();
         }
 
         private void btnXacThuc_Click(object sender, EventArgs e)
