@@ -37,6 +37,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 btnNhapLai.Visible = false;
                 btnNhapMoi.Visible = false;
             }
+
+            dteNgayBatDau.EditValue = DateTime.Now;
         }
 
         private void grvPhieuNhap_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -99,6 +101,38 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
                 }
             }
+        }
+
+        private void dteNgayBatDau_EditValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = (DateTime)dteNgayBatDau.EditValue;
+
+            if (ledTuyChon.EditValue.Equals(1))
+            {
+                dteNgayKetThuc.EditValue = date;
+            }
+            else if (ledTuyChon.EditValue.Equals(2))
+            {
+                dteNgayKetThuc.EditValue = date.AddDays(7);
+            }
+            else if (ledTuyChon.EditValue.Equals(3))
+            {
+                dteNgayKetThuc.EditValue = date.AddMonths(1);
+            }
+        }
+
+        private void ledTuyChon_EditValueChanged(object sender, EventArgs e)
+        {
+            dteNgayBatDau_EditValueChanged(sender, e);
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DateTime begin = (DateTime)dteNgayBatDau.EditValue;
+            DateTime end = (DateTime)dteNgayKetThuc.EditValue;
+            end = end.AddDays(1);
+
+            grvPhieuNhap.ActiveFilterString = "[Ngay_nhap] >= '" + begin.ToShortDateString() + "' AND [Ngay_nhap] <= '" + end.ToShortDateString() + "'";
         }
     }
 }

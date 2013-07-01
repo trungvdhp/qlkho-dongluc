@@ -93,5 +93,63 @@ namespace QLK_DongLuc.Views.HeThong
         {
             btnLamLai.PerformClick();
         }
+
+        private void txtMatKhauXacNhan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSuaTaiKhoan.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtMatKhauXacNhan.Text = "";
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                txtMatKhau.SelectAll();
+                txtMatKhau.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                btnSuaTaiKhoan.Focus();
+            }
+        }
+
+        private void txtMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtMatKhauXacNhan.Focus();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtMatKhau.Text = "";
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                txtTenDayDu.SelectAll();
+                txtTenDayDu.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                txtMatKhauXacNhan.Focus();
+            }
+        }
+
+        private void txtTenDayDu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtMatKhau.Focus();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtTenDayDu.Text = "";
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                txtMatKhau.Focus();
+            }
+        }
     }
 }

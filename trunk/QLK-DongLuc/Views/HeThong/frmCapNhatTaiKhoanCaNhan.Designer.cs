@@ -104,6 +104,7 @@
             this.txtMatKhauXacNhan.Properties.PasswordChar = '*';
             this.txtMatKhauXacNhan.Size = new System.Drawing.Size(254, 20);
             this.txtMatKhauXacNhan.TabIndex = 2;
+            this.txtMatKhauXacNhan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhauXacNhan_KeyDown);
             this.txtMatKhauXacNhan.Leave += new System.EventHandler(this.txtMatKhauXacNhan_Leave);
             // 
             // txtMatKhau
@@ -121,6 +122,7 @@
             this.txtMatKhau.Size = new System.Drawing.Size(254, 20);
             this.txtMatKhau.TabIndex = 1;
             this.txtMatKhau.ToolTip = "Mật khẩu mặc định là:1234a@";
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
             // labelControl6
@@ -148,6 +150,7 @@
             this.chkNhanVien.Properties.ReadOnly = true;
             this.chkNhanVien.Size = new System.Drawing.Size(74, 19);
             this.chkNhanVien.TabIndex = 10;
+            this.chkNhanVien.TabStop = false;
             // 
             // txtTenDayDu
             // 
@@ -158,6 +161,7 @@
             this.txtTenDayDu.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtTenDayDu.Size = new System.Drawing.Size(254, 20);
             this.txtTenDayDu.TabIndex = 0;
+            this.txtTenDayDu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTenDayDu_KeyDown);
             // 
             // txtNhanVien
             // 

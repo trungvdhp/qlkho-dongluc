@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaPhieuNhap));
             this.btnThemVatTuMoi = new DevExpress.XtraEditors.SimpleButton();
             this.ledNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
@@ -60,7 +59,7 @@
             this.colThanh_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
@@ -399,14 +398,13 @@
             // colThanh_tien
             // 
             this.colThanh_tien.Caption = "Thành tiền";
-            this.colThanh_tien.ColumnEdit = this.repositoryItemSpinEdit3;
-            this.colThanh_tien.DisplayFormat.FormatString = "N2";
+            this.colThanh_tien.DisplayFormat.FormatString = "N0";
             this.colThanh_tien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanh_tien.FieldName = "Thanh_tien";
             this.colThanh_tien.Name = "colThanh_tien";
             this.colThanh_tien.OptionsColumn.ReadOnly = true;
             this.colThanh_tien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Thanh_tien", "{0:N2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Thanh_tien", "{0:N0}")});
             this.colThanh_tien.UnboundExpression = "[Don_gia] * [So_luong]";
             this.colThanh_tien.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.colThanh_tien.Visible = true;
@@ -421,7 +419,7 @@
             this.repositoryItemSpinEdit3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemSpinEdit3.EditFormat.FormatString = "N2";
             this.repositoryItemSpinEdit3.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit3.Mask.EditMask = "N2";
+            this.repositoryItemSpinEdit3.Mask.EditMask = "N0";
             this.repositoryItemSpinEdit3.Mask.UseMaskAsDisplayFormat = true;
             this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
             // 

@@ -40,6 +40,30 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             dtNgayxuat.EditValue = DateTime.Now;
         }
 
+        private void grdPhieuXuatCT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && grvPhieuXuatCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            {
+                grvPhieuXuatCT.DeleteRow(grvPhieuXuatCT.FocusedRowHandle);
+            }
+
+            if (e.KeyCode == Keys.Enter && grvPhieuXuatCT.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
+            {
+                grvPhieuXuatCT.CloseEditor();
+                grvPhieuXuatCT.UpdateCurrentRow();
+            }
+
+            if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
+            {
+                if (!grdPhieuXuatCT.IsPrintingAvailable)
+                {
+                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                grvPhieuXuatCT.ShowPrintPreview();
+            }
+        }
+
         private void LapPhieuXuatMoi_Load(object sender, EventArgs e)
         {
 
@@ -56,7 +80,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             bool bError = false;
             string sError = "";
 
-            var ID_vat_tu = grvPhieuxuatCT.GetRowCellValue(e.RowHandle, "ID_vat_tu");
+            var ID_vat_tu = grvPhieuXuatCT.GetRowCellValue(e.RowHandle, "ID_vat_tu");
 
             if (ID_vat_tu.Equals(0))
             {
@@ -64,27 +88,27 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
                 sError += "\n Chưa chọn vật tư.";
             }
 
-            var So_luong = grvPhieuxuatCT.GetRowCellValue(e.RowHandle, "So_luong");
+            var So_luong = grvPhieuXuatCT.GetRowCellValue(e.RowHandle, "So_luong");
 
             if (So_luong == null || double.Parse(So_luong.ToString()) == 0)
             {
                 bError = true;
                 sError += "\n Số lượng phải lớn hơn 0.";
             }
-            var Don_gia = grvPhieuxuatCT.GetRowCellValue(e.RowHandle, "Don_gia");
+            var Don_gia = grvPhieuXuatCT.GetRowCellValue(e.RowHandle, "Don_gia");
             if (Don_gia == null || decimal.Parse(Don_gia.ToString()) == 0)
             {
                 bError = true;
                 sError += "\n Đơn giá phải lớn hơn 0.";
             }
 
-            int n = grvPhieuxuatCT.RowCount;
+            int n = grvPhieuXuatCT.RowCount;
             //decimal tongtien = 0;
             for (int i = 0; i < n; i++)
             {
                 if (i != e.RowHandle)
                 {
-                    var id = grvPhieuxuatCT.GetRowCellValue(i, "ID_vat_tu");
+                    var id = grvPhieuXuatCT.GetRowCellValue(i, "ID_vat_tu");
                    // var soluong = grvPhieuxuatCT.GetRowCellValue(i, "So_luong");
                    // var dongia = grvPhieuxuatCT.GetRowCellValue(i, "Don_gia");
                     if (ID_vat_tu.Equals(id))
@@ -146,10 +170,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
                 return;
             }
 
-            if (grvPhieuxuatCT.RowCount < 2)
+            if (grvPhieuXuatCT.RowCount < 2)
             {
                 XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu xuất.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                grvPhieuxuatCT.Focus();
+                grvPhieuXuatCT.Focus();
                 result = 0;
                 return;
             }
@@ -198,7 +222,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
                     return;
                 }
 
-                rs = PhieuXuatCtrl.AddDetails(rs, grvPhieuxuatCT, db);
+                rs = PhieuXuatCtrl.AddDetails(rs, grvPhieuXuatCT, db);
 
                 if (rs == 0)
                 {
@@ -226,7 +250,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             leSanpham.Reset();
             mmGhichu.Text = "";
             rdbSanxuat.Checked = true;
-            grvPhieuxuatCT.RefreshData();
+            grvPhieuXuatCT.RefreshData();
             dtNgayxuat.EditValue = DateTime.Now;
         }
 
@@ -243,14 +267,14 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
         private void grvPhieuxuatCT_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             decimal tongtien = 0;
-            var n = grvPhieuxuatCT.RowCount;
+            var n = grvPhieuXuatCT.RowCount;
             for (int i = 0; i < n; i++)
             {
                 if (i != e.FocusedRowHandle)
                 {
 
-                    var soluong = grvPhieuxuatCT.GetRowCellValue(i, "So_luong");
-                    var dongia = grvPhieuxuatCT.GetRowCellValue(i, "Don_gia");
+                    var soluong = grvPhieuXuatCT.GetRowCellValue(i, "So_luong");
+                    var dongia = grvPhieuXuatCT.GetRowCellValue(i, "Don_gia");
 
                     if (soluong != null && dongia != null)
                     {

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhSachPhieuNhap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
-            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource();
             this.grvPhieuNhap = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTen_loai_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_kho = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +45,7 @@
             this.colTong_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -54,9 +54,10 @@
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.ledTuyChon = new DevExpress.XtraEditors.LookUpEdit();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.dteNgayNhap = new DevExpress.XtraEditors.DateEdit();
+            this.dteNgayKetThuc = new DevExpress.XtraEditors.DateEdit();
+            this.dteNgayBatDau = new DevExpress.XtraEditors.DateEdit();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhapLai = new DevExpress.XtraEditors.SimpleButton();
@@ -77,10 +78,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledTuyChon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -126,10 +127,10 @@
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdPhieuNhap.EmbeddedNavigator.CustomButtons.AddRange(new DevExpress.XtraEditors.NavigatorCustomButton[] {
             new DevExpress.XtraEditors.NavigatorCustomButton()});
-            this.grdPhieuNhap.Location = new System.Drawing.Point(711, 3);
+            this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(294, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(702, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -192,10 +193,13 @@
             this.colNgay_nhap.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_nhap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_nhap.FieldName = "Ngay_nhap";
+            this.colNgay_nhap.GroupFormat.FormatString = "dd/MM/yyyy";
+            this.colNgay_nhap.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colNgay_nhap.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DisplayText;
             this.colNgay_nhap.Name = "colNgay_nhap";
             this.colNgay_nhap.Visible = true;
             this.colNgay_nhap.VisibleIndex = 2;
-            this.colNgay_nhap.Width = 51;
+            this.colNgay_nhap.Width = 60;
             // 
             // colSo_chung_tu_goc
             // 
@@ -204,7 +208,7 @@
             this.colSo_chung_tu_goc.Name = "colSo_chung_tu_goc";
             this.colSo_chung_tu_goc.Visible = true;
             this.colSo_chung_tu_goc.VisibleIndex = 3;
-            this.colSo_chung_tu_goc.Width = 68;
+            this.colSo_chung_tu_goc.Width = 66;
             // 
             // colTen_nha_cung_cap
             // 
@@ -213,7 +217,7 @@
             this.colTen_nha_cung_cap.Name = "colTen_nha_cung_cap";
             this.colTen_nha_cung_cap.Visible = true;
             this.colTen_nha_cung_cap.VisibleIndex = 4;
-            this.colTen_nha_cung_cap.Width = 91;
+            this.colTen_nha_cung_cap.Width = 89;
             // 
             // colNhan_vien_lap
             // 
@@ -222,7 +226,7 @@
             this.colNhan_vien_lap.Name = "colNhan_vien_lap";
             this.colNhan_vien_lap.Visible = true;
             this.colNhan_vien_lap.VisibleIndex = 5;
-            this.colNhan_vien_lap.Width = 80;
+            this.colNhan_vien_lap.Width = 78;
             // 
             // colNhan_vien_nhap
             // 
@@ -231,7 +235,7 @@
             this.colNhan_vien_nhap.Name = "colNhan_vien_nhap";
             this.colNhan_vien_nhap.Visible = true;
             this.colNhan_vien_nhap.VisibleIndex = 6;
-            this.colNhan_vien_nhap.Width = 80;
+            this.colNhan_vien_nhap.Width = 78;
             // 
             // colNgay_sua
             // 
@@ -244,7 +248,7 @@
             this.colNgay_sua.Name = "colNgay_sua";
             this.colNgay_sua.Visible = true;
             this.colNgay_sua.VisibleIndex = 7;
-            this.colNgay_sua.Width = 51;
+            this.colNgay_sua.Width = 49;
             // 
             // colTong_tien
             // 
@@ -254,10 +258,10 @@
             this.colTong_tien.FieldName = "Tong_tien";
             this.colTong_tien.Name = "colTong_tien";
             this.colTong_tien.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Tong_tien", "{0:n2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Tong_tien", "{0:n0}")});
             this.colTong_tien.Visible = true;
             this.colTong_tien.VisibleIndex = 8;
-            this.colTong_tien.Width = 60;
+            this.colTong_tien.Width = 58;
             // 
             // colTrang_thai
             // 
@@ -266,20 +270,20 @@
             this.colTrang_thai.Name = "colTrang_thai";
             this.colTrang_thai.Visible = true;
             this.colTrang_thai.VisibleIndex = 9;
-            this.colTrang_thai.Width = 78;
+            this.colTrang_thai.Width = 81;
             // 
             // grdPhieuNhapCT
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 3);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(711, 3);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(702, 369);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
             this.grdPhieuNhapCT.TabIndex = 10;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
@@ -394,9 +398,10 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.ledTuyChon);
-            this.panel1.Controls.Add(this.dateEdit1);
-            this.panel1.Controls.Add(this.dteNgayNhap);
+            this.panel1.Controls.Add(this.dteNgayKetThuc);
+            this.panel1.Controls.Add(this.dteNgayBatDau);
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnNhapLai);
@@ -411,6 +416,16 @@
             this.panel1.Size = new System.Drawing.Size(1008, 37);
             this.panel1.TabIndex = 2;
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnThoat.Location = new System.Drawing.Point(979, 8);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(25, 25);
+            this.btnThoat.TabIndex = 20;
+            // 
             // ledTuyChon
             // 
             this.ledTuyChon.Location = new System.Drawing.Point(12, 11);
@@ -419,44 +434,46 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ledTuyChon.Size = new System.Drawing.Size(133, 20);
             this.ledTuyChon.TabIndex = 19;
+            this.ledTuyChon.EditValueChanged += new System.EventHandler(this.ledTuyChon_EditValueChanged);
             // 
-            // dateEdit1
+            // dteNgayKetThuc
             // 
-            this.dateEdit1.EditValue = new System.DateTime(2013, 6, 27, 9, 30, 22, 0);
-            this.dateEdit1.Location = new System.Drawing.Point(368, 11);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteNgayKetThuc.EditValue = new System.DateTime(2013, 6, 27, 9, 30, 22, 0);
+            this.dteNgayKetThuc.Location = new System.Drawing.Point(368, 11);
+            this.dteNgayKetThuc.Name = "dteNgayKetThuc";
+            this.dteNgayKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.DisplayFormat.FormatString = "dd-MM-yyyy";
-            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.EditFormat.FormatString = "dd-MM-yyyy";
-            this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.Mask.EditMask = "dd-MM-yyyy";
-            this.dateEdit1.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dateEdit1.Properties.NullDate = "";
-            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteNgayKetThuc.Properties.DisplayFormat.FormatString = "dd-MM-yyyy";
+            this.dteNgayKetThuc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgayKetThuc.Properties.EditFormat.FormatString = "MM/dd/yyyy";
+            this.dteNgayKetThuc.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgayKetThuc.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteNgayKetThuc.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dteNgayKetThuc.Properties.NullDate = "";
+            this.dteNgayKetThuc.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit1.Size = new System.Drawing.Size(90, 20);
-            this.dateEdit1.TabIndex = 17;
+            this.dteNgayKetThuc.Size = new System.Drawing.Size(90, 20);
+            this.dteNgayKetThuc.TabIndex = 17;
             // 
-            // dteNgayNhap
+            // dteNgayBatDau
             // 
-            this.dteNgayNhap.EditValue = new System.DateTime(2013, 6, 27, 9, 30, 22, 0);
-            this.dteNgayNhap.Location = new System.Drawing.Point(208, 11);
-            this.dteNgayNhap.Name = "dteNgayNhap";
-            this.dteNgayNhap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteNgayBatDau.EditValue = new System.DateTime(2013, 6, 27, 9, 30, 22, 0);
+            this.dteNgayBatDau.Location = new System.Drawing.Point(208, 11);
+            this.dteNgayBatDau.Name = "dteNgayBatDau";
+            this.dteNgayBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteNgayNhap.Properties.DisplayFormat.FormatString = "dd-MM-yyyy";
-            this.dteNgayNhap.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteNgayNhap.Properties.EditFormat.FormatString = "dd-MM-yyyy";
-            this.dteNgayNhap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteNgayNhap.Properties.Mask.EditMask = "dd-MM-yyyy";
-            this.dteNgayNhap.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dteNgayNhap.Properties.NullDate = "";
-            this.dteNgayNhap.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteNgayBatDau.Properties.DisplayFormat.FormatString = "dd-MM-yyyy";
+            this.dteNgayBatDau.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgayBatDau.Properties.EditFormat.FormatString = "MM/dd/yyyy";
+            this.dteNgayBatDau.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgayBatDau.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteNgayBatDau.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.dteNgayBatDau.Properties.NullDate = "";
+            this.dteNgayBatDau.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteNgayNhap.Size = new System.Drawing.Size(90, 20);
-            this.dteNgayNhap.TabIndex = 16;
+            this.dteNgayBatDau.Size = new System.Drawing.Size(90, 20);
+            this.dteNgayBatDau.TabIndex = 16;
+            this.dteNgayBatDau.EditValueChanged += new System.EventHandler(this.dteNgayBatDau_EditValueChanged);
             // 
             // btnXoa
             // 
@@ -506,6 +523,8 @@
             this.btnTimKiem.Size = new System.Drawing.Size(75, 20);
             this.btnTimKiem.TabIndex = 10;
             this.btnTimKiem.Text = "Xem";
+            this.btnTimKiem.ToolTip = "Tìm kiếm phiếu nhập theo ngày nhập kho";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // label3
             // 
@@ -548,10 +567,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledTuyChon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -586,12 +605,13 @@
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.DateEdit dteNgayNhap;
+        private DevExpress.XtraEditors.DateEdit dteNgayKetThuc;
+        private DevExpress.XtraEditors.DateEdit dteNgayBatDau;
         private DevExpress.XtraEditors.SimpleButton btnXoa;
         private DevExpress.XtraEditors.SimpleButton btnSua;
         private DevExpress.XtraEditors.SimpleButton btnNhapMoi;
         private DevExpress.XtraEditors.LookUpEdit ledTuyChon;
         private DevExpress.XtraEditors.SimpleButton btnNhapLai;
+        private DevExpress.XtraEditors.SimpleButton btnThoat;
     }
 }
