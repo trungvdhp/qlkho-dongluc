@@ -209,11 +209,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             {
                 if (rdbSanxuat.Checked == true)
                 {
-                    rs = PhieuXuatCtrl.Insert(txtMahoadon.Text, 1, leKhoxuat.EditValue, leSanpham.EditValue, leNhanvienxuat.EditValue, dtNgayxuat.EditValue, decimal.Parse(txtTongtien.Text), mmGhichu.Text, 1, Program.CurrentUser.ID_nguoi_dung, db);
+                    rs = PhieuXuatCtrl.Insert(txtMahoadon.Text, 1, leKhoxuat.EditValue, leSanpham.EditValue, leNhanvienxuat.EditValue, dtNgayxuat.EditValue, decimal.Parse((txtTongtien.Text == "") ? "0" : txtTongtien.Text), mmGhichu.Text, 1, Program.CurrentUser.ID_nguoi_dung, db);
                 }
                 else
                 {
-                    rs = PhieuXuatCtrl.Insert(txtMahoadon.Text, 1, leKhoxuat.EditValue, null, leNhanvienxuat.EditValue, dtNgayxuat.EditValue,decimal.Parse(txtTongtien.Text), mmGhichu.Text, 1, Program.CurrentUser.ID_nguoi_dung, db);
+                    rs = PhieuXuatCtrl.Insert(txtMahoadon.Text, 1, leKhoxuat.EditValue, null, leNhanvienxuat.EditValue, dtNgayxuat.EditValue, decimal.Parse((txtTongtien.Text == "") ? "0" : txtTongtien.Text), mmGhichu.Text, 1, Program.CurrentUser.ID_nguoi_dung, db);
                 }
 
                 if (rs == 0)

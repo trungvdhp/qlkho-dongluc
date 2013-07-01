@@ -73,7 +73,7 @@ namespace QLK_DongLuc.Controllers
             }
             else if (ID_san_pham != null)
             {
-                entity.ID_san_pham = (int)ID_san_pham;
+                entity.ID_san_pham = (int?)ID_san_pham;
             }
             else
             {
