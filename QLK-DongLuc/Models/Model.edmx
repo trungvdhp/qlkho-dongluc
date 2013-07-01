@@ -219,6 +219,10 @@
             <End Role="STO_VatTu" EntitySet="STO_VatTu" />
             <End Role="IMP_PhieuNhapCT" EntitySet="IMP_PhieuNhapCT" />
           </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_IMP_PhieuNhap" Association="QuanLyKhoDongLucModel.Store.FK_STO_KhoVatTuCT_IMP_PhieuNhap">
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
           <AssociationSet Name="FK_STO_KhoVatTuCT_STO_KhoVatTu" Association="QuanLyKhoDongLucModel.Store.FK_STO_KhoVatTuCT_STO_KhoVatTu">
             <End Role="STO_KhoVatTu" EntitySet="STO_KhoVatTu" />
             <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
@@ -961,6 +965,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_STO_KhoVatTuCT_IMP_PhieuNhap">
+          <End Role="IMP_PhieuNhap" Type="QuanLyKhoDongLucModel.Store.IMP_PhieuNhap" Multiplicity="0..1" />
+          <End Role="STO_KhoVatTuCT" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_STO_KhoVatTuCT_STO_KhoVatTu">
           <End Role="STO_KhoVatTu" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTu" Multiplicity="1" />
           <End Role="STO_KhoVatTuCT" Type="QuanLyKhoDongLucModel.Store.STO_KhoVatTuCT" Multiplicity="*" />
@@ -1306,6 +1322,10 @@
             <End Role="SYS_Quyen" EntitySet="SYS_Quyen" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
+          <AssociationSet Name="FK_STO_KhoVatTuCT_IMP_PhieuNhap" Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_IMP_PhieuNhap">
+            <End Role="IMP_PhieuNhap" EntitySet="IMP_PhieuNhap" />
+            <End Role="STO_KhoVatTuCT" EntitySet="STO_KhoVatTuCT" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1449,6 +1469,7 @@
           <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_STO_KhoVatTu" FromRole="IMP_PhieuNhap" ToRole="STO_KhoVatTu" />
           <NavigationProperty Name="SYS_NguoiDung" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_SYS_NguoiDung" FromRole="IMP_PhieuNhap" ToRole="SYS_NguoiDung" />
           <NavigationProperty Name="IMP_PhieuNhapCT" Relationship="QuanLyKhoDongLucModel.FK_IMP_PhieuNhapCT_IMP_PhieuNhap" FromRole="IMP_PhieuNhap" ToRole="IMP_PhieuNhapCT" />
+          <NavigationProperty Name="STO_KhoVatTuCT" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_IMP_PhieuNhap" FromRole="IMP_PhieuNhap" ToRole="STO_KhoVatTuCT" />
         </EntityType>
         <EntityType Name="IMP_PhieuNhapCT">
           <Key>
@@ -1488,6 +1509,7 @@
           <Property Type="Int32" Name="ID_phieu_nhap" />
           <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_KhoVatTu" FromRole="STO_KhoVatTuCT" ToRole="STO_KhoVatTu" />
           <NavigationProperty Name="STO_VatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_STO_VatTu" FromRole="STO_KhoVatTuCT" ToRole="STO_VatTu" />
+          <NavigationProperty Name="IMP_PhieuNhap" Relationship="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_IMP_PhieuNhap" FromRole="STO_KhoVatTuCT" ToRole="IMP_PhieuNhap" />
         </EntityType>
         <EntityType Name="STO_LoaiVatTu">
           <Key>
@@ -2148,6 +2170,18 @@
         <Association Name="SYS_VaiTroQuyen">
           <End Type="QuanLyKhoDongLucModel.SYS_Quyen" Role="SYS_Quyen" Multiplicity="*" />
           <End Type="QuanLyKhoDongLucModel.SYS_VaiTro" Role="SYS_VaiTro" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_STO_KhoVatTuCT_IMP_PhieuNhap">
+          <End Type="QuanLyKhoDongLucModel.IMP_PhieuNhap" Role="IMP_PhieuNhap" Multiplicity="0..1" />
+          <End Type="QuanLyKhoDongLucModel.STO_KhoVatTuCT" Role="STO_KhoVatTuCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IMP_PhieuNhap">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Principal>
+            <Dependent Role="STO_KhoVatTuCT">
+              <PropertyRef Name="ID_phieu_nhap" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>

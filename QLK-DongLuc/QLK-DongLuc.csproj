@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\KhoVatTuCTCtrl.cs" />
     <Compile Include="Controllers\LoaiXuat.cs" />
     <Compile Include="Controllers\PhieuNhapCTCtrl.cs" />
     <Compile Include="Controllers\NguoiDungCtrl.cs" />
@@ -348,12 +349,6 @@
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmThanhLy.Designer.cs">
       <DependentUpon>frmThanhLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\LapPhieuXuatMoi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\LapPhieuXuatMoi.Designer.cs">
-      <DependentUpon>LapPhieuXuatMoi.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -423,9 +418,6 @@
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.resx">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\QuanlyKho\QuanLyXuat\LapPhieuXuatMoi.resx">
-      <DependentUpon>LapPhieuXuatMoi.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -450,6 +442,7 @@
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhanVien.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.IMP_PhieuNhap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTuCT.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_LoaiVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />

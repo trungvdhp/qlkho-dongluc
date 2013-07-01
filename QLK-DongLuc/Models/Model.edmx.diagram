@@ -69,6 +69,7 @@
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_SYS_SuKienNguoiDung_SYS_NguoiDung" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" />
+        <AssociationConnector Association="QuanLyKhoDongLucModel.FK_STO_KhoVatTuCT_IMP_PhieuNhap" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
