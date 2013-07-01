@@ -266,8 +266,20 @@ namespace QLK_DongLuc
 
         private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //QuanlyKho.QuanLyXuat.LapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.LapPhieuXuatMoi();
-            //OpenForm(frm, tabControl);
+            QuanlyKho.QuanLyXuat.frmLapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.frmLapPhieuXuatMoi();
+            OpenForm(frm, tabControl);
+        }
+
+        private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyXuat.frmDanhSachPhieuXuat frm = new QuanlyKho.QuanLyXuat.frmDanhSachPhieuXuat();
+            OpenForm(frm, tabControl);
+        }
+
+        private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            QuanlyKho.QuanLyXuat.frmXuatThanhLy frm = new QuanlyKho.QuanLyXuat.frmXuatThanhLy();
+            OpenForm(frm, tabControl);
         }
     }
 }

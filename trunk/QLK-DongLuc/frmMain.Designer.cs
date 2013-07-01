@@ -546,6 +546,7 @@
             this.barButtonItem17.LargeGlyph = global::QLK_DongLuc.Properties.Resources.DanhSachPhieuXuat_32x32;
             this.barButtonItem17.LargeImageIndex = 0;
             this.barButtonItem17.Name = "barButtonItem17";
+            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // barButtonItem18
             // 
@@ -572,6 +573,7 @@
             this.barButtonItem20.Id = 82;
             this.barButtonItem20.ImageIndex = 1;
             this.barButtonItem20.Name = "barButtonItem20";
+            this.barButtonItem20.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem20_ItemClick);
             // 
             // btnNhaCungCap
             // 
