@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
@@ -24,6 +25,7 @@ namespace QLK_DongLuc
         public frmMain()
         {
             InitializeComponent();
+            KetNoiCSDLCtrl.GetDatabaseList(Properties.Settings.Default.DS, Properties.Settings.Default.UID, "12345a@");
         }
 
         #region function TabControl
@@ -280,6 +282,16 @@ namespace QLK_DongLuc
         {
             QuanlyKho.QuanLyXuat.frmXuatThanhLy frm = new QuanlyKho.QuanLyXuat.frmXuatThanhLy();
             OpenForm(frm, tabControl);
+        }
+
+        private void btnCauHinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HeThong.frmCauHinh frm = new HeThong.frmCauHinh();
+            frm.ShowDialog();
+        }
+
+        private void iAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
         }
     }
 }

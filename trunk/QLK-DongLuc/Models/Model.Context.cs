@@ -13,10 +13,10 @@ namespace QLK_DongLuc.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class QuanLyKhoDongLucEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public QuanLyKhoDongLucEntities()
+            : base("name=QuanLyKhoDongLucEntities")
         {
         }
     

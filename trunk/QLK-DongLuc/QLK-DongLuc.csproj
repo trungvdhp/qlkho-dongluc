@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\KetNoiCSDLCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCTCtrl.cs" />
     <Compile Include="Controllers\LoaiXuat.cs" />
     <Compile Include="Controllers\PhieuNhapCTCtrl.cs" />
@@ -133,7 +134,6 @@
     <Compile Include="Models\IMP_PhieuNhapCT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +149,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\STO_KhoVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -388,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\DanhMuc\frmVatTu.resx">
       <DependentUpon>frmVatTu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmCauHinh.resx">
+      <DependentUpon>frmCauHinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\HeThong\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
