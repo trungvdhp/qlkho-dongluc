@@ -270,9 +270,9 @@
             // 
             this.grdKhoVatTuCT.DataSource = this.sTOKhoVatTuCTBindingSource;
             this.grdKhoVatTuCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdKhoVatTuCT.Location = new System.Drawing.Point(437, 0);
+            this.grdKhoVatTuCT.Location = new System.Drawing.Point(434, 0);
             this.grdKhoVatTuCT.MainView = this.grvKhoVatTuCT;
-            this.grdKhoVatTuCT.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grdKhoVatTuCT.Margin = new System.Windows.Forms.Padding(0);
             this.grdKhoVatTuCT.Name = "grdKhoVatTuCT";
             this.grdKhoVatTuCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
@@ -280,7 +280,7 @@
             this.repositoryItemSpinEdit2,
             this.repositoryItemSpinEdit3,
             this.repositoryItemSpinEdit4});
-            this.grdKhoVatTuCT.Size = new System.Drawing.Size(568, 298);
+            this.grdKhoVatTuCT.Size = new System.Drawing.Size(574, 301);
             this.grdKhoVatTuCT.TabIndex = 14;
             this.grdKhoVatTuCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvKhoVatTuCT});
@@ -344,18 +344,21 @@
             this.repositoryItemSpinEdit1.AutoHeight = false;
             this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatString = "N2";
             this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatString = "N2";
             this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             65536});
+            this.repositoryItemSpinEdit1.Mask.EditMask = "N2";
             this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit1.MaxLength = 20;
+            this.repositoryItemSpinEdit1.MaxLength = 12;
             this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
-            1000000000,
-            0,
+            1215752192,
+            23,
             0,
             0});
             this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {
