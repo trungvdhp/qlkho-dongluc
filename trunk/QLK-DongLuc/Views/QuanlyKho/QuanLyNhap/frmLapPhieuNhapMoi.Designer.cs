@@ -168,18 +168,21 @@
             this.repositoryItemSpinEdit1.AutoHeight = false;
             this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit1.DisplayFormat.FormatString = "N2";
             this.repositoryItemSpinEdit1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit1.EditFormat.FormatString = "N2";
             this.repositoryItemSpinEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.repositoryItemSpinEdit1.Increment = new decimal(new int[] {
-            1,
+            5,
             0,
             0,
             65536});
+            this.repositoryItemSpinEdit1.Mask.EditMask = "N2";
             this.repositoryItemSpinEdit1.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit1.MaxLength = 20;
+            this.repositoryItemSpinEdit1.MaxLength = 12;
             this.repositoryItemSpinEdit1.MaxValue = new decimal(new int[] {
-            1000000000,
-            0,
+            1215752192,
+            23,
             0,
             0});
             this.repositoryItemSpinEdit1.MinValue = new decimal(new int[] {

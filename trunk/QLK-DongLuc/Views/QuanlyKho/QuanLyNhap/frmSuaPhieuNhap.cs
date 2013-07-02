@@ -69,6 +69,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 mmoGhiChu.Properties.ReadOnly = true;
                 txtChungTuGoc.Properties.ReadOnly = true;
                 dteNgayNhap.Properties.ReadOnly = true;
+                btnSinhMaPhieu.Enabled = false;
 
                 // Khóa cột
                 colID_vat_tu.OptionsColumn.AllowEdit = false;
@@ -95,6 +96,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     // Khóa nút
                     btnLuu.Enabled = false;
                     btnXacThuc.Enabled = false;
+
                     this.Text = "Sửa phiếu nhập - Nhân viên chưa xác thực hàng đã vào kho nên giám đốc chỉ có thể xem";
                 }
                 else
@@ -113,6 +115,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     // Khóa nút
                     btnLuu.Enabled = false;
                     btnXacThuc.Enabled = false;
+                    btnSinhMaPhieu.Enabled = false;
                     // Khóa nhập
                     ledNhanVienNhap.Properties.ReadOnly = true;
                     ledKhoNhap.Properties.ReadOnly = true;
@@ -308,6 +311,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             int Trang_thai = Program.CurrentUser.ID_nhan_vien == null ? -1 : 1;
             Luu(Trang_thai);
+        }
+
+        private void btnSinhMaPhieu_Click(object sender, EventArgs e)
+        {
+            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
         }
     }
 }
