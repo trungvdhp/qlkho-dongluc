@@ -13,6 +13,22 @@ namespace QLK_DongLuc.Controllers
 {
     public class PhieuNhapCtrl
     {
+        public static string GetNextCode(object date, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            DateTime d;
+
+            if(date == null || date.Equals("")) 
+                d = DateTime.Now;
+            else
+                d = (DateTime)date;
+
+            var countPN = db.IMP_PhieuNhap.Count(t => t.Ngay_nhap.Year == d.Year && t.Ngay_nhap.Month == d.Month) + 1;
+
+            return string.Format("{0:yyyyMM}{1:00}", date, countPN);
+        }
+
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
@@ -129,14 +145,18 @@ namespace QLK_DongLuc.Controllers
                         {
                             ID_kho = pn.ID_kho,
                             ID_vat_tu = entity.ID_vat_tu,
-                            So_luong = entity.So_luong
+                            So_luong = entity.So_luong,
+                            ID_phieu_nhap = entity.ID_phieu_nhap
                         });
                     }
                     else
                     {
                         // Trong kho đã có vật tư này nên cập nhật số lượng 
                         vt.So_luong +=  entity.So_luong;
+                        vt.ID_phieu_nhap = entity.ID_phieu_nhap;
                     }
+
+                    
                 }
             }
 
@@ -241,7 +261,7 @@ namespace QLK_DongLuc.Controllers
                 // Nếu là giám đốc và muốn xác thực thì cập nhật đơn giá nhập và phiếu nhập cuối và cập nhật tổng tiền vào kho (chắc chắn vật tư đã có trong kho vì trạng thái lúc sửa là đã xác thực
                 if (Program.CurrentUser.ID_nhan_vien == null && pn.Trang_thai == 1 && Trang_thai == -1)
                 {
-                    pn.Tong_tien += (decimal)(item.So_luong * item.Don_gia);
+                    pn.Tong_tien += (decimal)item.So_luong * (decimal)item.Don_gia;
                     vt.Don_gia_nhap = item.Don_gia;
                     vt.ID_phieu_nhap = item.ID_phieu_nhap;
                 }
@@ -260,106 +280,6 @@ namespace QLK_DongLuc.Controllers
 
             return db.SaveChanges();
         }
-
-        //// Đang sửa
-        //public static int UpdateDetails(int ID_phieu_nhap, int Trang_thai, GridView gridViewDetails, Entities db = null)
-        //{
-        //    if (ID_phieu_nhap < 1) return 0;
-
-        //    if (db == null) db = new Entities();
-
-        //    var pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
-
-        //    if (pn == null) return 0;
-
-        //    int n = gridViewDetails.RowCount;
-        //    List<int> ct = new List<int>();
-
-        //    // Thêm mới và cập nhật chi tiết
-        //    for (int i = 0; i < n; i++)
-        //    {
-        //        IMP_PhieuNhapCT entity = (IMP_PhieuNhapCT)gridViewDetails.GetRow(i);
-
-        //        if (entity == null || entity.ID_vat_tu == 0 || entity.So_luong == 0) continue;
-
-        //        IMP_PhieuNhapCT item;
-        //        item = pn.IMP_PhieuNhapCT.FirstOrDefault(t =>t.ID_vat_tu == entity.ID_vat_tu);
-
-        //        if (entity.ID_phieu_nhap == 0)
-        //            entity.ID_phieu_nhap = ID_phieu_nhap;
-
-        //        if (item == null)
-        //        {
-        //            // Thêm mới
-        //            item = db.IMP_PhieuNhapCT.Add(entity);
-        //        }
-        //        else
-        //        {
-        //            //Cập nhật
-        //            item.So_luong = entity.So_luong;
-        //            item.Don_gia = entity.Don_gia;
-        //        }
-
-        //        ct.Add(item.ID_vat_tu);
-
-        //        // Kiểm tra xem trong kho có vật tư trong phiếu nhập chi tiết hay không
-        //        var vt = db.STO_KhoVatTuCT.FirstOrDefault(t => t.ID_kho == pn.ID_kho && t.ID_vat_tu == item.ID_vat_tu);
-
-        //        // Nếu là nhân viên và muốn xác thực phiếu nhập thì sẽ cập nhật vật tư và số lượng vào kho
-        //        if(Program.CurrentUser.ID_nhan_vien != null && pn.Trang_thai == 0 && Trang_thai == 1)
-        //        {
-        //            if (vt == null)
-        //            {
-        //                // Vật tư này trong kho hiện không có nên thêm vào
-        //                db.STO_KhoVatTuCT.Add(new STO_KhoVatTuCT
-        //                {
-        //                    ID_kho = pn.ID_kho,
-        //                    ID_vat_tu = item.ID_vat_tu,
-        //                    So_luong = item.So_luong
-        //                });
-        //            }
-        //            else
-        //            {
-        //                // Trong kho đã có vật tư này nên cập nhật số lượng 
-        //                vt.So_luong += item.So_luong;
-        //            }
-        //        }
-
-        //        // Nếu là giám đốc và muốn xác thực thì cập nhật đơn giá nhập và phiếu nhập cuối và cập nhật tổng tiền vào kho (chắc chắn vật tư đã có trong kho vì trạng thái lúc sửa là đã xác thực
-        //        if (Program.CurrentUser.ID_nhan_vien == null && pn.Trang_thai == 1 && Trang_thai == -1)
-        //        {
-        //            pn.Tong_tien += (decimal)(item.So_luong * item.Don_gia);
-        //            vt.Don_gia_nhap = item.Don_gia;
-        //            vt.ID_phieu_nhap = item.ID_phieu_nhap;
-        //        }
-        //    }
-
-        //    // Xóa các chi tiết không có trong danh sách chi tiết mới 
-        //    // chỉ có nhân viên mới thêm sửa xóa các chi tiết phiếu nhập với trạng thái = 0
-        //    if (Program.CurrentUser.ID_nhan_vien != null && pn.Trang_thai == 0 && Trang_thai == 0)
-        //    {
-        //        var tmp = pn.IMP_PhieuNhapCT.Where(t => !ct.Contains(t.ID_vat_tu));
-        //        db.IMP_PhieuNhapCT.RemoveRange(tmp);
-        //    }
-
-        //    // Cập nhật trạng thái phiếu nhập
-        //    pn.Trang_thai = Trang_thai;
-
-        //    return db.SaveChanges();
-        //}
-
-        //public static int ChangeState(int ID_phieu_nhap, int Trang_thai, Entities db = null)
-        //{
-        //    if (db == null) db = new Entities();
-
-        //    var entity = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
-
-        //    if (entity == null) return 0;
-
-        //    entity.Trang_thai = Trang_thai;
-
-        //    return db.SaveChanges();
-        //}
 
         /// <summary>
         /// Xóa phiếu nhập

@@ -30,5 +30,15 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.EditValue = 1;
         }
+
+        public static string GetDateFilterString(object beginDate, object endDate)
+        {
+            DateTime begin = (DateTime)beginDate;
+            DateTime end = (DateTime)endDate;
+            end = end.AddDays(1);
+            string filter = "[Ngay_nhap] >= #" + begin.ToShortDateString() + "# AND [Ngay_nhap] <= #" + end.ToShortDateString() + "#";
+
+            return filter;
+        }
     }
 }

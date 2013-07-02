@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaPhieuNhap));
             this.btnThemVatTuMoi = new DevExpress.XtraEditors.SimpleButton();
             this.ledNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
@@ -57,9 +58,9 @@
             this.colDon_gia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colThanh_tien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
@@ -79,9 +80,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -393,6 +394,12 @@
             this.repositoryItemSpinEdit2.IsFloatValue = false;
             this.repositoryItemSpinEdit2.Mask.EditMask = "N0";
             this.repositoryItemSpinEdit2.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit2.MaxLength = 12;
+            this.repositoryItemSpinEdit2.MaxValue = new decimal(new int[] {
+            1215752192,
+            23,
+            0,
+            0});
             this.repositoryItemSpinEdit2.Name = "repositoryItemSpinEdit2";
             // 
             // colThanh_tien
@@ -409,19 +416,6 @@
             this.colThanh_tien.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
             this.colThanh_tien.Visible = true;
             this.colThanh_tien.VisibleIndex = 3;
-            // 
-            // repositoryItemSpinEdit3
-            // 
-            this.repositoryItemSpinEdit3.AutoHeight = false;
-            this.repositoryItemSpinEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemSpinEdit3.DisplayFormat.FormatString = "N2";
-            this.repositoryItemSpinEdit3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit3.EditFormat.FormatString = "N2";
-            this.repositoryItemSpinEdit3.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.repositoryItemSpinEdit3.Mask.EditMask = "N0";
-            this.repositoryItemSpinEdit3.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
             // 
             // grdPhieuNhapCT
             // 
@@ -445,6 +439,19 @@
             // iMPPhieuNhapCTBindingSource
             // 
             this.iMPPhieuNhapCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.IMP_PhieuNhapCT);
+            // 
+            // repositoryItemSpinEdit3
+            // 
+            this.repositoryItemSpinEdit3.AutoHeight = false;
+            this.repositoryItemSpinEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemSpinEdit3.DisplayFormat.FormatString = "N2";
+            this.repositoryItemSpinEdit3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit3.EditFormat.FormatString = "N2";
+            this.repositoryItemSpinEdit3.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemSpinEdit3.Mask.EditMask = "N0";
+            this.repositoryItemSpinEdit3.Mask.UseMaskAsDisplayFormat = true;
+            this.repositoryItemSpinEdit3.Name = "repositoryItemSpinEdit3";
             // 
             // tableLayoutPanel2
             // 
@@ -511,9 +518,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit3)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

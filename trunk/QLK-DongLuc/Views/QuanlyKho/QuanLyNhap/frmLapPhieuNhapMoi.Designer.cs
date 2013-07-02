@@ -396,6 +396,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteNgayNhap.Size = new System.Drawing.Size(280, 20);
             this.dteNgayNhap.TabIndex = 6;
+            this.dteNgayNhap.EditValueChanged += new System.EventHandler(this.dteNgayNhap_EditValueChanged);
             // 
             // txtChungTuGoc
             // 
