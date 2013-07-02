@@ -23,12 +23,22 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             InitializeComponent();
             db = new Entities();
             pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
+        }
 
+        private void frmSuaPhieuNhap_Load(object sender, EventArgs e)
+        {
             if (pn == null)
             {
                 XtraMessageBox.Show("Có lỗi xảy ra, không tìm thấy phiếu nhập!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnThoat.PerformClick();
+                this.DialogResult = DialogResult.Cancel;
             }
+
+            if (Program.CurrentUser.ID_nhan_vien != null && Program.CurrentUser.ID_nhan_vien != pn.ID_nhan_vien_lap)
+            {
+                XtraMessageBox.Show("Bạn không thể xem các phiếu nhập không phải do bạn lập!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.DialogResult = DialogResult.Cancel;
+            }
+
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
@@ -41,18 +51,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 ledNhaCungCap.Enabled = false;
             }
 
-            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-        }
-
-        private void frmSuaPhieuNhap_Load(object sender, EventArgs e)
-        {
             ledNhanVienNhap.EditValue = pn.ID_nhan_vien_nhap;
             ledKhoNhap.EditValue = pn.ID_kho;
             mmoGhiChu.Text = pn.Ghi_chu;
             txtChungTuGoc.Text = pn.So_chung_tu_goc;
             ledNhaCungCap.EditValue = pn.ID_nha_cung_cap;
             dteNgayNhap.EditValue = pn.Ngay_nhap;
-
 
             PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource, db);
 
@@ -180,6 +184,14 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
+            if(dteNgayNhap.EditValue == "")
+            {
+                XtraMessageBox.Show("Vui lòng chọn một ngày nhập kho.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dteNgayNhap.Focus();
+                result = 0;
+                return;
+            }
+
             if (grvPhieuNhapCT.RowCount < 2 && Program.CurrentUser.ID_nhan_vien != null)
             {
                 XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu nhập.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -249,10 +261,15 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (Program.CurrentUser.ID_nhan_vien == null)
             {
-                if (Don_gia == null || double.Parse(Don_gia.ToString()) < 0)
+                IMP_PhieuNhapCT pnct = (IMP_PhieuNhapCT)grvPhieuNhapCT.GetFocusedRow();
+
+                if (pnct.STO_VatTu.STO_LoaiVatTu.Ten_loai_vat_tu.StartsWith("NAN"))
                 {
-                    bError = true;
-                    sError += "\n Đơn giá phải lớn hơn hoặc bằng 0.";
+                    if (Don_gia != null)
+                    {
+                        bError = true;
+                        sError += "\n Vui lòng không nhập giá nhập cho vật tư loại NAN.";
+                    }
                 }
             }
 

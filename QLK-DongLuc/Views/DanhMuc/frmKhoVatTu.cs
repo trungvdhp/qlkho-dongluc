@@ -21,18 +21,18 @@ namespace QLK_DongLuc.Views.DanhMuc
             InitializeComponent();
         }
 
-        private void gridControl_Load()
+        private void grvKhoVatTu_Load()
         {
             sTOKhoVatTuBindingSource.DataSource = db.STO_KhoVatTu.ToList();
         }
 
-        private void InsertCommand()
+        private void InsertKhoVatTu()
         {
-            string Ten_kho = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_kho").ToString().Trim();
+            string Ten_kho = grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "Ten_kho").ToString().Trim();
             string Dia_diem = "";
             try
             {
-                Dia_diem = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_diem").ToString().Trim();
+                Dia_diem = grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "Dia_diem").ToString().Trim();
             }
             catch { }
 
@@ -42,40 +42,40 @@ namespace QLK_DongLuc.Views.DanhMuc
                 XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void UpdateCommand()
+        private void UpdateKhoVatTu()
         {
-            int ID_kho = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_kho").ToString().Trim());
+            int ID_kho = int.Parse(grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "ID_kho").ToString().Trim());
             var kho = db.STO_KhoVatTu.Where(p => p.ID_kho == ID_kho).First();
-            kho.Ten_kho = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_kho").ToString().Trim();
-            kho.Dia_diem = gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_diem").ToString().Trim();
+            kho.Ten_kho = grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "Ten_kho").ToString().Trim();
+            kho.Dia_diem = grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "Dia_diem").ToString().Trim();
 
             if (db.SaveChanges() == 0)
                 XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void UpdateGiaXuatCommand()
+        private void UpdateKhoVatTuCT()
         {
             STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
-            var rs = KhoVatTuCTCtrl.Update(kho.ID_kho, kho.ID_vat_tu, kho.Don_gia_xuat, db);
+            var rs = KhoVatTuCTCtrl.Update(kho, db);
 
             if (rs == 0)
             {
-                XtraMessageBox.Show("Sửa đơn giá xuất không thành công.", "Sửa đơn giá xuất", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không có thay đổi đơn giá nào được cập nhật.", "Sửa đơn giá", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 KhoVatTuCTCtrl.LoadBindingSource(kho.ID_kho, sTOKhoVatTuCTBindingSource);
             }
 
         }
 
-        private void DeleteCommand()
+        private void DeleteKhoVatTu()
         {
-            if (gridView.FocusedRowHandle < 0) return;
+            if (grvKhoVatTu.FocusedRowHandle < 0) return;
 
             var result = XtraMessageBox.Show("Chắc chắn xóa dữ liệu này?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
                 return;
 
-            int ID_kho = int.Parse(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_kho").ToString().Trim());
+            int ID_kho = int.Parse(grvKhoVatTu.GetRowCellValue(grvKhoVatTu.FocusedRowHandle, "ID_kho").ToString().Trim());
             var kho = db.STO_KhoVatTu.Where(p => p.ID_kho == ID_kho).First();
             db.STO_KhoVatTu.Remove(kho);
 
@@ -85,30 +85,31 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmKhoVatTu_Load(object sender, EventArgs e)
         {
-            gridControl_Load();
+            grvKhoVatTu_Load();
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1);
 
             if (Program.CurrentUser.ID_nhan_vien != null)
             {
-                gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+                grvKhoVatTu.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
                 colTen_kho.OptionsColumn.AllowEdit = false;
                 colDia_diem.OptionsColumn.AllowEdit = false;
                 colDon_gia_nhap.Visible = false;
                 colDon_gia_xuat.OptionsColumn.AllowEdit = false;
             }
+            
         }
 
-        private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        private void grvKhoVatTu_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
-        
-        private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+
+        private void grvKhoVatTu_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             bool bError = false;
             string sError = "";
 
-            if (gridView.GetRowCellValue(e.RowHandle, "Ten_kho").ToString().Trim() == "")
+            if (grvKhoVatTu.GetRowCellValue(e.RowHandle, "Ten_kho").ToString().Trim() == "")
             {
                 bError = true;
                 sError += "Vui lòng điền tên kho. ";
@@ -125,43 +126,43 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             if (view.IsNewItemRow(e.RowHandle))
             {
-                InsertCommand();
-                gridControl_Load();
+                InsertKhoVatTu();
+                grvKhoVatTu_Load();
             }
             else
             {
-                UpdateCommand();
-                gridControl_Load();
+                UpdateKhoVatTu();
+                grvKhoVatTu_Load();
             }
         }       
 
-        private void gridControl_KeyDown(object sender, KeyEventArgs e)
+        private void grdKhoVatTu_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (e.KeyCode == Keys.Delete && grvKhoVatTu.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
             {
-                DeleteCommand();
-                gridControl_Load();
+                DeleteKhoVatTu();
+                grvKhoVatTu_Load();
             }
 
-            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
+            if (e.KeyCode == Keys.Enter && grvKhoVatTu.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
             {
-                gridView.CloseEditor();
-                gridView.UpdateCurrentRow();
+                grvKhoVatTu.CloseEditor();
+                grvKhoVatTu.UpdateCurrentRow();
             }
 
             if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
             {
-                if (!gridControl.IsPrintingAvailable)
+                if (!grdKhoVatTu.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Không thể in.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                gridControl.ShowPrintPreview();
+                grdKhoVatTu.ShowPrintPreview();
             }
         }
 
-        private void gridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void grvKhoVatTu_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            STO_KhoVatTu kho = (STO_KhoVatTu)gridView.GetFocusedRow();
+            STO_KhoVatTu kho = (STO_KhoVatTu)grvKhoVatTu.GetFocusedRow();
 
             if (kho != null)
                KhoVatTuCTCtrl.LoadBindingSource(kho.ID_kho, sTOKhoVatTuCTBindingSource);
@@ -169,36 +170,82 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void grvKhoVatTuCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-            bool bError = false;
-            string sError = "";
-
-            var Don_gia = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, "Don_gia_xuat");
+           
 
             if (Program.CurrentUser.ID_nhan_vien == null)
             {
-                if (Don_gia == null || double.Parse(Don_gia.ToString()) < 0)
+                STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
+
+                if (kho.STO_VatTu.STO_LoaiVatTu.Ten_loai_vat_tu.StartsWith("NAN"))
                 {
-                    bError = true;
-                    sError += "\n Đơn giá xuất phải lớn hơn hoặc bằng 0.";
+                    bool bError = false;
+                    string sError = "";
+
+                    var Don_gia_nhap = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, "Don_gia_nhap");
+
+                    if (Don_gia_nhap != null)
+                    {
+                        bError = true;
+                        sError += "\n Vui lòng không nhập đơn giá nhập cho vật tư loại NAN.";
+                    }
+
+                    var Don_gia_xuat = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, "Don_gia_xuat");
+
+                    if (Don_gia_xuat != null)
+                    {
+                        bError = true;
+                        sError += "\n Vui lòng không nhập đơn giá xuất cho vật tư loại NAN.";
+                    }
+
+                    if (bError)
+                    {
+                        e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
+                        e.Valid = false;
+                        KhoVatTuCTCtrl.LoadBindingSource(kho.ID_kho, sTOKhoVatTuCTBindingSource);
+                        //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+
+                if (view.IsNewItemRow(e.RowHandle))
+                {
+                }
+                else
+                {
+                    UpdateKhoVatTuCT();
                 }
             }
+        }
 
-            if (bError)
+        private void grdKhoVatTuCT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && grvKhoVatTuCT.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
             {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
-                e.Valid = false;
-                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                grvKhoVatTuCT.CloseEditor();
+                grvKhoVatTuCT.UpdateCurrentRow();
             }
 
-            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
+            {
+                if (!grdKhoVatTuCT.IsPrintingAvailable)
+                {
+                    XtraMessageBox.Show("Không thể in.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
-            if (view.IsNewItemRow(e.RowHandle))
-            {
+                grdKhoVatTuCT.ShowPrintPreview();
             }
-            else
+        }
+
+        private void grvKhoVatTuCT_DoubleClick(object sender, EventArgs e)
+        {
+            STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
+
+            if (kho.ID_phieu_nhap != null)
             {
-                UpdateGiaXuatCommand();
+                QuanlyKho.QuanLyNhap.frmSuaPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmSuaPhieuNhap((int)kho.ID_phieu_nhap);
+                frm.ShowDialog();
             }
         }
     }

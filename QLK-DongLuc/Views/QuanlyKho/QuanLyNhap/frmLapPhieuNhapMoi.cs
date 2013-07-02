@@ -60,7 +60,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 if (!grdPhieuNhapCT.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Không in được.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 grdPhieuNhapCT.ShowPrintPreview();
@@ -90,6 +90,14 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledNhaCungCap.Focus();
+                result = 0;
+                return;
+            }
+
+            if (dteNgayNhap.EditValue == "")
+            {
+                XtraMessageBox.Show("Vui lòng chọn một ngày nhập kho.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dteNgayNhap.Focus();
                 result = 0;
                 return;
             }
@@ -208,6 +216,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnXacThuc_Click(object sender, EventArgs e)
         {
             Luu(1);
+        }
+
+        private void dteNgayNhap_EditValueChanged(object sender, EventArgs e)
+        {
+            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
         }
     }
 }

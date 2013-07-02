@@ -119,20 +119,22 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 dteNgayKetThuc.EditValue = date.AddMonths(1);
             }
+            else if (ledTuyChon.EditValue.Equals(4))
+            {
+                dteNgayKetThuc.EditValue = date.AddYears(1);
+            }
         }
 
         private void ledTuyChon_EditValueChanged(object sender, EventArgs e)
         {
-            dteNgayBatDau_EditValueChanged(sender, e);
+            var begin = (DateTime)dteNgayBatDau.EditValue;
+            var beginYear = new DateTime(begin.Year, 1, 1);
+            dteNgayBatDau.EditValue = beginYear;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            DateTime begin = (DateTime)dteNgayBatDau.EditValue;
-            DateTime end = (DateTime)dteNgayKetThuc.EditValue;
-            end = end.AddDays(1);
-
-            grvPhieuNhap.ActiveFilterString = "[Ngay_nhap] >= '" + begin.ToShortDateString() + "' AND [Ngay_nhap] <= '" + end.ToShortDateString() + "'";
+            grvPhieuNhap.ActiveFilterString = TuyChonTimKiemCtrl.GetDateFilterString(dteNgayBatDau.EditValue, dteNgayKetThuc.EditValue);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
