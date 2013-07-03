@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
-            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.navbarImageListLarge = new System.Windows.Forms.ImageList();
-            this.navbarImageList = new System.Windows.Forms.ImageList();
+            this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
+            this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
-            this.popupControlContainer2 = new DevExpress.XtraBars.PopupControlContainer();
-            this.buttonEdit = new DevExpress.XtraEditors.ButtonEdit();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
-            this.popupControlContainer1 = new DevExpress.XtraBars.PopupControlContainer();
-            this.someLabelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.someLabelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.btnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
-            this.siStatus = new DevExpress.XtraBars.BarStaticItem();
-            this.lblInfo = new DevExpress.XtraBars.BarStaticItem();
+            this.lblUser = new DevExpress.XtraBars.BarStaticItem();
             this.iBoldFontStyle = new DevExpress.XtraBars.BarButtonItem();
             this.iItalicFontStyle = new DevExpress.XtraBars.BarButtonItem();
             this.iUnderlinedFontStyle = new DevExpress.XtraBars.BarButtonItem();
@@ -77,7 +70,9 @@
             this.btnKhachHang = new DevExpress.XtraBars.BarButtonItem();
             this.btnVT = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.lblRemainingTimeMessage = new DevExpress.XtraBars.BarStaticItem();
+            this.lblRemainingTime = new DevExpress.XtraBars.BarStaticItem();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.formatRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -96,44 +91,17 @@
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.timer1 = new System.Windows.Forms.Timer();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
-            this.splitContainerControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
+            this.tmrTracker = new System.Windows.Forms.Timer(this.components);
+            this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
+            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.lblActiveTimeMessage = new DevExpress.XtraBars.BarStaticItem();
+            this.lblActiveTime = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).BeginInit();
-            this.popupControlContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer1)).BeginInit();
-            this.popupControlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // splitContainerControl
-            // 
-            this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl.Location = new System.Drawing.Point(0, 142);
-            this.splitContainerControl.Name = "splitContainerControl";
-            this.splitContainerControl.Padding = new System.Windows.Forms.Padding(6);
-            this.splitContainerControl.Panel2.Controls.Add(this.tabControl);
-            this.splitContainerControl.Panel2.Text = "Panel2";
-            this.splitContainerControl.Size = new System.Drawing.Size(1012, 560);
-            this.splitContainerControl.SplitterPosition = 0;
-            this.splitContainerControl.TabIndex = 0;
-            this.splitContainerControl.Text = "splitContainerControl1";
-            // 
-            // tabControl
-            // 
-            this.tabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.Size = new System.Drawing.Size(995, 548);
-            this.tabControl.TabIndex = 0;
-            this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             // 
             // navbarImageListLarge
             // 
@@ -165,8 +133,7 @@
             this.btnDangXuat,
             this.btnThoat,
             this.iAbout,
-            this.siStatus,
-            this.lblInfo,
+            this.lblUser,
             this.iBoldFontStyle,
             this.iItalicFontStyle,
             this.iUnderlinedFontStyle,
@@ -196,10 +163,14 @@
             this.btnNhaCungCap,
             this.btnKhachHang,
             this.btnVT,
-            this.barButtonItem1});
+            this.barButtonItem1,
+            this.lblRemainingTimeMessage,
+            this.lblRemainingTime,
+            this.lblActiveTimeMessage,
+            this.lblActiveTime});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 87;
+            this.ribbonControl.MaxItemId = 93;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -209,41 +180,15 @@
             this.ribbonPage3,
             this.helpRibbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl.Size = new System.Drawing.Size(1012, 142);
+            this.ribbonControl.Size = new System.Drawing.Size(891, 142);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // appMenu
             // 
-            this.appMenu.BottomPaneControlContainer = this.popupControlContainer2;
             this.appMenu.ItemLinks.Add(this.btnThoat);
             this.appMenu.Name = "appMenu";
             this.appMenu.Ribbon = this.ribbonControl;
-            this.appMenu.RightPaneControlContainer = this.popupControlContainer1;
             this.appMenu.ShowRightPane = true;
-            // 
-            // popupControlContainer2
-            // 
-            this.popupControlContainer2.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.popupControlContainer2.Appearance.Options.UseBackColor = true;
-            this.popupControlContainer2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popupControlContainer2.Controls.Add(this.buttonEdit);
-            this.popupControlContainer2.Location = new System.Drawing.Point(238, 289);
-            this.popupControlContainer2.Name = "popupControlContainer2";
-            this.popupControlContainer2.Ribbon = this.ribbonControl;
-            this.popupControlContainer2.Size = new System.Drawing.Size(118, 28);
-            this.popupControlContainer2.TabIndex = 3;
-            this.popupControlContainer2.Visible = false;
-            // 
-            // buttonEdit
-            // 
-            this.buttonEdit.EditValue = "Some Text";
-            this.buttonEdit.Location = new System.Drawing.Point(3, 5);
-            this.buttonEdit.MenuManager = this.ribbonControl;
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEdit.Size = new System.Drawing.Size(100, 20);
-            this.buttonEdit.TabIndex = 0;
             // 
             // btnThoat
             // 
@@ -255,36 +200,6 @@
             this.btnThoat.LargeImageIndex = 6;
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
-            // 
-            // popupControlContainer1
-            // 
-            this.popupControlContainer1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.popupControlContainer1.Appearance.Options.UseBackColor = true;
-            this.popupControlContainer1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.popupControlContainer1.Controls.Add(this.someLabelControl2);
-            this.popupControlContainer1.Controls.Add(this.someLabelControl1);
-            this.popupControlContainer1.Location = new System.Drawing.Point(111, 197);
-            this.popupControlContainer1.Name = "popupControlContainer1";
-            this.popupControlContainer1.Ribbon = this.ribbonControl;
-            this.popupControlContainer1.Size = new System.Drawing.Size(76, 70);
-            this.popupControlContainer1.TabIndex = 2;
-            this.popupControlContainer1.Visible = false;
-            // 
-            // someLabelControl2
-            // 
-            this.someLabelControl2.Location = new System.Drawing.Point(3, 57);
-            this.someLabelControl2.Name = "someLabelControl2";
-            this.someLabelControl2.Size = new System.Drawing.Size(49, 13);
-            this.someLabelControl2.TabIndex = 0;
-            this.someLabelControl2.Text = "Some Info";
-            // 
-            // someLabelControl1
-            // 
-            this.someLabelControl1.Location = new System.Drawing.Point(3, 3);
-            this.someLabelControl1.Name = "someLabelControl1";
-            this.someLabelControl1.Size = new System.Drawing.Size(49, 13);
-            this.someLabelControl1.TabIndex = 0;
-            this.someLabelControl1.Text = "Some Info";
             // 
             // ribbonImageCollection
             // 
@@ -340,19 +255,14 @@
             this.iAbout.Name = "iAbout";
             this.iAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iAbout_ItemClick);
             // 
-            // siStatus
+            // lblUser
             // 
-            this.siStatus.Caption = "Người dùng đăng nhập hệ thống:";
-            this.siStatus.Id = 31;
-            this.siStatus.Name = "siStatus";
-            this.siStatus.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.Caption = "Some Info";
-            this.lblInfo.Id = 32;
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.lblUser.Caption = "Người dùng đang đăng nhập";
+            this.lblUser.Id = 32;
+            this.lblUser.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
+            this.lblUser.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblUser.Name = "lblUser";
+            this.lblUser.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // iBoldFontStyle
             // 
@@ -617,6 +527,28 @@
             this.barButtonItem1.LargeGlyph = global::QLK_DongLuc.Properties.Resources.HangTonKho_32x32;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
+            // lblRemainingTimeMessage
+            // 
+            this.lblRemainingTimeMessage.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lblRemainingTimeMessage.Caption = "Thời gian còn lại trước khi tài khoản tự động đăng xuất:";
+            this.lblRemainingTimeMessage.Id = 87;
+            this.lblRemainingTimeMessage.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
+            this.lblRemainingTimeMessage.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblRemainingTimeMessage.Name = "lblRemainingTimeMessage";
+            this.lblRemainingTimeMessage.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // lblRemainingTime
+            // 
+            this.lblRemainingTime.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.lblRemainingTime.Caption = "01:00:00";
+            this.lblRemainingTime.Id = 90;
+            this.lblRemainingTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblRemainingTime.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblRemainingTime.Name = "lblRemainingTime";
+            this.lblRemainingTime.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -757,27 +689,62 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
-            this.ribbonStatusBar.ItemLinks.Add(this.lblInfo);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 702);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblUser);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblActiveTimeMessage);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblActiveTime);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblRemainingTimeMessage);
+            this.ribbonStatusBar.ItemLinks.Add(this.lblRemainingTime);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 535);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1012, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(891, 27);
             // 
-            // timer1
+            // tmrTracker
             // 
-            this.timer1.Interval = 6000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tmrTracker.Interval = 6000;
+            this.tmrTracker.Tick += new System.EventHandler(this.tmrTracker_Tick);
+            // 
+            // tmrDongHo
+            // 
+            this.tmrDongHo.Interval = 1000;
+            this.tmrDongHo.Tick += new System.EventHandler(this.tmrDongHo_Tick);
+            // 
+            // tabControl
+            // 
+            this.tabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPagesAndTabControlHeader;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.HeaderButtons = DevExpress.XtraTab.TabButtons.Close;
+            this.tabControl.Location = new System.Drawing.Point(0, 142);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.Size = new System.Drawing.Size(891, 393);
+            this.tabControl.TabIndex = 5;
+            this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
+            // 
+            // lblActiveTimeMessage
+            // 
+            this.lblActiveTimeMessage.Caption = "Thời gian hoạt động:";
+            this.lblActiveTimeMessage.Id = 91;
+            this.lblActiveTimeMessage.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
+            this.lblActiveTimeMessage.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblActiveTimeMessage.Name = "lblActiveTimeMessage";
+            this.lblActiveTimeMessage.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // lblActiveTime
+            // 
+            this.lblActiveTime.Caption = "01:00:00";
+            this.lblActiveTime.Id = 92;
+            this.lblActiveTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblActiveTime.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblActiveTime.Name = "lblActiveTime";
+            this.lblActiveTime.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 729);
-            this.Controls.Add(this.splitContainerControl);
+            this.ClientSize = new System.Drawing.Size(891, 562);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.ribbonControl);
-            this.Controls.Add(this.popupControlContainer1);
-            this.Controls.Add(this.popupControlContainer2);
             this.Controls.Add(this.ribbonStatusBar);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -785,33 +752,23 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
-            this.splitContainerControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer2)).EndInit();
-            this.popupControlContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupControlContainer1)).EndInit();
-            this.popupControlContainer1.ResumeLayout(false);
-            this.popupControlContainer1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem btnDangNhap;
         private DevExpress.XtraBars.BarButtonItem btnDangXuat;
         private DevExpress.XtraBars.BarButtonItem btnThoat;
         private DevExpress.XtraBars.BarButtonItem iAbout;
-        private DevExpress.XtraBars.BarStaticItem siStatus;
-        private DevExpress.XtraBars.BarStaticItem lblInfo;
+        private DevExpress.XtraBars.BarStaticItem lblUser;
         private DevExpress.XtraBars.BarButtonItem iBoldFontStyle;
         private DevExpress.XtraBars.BarButtonItem iItalicFontStyle;
         private DevExpress.XtraBars.BarButtonItem iUnderlinedFontStyle;
@@ -826,11 +783,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage helpRibbonPage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup helpRibbonPageGroup;
         private DevExpress.XtraBars.Ribbon.ApplicationMenu appMenu;
-        private DevExpress.XtraBars.PopupControlContainer popupControlContainer1;
-        private DevExpress.XtraEditors.LabelControl someLabelControl2;
-        private DevExpress.XtraEditors.LabelControl someLabelControl1;
-        private DevExpress.XtraBars.PopupControlContainer popupControlContainer2;
-        private DevExpress.XtraEditors.ButtonEdit buttonEdit;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.Utils.ImageCollection ribbonImageCollection;
         private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
@@ -866,12 +818,17 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
-        private DevExpress.XtraTab.XtraTabControl tabControl;
         private DevExpress.XtraBars.BarButtonItem btnNhaCungCap;
         private DevExpress.XtraBars.BarButtonItem btnKhachHang;
 		private DevExpress.XtraBars.BarButtonItem btnVT;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tmrTracker;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarStaticItem lblRemainingTimeMessage;
+        private DevExpress.XtraBars.BarStaticItem lblRemainingTime;
+        private System.Windows.Forms.Timer tmrDongHo;
+        private DevExpress.XtraTab.XtraTabControl tabControl;
+        private DevExpress.XtraBars.BarStaticItem lblActiveTimeMessage;
+        private DevExpress.XtraBars.BarStaticItem lblActiveTime;
 
     }
 }

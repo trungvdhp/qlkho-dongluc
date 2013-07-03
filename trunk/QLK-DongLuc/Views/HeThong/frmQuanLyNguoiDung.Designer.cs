@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.grdNguoiDung = new DevExpress.XtraGrid.GridControl();
-            this.viewNguoiDungBindingSource = new System.Windows.Forms.BindingSource();
+            this.viewNguoiDungBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvNguoiDung = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTai_khoan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_day_du = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,7 +39,9 @@
             this.colLan_dang_nhap_cuoi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colThoi_gian_cho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colThoi_gian_hoat_dong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID_trang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
@@ -52,6 +55,7 @@
             this.colID_phieu_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIMP_PhieuNhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSTO_VatTu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewNguoiDungBindingSource)).BeginInit();
@@ -116,7 +120,9 @@
             this.colNhan_vien,
             this.colLan_dang_nhap_cuoi,
             this.colThoi_gian_cho,
-            this.colTrang_thai});
+            this.colThoi_gian_hoat_dong,
+            this.colTrang_thai,
+            this.colID_trang_thai});
             this.grvNguoiDung.GridControl = this.grdNguoiDung;
             this.grvNguoiDung.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.grvNguoiDung.Name = "grvNguoiDung";
@@ -181,13 +187,29 @@
             this.colThoi_gian_cho.Visible = true;
             this.colThoi_gian_cho.VisibleIndex = 4;
             // 
+            // colThoi_gian_hoat_dong
+            // 
+            this.colThoi_gian_hoat_dong.Caption = "Thời gian hoạt động";
+            this.colThoi_gian_hoat_dong.FieldName = "Thoi_gian_hoat_dong";
+            this.colThoi_gian_hoat_dong.Name = "colThoi_gian_hoat_dong";
+            this.colThoi_gian_hoat_dong.UnboundExpression = "Iif( [ID_trang_thai] == 2, DateDiffSecond([Lan_dang_nhap_cuoi],Now()) / 60 ,\'\' )";
+            this.colThoi_gian_hoat_dong.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            this.colThoi_gian_hoat_dong.Visible = true;
+            this.colThoi_gian_hoat_dong.VisibleIndex = 5;
+            // 
             // colTrang_thai
             // 
             this.colTrang_thai.Caption = "Trạng thái";
             this.colTrang_thai.FieldName = "Trang_thai";
             this.colTrang_thai.Name = "colTrang_thai";
             this.colTrang_thai.Visible = true;
-            this.colTrang_thai.VisibleIndex = 5;
+            this.colTrang_thai.VisibleIndex = 6;
+            // 
+            // colID_trang_thai
+            // 
+            this.colID_trang_thai.Caption = "ID trạng thái";
+            this.colID_trang_thai.FieldName = "ID_trang_thai";
+            this.colID_trang_thai.Name = "colID_trang_thai";
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -322,6 +344,11 @@
             this.colSTO_VatTu.Visible = true;
             this.colSTO_VatTu.VisibleIndex = 5;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmQuanLyNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,6 +399,9 @@
         private DevExpress.XtraEditors.SimpleButton btnSua;
         private DevExpress.XtraEditors.SimpleButton btnMoTaiKhoan;
         private DevExpress.XtraEditors.SimpleButton btnSetTimeOut;
+        private DevExpress.XtraGrid.Columns.GridColumn colThoi_gian_hoat_dong;
+        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_trang_thai;
 
     }
 }

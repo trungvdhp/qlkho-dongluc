@@ -57,5 +57,6 @@ namespace QLK_DongLuc.Models
         public DbSet<ViewPhieuNhap> ViewPhieuNhap { get; set; }
         public DbSet<ViewPhieuXuat> ViewPhieuXuat { get; set; }
         public DbSet<IMP_PhieuNhapCT> IMP_PhieuNhapCT { get; set; }
+        public DbSet<SYS_ThongSoHeThong> SYS_ThongSoHeThong { get; set; }
     }
 }

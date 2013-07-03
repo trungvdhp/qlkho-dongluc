@@ -22,13 +22,19 @@ namespace QLK_DongLuc
 
     public partial class frmMain : XtraForm
     {
+        TimeSpan ActiveTime;
+        TimeSpan TotalTime;
+        TimeSpan interval;
+        int RemainingTime;
+        bool waiting = false;
+
         public frmMain()
         {
             InitializeComponent();
-            KetNoiCSDLCtrl.GetDatabaseList(Properties.Settings.Default.DS, Properties.Settings.Default.UID, "12345a@");
+            interval = TimeSpan.FromMilliseconds((double)(tmrDongHo.Interval));
         }
 
-        #region function TabControl
+        #region TabControl
         private void tabControl_CloseButtonClick(object sender, EventArgs e)
         {
             DevExpress.XtraTab.XtraTabControl tabControl = sender as DevExpress.XtraTab.XtraTabControl;
@@ -191,7 +197,7 @@ namespace QLK_DongLuc
                     btnNhaCungCap.Enabled = true;
                     btnNhanVien.Enabled = true;
 
-                    lblInfo.Caption = "giám đốc " + Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "";
+                    lblUser.Caption = "Giám đốc: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "");
                 }
                 // Nếu là nhân viên
                 else
@@ -213,20 +219,126 @@ namespace QLK_DongLuc
                     btnNhaCungCap.Enabled = false;
                     btnNhanVien.Enabled = false;
 
-                    lblInfo.Caption = "nhân viên " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
+                    lblUser.Caption = "Nhân viên: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
+                }
+
+                CaiDatThongSoDongHo();
+
+                if (Program.CurrentUser.Thoi_gian_cho != null)
+                {
+                    TotalTime = Program.CurrentUser.Thoi_gian_cho.Value;
+                    TotalTime = TotalTime.Add(interval);
+                    lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                    lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                }
+                else
+                {
+                    TotalTime = TimeSpan.FromMilliseconds((double)(RemainingTime + 2 * tmrDongHo.Interval));
+                    lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                    lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                }
+                    
+                ActiveTime = new TimeSpan(0, 0, 0);
+
+                tmrDongHo.Start();
+                tmrTracker.Start();
+            }
+        }
+
+        private void CaiDatThongSoDongHo()
+        {
+            var t1 = ThongSoHeThongCtrl.LayThongSoHeThong("tmrTracker", "Interval");
+            var t2 = ThongSoHeThongCtrl.LayThongSoHeThong("tmrTracker", "Remain");
+
+            tmrTracker.Interval = int.Parse(t1.Gia_tri);
+            RemainingTime = int.Parse(t2.Gia_tri);
+        }
+
+        private void tmrDongHo_Tick(object sender, EventArgs e)
+        {
+            if (waiting || Program.CurrentUser.Thoi_gian_cho != null)
+            {
+                TotalTime = TotalTime.Subtract(interval);
+                string remain = TotalTime.ToString(@"hh\:mm\:ss");
+                lblRemainingTime.Caption = remain;
+
+                if (TotalTime.TotalMilliseconds > 0)
+                {
+                    if (TotalTime.TotalMilliseconds <= RemainingTime)
+                    {
+                        int t = ((int)TotalTime.TotalMilliseconds / tmrDongHo.Interval) % 2;
+                        lblRemainingTime.Appearance.ForeColor = (t == 0 ? Color.Blue : Color.White);
+
+                        if (TotalTime.TotalMilliseconds > RemainingTime - tmrDongHo.Interval)
+                            XtraMessageBox.Show("Sau " + remain + " tài khoản sẽ tự động đăng xuất", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    btnDangXuat.PerformClick();
+                }
+            }
+
+            ActiveTime = ActiveTime.Add(interval);
+            lblActiveTime.Caption = ActiveTime.ToString(@"hh\:mm\:ss");
+        }
+
+        private void tmrTracker_Tick(object sender, EventArgs e)
+        {
+            // Cài đặt lại thông số đồng hồ
+            CaiDatThongSoDongHo();
+            // Kiểm tra lại thông tin người dùng
+            var user = NguoiDungCtrl.LayNguoiDungTheoID(Program.CurrentUser.ID_nguoi_dung);
+
+            if (user == null)
+            {
+                XtraMessageBox.Show("Không kết nối được đến tài khoản!", "Theo dõi tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                btnDangXuat.PerformClick();
+                tmrTracker.Stop();
+                tmrDongHo.Stop();
+                return;
+            }
+
+            if (user.ID_trang_thai == 3)
+            {
+                if (TotalTime.TotalMilliseconds > RemainingTime + tmrDongHo.Interval)
+                {
+                    TotalTime = TimeSpan.FromMilliseconds((double)(RemainingTime + tmrDongHo.Interval));
+                    lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                    lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                    waiting = true;
+                    XtraMessageBox.Show("Tài khoản đã bị giám đốc khóa!", "Theo dõi tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else if (user.ID_trang_thai == 1)
+            {
+                if (TotalTime.TotalMilliseconds > RemainingTime + tmrDongHo.Interval)
+                {
+                    TotalTime = TimeSpan.FromMilliseconds((double)(RemainingTime + tmrDongHo.Interval));
+                    lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                    lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                    waiting = true;
+                    XtraMessageBox.Show("Tài khoản không còn đăng nhập!", "Theo dõi tài khoản", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            NguoiDungCtrl.Logout();
-            Program.CurrentUser = null;
-            CloseAllForm();
-            XtraMessageBox.Show("Đăng xuất thành công khỏi hệ thống!", "Đăng xuất thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            btnDangNhap.Enabled = true;
-            btnDangNhap.PerformClick();
+            if (NguoiDungCtrl.Logout() > 0)
+            {
+                tmrDongHo.Stop();
+                tmrTracker.Stop();
+                CloseAllForm();
+                Program.CurrentUser = null;
+                XtraMessageBox.Show("Đăng xuất thành công khỏi hệ thống!", "Đăng xuất thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnDangNhap.Enabled = true;
+                btnDangNhap.PerformClick();
+            }
+            else
+            {
+                XtraMessageBox.Show("Không thể đăng xuất khỏi hệ thống!", "Đăng xuất thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -234,10 +346,6 @@ namespace QLK_DongLuc
             btnDangNhap.PerformClick();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -293,5 +401,8 @@ namespace QLK_DongLuc
         private void iAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
         }
+
+
+
     }
 }
