@@ -86,6 +86,7 @@
     <Compile Include="Controllers\PhieuXuatCTCtrl.cs" />
     <Compile Include="Controllers\PhieuXuatCtrl.cs" />
     <Compile Include="Controllers\SanPhamCtrl.cs" />
+    <Compile Include="Controllers\ThongSoHeThongCtrl.cs" />
     <Compile Include="Controllers\TonDauKy.cs" />
     <Compile Include="Controllers\TuyChonTimKiemCtrl.cs" />
     <Compile Include="Controllers\Utilities.cs" />
@@ -182,6 +183,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_SuKienNguoiDung.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SYS_ThongSoHeThong.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_TrangThaiNguoiDung.cs">

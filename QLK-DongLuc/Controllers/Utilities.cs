@@ -113,5 +113,12 @@ namespace QLK_DongLuc.Controllers
 
             return utf8.GetString(results);
         }
+
+        public static string MilliSecondsToString(double milliseconds, string format)
+        {
+            TimeSpan t = TimeSpan.FromMilliseconds(milliseconds);
+
+            return t.ToString(format);
+        }
 	}
 }

@@ -93,5 +93,10 @@ namespace QLK_DongLuc.Views.HeThong
                 NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+        }
     }
 }

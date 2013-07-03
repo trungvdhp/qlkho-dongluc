@@ -27,6 +27,7 @@
           <EntitySet Name="SYS_NguoiDungVaiTro" EntityType="QuanLyKhoDongLucModel.Store.SYS_NguoiDungVaiTro" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SYS_Quyen" EntityType="QuanLyKhoDongLucModel.Store.SYS_Quyen" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SYS_SuKienNguoiDung" EntityType="QuanLyKhoDongLucModel.Store.SYS_SuKienNguoiDung" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SYS_ThongSoHeThong" EntityType="QuanLyKhoDongLucModel.Store.SYS_ThongSoHeThong" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SYS_TrangThaiNguoiDung" EntityType="QuanLyKhoDongLucModel.Store.SYS_TrangThaiNguoiDung" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SYS_VaiTro" EntityType="QuanLyKhoDongLucModel.Store.SYS_VaiTro" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SYS_VaiTroQuyen" EntityType="QuanLyKhoDongLucModel.Store.SYS_VaiTroQuyen" store:Type="Tables" Schema="dbo" />
@@ -514,6 +515,16 @@
           <Property Name="Noi_dung" Type="ntext" Nullable="false" />
           <Property Name="Thoi_diem" Type="datetime" Nullable="false" />
           <Property Name="May_tram" Type="varchar" Nullable="false" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="SYS_ThongSoHeThong">
+          <Key>
+            <PropertyRef Name="ID_thong_so" />
+          </Key>
+          <Property Name="ID_thong_so" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID_cha" Type="int" Nullable="false" />
+          <Property Name="Ma_thong_so" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Ten_thong_so" Type="nvarchar" MaxLength="255" />
+          <Property Name="Gia_tri" Type="ntext" />
         </EntityType>
         <EntityType Name="SYS_TrangThaiNguoiDung">
           <Key>
@@ -1326,6 +1337,7 @@
             <End Role="STO_VatTu" EntitySet="STO_VatTu" />
             <End Role="IMP_PhieuNhapCT" EntitySet="IMP_PhieuNhapCT" />
           </AssociationSet>
+          <EntitySet Name="SYS_ThongSoHeThong" EntityType="QuanLyKhoDongLucModel.SYS_ThongSoHeThong" />
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -2183,6 +2195,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SYS_ThongSoHeThong">
+          <Key>
+            <PropertyRef Name="ID_thong_so" />
+          </Key>
+          <Property Type="Int32" Name="ID_thong_so" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID_cha" Nullable="false" />
+          <Property Type="String" Name="Ma_thong_so" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ten_thong_so" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Gia_tri" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2599,6 +2621,17 @@
                 <ScalarProperty Name="So_luong" ColumnName="So_luong" />
                 <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SYS_ThongSoHeThong">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.SYS_ThongSoHeThong">
+              <MappingFragment StoreEntitySet="SYS_ThongSoHeThong">
+                <ScalarProperty Name="Gia_tri" ColumnName="Gia_tri" />
+                <ScalarProperty Name="Ten_thong_so" ColumnName="Ten_thong_so" />
+                <ScalarProperty Name="Ma_thong_so" ColumnName="Ma_thong_so" />
+                <ScalarProperty Name="ID_cha" ColumnName="ID_cha" />
+                <ScalarProperty Name="ID_thong_so" ColumnName="ID_thong_so" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

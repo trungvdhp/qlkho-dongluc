@@ -132,9 +132,9 @@ namespace QLK_DongLuc.Controllers
             return user;
         }
 
-        public static void Logout(Entities db = null)
+        public static int Logout(Entities db = null)
         {
-            if (Program.CurrentUser == null) return;
+            if (Program.CurrentUser == null) return 0;
 
             if (db == null) db = new Entities();
 
@@ -142,12 +142,31 @@ namespace QLK_DongLuc.Controllers
 
             if (user != null)
             {
+                if (user.ID_trang_thai == 1)
+                    return 1;
+
                 if (user.ID_trang_thai != 3)
                 {
                     user.ID_trang_thai = 1;
-                    db.SaveChanges();
+                    return db.SaveChanges();
                 }
             }
+
+            return 0;
+        }
+
+        public static SYS_NguoiDung LayNguoiDungTheoID(int ID_nguoi_dung, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            return db.SYS_NguoiDung.FirstOrDefault(t => t.ID_nguoi_dung == ID_nguoi_dung);
+        }
+
+        public static SYS_NguoiDung LayNguoiDungTheoTenDangNhap(string Tai_khoan, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            return db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan);
         }
     }
 }
