@@ -23,7 +23,7 @@ namespace QLK_DongLuc.Views.HeThong
 
             if (user == null)
             {
-                XtraMessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nHoặc tài khoản này đã bị khóa!\nHoặc tài khoản này đã đang đăng nhập!\nVui lòng liên hệ giám đốc để kiểm tra lại.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("1. Tên đăng nhập hoặc mật khẩu không đúng.\n\n2. Có thể tài khoản này đang đăng nhập hoặc đang bị khóa.\n\n3. Hoặc kết nối đến máy chủ không thành công\n\n* Vui lòng liên hệ giám đốc để kiểm tra lại *", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtMatKhau.Focus();
                 txtMatKhau.SelectAll();
@@ -82,6 +82,12 @@ namespace QLK_DongLuc.Views.HeThong
             {
                 txtTenDangNhap.Text = "";
             }
+        }
+
+        private void btnCauHinhKetNoi_Click(object sender, EventArgs e)
+        {
+            QLK_DongLuc.Views.HeThong.frmCauHinh frm = new QLK_DongLuc.Views.HeThong.frmCauHinh();
+            frm.ShowDialog();
         }
     }
 }

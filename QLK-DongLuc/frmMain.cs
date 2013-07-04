@@ -185,7 +185,7 @@ namespace QLK_DongLuc
                     btnNhatKy.Enabled = true;
                     btnNhacNho.Enabled = true;
                     btnSaoLuu.Enabled = true;
-                    btnCauHinh.Enabled = true;
+                    //btnCauHinh.Enabled = true;
                     btnPhucHoi.Enabled = true;
 
                     // Chuc nang quan ly kho
@@ -207,7 +207,7 @@ namespace QLK_DongLuc
                     btnNhatKy.Enabled = false;
                     btnNhacNho.Enabled = false;
                     btnSaoLuu.Enabled = false;
-                    btnCauHinh.Enabled = false;
+                    //btnCauHinh.Enabled = false;
                     btnPhucHoi.Enabled = false;
 
                     // Chuc nang quan ly kho
