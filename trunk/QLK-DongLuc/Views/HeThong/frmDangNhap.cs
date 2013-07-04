@@ -23,7 +23,7 @@ namespace QLK_DongLuc.Views.HeThong
 
             if (user == null)
             {
-                XtraMessageBox.Show("1. Tên đăng nhập hoặc mật khẩu không đúng.\n\n2. Có thể tài khoản này đang đăng nhập hoặc đang bị khóa.\n\n3. Hoặc kết nối đến máy chủ không thành công\n\n* Vui lòng liên hệ giám đốc để kiểm tra lại *", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("1. Tên đăng nhập hoặc mật khẩu không đúng.\n\n2. Có thể tài khoản này đang đăng nhập hoặc đang bị khóa.\n\n3. Hoặc kết nối đến máy chủ không thành công\n\n4. Hoặc cơ sở dữ liệu không phù hợp\n\n* Vui lòng kiểm tra lại thông tin đăng nhập hoặc kết nối cơ sở dữ liệu*", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtMatKhau.Focus();
                 txtMatKhau.SelectAll();
