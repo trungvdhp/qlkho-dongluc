@@ -162,6 +162,8 @@ namespace QLK_DongLuc.Views.HeThong
                 Settings.Default.DB = ledCoSoDuLieu.EditValue.ToString();
                 Settings.Default.SSAP = KetNoiCSDLCtrl.EnCryptPass(txtMatKhau.Text);
                 Settings.Default.Save();
+
+                this.DialogResult = DialogResult.OK;
             }
         }
     }

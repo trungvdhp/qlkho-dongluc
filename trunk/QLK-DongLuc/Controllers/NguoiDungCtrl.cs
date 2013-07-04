@@ -109,27 +109,34 @@ namespace QLK_DongLuc.Controllers
 
         public static SYS_NguoiDung Login(string Tai_khoan, string Mat_khau, Entities db = null)
         {
-            if (db == null) db = new Entities();
-
-            string pass =  Utilities.CreateSHAHash(Mat_khau);
-
-            var user = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
-
-            if (user != null)
+            try
             {
-                if (user.ID_trang_thai == 3) return null;
+                if (db == null) db = new Entities();
 
-                if (user.ID_trang_thai == 1)
-                    user.ID_trang_thai = 2;
-                else
-                    return null;
+                string pass = Utilities.CreateSHAHash(Mat_khau);
 
-                user.Lan_dang_nhap_cuoi = DateTime.Now;
+                var user = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
 
-                if (db.SaveChanges() == 0) return null;
+                if (user != null)
+                {
+                    if (user.ID_trang_thai == 3) return null;
+
+                    if (user.ID_trang_thai == 1)
+                        user.ID_trang_thai = 2;
+                    else
+                        return null;
+
+                    user.Lan_dang_nhap_cuoi = DateTime.Now;
+
+                    if (db.SaveChanges() == 0) return null;
+                }
+
+                return user;
             }
-
-            return user;
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static int Logout(Entities db = null)
