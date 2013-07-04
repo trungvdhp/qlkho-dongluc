@@ -41,7 +41,7 @@ namespace QLK_DongLuc.Controllers
         {
             string connectionString = "data source=" + Datasource +";initial catalog=master;persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
 
-            Entities db = new Entities();
+            QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
             db.Database.Connection.ConnectionString = connectionString;
 
             try
@@ -58,7 +58,7 @@ namespace QLK_DongLuc.Controllers
 
         public static int ConnectDatabase(string Datasource, string UserId, string Pass, string Database)
         {
-            Entities db = new Entities();
+            QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
             db.Database.Connection.ConnectionString = "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
 
             try

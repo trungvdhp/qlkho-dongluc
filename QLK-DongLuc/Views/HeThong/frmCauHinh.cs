@@ -51,7 +51,7 @@ namespace QLK_DongLuc.Views.HeThong
                 ledCoSoDuLieu.Properties.DataSource = databases;
                 ledCoSoDuLieu.Properties.ShowHeader = false;
 
-                XtraMessageBox.Show("Kết nối thành công!", "Kết nối cơ sở dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Kết nối thành công đến máy chủ!", "Kết nối máy chủ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -155,7 +155,7 @@ namespace QLK_DongLuc.Views.HeThong
             }
             else
             {
-                XtraMessageBox.Show("Kết nối thành công!", "Kết nối cơ sở dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Kết nối thành công đến cơ sở dữ liệu!", "Kết nối cơ sở dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Settings.Default.DS = txtTenMayChu.Text;
                 Settings.Default.UID = txtTenDangNhap.Text;
