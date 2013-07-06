@@ -18,6 +18,7 @@ namespace QLK_DongLuc
     using DanhMuc = QLK_DongLuc.Views.DanhMuc;
     using HeThong = QLK_DongLuc.Views.HeThong;
     using QuanlyKho = QLK_DongLuc.Views.QuanlyKho;
+    using ThongKeBaoCao = QLK_DongLuc.Views.ThongKeBaoCao;
     using QLK_DongLuc.Controllers;
 
     public partial class frmMain : XtraForm
@@ -398,11 +399,10 @@ namespace QLK_DongLuc
             frm.ShowDialog();
         }
 
-        private void iAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnThongKeNhap_NhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            ThongKeBaoCao.frmThongKeNhap_NhaCungCap frm = new ThongKeBaoCao.frmThongKeNhap_NhaCungCap();
+            OpenForm(frm, tabControl);
         }
-
-
-
     }
 }

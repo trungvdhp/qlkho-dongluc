@@ -40,5 +40,15 @@ namespace QLK_DongLuc.Controllers
 
             return filter;
         }
+
+        public static string GetDateFindString(object beginDate, object endDate)
+        {
+            DateTime begin = (DateTime)beginDate;
+            DateTime end = (DateTime)endDate;
+            end = end.AddDays(1);
+            string filter = "[Ngay_nhap] >= #" + begin.ToShortDateString() + "# AND [Ngay_nhap] <= #" + end.ToShortDateString() + "#";
+
+            return filter;
+        }
     }
 }

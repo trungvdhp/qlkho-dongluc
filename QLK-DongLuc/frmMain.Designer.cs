@@ -72,6 +72,9 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.lblRemainingTimeMessage = new DevExpress.XtraBars.BarStaticItem();
             this.lblRemainingTime = new DevExpress.XtraBars.BarStaticItem();
+            this.lblActiveTimeMessage = new DevExpress.XtraBars.BarStaticItem();
+            this.lblActiveTime = new DevExpress.XtraBars.BarStaticItem();
+            this.btnThongKeNhap_NhaCungCap = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -88,14 +91,13 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.lblActiveTimeMessage = new DevExpress.XtraBars.BarStaticItem();
-            this.lblActiveTime = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -167,10 +169,11 @@
             this.lblRemainingTimeMessage,
             this.lblRemainingTime,
             this.lblActiveTimeMessage,
-            this.lblActiveTime});
+            this.lblActiveTime,
+            this.btnThongKeNhap_NhaCungCap});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 93;
+            this.ribbonControl.MaxItemId = 95;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -253,7 +256,6 @@
             this.iAbout.ImageIndex = 8;
             this.iAbout.LargeImageIndex = 8;
             this.iAbout.Name = "iAbout";
-            this.iAbout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.iAbout_ItemClick);
             // 
             // lblUser
             // 
@@ -549,6 +551,32 @@
             this.lblRemainingTime.TextAlignment = System.Drawing.StringAlignment.Near;
             this.lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
+            // lblActiveTimeMessage
+            // 
+            this.lblActiveTimeMessage.Caption = "Thời gian hoạt động:";
+            this.lblActiveTimeMessage.Id = 91;
+            this.lblActiveTimeMessage.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
+            this.lblActiveTimeMessage.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblActiveTimeMessage.Name = "lblActiveTimeMessage";
+            this.lblActiveTimeMessage.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // lblActiveTime
+            // 
+            this.lblActiveTime.Caption = "01:00:00";
+            this.lblActiveTime.Id = 92;
+            this.lblActiveTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblActiveTime.ItemAppearance.Normal.Options.UseFont = true;
+            this.lblActiveTime.Name = "lblActiveTime";
+            this.lblActiveTime.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // btnThongKeNhap_NhaCungCap
+            // 
+            this.btnThongKeNhap_NhaCungCap.Caption = "Thống kê nhập theo nhà cung cấp";
+            this.btnThongKeNhap_NhaCungCap.Id = 93;
+            this.btnThongKeNhap_NhaCungCap.LargeImageIndex = 0;
+            this.btnThongKeNhap_NhaCungCap.Name = "btnThongKeNhap_NhaCungCap";
+            this.btnThongKeNhap_NhaCungCap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThongKeNhap_NhaCungCap_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -672,8 +700,16 @@
             // 
             // ribbonPage3
             // 
+            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup9});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Thống kê - Báo cáo";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnThongKeNhap_NhaCungCap);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Thống kê nhập";
             // 
             // helpRibbonPage
             // 
@@ -719,24 +755,6 @@
             this.tabControl.Size = new System.Drawing.Size(891, 393);
             this.tabControl.TabIndex = 5;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
-            // 
-            // lblActiveTimeMessage
-            // 
-            this.lblActiveTimeMessage.Caption = "Thời gian hoạt động:";
-            this.lblActiveTimeMessage.Id = 91;
-            this.lblActiveTimeMessage.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.75F, System.Drawing.FontStyle.Bold);
-            this.lblActiveTimeMessage.ItemAppearance.Normal.Options.UseFont = true;
-            this.lblActiveTimeMessage.Name = "lblActiveTimeMessage";
-            this.lblActiveTimeMessage.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // lblActiveTime
-            // 
-            this.lblActiveTime.Caption = "01:00:00";
-            this.lblActiveTime.Id = 92;
-            this.lblActiveTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lblActiveTime.ItemAppearance.Normal.Options.UseFont = true;
-            this.lblActiveTime.Name = "lblActiveTime";
-            this.lblActiveTime.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // frmMain
             // 
@@ -829,6 +847,8 @@
         private DevExpress.XtraTab.XtraTabControl tabControl;
         private DevExpress.XtraBars.BarStaticItem lblActiveTimeMessage;
         private DevExpress.XtraBars.BarStaticItem lblActiveTime;
+        private DevExpress.XtraBars.BarButtonItem btnThongKeNhap_NhaCungCap;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
 
     }
 }
