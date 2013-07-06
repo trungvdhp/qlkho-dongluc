@@ -182,7 +182,7 @@
             // 
             this.grdKhoVatTu.DataSource = this.sTOKhoVatTuBindingSource;
             this.grdKhoVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdKhoVatTu.Location = new System.Drawing.Point(0, 0);
+            this.grdKhoVatTu.Location = new System.Drawing.Point(434, 0);
             this.grdKhoVatTu.MainView = this.grvKhoVatTu;
             this.grdKhoVatTu.Margin = new System.Windows.Forms.Padding(0);
             this.grdKhoVatTu.Name = "grdKhoVatTu";
@@ -191,7 +191,7 @@
             this.Ten_kho_edit,
             this.Dia_diem_edit,
             this.ID_kho_edit});
-            this.grdKhoVatTu.Size = new System.Drawing.Size(434, 301);
+            this.grdKhoVatTu.Size = new System.Drawing.Size(574, 301);
             this.grdKhoVatTu.TabIndex = 15;
             this.grdKhoVatTu.UseEmbeddedNavigator = true;
             this.grdKhoVatTu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -270,7 +270,7 @@
             // 
             this.grdKhoVatTuCT.DataSource = this.sTOKhoVatTuCTBindingSource;
             this.grdKhoVatTuCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdKhoVatTuCT.Location = new System.Drawing.Point(434, 0);
+            this.grdKhoVatTuCT.Location = new System.Drawing.Point(0, 0);
             this.grdKhoVatTuCT.MainView = this.grvKhoVatTuCT;
             this.grdKhoVatTuCT.Margin = new System.Windows.Forms.Padding(0);
             this.grdKhoVatTuCT.Name = "grdKhoVatTuCT";
@@ -280,7 +280,7 @@
             this.repositoryItemSpinEdit2,
             this.repositoryItemSpinEdit3,
             this.repositoryItemSpinEdit4});
-            this.grdKhoVatTuCT.Size = new System.Drawing.Size(574, 301);
+            this.grdKhoVatTuCT.Size = new System.Drawing.Size(434, 301);
             this.grdKhoVatTuCT.TabIndex = 14;
             this.grdKhoVatTuCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvKhoVatTuCT});
@@ -438,7 +438,7 @@
             // 
             this.colThanh_tien.Caption = "Thành tiền";
             this.colThanh_tien.ColumnEdit = this.repositoryItemSpinEdit3;
-            this.colThanh_tien.DisplayFormat.FormatString = "N2";
+            this.colThanh_tien.DisplayFormat.FormatString = "N0";
             this.colThanh_tien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanh_tien.FieldName = "Thanh_tien";
             this.colThanh_tien.Name = "colThanh_tien";

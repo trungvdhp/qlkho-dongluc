@@ -25,6 +25,9 @@ namespace QLK_DongLuc.Views.ThongKeBaoCao
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            rptThongKeNhap_NhaCungCap rpt = new rptThongKeNhap_NhaCungCap(ledNhaCungCap.Text, DateTime.Now, dteTuNgay.EditValue, dteDenNgay.EditValue);
+            rpt.CreateDocument();
+            rpt.Print();
         }
 
         private void frmThongKeNhap_NhaCungCap_Load(object sender, EventArgs e)
