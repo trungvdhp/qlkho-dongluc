@@ -14,7 +14,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmKhoVatTu : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
         public frmKhoVatTu()
         {
@@ -85,6 +85,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmKhoVatTu_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             grvKhoVatTu_Load();
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1);
 

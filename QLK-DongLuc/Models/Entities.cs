@@ -12,7 +12,7 @@ namespace QLK_DongLuc.Models
         public Entities()
             : base()
         {
-            this.Database.Connection.ConnectionString = KetNoiCSDLCtrl.GetConnectionString();
+            this.Database.Connection.ConnectionString = Program.ConnectionString;
         }
     }
 }

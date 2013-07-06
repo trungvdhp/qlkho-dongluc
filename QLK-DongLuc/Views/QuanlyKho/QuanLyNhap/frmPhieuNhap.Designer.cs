@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    partial class frmDanhSachPhieuNhap
+    partial class frmPhieuNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhSachPhieuNhap));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuNhap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
@@ -66,21 +66,6 @@
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID_phieu_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIMP_PhieuNhap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSTO_VatTu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colNguoi_sua = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_phieu_nhap1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_nha_cung_cap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_nhan_vien_lap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_nhan_vien_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGhi_chu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_loai_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_trang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_nguoi_sua = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_kho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhap)).BeginInit();
@@ -98,8 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -145,15 +128,14 @@
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdPhieuNhap.EmbeddedNavigator.CustomButtons.AddRange(new DevExpress.XtraEditors.NavigatorCustomButton[] {
             new DevExpress.XtraEditors.NavigatorCustomButton()});
-            this.grdPhieuNhap.Location = new System.Drawing.Point(711, 3);
+            this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(294, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(702, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvPhieuNhap,
-            this.gridView2});
+            this.grvPhieuNhap});
             // 
             // viewPhieuNhapBindingSource
             // 
@@ -209,10 +191,10 @@
             this.colNgay_nhap.AppearanceCell.Options.UseTextOptions = true;
             this.colNgay_nhap.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNgay_nhap.Caption = "Ngày nhập";
-            this.colNgay_nhap.DisplayFormat.FormatString = "d";
+            this.colNgay_nhap.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_nhap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_nhap.FieldName = "Ngay_nhap";
-            this.colNgay_nhap.GroupFormat.FormatString = "d";
+            this.colNgay_nhap.GroupFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_nhap.GroupFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_nhap.GroupInterval = DevExpress.XtraGrid.ColumnGroupInterval.DisplayText;
             this.colNgay_nhap.Name = "colNgay_nhap";
@@ -261,7 +243,7 @@
             this.colNgay_sua.AppearanceCell.Options.UseTextOptions = true;
             this.colNgay_sua.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNgay_sua.Caption = "Ngày sửa";
-            this.colNgay_sua.DisplayFormat.FormatString = "d";
+            this.colNgay_sua.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_sua.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_sua.FieldName = "Ngay_sua";
             this.colNgay_sua.Name = "colNgay_sua";
@@ -272,6 +254,7 @@
             // colTong_tien
             // 
             this.colTong_tien.Caption = "Tổng tiền";
+            this.colTong_tien.DisplayFormat.FormatString = "N0";
             this.colTong_tien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTong_tien.FieldName = "Tong_tien";
             this.colTong_tien.Name = "colTong_tien";
@@ -294,18 +277,17 @@
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 3);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(711, 3);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(702, 369);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
             this.grdPhieuNhapCT.TabIndex = 10;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvPhieuNhapCT,
-            this.gridView1});
+            this.grvPhieuNhapCT});
             // 
             // iMPPhieuNhapCTBindingSource
             // 
@@ -356,6 +338,7 @@
             this.colSo_luong.AppearanceCell.Options.UseTextOptions = true;
             this.colSo_luong.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSo_luong.Caption = "Số lượng";
+            this.colSo_luong.DisplayFormat.FormatString = "N2";
             this.colSo_luong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSo_luong.FieldName = "So_luong";
             this.colSo_luong.Name = "colSo_luong";
@@ -368,7 +351,7 @@
             this.colDon_gia.AppearanceCell.Options.UseTextOptions = true;
             this.colDon_gia.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colDon_gia.Caption = "Đơn giá";
-            this.colDon_gia.DisplayFormat.FormatString = "#,#";
+            this.colDon_gia.DisplayFormat.FormatString = "N0";
             this.colDon_gia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDon_gia.FieldName = "Don_gia";
             this.colDon_gia.Name = "colDon_gia";
@@ -563,144 +546,15 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Từ ngày:";
             // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID_phieu_nhap,
-            this.colID_vat_tu,
-            this.colSo_luong,
-            this.colDon_gia,
-            this.colIMP_PhieuNhap,
-            this.colSTO_VatTu});
-            this.gridView1.GridControl = this.grdPhieuNhapCT;
-            this.gridView1.Name = "gridView1";
-            // 
-            // colID_phieu_nhap
-            // 
-            this.colID_phieu_nhap.FieldName = "ID_phieu_nhap";
-            this.colID_phieu_nhap.Name = "colID_phieu_nhap";
-            this.colID_phieu_nhap.Visible = true;
-            this.colID_phieu_nhap.VisibleIndex = 3;
-            // 
-            // colIMP_PhieuNhap
-            // 
-            this.colIMP_PhieuNhap.FieldName = "IMP_PhieuNhap";
-            this.colIMP_PhieuNhap.Name = "colIMP_PhieuNhap";
-            this.colIMP_PhieuNhap.Visible = true;
-            this.colIMP_PhieuNhap.VisibleIndex = 4;
-            // 
-            // colSTO_VatTu
-            // 
-            this.colSTO_VatTu.FieldName = "STO_VatTu";
-            this.colSTO_VatTu.Name = "colSTO_VatTu";
-            this.colSTO_VatTu.Visible = true;
-            this.colSTO_VatTu.VisibleIndex = 5;
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colSo_chung_tu_goc,
-            this.colTen_loai_nhap,
-            this.colTen_nha_cung_cap,
-            this.colNgay_nhap,
-            this.colTong_tien,
-            this.colNguoi_sua,
-            this.colNhan_vien_nhap,
-            this.colNhan_vien_lap,
-            this.colID_phieu_nhap1,
-            this.colTen_kho,
-            this.colNgay_sua,
-            this.colTrang_thai,
-            this.colID_nha_cung_cap,
-            this.colID_nhan_vien_lap,
-            this.colID_nhan_vien_nhap,
-            this.colGhi_chu,
-            this.colID_loai_nhap,
-            this.colID_trang_thai,
-            this.colID_nguoi_sua,
-            this.colID_kho});
-            this.gridView2.GridControl = this.grdPhieuNhap;
-            this.gridView2.Name = "gridView2";
-            // 
-            // colNguoi_sua
-            // 
-            this.colNguoi_sua.FieldName = "Nguoi_sua";
-            this.colNguoi_sua.Name = "colNguoi_sua";
-            this.colNguoi_sua.Visible = true;
-            this.colNguoi_sua.VisibleIndex = 10;
-            // 
-            // colID_phieu_nhap1
-            // 
-            this.colID_phieu_nhap1.FieldName = "ID_phieu_nhap";
-            this.colID_phieu_nhap1.Name = "colID_phieu_nhap1";
-            this.colID_phieu_nhap1.Visible = true;
-            this.colID_phieu_nhap1.VisibleIndex = 11;
-            // 
-            // colID_nha_cung_cap
-            // 
-            this.colID_nha_cung_cap.FieldName = "ID_nha_cung_cap";
-            this.colID_nha_cung_cap.Name = "colID_nha_cung_cap";
-            this.colID_nha_cung_cap.Visible = true;
-            this.colID_nha_cung_cap.VisibleIndex = 12;
-            // 
-            // colID_nhan_vien_lap
-            // 
-            this.colID_nhan_vien_lap.FieldName = "ID_nhan_vien_lap";
-            this.colID_nhan_vien_lap.Name = "colID_nhan_vien_lap";
-            this.colID_nhan_vien_lap.Visible = true;
-            this.colID_nhan_vien_lap.VisibleIndex = 13;
-            // 
-            // colID_nhan_vien_nhap
-            // 
-            this.colID_nhan_vien_nhap.FieldName = "ID_nhan_vien_nhap";
-            this.colID_nhan_vien_nhap.Name = "colID_nhan_vien_nhap";
-            this.colID_nhan_vien_nhap.Visible = true;
-            this.colID_nhan_vien_nhap.VisibleIndex = 14;
-            // 
-            // colGhi_chu
-            // 
-            this.colGhi_chu.FieldName = "Ghi_chu";
-            this.colGhi_chu.Name = "colGhi_chu";
-            this.colGhi_chu.Visible = true;
-            this.colGhi_chu.VisibleIndex = 15;
-            // 
-            // colID_loai_nhap
-            // 
-            this.colID_loai_nhap.FieldName = "ID_loai_nhap";
-            this.colID_loai_nhap.Name = "colID_loai_nhap";
-            this.colID_loai_nhap.Visible = true;
-            this.colID_loai_nhap.VisibleIndex = 16;
-            // 
-            // colID_trang_thai
-            // 
-            this.colID_trang_thai.FieldName = "ID_trang_thai";
-            this.colID_trang_thai.Name = "colID_trang_thai";
-            this.colID_trang_thai.Visible = true;
-            this.colID_trang_thai.VisibleIndex = 17;
-            // 
-            // colID_nguoi_sua
-            // 
-            this.colID_nguoi_sua.FieldName = "ID_nguoi_sua";
-            this.colID_nguoi_sua.Name = "colID_nguoi_sua";
-            this.colID_nguoi_sua.Visible = true;
-            this.colID_nguoi_sua.VisibleIndex = 18;
-            // 
-            // colID_kho
-            // 
-            this.colID_kho.FieldName = "ID_kho";
-            this.colID_kho.Name = "colID_kho";
-            this.colID_kho.Visible = true;
-            this.colID_kho.VisibleIndex = 19;
-            // 
-            // frmDanhSachPhieuNhap
+            // frmPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 412);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "frmDanhSachPhieuNhap";
+            this.Name = "frmPhieuNhap";
             this.Text = "Danh sách phiếu nhập";
-            this.Load += new System.EventHandler(this.frmDanhSachPhieuNhap_Load);
+            this.Load += new System.EventHandler(this.frmPhieuNhap_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhap)).EndInit();
@@ -719,8 +573,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -728,8 +580,29 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private DevExpress.XtraGrid.GridControl grdPhieuNhap;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhap;
+        private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDon_gia;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
         private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
         private System.Windows.Forms.BindingSource viewPhieuNhapBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colTen_loai_nhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colTen_kho;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgay_nhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colSo_chung_tu_goc;
+        private DevExpress.XtraGrid.Columns.GridColumn colTen_nha_cung_cap;
+        private DevExpress.XtraGrid.Columns.GridColumn colTong_tien;
+        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_lap;
+        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_nhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgay_sua;
+        private DevExpress.XtraGrid.Columns.GridColumn colTrang_thai;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private System.Windows.Forms.Label label3;
@@ -742,41 +615,5 @@
         private DevExpress.XtraEditors.LookUpEdit ledTuyChon;
         private DevExpress.XtraEditors.SimpleButton btnNhapLai;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private DevExpress.XtraGrid.GridControl grdPhieuNhap;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colTen_loai_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colTen_kho;
-        private DevExpress.XtraGrid.Columns.GridColumn colNgay_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colSo_chung_tu_goc;
-        private DevExpress.XtraGrid.Columns.GridColumn colTen_nha_cung_cap;
-        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_lap;
-        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colNgay_sua;
-        private DevExpress.XtraGrid.Columns.GridColumn colTong_tien;
-        private DevExpress.XtraGrid.Columns.GridColumn colTrang_thai;
-        private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
-        private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
-        private DevExpress.XtraGrid.Columns.GridColumn colDon_gia;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_phieu_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colIMP_PhieuNhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colSTO_VatTu;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colNguoi_sua;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_phieu_nhap1;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nha_cung_cap;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nhan_vien_lap;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nhan_vien_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colGhi_chu;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_loai_nhap;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_trang_thai;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nguoi_sua;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_kho;
     }
 }

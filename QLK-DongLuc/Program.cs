@@ -5,12 +5,15 @@ using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 using QLK_DongLuc.Models;
 using DevExpress.XtraEditors;
+using QLK_DongLuc.Views.HeThong;
+using QLK_DongLuc.Controllers;
 
 namespace QLK_DongLuc
 {
     static class Program
     {
         public static SYS_NguoiDung CurrentUser { get; set; }
+        public static string ConnectionString { get; set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -24,6 +27,7 @@ namespace QLK_DongLuc
 
             try
             {
+                ConnectionString = KetNoiCSDLCtrl.GetConnectionString();
                 Entities db = new Entities();
                 db.Database.Connection.Open();
             }
@@ -38,6 +42,7 @@ namespace QLK_DongLuc
                 }
             }
 
+            CurrentUser = new SYS_NguoiDung();
             Application.Run(new frmMain());
         }
     }

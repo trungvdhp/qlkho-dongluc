@@ -11,14 +11,13 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.HeThong
 {
-    public partial class frmCapNhatTaiKhoanCaNhan : DevExpress.XtraEditors.XtraForm
+    public partial class frmSuaTaiKhoanCaNhan : DevExpress.XtraEditors.XtraForm
     {
         Entities db;
 
-        public frmCapNhatTaiKhoanCaNhan()
+        public frmSuaTaiKhoanCaNhan()
         {
             InitializeComponent();
-            db = new Entities();
         }
 
         private void btnSuaTaiKhoan_Click(object sender, EventArgs e)
@@ -84,13 +83,14 @@ namespace QLK_DongLuc.Views.HeThong
             }
         }
 
-        private void frmCapNhatTaiKhoanCaNhan_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmSuaTaiKhoanCaNhan_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }
 
-        private void frmCapNhatTaiKhoanCaNhan_Load(object sender, EventArgs e)
+        private void frmSuaTaiKhoanCaNhan_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             btnLamLai.PerformClick();
         }
 

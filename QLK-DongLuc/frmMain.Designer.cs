@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
-            this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
+            this.navbarImageListLarge = new System.Windows.Forms.ImageList();
+            this.navbarImageList = new System.Windows.Forms.ImageList();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
             this.btnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
@@ -47,7 +46,7 @@
             this.iCenterTextAlign = new DevExpress.XtraBars.BarButtonItem();
             this.iRightTextAlign = new DevExpress.XtraBars.BarButtonItem();
             this.rgbiSkins = new DevExpress.XtraBars.RibbonGalleryBarItem();
-            this.btnQuanLyNguoiDung = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNguoiDung = new DevExpress.XtraBars.BarButtonItem();
             this.btnCapNhatTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhacNho = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhatKy = new DevExpress.XtraBars.BarButtonItem();
@@ -75,7 +74,7 @@
             this.lblActiveTimeMessage = new DevExpress.XtraBars.BarStaticItem();
             this.lblActiveTime = new DevExpress.XtraBars.BarStaticItem();
             this.btnThongKeNhap_NhaCungCap = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.formatRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -95,9 +94,12 @@
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmrTracker = new System.Windows.Forms.Timer(this.components);
-            this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
+            this.tmrTracker = new System.Windows.Forms.Timer();
+            this.tmrDongHo = new System.Windows.Forms.Timer();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.btnQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnVaiTro = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -143,7 +145,7 @@
             this.iCenterTextAlign,
             this.iRightTextAlign,
             this.rgbiSkins,
-            this.btnQuanLyNguoiDung,
+            this.btnNguoiDung,
             this.btnCapNhatTaiKhoan,
             this.btnNhacNho,
             this.btnNhatKy,
@@ -170,10 +172,13 @@
             this.lblRemainingTime,
             this.lblActiveTimeMessage,
             this.lblActiveTime,
-            this.btnThongKeNhap_NhaCungCap});
+            this.btnThongKeNhap_NhaCungCap,
+            this.btnQuyen,
+            this.btnVaiTro,
+            this.btnPhanQuyen});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 95;
+            this.ribbonControl.MaxItemId = 98;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -326,14 +331,14 @@
             this.rgbiSkins.Id = 60;
             this.rgbiSkins.Name = "rgbiSkins";
             // 
-            // btnQuanLyNguoiDung
+            // btnNguoiDung
             // 
-            this.btnQuanLyNguoiDung.Caption = "Quản lý người dùng";
-            this.btnQuanLyNguoiDung.Id = 62;
-            this.btnQuanLyNguoiDung.LargeGlyph = global::QLK_DongLuc.Properties.Resources.QuanLyNguoiDung_32x32;
-            this.btnQuanLyNguoiDung.LargeImageIndex = 0;
-            this.btnQuanLyNguoiDung.Name = "btnQuanLyNguoiDung";
-            this.btnQuanLyNguoiDung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyNguoiDung_ItemClick);
+            this.btnNguoiDung.Caption = "Quản lý người dùng";
+            this.btnNguoiDung.Id = 62;
+            this.btnNguoiDung.LargeGlyph = global::QLK_DongLuc.Properties.Resources.QuanLyNguoiDung_32x32;
+            this.btnNguoiDung.LargeImageIndex = 0;
+            this.btnNguoiDung.Name = "btnNguoiDung";
+            this.btnNguoiDung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyNguoiDung_ItemClick);
             // 
             // btnCapNhatTaiKhoan
             // 
@@ -606,12 +611,15 @@
             // 
             // fileRibbonPageGroup
             // 
-            this.fileRibbonPageGroup.ItemLinks.Add(this.btnQuanLyNguoiDung);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.btnNguoiDung);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnDangNhap);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnDangXuat);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnCapNhatTaiKhoan);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnNhacNho);
             this.fileRibbonPageGroup.ItemLinks.Add(this.btnNhatKy);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.btnQuyen);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.btnVaiTro);
+            this.fileRibbonPageGroup.ItemLinks.Add(this.btnPhanQuyen);
             this.fileRibbonPageGroup.Name = "fileRibbonPageGroup";
             this.fileRibbonPageGroup.Text = "Quản lý người dùng";
             // 
@@ -760,6 +768,29 @@
             this.tabControl.TabIndex = 5;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             // 
+            // btnQuyen
+            // 
+            this.btnQuyen.Caption = "Quyền";
+            this.btnQuyen.Id = 95;
+            this.btnQuyen.Name = "btnQuyen";
+            this.btnQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuyen_ItemClick);
+            // 
+            // btnVaiTro
+            // 
+            this.btnVaiTro.Caption = "Vai trò";
+            this.btnVaiTro.Id = 96;
+            this.btnVaiTro.Name = "btnVaiTro";
+            this.btnVaiTro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnVaiTro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVaiTro_ItemClick);
+            // 
+            // btnPhanQuyen
+            // 
+            this.btnPhanQuyen.Caption = "Phân quyền";
+            this.btnPhanQuyen.Id = 97;
+            this.btnPhanQuyen.Name = "btnPhanQuyen";
+            this.btnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -810,7 +841,7 @@
         private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
         private System.Windows.Forms.ImageList navbarImageList;
         private System.Windows.Forms.ImageList navbarImageListLarge;
-        private DevExpress.XtraBars.BarButtonItem btnQuanLyNguoiDung;
+        private DevExpress.XtraBars.BarButtonItem btnNguoiDung;
         private DevExpress.XtraBars.BarButtonItem btnCapNhatTaiKhoan;
         private DevExpress.XtraBars.BarButtonItem btnNhacNho;
         private DevExpress.XtraBars.BarButtonItem btnNhatKy;
@@ -853,6 +884,9 @@
         private DevExpress.XtraBars.BarStaticItem lblActiveTime;
         private DevExpress.XtraBars.BarButtonItem btnThongKeNhap_NhaCungCap;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnQuyen;
+        private DevExpress.XtraBars.BarButtonItem btnVaiTro;
+        private DevExpress.XtraBars.BarButtonItem btnPhanQuyen;
 
     }
 }

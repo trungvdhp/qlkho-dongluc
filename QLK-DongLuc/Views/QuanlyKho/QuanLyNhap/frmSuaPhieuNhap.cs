@@ -18,6 +18,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         Entities db;
         IMP_PhieuNhap pn;
 
+        public frmSuaPhieuNhap()
+        {
+            InitializeComponent();
+            db = new Entities();
+        }
+
         public frmSuaPhieuNhap(int ID_phieu_nhap)
         {
             InitializeComponent();

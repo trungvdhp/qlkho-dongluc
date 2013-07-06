@@ -14,7 +14,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
         public frmKhachHang()
         {
@@ -95,6 +95,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load();
         }
 

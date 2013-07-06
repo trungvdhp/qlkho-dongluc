@@ -16,6 +16,11 @@ namespace QLK_DongLuc.Views.HeThong
         Entities db;
         public ViewNguoiDung user;
 
+        public frmSuaTaiKhoan()
+        {
+            InitializeComponent();
+        }
+
         public frmSuaTaiKhoan(ViewNguoiDung _user)
         {
             InitializeComponent();

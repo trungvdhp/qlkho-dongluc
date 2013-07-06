@@ -18,9 +18,6 @@ namespace QLK_DongLuc.Views.HeThong
         public frmTaoTaiKhoan()
         {
             InitializeComponent();
-
-            db = new Entities();
-            NhanVienCtrl.LoadLookUpEdit(ledNhanVien, db);
         }
 
         private void chkNhanVien_CheckedChanged(object sender, EventArgs e)
@@ -125,6 +122,13 @@ namespace QLK_DongLuc.Views.HeThong
         private void frmTaoTaiKhoan_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void frmTaoTaiKhoan_Load(object sender, EventArgs e)
+        {
+
+            db = new Entities();
+            NhanVienCtrl.LoadLookUpEdit(ledNhanVien, db);
         }
     }
 }

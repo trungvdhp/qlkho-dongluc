@@ -33,7 +33,7 @@ namespace QLK_DongLuc.Controllers
                                So_luong = ct.So_luong,
                                STO_VatTu = ct.STO_VatTu,
                                IMP_PhieuNhap = ct.IMP_PhieuNhap,
-                               Don_gia = ct.Don_gia == null && pct != null? pct.Don_gia_nhap : ct.Don_gia
+                               Don_gia = ct.Don_gia == null && pct != null ? pct.Don_gia_nhap : ct.Don_gia
                            };
                 //var ct2 = pnct.ToList();
                 bs.DataSource = pnct.ToList();

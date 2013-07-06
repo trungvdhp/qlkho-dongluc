@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.HeThong
 {
-    partial class frmQuanLyNguoiDung
+    partial class frmNguoiDung
     {
         /// <summary>
         /// Required designer variable.
@@ -349,14 +349,15 @@
             this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // frmQuanLyNguoiDung
+            // frmNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 441);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "frmQuanLyNguoiDung";
+            this.Name = "frmNguoiDung";
             this.Text = "Quản lý người dùng";
+            this.Load += new System.EventHandler(this.frmNguoiDung_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewNguoiDungBindingSource)).EndInit();

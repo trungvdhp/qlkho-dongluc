@@ -14,8 +14,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmNhanVien : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
-        bool haveInsert = false;
+        Entities db;
 
         public frmNhanVien()
         {
@@ -95,6 +94,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load(); 
         }
 

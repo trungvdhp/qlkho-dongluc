@@ -14,13 +14,12 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmVatTu : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
         public frmVatTu()
         {
             InitializeComponent();
         }
-
 
         private void gridControl_Load()
         {
@@ -85,6 +84,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmVatTu_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load();
             LoaiVatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
         }
