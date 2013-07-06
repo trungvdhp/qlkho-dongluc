@@ -11,21 +11,22 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmDanhSachPhieuNhap : DevExpress.XtraEditors.XtraForm
+    public partial class frmPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
         Entities db;
 
-        public frmDanhSachPhieuNhap()
+        public frmPhieuNhap()
         {
             InitializeComponent();
+        }
+
+        private void frmPhieuNhap_Load(object sender, EventArgs e)
+        {
             db = new Entities();
             TuyChonTimKiemCtrl.LoadLookUpEdit(ledTuyChon);
             PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-        }
 
-        private void frmDanhSachPhieuNhap_Load(object sender, EventArgs e)
-        {
             if (Program.CurrentUser.ID_nhan_vien != null)
             {
                 colNhan_vien_lap.Visible = false;

@@ -15,10 +15,13 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc
 {
-    using DanhMuc = QLK_DongLuc.Views.DanhMuc;
-    using HeThong = QLK_DongLuc.Views.HeThong;
-    using QuanlyKho = QLK_DongLuc.Views.QuanlyKho;
-    using ThongKeBaoCao = QLK_DongLuc.Views.ThongKeBaoCao;
+    using QLK_DongLuc.Views.DanhMuc;
+    using QLK_DongLuc.Views.HeThong;
+    using QLK_DongLuc.Views.QuanlyKho;
+    using QLK_DongLuc.Views.QuanlyKho.QuanLyNhap;
+    using QLK_DongLuc.Views.QuanlyKho.QuanLyXuat;
+    using QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho;
+    using QLK_DongLuc.Views.ThongKeBaoCao;
     using QLK_DongLuc.Controllers;
 
     public partial class frmMain : XtraForm
@@ -98,79 +101,79 @@ namespace QLK_DongLuc
 
         private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmNhanVien frm = new DanhMuc.frmNhanVien();
+            frmNhanVien frm = new frmNhanVien();
             OpenForm(frm, tabControl);
         }
 
         private void btnSanPham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmSanPham frm = new DanhMuc.frmSanPham();
+            frmSanPham frm = new frmSanPham();
             OpenForm(frm, tabControl);
         }
 
         private void btnNhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmNhacCungCap frm = new DanhMuc.frmNhacCungCap();
+            frmNhaCungCap frm = new frmNhaCungCap();
             OpenForm(frm, tabControl);
         }
 
         private void btnKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmKhachHang frm = new DanhMuc.frmKhachHang();
+            frmKhachHang frm = new frmKhachHang();
             OpenForm(frm, tabControl);
         }
 
         private void btnKhoVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmKhoVatTu frm = new DanhMuc.frmKhoVatTu();
+            frmKhoVatTu frm = new frmKhoVatTu();
             OpenForm(frm, tabControl);
         }
 
         private void btnNhomVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmNhomVatTu frm = new DanhMuc.frmNhomVatTu();
+            frmNhomVatTu frm = new frmNhomVatTu();
             OpenForm(frm, tabControl);
         }
 
         private void btnLoaiVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmLoaiVatTu frm = new DanhMuc.frmLoaiVatTu();
+            frmLoaiVatTu frm = new frmLoaiVatTu();
             OpenForm(frm, tabControl);
         }
 
         private void btnVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DanhMuc.frmVatTu frm = new DanhMuc.frmVatTu();
+            frmVatTu frm = new frmVatTu();
             OpenForm(frm, tabControl);
         }
 
         private void barDanhSachPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmDanhSachPhieuNhap();
+            frmPhieuNhap frm = new frmPhieuNhap();
             OpenForm(frm, tabControl);
         }
 
         private void btnNhapMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi();
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
             OpenForm(frm, tabControl);
         }
 
-		private void btnVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-		{
-			QuanlyKho.QuanLyTonKho.frmTonKho frm = new QuanlyKho.QuanLyTonKho.frmTonKho();
-			OpenForm(frm, tabControl);
-		}
+        private void btnVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmTonKho frm = new frmTonKho();
+            OpenForm(frm, tabControl);
+        }
 
         private void btnQuanLyNguoiDung_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            HeThong.frmQuanLyNguoiDung frm = new HeThong.frmQuanLyNguoiDung();
+            frmNguoiDung frm = new frmNguoiDung();
             OpenForm(frm, tabControl);
         }
 
         private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            HeThong.frmDangNhap frm = new HeThong.frmDangNhap();
+            frmDangNhap frm = new frmDangNhap();
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
@@ -182,7 +185,7 @@ namespace QLK_DongLuc
                 if (Program.CurrentUser.ID_nhan_vien == null)
                 {
                     // Chuc nang he thong
-                    btnQuanLyNguoiDung.Enabled = true;
+                    btnNguoiDung.Enabled = true;
                     btnNhatKy.Enabled = true;
                     btnNhacNho.Enabled = true;
                     btnSaoLuu.Enabled = true;
@@ -194,14 +197,9 @@ namespace QLK_DongLuc
                     btnNhapLai.Enabled = false;
 
                     // Chức năng quản lý danh mục
-                    btnKhoVatTu.Enabled = true;
-                    btnLoaiVatTu.Enabled = true;
                     btnNhomVatTu.Enabled = true;
                     btnNhaCungCap.Enabled = true;
                     btnNhanVien.Enabled = true;
-
-                    //Chức năng thống kê báo cáo
-                    btnThongKeNhap_NhaCungCap.Enabled = true;
 
                     lblUser.Caption = "Giám đốc: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "");
                 }
@@ -209,7 +207,7 @@ namespace QLK_DongLuc
                 else
                 {
                     // Chuc nang he thong
-                    btnQuanLyNguoiDung.Enabled = false; 
+                    btnNguoiDung.Enabled = false;
                     btnNhatKy.Enabled = false;
                     btnNhacNho.Enabled = false;
                     btnSaoLuu.Enabled = false;
@@ -221,14 +219,9 @@ namespace QLK_DongLuc
                     btnNhapLai.Enabled = true;
 
                     // Chức năng quản lý danh mục
-                    btnKhoVatTu.Enabled = false;
-                    btnLoaiVatTu.Enabled = false;
                     btnNhomVatTu.Enabled = false;
                     btnNhaCungCap.Enabled = false;
                     btnNhanVien.Enabled = false;
-
-                    //Chức năng thống kê báo cáo
-                    btnThongKeNhap_NhaCungCap.Enabled = false;
 
                     lblUser.Caption = "Nhân viên: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
                 }
@@ -248,7 +241,7 @@ namespace QLK_DongLuc
                     lblRemainingTimeMessage.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                     lblRemainingTime.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 }
-                    
+
                 ActiveTime = new TimeSpan(0, 0, 0);
 
                 tmrDongHo.Start();
@@ -374,44 +367,61 @@ namespace QLK_DongLuc
 
         private void btnCapNhatTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            HeThong.frmCapNhatTaiKhoanCaNhan frm = new HeThong.frmCapNhatTaiKhoanCaNhan();
+            frmSuaTaiKhoanCaNhan frm = new frmSuaTaiKhoanCaNhan();
             frm.ShowDialog();
         }
 
         private void btnNhapLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi frm = new QuanlyKho.QuanLyNhap.frmLapPhieuNhapMoi(2);
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(2);
             frm.Text = "Lập phiếu nhập lại";
             OpenForm(frm, tabControl);
         }
 
         private void barButtonItem18_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyXuat.frmLapPhieuXuatMoi frm = new QuanlyKho.QuanLyXuat.frmLapPhieuXuatMoi();
+            frmLapPhieuXuatMoi frm = new frmLapPhieuXuatMoi();
             OpenForm(frm, tabControl);
         }
 
         private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyXuat.frmDanhSachPhieuXuat frm = new QuanlyKho.QuanLyXuat.frmDanhSachPhieuXuat();
+            frmDanhSachPhieuXuat frm = new frmDanhSachPhieuXuat();
             OpenForm(frm, tabControl);
         }
 
         private void barButtonItem20_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            QuanlyKho.QuanLyXuat.frmXuatThanhLy frm = new QuanlyKho.QuanLyXuat.frmXuatThanhLy();
+            frmXuatThanhLy frm = new frmXuatThanhLy();
             OpenForm(frm, tabControl);
         }
 
         private void btnCauHinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            HeThong.frmCauHinh frm = new HeThong.frmCauHinh();
+            frmCauHinh frm = new frmCauHinh();
             frm.ShowDialog();
         }
 
+        private void iAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        }
+
+        private void btnQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuyen frm = new frmQuyen();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnVaiTro_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmVaiTro frm = new frmVaiTro();
+            OpenForm(frm, tabControl);
+        }
+
+
         private void btnThongKeNhap_NhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ThongKeBaoCao.frmThongKeNhap_NhaCungCap frm = new ThongKeBaoCao.frmThongKeNhap_NhaCungCap();
+            frmThongKeNhap_NhaCungCap frm = new frmThongKeNhap_NhaCungCap();
             OpenForm(frm, tabControl);
         }
     }

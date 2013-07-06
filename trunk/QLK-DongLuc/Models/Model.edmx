@@ -550,8 +550,8 @@
             <PropertyRef Name="ID_vai_tro" />
           </Key>
           <Property Name="ID_vai_tro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Ten_vai_tro" Type="nchar" Nullable="false" MaxLength="10" />
-          <Property Name="Mo_ta" Type="int" />
+          <Property Name="Ten_vai_tro" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Mo_ta" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="SYS_VaiTroQuyen">
           <Key>
@@ -1683,8 +1683,8 @@
             <PropertyRef Name="ID_vai_tro" />
           </Key>
           <Property Type="Int32" Name="ID_vai_tro" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Ten_vai_tro" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int32" Name="Mo_ta" />
+          <Property Type="String" Name="Ten_vai_tro" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mo_ta" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SYS_NguoiDung" Relationship="QuanLyKhoDongLucModel.SYS_NguoiDungVaiTro" FromRole="SYS_VaiTro" ToRole="SYS_NguoiDung" />
           <NavigationProperty Name="SYS_Quyen" Relationship="QuanLyKhoDongLucModel.SYS_VaiTroQuyen" FromRole="SYS_VaiTro" ToRole="SYS_Quyen" />
         </EntityType>

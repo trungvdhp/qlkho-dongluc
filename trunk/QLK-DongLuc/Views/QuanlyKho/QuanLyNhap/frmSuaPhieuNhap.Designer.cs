@@ -106,6 +106,8 @@
             this.ledNhaCungCap.Properties.NullText = "";
             this.ledNhaCungCap.Size = new System.Drawing.Size(280, 20);
             this.ledNhaCungCap.TabIndex = 5;
+            this.ledNhaCungCap.Tag = "Chọn nhà cung cấp";
+            this.ledNhaCungCap.ToolTip = "Chọn nhà cung cấp";
             // 
             // dteNgayNhap
             // 
@@ -125,6 +127,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteNgayNhap.Size = new System.Drawing.Size(280, 20);
             this.dteNgayNhap.TabIndex = 6;
+            this.dteNgayNhap.Tag = "Ngày nhập";
+            this.dteNgayNhap.ToolTip = "Ngày nhập";
             // 
             // txtChungTuGoc
             // 
@@ -134,6 +138,8 @@
             this.txtChungTuGoc.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtChungTuGoc.Size = new System.Drawing.Size(183, 20);
             this.txtChungTuGoc.TabIndex = 4;
+            this.txtChungTuGoc.Tag = "Chứng từ gốc";
+            this.txtChungTuGoc.ToolTip = "Chứng từ gốc";
             // 
             // labelControl7
             // 
@@ -162,6 +168,8 @@
             this.ledKhoNhap.Properties.NullValuePromptShowForEmptyValue = true;
             this.ledKhoNhap.Size = new System.Drawing.Size(280, 20);
             this.ledKhoNhap.TabIndex = 2;
+            this.ledKhoNhap.Tag = "Chọn kho nhập";
+            this.ledKhoNhap.ToolTip = "Chọn kho nhập";
             // 
             // ledNhanVienNhap
             // 
@@ -175,6 +183,8 @@
             this.ledNhanVienNhap.Properties.NullValuePromptShowForEmptyValue = true;
             this.ledNhanVienNhap.Size = new System.Drawing.Size(280, 20);
             this.ledNhanVienNhap.TabIndex = 1;
+            this.ledNhanVienNhap.Tag = "Chọn nhân viên nhập";
+            this.ledNhanVienNhap.ToolTip = "Chọn nhân viên nhập";
             // 
             // mmoGhiChu
             // 
@@ -182,6 +192,8 @@
             this.mmoGhiChu.Name = "mmoGhiChu";
             this.mmoGhiChu.Size = new System.Drawing.Size(280, 48);
             this.mmoGhiChu.TabIndex = 3;
+            this.mmoGhiChu.Tag = "Ghi chú";
+            this.mmoGhiChu.ToolTip = "Ghi chú";
             // 
             // labelControl4
             // 

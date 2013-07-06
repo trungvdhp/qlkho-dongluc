@@ -18,6 +18,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         Entities db;
         int ID_loai_nhap;
 
+        public frmLapPhieuNhapMoi()
+        {
+            InitializeComponent();
+        }
+
         public frmLapPhieuNhapMoi(int _ID_loai_nhap = 1)
         {
             InitializeComponent();

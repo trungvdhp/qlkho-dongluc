@@ -163,6 +163,8 @@ namespace QLK_DongLuc.Views.HeThong
                 Settings.Default.SSAP = KetNoiCSDLCtrl.EnCryptPass(txtMatKhau.Text);
                 Settings.Default.Save();
 
+                Program.ConnectionString = KetNoiCSDLCtrl.GetConnectionString(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text, ledCoSoDuLieu.EditValue.ToString());
+
                 this.DialogResult = DialogResult.OK;
             }
         }

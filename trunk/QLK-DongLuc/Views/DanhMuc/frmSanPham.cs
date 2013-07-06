@@ -14,7 +14,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmSanPham : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
         public frmSanPham()
         {
@@ -95,6 +95,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmSanPham_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load();
             cATKhachHangBindingSource.DataSource = db.CAT_KhachHang.ToList();
             cATNhanVienBindingSource.DataSource = db.CAT_NhanVien.ToList();

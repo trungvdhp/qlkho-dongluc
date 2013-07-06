@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.DanhMuc
 {
-    partial class frmNhacCungCap
+    partial class frmNhaCungCap
     {
         /// <summary>
         /// Required designer variable.

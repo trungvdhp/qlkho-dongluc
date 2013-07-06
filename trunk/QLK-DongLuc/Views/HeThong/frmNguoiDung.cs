@@ -11,14 +11,13 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.HeThong
 {
-    public partial class frmQuanLyNguoiDung : DevExpress.XtraEditors.XtraForm
+    public partial class frmNguoiDung : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
-        public frmQuanLyNguoiDung()
+        public frmNguoiDung()
         {
             InitializeComponent();
-            NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -26,7 +25,7 @@ namespace QLK_DongLuc.Views.HeThong
             frmTaoTaiKhoan frm = new frmTaoTaiKhoan();
 
             if (frm.ShowDialog() == DialogResult.OK)
-                NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+                frmNguoiDung_Load(sender, e);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -38,7 +37,7 @@ namespace QLK_DongLuc.Views.HeThong
                 frmSuaTaiKhoan frm = new frmSuaTaiKhoan(user);
 
                 if (frm.ShowDialog() == DialogResult.OK)
-                    NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+                    frmNguoiDung_Load(sender, e);
             }
             else
             {
@@ -67,7 +66,7 @@ namespace QLK_DongLuc.Views.HeThong
                 XtraMessageBox.Show("Khóa tài khoản người dùng thành công.", "Khóa tài khoản người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+            frmNguoiDung_Load(sender, e);
         }
 
         private void btnMoTaiKhoan_Click(object sender, EventArgs e)
@@ -90,12 +89,18 @@ namespace QLK_DongLuc.Views.HeThong
             {
                 XtraMessageBox.Show("Mở khóa tài khoản người dùng thành công.", "Mở khóa tài khoản người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+                frmNguoiDung_Load(sender, e);
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            frmNguoiDung_Load(sender, e);
+        }
+
+        private void frmNguoiDung_Load(object sender, EventArgs e)
+        {
+            db = new Entities();
             NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
         }
     }

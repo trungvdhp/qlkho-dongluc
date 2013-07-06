@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.HeThong
 {
-    partial class frmCapNhatTaiKhoanCaNhan
+    partial class frmSuaTaiKhoanCaNhan
     {
         /// <summary>
         /// Required designer variable.
@@ -237,7 +237,7 @@
             this.btnSuaTaiKhoan.Text = "Cập nhật";
             this.btnSuaTaiKhoan.Click += new System.EventHandler(this.btnSuaTaiKhoan_Click);
             // 
-            // frmCapNhatTaiKhoanCaNhan
+            // frmSuaTaiKhoanCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,9 +246,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmCapNhatTaiKhoanCaNhan";
+            this.Name = "frmSuaTaiKhoanCaNhan";
             this.Text = "Cập nhật thông tin tài khoản cá nhân";
-            this.Load += new System.EventHandler(this.frmCapNhatTaiKhoanCaNhan_Load);
+            this.Load += new System.EventHandler(this.frmSuaTaiKhoanCaNhan_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

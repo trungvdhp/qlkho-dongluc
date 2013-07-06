@@ -56,6 +56,11 @@ namespace QLK_DongLuc.Controllers
             }
         }
 
+        public static string GetConnectionString(string Datasource, string UserId, string Pass, string Database)
+        {
+            return "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+        }
+
         public static int ConnectDatabase(string Datasource, string UserId, string Pass, string Database)
         {
             QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();

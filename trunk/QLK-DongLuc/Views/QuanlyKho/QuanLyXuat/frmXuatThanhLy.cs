@@ -18,6 +18,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
         Entities db;
         int ID_loai_xuat;
 
+        public frmXuatThanhLy()
+        {
+            InitializeComponent();
+        }
+
         public frmXuatThanhLy(int _ID_lx =2)
         {
             ID_loai_xuat = _ID_lx;

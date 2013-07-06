@@ -11,11 +11,11 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
-    public partial class frmNhacCungCap : DevExpress.XtraEditors.XtraForm
+    public partial class frmNhaCungCap : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
-        public frmNhacCungCap()
+        public frmNhaCungCap()
         {
             InitializeComponent();
         }
@@ -96,6 +96,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmNhacCungCap_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load();
         }
 

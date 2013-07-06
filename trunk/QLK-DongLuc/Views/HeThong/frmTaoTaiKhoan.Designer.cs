@@ -281,6 +281,7 @@
             this.Name = "frmTaoTaiKhoan";
             this.Text = "Tạo tài khoản người dùng";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmTaoTaiKhoan_FormClosed);
+            this.Load += new System.EventHandler(this.frmTaoTaiKhoan_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

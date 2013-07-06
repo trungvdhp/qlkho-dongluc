@@ -13,7 +13,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmLoaiVatTu : DevExpress.XtraEditors.XtraForm
     {
-        Entities db = new Entities();
+        Entities db;
 
         public frmLoaiVatTu()
         {
@@ -75,6 +75,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmLoaiVatTu_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             gridControl_Load();
             sTONhomVatTuBindingSource.DataSource = db.STO_NhomVatTu.ToList();
         }

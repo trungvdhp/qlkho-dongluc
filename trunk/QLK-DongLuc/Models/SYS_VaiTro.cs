@@ -22,7 +22,7 @@ namespace QLK_DongLuc.Models
     
         public int ID_vai_tro { get; set; }
         public string Ten_vai_tro { get; set; }
-        public Nullable<int> Mo_ta { get; set; }
+        public string Mo_ta { get; set; }
     
         public virtual ICollection<SYS_NguoiDung> SYS_NguoiDung { get; set; }
         public virtual ICollection<SYS_Quyen> SYS_Quyen { get; set; }
