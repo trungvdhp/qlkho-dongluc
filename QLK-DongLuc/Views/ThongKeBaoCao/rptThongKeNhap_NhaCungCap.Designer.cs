@@ -44,12 +44,14 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtNhaCungCap = new DevExpress.XtraReports.UI.XRLabel();
             this.txtThongKe = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtNgayLap = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
+            this.txtTongTIen = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -60,8 +62,6 @@
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -199,14 +199,14 @@
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel11,
-            this.xrLabel12,
+            this.txtNhaCungCap,
             this.txtThongKe,
             this.xrLabel6,
             this.xrLabel1,
             this.xrLabel2,
             this.txtNgayLap,
             this.xrLabel10,
-            this.xrLabel7});
+            this.txtTongTIen});
             this.ReportHeader.HeightF = 225.5834F;
             this.ReportHeader.Name = "ReportHeader";
             // 
@@ -222,17 +222,14 @@
             this.xrLabel11.Text = "Thống kê:";
             this.xrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel12
+            // txtNhaCungCap
             // 
-            this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Ten_nha_cung_cap")});
-            this.xrLabel12.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(161.0417F, 110.8333F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(235.4167F, 23.00002F);
-            this.xrLabel12.StylePriority.UseFont = false;
-            this.xrLabel12.Text = "xrLabel12";
+            this.txtNhaCungCap.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.txtNhaCungCap.LocationFloat = new DevExpress.Utils.PointFloat(161.0417F, 110.8333F);
+            this.txtNhaCungCap.Name = "txtNhaCungCap";
+            this.txtNhaCungCap.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.txtNhaCungCap.SizeF = new System.Drawing.SizeF(235.4167F, 23.00002F);
+            this.txtNhaCungCap.StylePriority.UseFont = false;
             // 
             // txtThongKe
             // 
@@ -289,6 +286,35 @@
             this.txtNgayLap.StylePriority.UseFont = false;
             this.txtNgayLap.StylePriority.UseTextAlignment = false;
             this.txtNgayLap.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            // 
+            // xrLabel10
+            // 
+            this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 153.75F);
+            this.xrLabel10.Name = "xrLabel10";
+            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(97.91666F, 23.00001F);
+            this.xrLabel10.StylePriority.UseFont = false;
+            this.xrLabel10.Text = "Tổng tiền:";
+            // 
+            // txtTongTIen
+            // 
+            this.txtTongTIen.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Thanh_tien")});
+            this.txtTongTIen.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.txtTongTIen.LocationFloat = new DevExpress.Utils.PointFloat(161.0417F, 153.75F);
+            this.txtTongTIen.Name = "txtTongTIen";
+            this.txtTongTIen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 12, 0, 0, 100F);
+            this.txtTongTIen.SizeF = new System.Drawing.SizeF(235.4167F, 23.00003F);
+            this.txtTongTIen.StylePriority.UseFont = false;
+            this.txtTongTIen.StylePriority.UsePadding = false;
+            this.txtTongTIen.StylePriority.UseTextAlignment = false;
+            xrSummary2.FormatString = "{0:#,# VNĐ}";
+            xrSummary2.IgnoreNullValues = true;
+            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.txtTongTIen.Summary = xrSummary2;
+            this.txtTongTIen.Text = "txtTongTIen";
+            this.txtTongTIen.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrTable1
             // 
@@ -368,35 +394,6 @@
             // 
             this.PageFooter.Name = "PageFooter";
             // 
-            // xrLabel7
-            // 
-            this.xrLabel7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Thanh_tien")});
-            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(161.0417F, 153.75F);
-            this.xrLabel7.Name = "xrLabel7";
-            this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 12, 0, 0, 100F);
-            this.xrLabel7.SizeF = new System.Drawing.SizeF(235.4167F, 23.00003F);
-            this.xrLabel7.StylePriority.UseFont = false;
-            this.xrLabel7.StylePriority.UsePadding = false;
-            this.xrLabel7.StylePriority.UseTextAlignment = false;
-            xrSummary2.FormatString = "{0:#,# VNĐ}";
-            xrSummary2.IgnoreNullValues = true;
-            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrLabel7.Summary = xrSummary2;
-            this.xrLabel7.Text = "xrLabel7";
-            this.xrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            // 
-            // xrLabel10
-            // 
-            this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 153.75F);
-            this.xrLabel10.Name = "xrLabel10";
-            this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(97.91666F, 23.00001F);
-            this.xrLabel10.StylePriority.UseFont = false;
-            this.xrLabel10.Text = "Tổng tiền:";
-            // 
             // bindingSource1
             // 
             this.bindingSource1.DataSource = typeof(QLK_DongLuc.Models.ViewThongKeNhap_NhaCungCap);
@@ -449,13 +446,13 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
+        private DevExpress.XtraReports.UI.XRLabel txtNhaCungCap;
         private DevExpress.XtraReports.UI.XRLabel txtThongKe;
         private DevExpress.XtraReports.UI.XRLabel txtNgayLap;
         private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel7;
+        private DevExpress.XtraReports.UI.XRLabel txtTongTIen;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
     }

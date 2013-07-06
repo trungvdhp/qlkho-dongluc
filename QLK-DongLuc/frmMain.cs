@@ -194,9 +194,14 @@ namespace QLK_DongLuc
                     btnNhapLai.Enabled = false;
 
                     // Chức năng quản lý danh mục
+                    btnKhoVatTu.Enabled = true;
+                    btnLoaiVatTu.Enabled = true;
                     btnNhomVatTu.Enabled = true;
                     btnNhaCungCap.Enabled = true;
                     btnNhanVien.Enabled = true;
+
+                    //Chức năng thống kê báo cáo
+                    btnThongKeNhap_NhaCungCap.Enabled = true;
 
                     lblUser.Caption = "Giám đốc: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : "");
                 }
@@ -216,9 +221,14 @@ namespace QLK_DongLuc
                     btnNhapLai.Enabled = true;
 
                     // Chức năng quản lý danh mục
+                    btnKhoVatTu.Enabled = false;
+                    btnLoaiVatTu.Enabled = false;
                     btnNhomVatTu.Enabled = false;
                     btnNhaCungCap.Enabled = false;
                     btnNhanVien.Enabled = false;
+
+                    //Chức năng thống kê báo cáo
+                    btnThongKeNhap_NhaCungCap.Enabled = false;
 
                     lblUser.Caption = "Nhân viên: " + (Program.CurrentUser.Ten_day_du != null ? Program.CurrentUser.Ten_day_du : Program.CurrentUser.CAT_NhanVien.Ho_dem + " " + Program.CurrentUser.CAT_NhanVien.Ten);
                 }
