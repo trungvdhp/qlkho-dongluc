@@ -60,6 +60,29 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
 
+        //public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
+        //{
+        //    if (db == null) db = new Entities();
+
+        //    gridLookUpEdit.Properties.Columns.Clear();
+        //    gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
+        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
+        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
+        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
+        //    gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
+        //    gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
+        //    gridLookUpEdit.Properties.Columns["Don_vi"].Alignment = DevExpress.Utils.HorzAlignment.Near;
+        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+
+        //    gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
+        //    gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
+        //    gridLookUpEdit.Properties.NullText = "";
+        //    gridLookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
+        //    gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+        //}
+
+
+
         public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
         {
             if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
