@@ -28,9 +28,7 @@ namespace QLK_DongLuc.Views.ThongKeBaoCao
         {
             txtNhaCungCap.Text = Ten_nha_cung_cap;
 
-            txtTongTIen.Text = "0";
-
-            txtThongKe.Text = String.Format("từ {0} - đến {1}", dtTuNgay.ToString("dd/MM/yyyy"), dtDenNgay.ToString("dd/MM/yyyy"));
+            txtThongKe.Text = String.Format("{0} - {1}", dtTuNgay.ToString("dd/MM/yyyy"), dtDenNgay.ToString("dd/MM/yyyy"));
 
             txtNgayLap.Text = String.Format("Hải Phòng, ngày {0:00} tháng {1:00} năm {2:0000}", dtNgayLap.Day, dtNgayLap.Month, dtNgayLap.Year);
 

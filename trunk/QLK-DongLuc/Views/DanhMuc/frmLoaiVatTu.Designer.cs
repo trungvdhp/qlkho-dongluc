@@ -110,8 +110,8 @@
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID_loai_vat_tu,
-            this.colTen_loai_vat_tu,
             this.colID_nhom_vat_tu,
+            this.colTen_loai_vat_tu,
             this.colGhi_chu});
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
@@ -136,7 +136,7 @@
             this.colTen_loai_vat_tu.FieldName = "Ten_loai_vat_tu";
             this.colTen_loai_vat_tu.Name = "colTen_loai_vat_tu";
             this.colTen_loai_vat_tu.Visible = true;
-            this.colTen_loai_vat_tu.VisibleIndex = 0;
+            this.colTen_loai_vat_tu.VisibleIndex = 1;
             // 
             // colID_nhom_vat_tu
             // 
@@ -145,7 +145,7 @@
             this.colID_nhom_vat_tu.FieldName = "ID_nhom_vat_tu";
             this.colID_nhom_vat_tu.Name = "colID_nhom_vat_tu";
             this.colID_nhom_vat_tu.Visible = true;
-            this.colID_nhom_vat_tu.VisibleIndex = 1;
+            this.colID_nhom_vat_tu.VisibleIndex = 0;
             // 
             // repositoryItemGridLookUpEdit1
             // 

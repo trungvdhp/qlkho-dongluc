@@ -124,8 +124,6 @@
             // 
             this.colID_san_pham.FieldName = "ID_san_pham";
             this.colID_san_pham.Name = "colID_san_pham";
-            this.colID_san_pham.Visible = true;
-            this.colID_san_pham.VisibleIndex = 3;
             // 
             // colMa_san_pham
             // 
