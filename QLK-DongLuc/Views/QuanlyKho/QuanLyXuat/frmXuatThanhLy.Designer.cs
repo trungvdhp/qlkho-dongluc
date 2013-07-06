@@ -37,6 +37,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.eXPPhieuXuatCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuxuatCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colVattu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -56,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.leKhoxuat = new DevExpress.XtraEditors.LookUpEdit();
             this.txtMahoadon = new System.Windows.Forms.TextBox();
-            this.eXPPhieuXuatCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -64,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPPhieuXuatCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuxuatCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
@@ -77,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtNgayxuat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leNhanvienxuat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leKhoxuat.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPPhieuXuatCTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -161,6 +161,10 @@
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuxuatCT});
+            // 
+            // eXPPhieuXuatCTBindingSource
+            // 
+            this.eXPPhieuXuatCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.EXP_PhieuXuatCT);
             // 
             // grvPhieuxuatCT
             // 
@@ -283,6 +287,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtNgayxuat.Size = new System.Drawing.Size(218, 20);
             this.dtNgayxuat.TabIndex = 9;
+            this.dtNgayxuat.EditValueChanged += new System.EventHandler(this.dtNgayxuat_EditValueChanged);
             // 
             // label6
             // 
@@ -310,6 +315,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leNhanvienxuat.Size = new System.Drawing.Size(232, 20);
             this.leNhanvienxuat.TabIndex = 6;
+            this.leNhanvienxuat.EditValueChanged += new System.EventHandler(this.leNhanvienxuat_EditValueChanged);
             // 
             // label2
             // 
@@ -337,6 +343,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leKhoxuat.Size = new System.Drawing.Size(232, 20);
             this.leKhoxuat.TabIndex = 1;
+            this.leKhoxuat.EditValueChanged += new System.EventHandler(this.leKhoxuat_EditValueChanged);
             // 
             // txtMahoadon
             // 
@@ -344,10 +351,6 @@
             this.txtMahoadon.Name = "txtMahoadon";
             this.txtMahoadon.Size = new System.Drawing.Size(232, 21);
             this.txtMahoadon.TabIndex = 0;
-            // 
-            // eXPPhieuXuatCTBindingSource
-            // 
-            this.eXPPhieuXuatCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.EXP_PhieuXuatCT);
             // 
             // frmXuatThanhLy
             // 
@@ -366,6 +369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPPhieuXuatCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuxuatCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
@@ -380,7 +384,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtNgayxuat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leNhanvienxuat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leKhoxuat.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPPhieuXuatCTBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
