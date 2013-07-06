@@ -35,7 +35,7 @@ namespace QLK_DongLuc.Views.ThongKeBaoCao
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
 
-            rptThongKeNhap_NhaCungCap rpt = new rptThongKeNhap_NhaCungCap(ledNhaCungCap.Text, dteTuNgay.EditValue, dteDenNgay.EditValue);
+            rptThongKeNhap_NhaCungCap rpt = new rptThongKeNhap_NhaCungCap(ledNhaCungCap.Text, DateTime.Now ,dteTuNgay.EditValue, dteDenNgay.EditValue);
             printControl.PrintingSystem = rpt.PrintingSystem;
             rpt.CreateDocument();
         }
