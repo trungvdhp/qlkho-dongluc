@@ -261,7 +261,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            frmMain.CloseCurrentForm(this.Parent);
         }
 
         private void grvPhieuxuatCT_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -296,6 +296,23 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
 
                 }
             }
+        }
+
+        private void dtNgayxuat_EditValueChanged(object sender, EventArgs e)
+        {
+            txtMahoadon.Text = PhieuXuatCtrl.GetNextCode(dtNgayxuat.EditValue,db);
+        }
+
+        private void leKhoxuat_EditValueChanged(object sender, EventArgs e)
+        {
+            object makho = leKhoxuat.EditValue;
+            NhanVienCtrl.LoadLookUpEdit_Nhanvien_Kho(leNhanvienxuat, makho, db);
+        }
+
+        private void leNhanvienxuat_EditValueChanged(object sender, EventArgs e)
+        {
+            object manv = leNhanvienxuat.EditValue;
+            leKhoxuat.EditValue = NhanVienCtrl.GetIdkho(manv, db);
         }
 
 

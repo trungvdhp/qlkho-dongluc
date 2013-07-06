@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamlai = new DevExpress.XtraEditors.SimpleButton();
@@ -56,7 +57,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.grdPhieuXuatCT = new DevExpress.XtraGrid.GridControl();
-            this.eXPPhieuXuatCTBindingSource = new System.Windows.Forms.BindingSource();
+            this.eXPPhieuXuatCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuXuatCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -218,6 +219,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dtNgayxuat.Size = new System.Drawing.Size(218, 20);
             this.dtNgayxuat.TabIndex = 9;
+            this.dtNgayxuat.EditValueChanged += new System.EventHandler(this.dtNgayxuat_EditValueChanged);
             // 
             // label6
             // 
@@ -245,6 +247,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leNhanvienxuat.Size = new System.Drawing.Size(218, 20);
             this.leNhanvienxuat.TabIndex = 6;
+            this.leNhanvienxuat.EditValueChanged += new System.EventHandler(this.leNhanvienxuat_EditValueChanged);
             // 
             // btnThemdanhmuc
             // 
@@ -332,6 +335,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leKhoxuat.Size = new System.Drawing.Size(232, 20);
             this.leKhoxuat.TabIndex = 1;
+            this.leKhoxuat.EditValueChanged += new System.EventHandler(this.leKhoxuat_EditValueChanged);
             // 
             // txtMahoadon
             // 

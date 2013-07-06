@@ -227,5 +227,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
         }
+
+        private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
