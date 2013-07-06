@@ -172,6 +172,21 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
+        public static string GetNextCode(object date, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            DateTime d;
+
+            if (date == null || date.Equals(""))
+                d = DateTime.Now;
+            else
+                d = (DateTime)date;
+
+            var countPN = db.EXP_PhieuXuat.Count(t => t.Ngay_xuat.Year == d.Year && t.Ngay_xuat.Month == d.Month) + 1;
+
+            return string.Format("{0:yyyyMM}{1:00}", date, countPN);
+        }
         //public static int Insert_(object Ngay_xuat,Entities db = null)
         //{
             

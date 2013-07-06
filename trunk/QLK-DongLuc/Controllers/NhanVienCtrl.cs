@@ -99,10 +99,38 @@ namespace QLK_DongLuc.Controllers
             var entity = db.CAT_NhanVien.FirstOrDefault(p => p.ID_nhan_vien == id);
 
             if (entity == null) return 0;
-
+ 
             db.CAT_NhanVien.Remove(entity);
 
             return db.SaveChanges();
+        }
+        public static int GetIdkho(object ID_nhan_vien, Entities db = null)
+        {
+            if (ID_nhan_vien == null) return 0;
+            if (db == null) db = new Entities();
+            int id = (int)ID_nhan_vien;
+            object id_kho_ = 0;
+            int id_kho;
+            var entity=db.CAT_NhanVien.FirstOrDefault(p=>p.ID_nhan_vien==id);
+            id_kho_ = entity.ID_kho;
+            id_kho = (int)id_kho_;
+            return id_kho;
+        }
+
+        public static void LoadLookUpEdit_Nhanvien_Kho(LookUpEdit lookUpEdit,object makho, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+            int ma_kho;
+            ma_kho = (int)makho;
+            lookUpEdit.Properties.DataSource = db.ViewCboNhanVien.Where(p=> p.ID_kho == ma_kho).ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ho_ten", "Họ tên"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Kho"));
+            lookUpEdit.Properties.DisplayMember = "Ho_ten";
+            lookUpEdit.Properties.ValueMember = "ID_nhan_vien";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhân viên";
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
         }
     }
 }
