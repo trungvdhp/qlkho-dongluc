@@ -594,6 +594,7 @@
     <Content Include="Images\SaoLuu_32x32.png" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\ThanhLyVatTu_16x16.png" />
+    <None Include="Images\ThongKeNhap_NhaCungCap_32x32.bmp" />
     <Content Include="Images\ThongTinNhacNho_32x32.png" />
     <Content Include="Images\Trash_16x16.png" />
   </ItemGroup>

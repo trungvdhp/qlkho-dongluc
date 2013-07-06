@@ -1177,7 +1177,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SYS_VaiTroQuyen_SYS_Quyen">
-          <End Role="SYS_Quyen" Type="QuanLyKhoDongLucModel.Store.SYS_Quyen" Multiplicity="1" />
+          <End Role="SYS_Quyen" Type="QuanLyKhoDongLucModel.Store.SYS_Quyen" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="SYS_VaiTroQuyen" Type="QuanLyKhoDongLucModel.Store.SYS_VaiTroQuyen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SYS_Quyen">
