@@ -39,6 +39,7 @@
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewPhieuNhap" Width="1.5" PointX="13.75" PointY="5.375" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewPhieuXuat" Width="1.5" PointX="15.75" PointY="1.375" />
         <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewThongKeNhap_NhaCungCap" Width="1.5" PointX="15.75" PointY="7.375" />
+        <EntityTypeShape EntityType="QuanLyKhoDongLucModel.ViewXuatVatTu_Kho" Width="1.5" PointX="15.75" PointY="11.375" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_CAT_SanPham_CAT_KhachHang" />
         <AssociationConnector Association="QuanLyKhoDongLucModel.FK_IMP_PhieuNhap_CAT_NhaCungCap" />

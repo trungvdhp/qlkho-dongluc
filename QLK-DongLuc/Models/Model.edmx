@@ -156,6 +156,19 @@
       [ViewThongKeNhap_NhaCungCap].[Thanh_tien] AS [Thanh_tien]
       FROM [dbo].[ViewThongKeNhap_NhaCungCap] AS [ViewThongKeNhap_NhaCungCap]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ViewXuatVatTu_Kho" EntityType="QuanLyKhoDongLucModel.Store.ViewXuatVatTu_Kho" store:Type="Views" store:Schema="dbo" store:Name="ViewXuatVatTu_Kho">
+            <DefiningQuery>SELECT 
+      [ViewXuatVatTu_Kho].[ID_kho] AS [ID_kho], 
+      [ViewXuatVatTu_Kho].[ID_vat_tu] AS [ID_vat_tu], 
+      [ViewXuatVatTu_Kho].[Expr1] AS [Expr1], 
+      [ViewXuatVatTu_Kho].[Ma_vat_tu] AS [Ma_vat_tu], 
+      [ViewXuatVatTu_Kho].[Ten_vat_tu] AS [Ten_vat_tu], 
+      [ViewXuatVatTu_Kho].[So_luong] AS [So_luong], 
+      [ViewXuatVatTu_Kho].[Don_gia_xuat] AS [Don_gia_xuat], 
+      [ViewXuatVatTu_Kho].[Don_vi] AS [Don_vi], 
+      [ViewXuatVatTu_Kho].[Mo_ta] AS [Mo_ta]
+      FROM [dbo].[ViewXuatVatTu_Kho] AS [ViewXuatVatTu_Kho]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.Store.FK_CAT_KhachHang_SYS_NguoiDung">
             <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
             <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
@@ -780,6 +793,27 @@
           <Property Name="Don_gia" Type="money" />
           <Property Name="Thanh_tien" Type="float" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'QuanLyKhoDongLuc.dbo.ViewXuatVatTu_Kho' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ViewXuatVatTu_Kho">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="ID_vat_tu" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Ten_vat_tu" />
+            <PropertyRef Name="So_luong" />
+          </Key>
+          <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+          <Property Name="Ma_vat_tu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ten_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="So_luong" Type="float" Nullable="false" />
+          <Property Name="Don_gia_xuat" Type="money" />
+          <Property Name="Don_vi" Type="float" />
+          <Property Name="Mo_ta" Type="ntext" />
+        </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
           <End Role="SYS_NguoiDung" Type="QuanLyKhoDongLucModel.Store.SYS_NguoiDung" Multiplicity="0..1" />
           <End Role="CAT_KhachHang" Type="QuanLyKhoDongLucModel.Store.CAT_KhachHang" Multiplicity="*" />
@@ -1241,6 +1275,7 @@
           <EntitySet Name="ViewPhieuNhap" EntityType="QuanLyKhoDongLucModel.ViewPhieuNhap" />
           <EntitySet Name="ViewPhieuXuat" EntityType="QuanLyKhoDongLucModel.ViewPhieuXuat" />
           <EntitySet Name="ViewThongKeNhap_NhaCungCap" EntityType="QuanLyKhoDongLucModel.ViewThongKeNhap_NhaCungCap" />
+          <EntitySet Name="ViewXuatVatTu_Kho" EntityType="QuanLyKhoDongLucModel.ViewXuatVatTu_Kho" />
           <AssociationSet Name="FK_CAT_KhachHang_SYS_NguoiDung" Association="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung">
             <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
             <End Role="CAT_KhachHang" EntitySet="CAT_KhachHang" />
@@ -1876,6 +1911,24 @@
           <Property Type="Double" Name="So_luong" Nullable="false" />
           <Property Type="Decimal" Name="Don_gia" Precision="19" Scale="4" />
           <Property Type="Double" Name="Thanh_tien" />
+        </EntityType>
+        <EntityType Name="ViewXuatVatTu_Kho">
+          <Key>
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="ID_vat_tu" />
+            <PropertyRef Name="Expr1" />
+            <PropertyRef Name="Ten_vat_tu" />
+            <PropertyRef Name="So_luong" />
+          </Key>
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
+          <Property Type="Int32" Name="Expr1" Nullable="false" />
+          <Property Type="String" Name="Ma_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="So_luong" Nullable="false" />
+          <Property Type="Decimal" Name="Don_gia_xuat" Precision="19" Scale="4" />
+          <Property Type="Double" Name="Don_vi" />
+          <Property Type="String" Name="Mo_ta" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CAT_KhachHang_SYS_NguoiDung">
           <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="0..1" />
@@ -2682,6 +2735,21 @@
                 <ScalarProperty Name="Ngay_nhap" ColumnName="Ngay_nhap" />
                 <ScalarProperty Name="Ten_nha_cung_cap" ColumnName="Ten_nha_cung_cap" />
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewXuatVatTu_Kho">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewXuatVatTu_Kho">
+              <MappingFragment StoreEntitySet="ViewXuatVatTu_Kho">
+                <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+                <ScalarProperty Name="Don_vi" ColumnName="Don_vi" />
+                <ScalarProperty Name="Don_gia_xuat" ColumnName="Don_gia_xuat" />
+                <ScalarProperty Name="So_luong" ColumnName="So_luong" />
+                <ScalarProperty Name="Ten_vat_tu" ColumnName="Ten_vat_tu" />
+                <ScalarProperty Name="Ma_vat_tu" ColumnName="Ma_vat_tu" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
