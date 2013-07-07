@@ -155,7 +155,7 @@ namespace QLK_DongLuc
 
         private void btnNhapMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(1);
             OpenForm(frm, tabControl);
         }
 

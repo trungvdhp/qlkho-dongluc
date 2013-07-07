@@ -27,7 +27,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             InitializeComponent();
             ID_loai_nhap = _ID_loai_nhap;
-            InitForm();
         }
 
         private void InitForm()
@@ -230,7 +229,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
         {
-
+            InitForm();
         }
     }
 }
