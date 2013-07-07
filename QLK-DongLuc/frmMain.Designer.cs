@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.navbarImageListLarge = new System.Windows.Forms.ImageList();
-            this.navbarImageList = new System.Windows.Forms.ImageList();
+            this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
+            this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.btnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
@@ -74,7 +75,10 @@
             this.lblActiveTimeMessage = new DevExpress.XtraBars.BarStaticItem();
             this.lblActiveTime = new DevExpress.XtraBars.BarStaticItem();
             this.btnThongKeNhap_NhaCungCap = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.btnQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnVaiTro = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.formatRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -94,12 +98,9 @@
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmrTracker = new System.Windows.Forms.Timer();
-            this.tmrDongHo = new System.Windows.Forms.Timer();
+            this.tmrTracker = new System.Windows.Forms.Timer(this.components);
+            this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.btnQuyen = new DevExpress.XtraBars.BarButtonItem();
-            this.btnVaiTro = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -586,6 +587,29 @@
             this.btnThongKeNhap_NhaCungCap.Name = "btnThongKeNhap_NhaCungCap";
             this.btnThongKeNhap_NhaCungCap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThongKeNhap_NhaCungCap_ItemClick);
             // 
+            // btnQuyen
+            // 
+            this.btnQuyen.Caption = "Quyền";
+            this.btnQuyen.Id = 95;
+            this.btnQuyen.Name = "btnQuyen";
+            this.btnQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuyen_ItemClick);
+            // 
+            // btnVaiTro
+            // 
+            this.btnVaiTro.Caption = "Vai trò";
+            this.btnVaiTro.Id = 96;
+            this.btnVaiTro.Name = "btnVaiTro";
+            this.btnVaiTro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnVaiTro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVaiTro_ItemClick);
+            // 
+            // btnPhanQuyen
+            // 
+            this.btnPhanQuyen.Caption = "Phân quyền";
+            this.btnPhanQuyen.Id = 97;
+            this.btnPhanQuyen.Name = "btnPhanQuyen";
+            this.btnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -767,29 +791,6 @@
             this.tabControl.Size = new System.Drawing.Size(891, 393);
             this.tabControl.TabIndex = 5;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
-            // 
-            // btnQuyen
-            // 
-            this.btnQuyen.Caption = "Quyền";
-            this.btnQuyen.Id = 95;
-            this.btnQuyen.Name = "btnQuyen";
-            this.btnQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuyen_ItemClick);
-            // 
-            // btnVaiTro
-            // 
-            this.btnVaiTro.Caption = "Vai trò";
-            this.btnVaiTro.Id = 96;
-            this.btnVaiTro.Name = "btnVaiTro";
-            this.btnVaiTro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnVaiTro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVaiTro_ItemClick);
-            // 
-            // btnPhanQuyen
-            // 
-            this.btnPhanQuyen.Caption = "Phân quyền";
-            this.btnPhanQuyen.Id = 97;
-            this.btnPhanQuyen.Name = "btnPhanQuyen";
-            this.btnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // frmMain
             // 
