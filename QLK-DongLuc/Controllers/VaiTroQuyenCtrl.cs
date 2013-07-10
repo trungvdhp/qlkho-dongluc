@@ -79,13 +79,14 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new Entities();
 
             var vai_tro = Program.CurrentUser.SYS_VaiTro.FirstOrDefault();
+            var quyen = db.SYS_Quyen.FirstOrDefault(t => t.Ma_quyen == form.Name);
 
-            if (vai_tro == null) return;
+            if (vai_tro == null || quyen == null) return;
 
             int ID_vai_tro = vai_tro.ID_vai_tro;
-
-            var quyens = QuyenCtrl.GetChildrenIDs(form.Name, db);
-            var vaitro_quyens = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && quyens.Contains(t.ID_quyen)).ToList();
+            int ID_quyen = quyen.ID_quyen;
+            
+            var vaitro_quyens = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && t.SYS_Quyen.ID_goc == ID_quyen).ToList();
             int current = 0;
             object obj = form;
 

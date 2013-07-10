@@ -136,7 +136,9 @@ namespace QLK_DongLuc.Controllers
                                 ID_quyen = id,
                                 ID_cha = id,
                                 Ma_quyen = form.Name,
-                                Ten_quyen = form.Text
+                                Ten_quyen = form.Text,
+                                Loai_dieu_khien = Utils.GetLastString(form.GetType().BaseType.ToString()),
+                                ID_goc = id
                             },
                             form)
                         );
@@ -167,7 +169,8 @@ namespace QLK_DongLuc.Controllers
                                         ID_cha = node.Key.ID_quyen,
                                         Ma_quyen = btn.Name,
                                         Ten_quyen = btn.Caption,
-                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
+                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString()),
+                                        ID_goc = node.Key.ID_goc
                                     },
                                     child)
                                 );
@@ -192,7 +195,8 @@ namespace QLK_DongLuc.Controllers
                                     ID_cha = node.Key.ID_quyen,
                                     Ma_quyen = child.Name,
                                     Ten_quyen = child.ViewCaption,
-                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
+                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString()),
+                                    ID_goc = node.Key.ID_goc
                                 },
                                 child)
                             );
@@ -214,7 +218,8 @@ namespace QLK_DongLuc.Controllers
                                     ID_cha = node.Key.ID_quyen,
                                     Ma_quyen = child.Name,
                                     Ten_quyen = child.Caption,
-                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
+                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString()),
+                                    ID_goc = node.Key.ID_goc
                                 },
                                 child)
                             );
@@ -238,7 +243,8 @@ namespace QLK_DongLuc.Controllers
                                         ID_cha = node.Key.ID_quyen,
                                         Ma_quyen = ctrl.Name,
                                         Ten_quyen = (child.GetType() == typeof(GridColumn)) ? (child as GridColumn).Caption : ctrl.Tag != null ? ctrl.Tag.ToString() : ctrl.Text != "" ? ctrl.Text : ctrl.Name,
-                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
+                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString()),
+                                        ID_goc = node.Key.ID_goc
                                     },
                                     child)
                                 );
