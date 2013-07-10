@@ -92,6 +92,7 @@ namespace QLK_DongLuc.Views.HeThong
         private void frmVaiTro_Load(object sender, EventArgs e)
         {
             grdVaiTro_Load();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)

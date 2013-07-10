@@ -28,6 +28,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Tùy chọn tìm kiếm";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
             lookUpEdit.EditValue = 1;
         }
 

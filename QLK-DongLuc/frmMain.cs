@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Helpers;
 using DevExpress.Skins;
+using DevExpress.Xpo.XtraData;
 using DevExpress.LookAndFeel;
 using QLK_DongLuc.Models;
 
@@ -23,6 +24,9 @@ namespace QLK_DongLuc
     using QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho;
     using QLK_DongLuc.Views.ThongKeBaoCao;
     using QLK_DongLuc.Controllers;
+    using DevExpress.XtraBars;
+    using System.Reflection;
+    using DevExpress.Xpo.Metadata;
 
     public partial class frmMain : XtraForm
     {
@@ -246,6 +250,8 @@ namespace QLK_DongLuc
 
                 tmrDongHo.Start();
                 tmrTracker.Start();
+
+                VaiTroQuyenCtrl.ReconfigFormControls(this);
             }
         }
 
@@ -422,6 +428,12 @@ namespace QLK_DongLuc
         private void btnThongKeNhap_NhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmThongKeNhap_NhaCungCap frm = new frmThongKeNhap_NhaCungCap();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmVaiTroQuyen frm = new frmVaiTroQuyen();
             OpenForm(frm, tabControl);
         }
     }

@@ -48,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DDORes_dll_13_10.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -60,6 +63,7 @@
     <Reference Include="DevExpress.Snap.v12.2.Extensions, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v12.2.UI, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -92,6 +96,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ThuocTinhCtrl.cs" />
+    <Compile Include="Controllers\VaiTroQuyenCtrl.cs" />
     <Compile Include="Controllers\KetNoiCSDLCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCTCtrl.cs" />
     <Compile Include="Controllers\LoaiXuat.cs" />
@@ -105,7 +111,7 @@
     <Compile Include="Controllers\ThongSoHeThongCtrl.cs" />
     <Compile Include="Controllers\TonDauKy.cs" />
     <Compile Include="Controllers\TuyChonTimKiemCtrl.cs" />
-    <Compile Include="Controllers\Utilities.cs" />
+    <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
     <Compile Include="Controllers\LoaiVatTu.cs" />
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
@@ -134,6 +140,7 @@
     <Compile Include="Models\CAT_SanPham.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\EXP_LoaiXuat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -152,6 +159,7 @@
     <Compile Include="Models\IMP_PhieuNhapCT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,8 +175,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities.cs" />
-    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\STO_KhoVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -193,6 +199,9 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SYS_LoaiDieuKhien.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SYS_NguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -205,10 +214,16 @@
     <Compile Include="Models\SYS_ThongSoHeThong.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SYS_ThuocTinh.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SYS_TrangThaiNguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_VaiTro.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SYS_VaiTroQuyen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TuyChonTimKiem.cs" />
@@ -240,6 +255,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewThongKeNhap_NhaCungCap.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewXuatVatTu_Kho.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -345,6 +363,12 @@
     </Compile>
     <Compile Include="Views\HeThong\frmVaiTro.Designer.cs">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeThong\frmVaiTroQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HeThong\frmVaiTroQuyen.Designer.cs">
+      <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs">
       <SubType>Form</SubType>
@@ -463,6 +487,9 @@
     <EmbeddedResource Include="Views\HeThong\frmVaiTro.resx">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmVaiTroQuyen.resx">
+      <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.resx">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -520,6 +547,9 @@
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_LoaiVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_Quyen1.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_ThuocTinh.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_VaiTroQuyen.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewNguoiDung.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewPhieuNhap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewThongKeNhap_NhaCungCap.datasource" />
@@ -555,6 +585,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DDORes_dll_13_10.ico" />
     <Content Include="Images\button-accept.png" />
     <Content Include="Images\button-add.png" />
     <Content Include="Images\button-close.png" />

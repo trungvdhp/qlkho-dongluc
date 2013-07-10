@@ -87,6 +87,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             db = new Entities();
             gridControl_Load();
             LoaiVatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)

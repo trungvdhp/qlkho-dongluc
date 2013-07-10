@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Controllers;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -78,6 +79,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             db = new Entities();
             gridControl_Load();
             sTONhomVatTuBindingSource.DataSource = db.STO_NhomVatTu.ToList();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)

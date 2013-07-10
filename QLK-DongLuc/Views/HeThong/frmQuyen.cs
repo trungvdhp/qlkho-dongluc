@@ -30,8 +30,7 @@ namespace QLK_DongLuc.Views.HeThong
 
         private void btnScanControls_Click(object sender, EventArgs e)
         {
-            var forms = QuyenCtrl.GetFormList();
-            sYSQuyenBindingSourceNew.DataSource = QuyenCtrl.GetControls(forms);
+            QuyenCtrl.LoadAllControls(sYSQuyenBindingSourceNew);
             btnExpandAllNew.PerformClick();
         }
 
@@ -119,7 +118,7 @@ namespace QLK_DongLuc.Views.HeThong
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             db = new Entities();
-            sYSQuyenBindingSourceOld.DataSource = db.SYS_Quyen.ToList();
+            QuyenCtrl.LoadBindingSource(sYSQuyenBindingSourceOld, db);
             btnExpandAllOld.PerformClick();
         }
 
@@ -127,6 +126,7 @@ namespace QLK_DongLuc.Views.HeThong
         {
             btnRefresh.PerformClick();
             btnScanControls.PerformClick();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void btnDeleteOld_Click(object sender, EventArgs e)

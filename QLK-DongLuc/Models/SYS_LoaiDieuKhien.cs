@@ -12,19 +12,17 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class SYS_Quyen
+    public partial class SYS_LoaiDieuKhien
     {
-        public SYS_Quyen()
+        public SYS_LoaiDieuKhien()
         {
-            this.SYS_VaiTroQuyen = new HashSet<SYS_VaiTroQuyen>();
+            this.SYS_ThuocTinh = new HashSet<SYS_ThuocTinh>();
         }
     
-        public int ID_quyen { get; set; }
-        public int ID_cha { get; set; }
-        public string Ma_quyen { get; set; }
-        public string Ten_quyen { get; set; }
-        public string Loai_dieu_khien { get; set; }
+        public int ID_loai { get; set; }
+        public string Ky_hieu { get; set; }
+        public string Ten_loai { get; set; }
     
-        public virtual ICollection<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
+        public virtual ICollection<SYS_ThuocTinh> SYS_ThuocTinh { get; set; }
     }
 }

@@ -141,6 +141,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 else
                     this.Text = "Nhân viên sửa phiếu nhập";
             }
+
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
@@ -293,7 +295,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     if (ID_vat_tu.Equals(id))
                     {
                         bError = true;
-                        sError += "\n Vật tư đã nhập phải khác với các vật tư đã chọn.";
+                        sError += "\n Không được chọn trùng vật tư.";
                         break;
                     }
                 }

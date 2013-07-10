@@ -10,6 +10,8 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraPrinting.Control;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Views.HeThong;
 
@@ -17,6 +19,18 @@ namespace QLK_DongLuc.Controllers
 {
     public class QuyenCtrl
     {
+        public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            bindingSource.DataSource = db.SYS_Quyen.OrderBy(t => t.Loai_dieu_khien).ToList();
+        }
+
+        public static void LoadAllControls(BindingSource bindingSource)
+        {
+            var forms = GetFormList();
+            bindingSource.DataSource = GetControls(forms).OrderBy(t => t.Loai_dieu_khien).ToList();
+        }
         #region Get controls
         /// <summary>
         /// Get sub classes
@@ -50,6 +64,52 @@ namespace QLK_DongLuc.Controllers
             return list;
         }
 
+        public static bool HaveRelationShip(string formName, int ID_quyen, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var quyen = db.SYS_Quyen.FirstOrDefault(t => t.ID_quyen == ID_quyen);
+
+            while (true)
+            {
+                if (quyen == null) return false;
+
+                if (quyen.Ma_quyen == formName) return true;
+
+                if (quyen.ID_quyen == quyen.ID_cha) return false;
+
+                quyen = db.SYS_Quyen.FirstOrDefault(t => t.ID_quyen == quyen.ID_cha);
+            }
+
+            return false;
+        }
+
+        public static List<int> GetChildrenIDs(string formName, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var form = db.SYS_Quyen.FirstOrDefault(t => t.Ma_quyen == formName);
+            List<int> list = new List<int>();
+
+            Queue<SYS_Quyen> queue = new Queue<SYS_Quyen>();
+            queue.Enqueue(form);
+
+            while (queue.Count != 0)
+            {
+                SYS_Quyen node = queue.Dequeue();
+
+                var children = db.SYS_Quyen.Where(t => t.ID_cha == node.ID_quyen && t.ID_quyen != node.ID_quyen);
+
+                foreach (var child in children)
+                {
+                    list.Add(child.ID_quyen);
+                    queue.Enqueue(child);
+                }
+            }
+
+            return list;
+        }
+
         /// <summary>
         /// Get list children controls
         /// </summary>
@@ -57,7 +117,7 @@ namespace QLK_DongLuc.Controllers
         public static List<SYS_Quyen> GetControls(List<Control> forms)
         {
             List<SYS_Quyen> controls = new List<SYS_Quyen>();
-            List<Type> types = new List<Type>(new Type[] { typeof(BarButtonItem), typeof(LookUpEdit), typeof(DateEdit), typeof(SpinEdit), typeof(MemoEdit), typeof(TextEdit), typeof(TimeEdit), typeof(GridColumn) });
+            List<Type> types = new List<Type>(new Type[] { typeof(BarButtonItem), typeof(LookUpEdit), typeof(DateEdit), typeof(SpinEdit), typeof(MemoEdit), typeof(TextEdit), typeof(TimeEdit), typeof(GridColumn), typeof(LabelControl), typeof(PrintControl)});
 
             List<Type> ExcludeList = new List<Type>(new Type[] { typeof(Label), typeof(LabelControl) });
 
@@ -106,7 +166,8 @@ namespace QLK_DongLuc.Controllers
                                         ID_quyen = id,
                                         ID_cha = node.Key.ID_quyen,
                                         Ma_quyen = btn.Name,
-                                        Ten_quyen = btn.Caption
+                                        Ten_quyen = btn.Caption,
+                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
                                     },
                                     child)
                                 );
@@ -118,7 +179,29 @@ namespace QLK_DongLuc.Controllers
                 }
                 else if (node.Value.GetType() == typeof(GridControl))
                 {
-                    var children = ((ColumnView)(node.Value as GridControl).Views[0]).Columns;
+                    var children = (node.Value as GridControl).Views;
+
+                    foreach (GridView child in children)
+                    {
+                        id++;
+                        queue.Enqueue(
+                            new KeyValuePair<SYS_Quyen, object>(
+                                new SYS_Quyen
+                                {
+                                    ID_quyen = id,
+                                    ID_cha = node.Key.ID_quyen,
+                                    Ma_quyen = child.Name,
+                                    Ten_quyen = child.ViewCaption,
+                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
+                                },
+                                child)
+                            );
+                    }
+                  
+                }
+                else if (node.Value.GetType() == typeof(GridView))
+                {
+                    var children = (node.Value as GridView).Columns;
 
                     foreach (GridColumn child in children)
                     {
@@ -130,7 +213,8 @@ namespace QLK_DongLuc.Controllers
                                     ID_quyen = id,
                                     ID_cha = node.Key.ID_quyen,
                                     Ma_quyen = child.Name,
-                                    Ten_quyen = child.Caption
+                                    Ten_quyen = child.Caption,
+                                    Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
                                 },
                                 child)
                             );
@@ -153,7 +237,8 @@ namespace QLK_DongLuc.Controllers
                                         ID_quyen = id,
                                         ID_cha = node.Key.ID_quyen,
                                         Ma_quyen = ctrl.Name,
-                                        Ten_quyen = (child.GetType() == typeof(GridColumn)) ? (child as GridColumn).Caption : ctrl.Tag != null ? ctrl.Tag.ToString() : ctrl.Text != "" ? ctrl.Text : ctrl.Name
+                                        Ten_quyen = (child.GetType() == typeof(GridColumn)) ? (child as GridColumn).Caption : ctrl.Tag != null ? ctrl.Tag.ToString() : ctrl.Text != "" ? ctrl.Text : ctrl.Name,
+                                        Loai_dieu_khien = Utils.GetLastString(child.GetType().ToString())
                                     },
                                     child)
                                 );

@@ -34,12 +34,12 @@
             this.sTOLoaiVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTen_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.sTONhomVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTen_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhi_chu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.Ten_kho_edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
@@ -130,14 +130,6 @@
             this.colID_loai_vat_tu.FieldName = "ID_loai_vat_tu";
             this.colID_loai_vat_tu.Name = "colID_loai_vat_tu";
             // 
-            // colTen_loai_vat_tu
-            // 
-            this.colTen_loai_vat_tu.Caption = "Loại vật tư";
-            this.colTen_loai_vat_tu.FieldName = "Ten_loai_vat_tu";
-            this.colTen_loai_vat_tu.Name = "colTen_loai_vat_tu";
-            this.colTen_loai_vat_tu.Visible = true;
-            this.colTen_loai_vat_tu.VisibleIndex = 1;
-            // 
             // colID_nhom_vat_tu
             // 
             this.colID_nhom_vat_tu.Caption = "Nhóm vật tư";
@@ -175,6 +167,14 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            // 
+            // colTen_loai_vat_tu
+            // 
+            this.colTen_loai_vat_tu.Caption = "Loại vật tư";
+            this.colTen_loai_vat_tu.FieldName = "Ten_loai_vat_tu";
+            this.colTen_loai_vat_tu.Name = "colTen_loai_vat_tu";
+            this.colTen_loai_vat_tu.Visible = true;
+            this.colTen_loai_vat_tu.VisibleIndex = 1;
             // 
             // colGhi_chu
             // 

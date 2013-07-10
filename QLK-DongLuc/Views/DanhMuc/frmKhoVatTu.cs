@@ -97,7 +97,8 @@ namespace QLK_DongLuc.Views.DanhMuc
                 colDon_gia_nhap.Visible = false;
                 colDon_gia_xuat.OptionsColumn.AllowEdit = false;
             }
-            
+
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void grvKhoVatTu_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)

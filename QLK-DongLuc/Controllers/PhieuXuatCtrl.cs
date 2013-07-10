@@ -39,6 +39,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn phiếu xuất";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
@@ -53,6 +54,7 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullText = "";
             gridLookUpEdit.Properties.NullValuePrompt = "Chọn phiếu xuất";
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
         //insert phiếu xuất
         public static int Insert(object Ma_hoa_don, object ID_loai_xuat, object ID_kho, object ID_san_pham, object ID_nhan_vien, object Ngay_xuat, decimal Tong_tien,Object Ghi_chu, Object Trang_thai,Object ID_nguoi_sua, Entities db = null)

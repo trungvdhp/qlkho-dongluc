@@ -37,6 +37,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn kho";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
 		/// <summary>
@@ -62,6 +63,7 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.Properties.NullText = "";
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn kho";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
     }
 }

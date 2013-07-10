@@ -99,6 +99,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             gridControl_Load();
             cATKhachHangBindingSource.DataSource = db.CAT_KhachHang.ToList();
             cATNhanVienBindingSource.DataSource = db.CAT_NhanVien.ToList();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)

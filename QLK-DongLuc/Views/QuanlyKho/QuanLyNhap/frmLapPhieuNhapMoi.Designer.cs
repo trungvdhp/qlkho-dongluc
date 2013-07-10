@@ -135,6 +135,7 @@
             this.grvPhieuNhapCT.OptionsCustomization.AllowSort = false;
             this.grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grvPhieuNhapCT.OptionsView.ShowGroupPanel = false;
+            this.grvPhieuNhapCT.ViewCaption = "Phiếu nhập chi tiết";
             this.grvPhieuNhapCT.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvPhieuNhapCT_ValidateRow);
             // 
             // colID_vat_tu
@@ -282,7 +283,7 @@
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(398, 0);
+            this.groupControl1.Location = new System.Drawing.Point(3, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(389, 142);
@@ -355,7 +356,7 @@
             this.groupControl2.Controls.Add(this.labelControl6);
             this.groupControl2.Controls.Add(this.labelControl5);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl2.Location = new System.Drawing.Point(3, 0);
+            this.groupControl2.Location = new System.Drawing.Point(398, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(389, 142);

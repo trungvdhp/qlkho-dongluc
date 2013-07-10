@@ -40,6 +40,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             }
 
             dteNgayBatDau.EditValue = DateTime.Now;
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void grvPhieuNhap_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

@@ -17,14 +17,14 @@ namespace QLK_DongLuc.Controllers
             var ecr = Properties.Settings.Default.SSAP;
             var key = "3/3JysB9VLsqWAE35jXoy7Hf6GtSRlFJO9tcP9pm1SPKXU0zfZKIXHLSa+8wkgBQe8bDfeBI2GoS6obZlcKrZw==";
 
-            return Utilities.DeCryptMD5(ecr, key);
+            return Utils.DeCryptMD5(ecr, key);
         }
 
         public static string EnCryptPass(string pass)
         {
             var key = "3/3JysB9VLsqWAE35jXoy7Hf6GtSRlFJO9tcP9pm1SPKXU0zfZKIXHLSa+8wkgBQe8bDfeBI2GoS6obZlcKrZw==";
 
-            return Utilities.EnCryptMD5(pass, key);
+            return Utils.EnCryptMD5(pass, key);
         }
 
         public static string GetConnectionString()

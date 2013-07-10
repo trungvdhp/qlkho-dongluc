@@ -95,7 +95,8 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
             db = new Entities();
-            gridControl_Load(); 
+            gridControl_Load();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
