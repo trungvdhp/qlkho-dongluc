@@ -16,8 +16,8 @@ namespace QLK_DongLuc.Models
     {
         public SYS_ThuocTinh()
         {
-            this.SYS_LoaiDieuKhien = new HashSet<SYS_LoaiDieuKhien>();
             this.SYS_VaiTroQuyen = new HashSet<SYS_VaiTroQuyen>();
+            this.SYS_LoaiDieuKhien = new HashSet<SYS_LoaiDieuKhien>();
         }
     
         public int ID_thuoc_tinh { get; set; }
@@ -25,7 +25,7 @@ namespace QLK_DongLuc.Models
         public string Ten_thuoc_tinh { get; set; }
         public int Loai_gia_tri { get; set; }
     
-        public virtual ICollection<SYS_LoaiDieuKhien> SYS_LoaiDieuKhien { get; set; }
         public virtual ICollection<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
+        public virtual ICollection<SYS_LoaiDieuKhien> SYS_LoaiDieuKhien { get; set; }
     }
 }

@@ -33,6 +33,7 @@
             this.ControlTreeOld = new DevExpress.XtraTreeList.TreeList();
             this.colTextOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNameOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colTypeOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.sYSQuyenBindingSourceOld = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
@@ -43,6 +44,7 @@
             this.ControlTreeNew = new DevExpress.XtraTreeList.TreeList();
             this.colTextNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNameNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colTypeNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.sYSQuyenBindingSourceNew = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnCollapseAllNew = new DevExpress.XtraEditors.SimpleButton();
@@ -50,8 +52,8 @@
             this.btnDeleteNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnScanControls = new DevExpress.XtraEditors.SimpleButton();
-            this.colTypeNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colTypeOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRootOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRootNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ControlTreeOld)).BeginInit();
@@ -85,7 +87,8 @@
             this.ControlTreeOld.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colTextOld,
             this.colNameOld,
-            this.colTypeOld});
+            this.colTypeOld,
+            this.colRootOld});
             this.ControlTreeOld.DataSource = this.sYSQuyenBindingSourceOld;
             this.ControlTreeOld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlTreeOld.KeyFieldName = "ID_quyen";
@@ -133,6 +136,15 @@
             this.colNameOld.Visible = true;
             this.colNameOld.VisibleIndex = 1;
             this.colNameOld.Width = 100;
+            // 
+            // colTypeOld
+            // 
+            this.colTypeOld.Caption = "Type";
+            this.colTypeOld.FieldName = "Loai_dieu_khien";
+            this.colTypeOld.Name = "colTypeOld";
+            this.colTypeOld.OptionsColumn.ReadOnly = true;
+            this.colTypeOld.Visible = true;
+            this.colTypeOld.VisibleIndex = 2;
             // 
             // sYSQuyenBindingSourceOld
             // 
@@ -201,7 +213,8 @@
             this.ControlTreeNew.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colTextNew,
             this.colNameNew,
-            this.colTypeNew});
+            this.colTypeNew,
+            this.colRootNew});
             this.ControlTreeNew.DataSource = this.sYSQuyenBindingSourceNew;
             this.ControlTreeNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlTreeNew.KeyFieldName = "ID_quyen";
@@ -251,6 +264,15 @@
             this.colNameNew.Visible = true;
             this.colNameNew.VisibleIndex = 1;
             this.colNameNew.Width = 100;
+            // 
+            // colTypeNew
+            // 
+            this.colTypeNew.Caption = "Type";
+            this.colTypeNew.FieldName = "Loai_dieu_khien";
+            this.colTypeNew.Name = "colTypeNew";
+            this.colTypeNew.OptionsColumn.ReadOnly = true;
+            this.colTypeNew.Visible = true;
+            this.colTypeNew.VisibleIndex = 2;
             // 
             // sYSQuyenBindingSourceNew
             // 
@@ -314,23 +336,23 @@
             this.btnScanControls.Text = "Quét mã";
             this.btnScanControls.Click += new System.EventHandler(this.btnScanControls_Click);
             // 
-            // colTypeNew
+            // colRootOld
             // 
-            this.colTypeNew.Caption = "Type";
-            this.colTypeNew.FieldName = "Loai_dieu_khien";
-            this.colTypeNew.Name = "colTypeNew";
-            this.colTypeNew.OptionsColumn.ReadOnly = true;
-            this.colTypeNew.Visible = true;
-            this.colTypeNew.VisibleIndex = 2;
+            this.colRootOld.Caption = "Gốc";
+            this.colRootOld.FieldName = "ID_goc";
+            this.colRootOld.Name = "colRootOld";
+            this.colRootOld.Visible = true;
+            this.colRootOld.VisibleIndex = 3;
+            this.colRootOld.Width = 40;
             // 
-            // colTypeOld
+            // colRootNew
             // 
-            this.colTypeOld.Caption = "Type";
-            this.colTypeOld.FieldName = "Loai_dieu_khien";
-            this.colTypeOld.Name = "colTypeOld";
-            this.colTypeOld.OptionsColumn.ReadOnly = true;
-            this.colTypeOld.Visible = true;
-            this.colTypeOld.VisibleIndex = 2;
+            this.colRootNew.Caption = "Gốc";
+            this.colRootNew.FieldName = "ID_goc";
+            this.colRootNew.Name = "colRootNew";
+            this.colRootNew.Visible = true;
+            this.colRootNew.VisibleIndex = 3;
+            this.colRootNew.Width = 40;
             // 
             // frmQuyen
             // 
@@ -381,6 +403,8 @@
         private DevExpress.XtraEditors.SimpleButton btnExpandAllNew;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colTypeOld;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colTypeNew;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colRootOld;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colRootNew;
 
 
     }

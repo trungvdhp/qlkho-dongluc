@@ -24,6 +24,7 @@ namespace QLK_DongLuc.Models
         public string Ma_quyen { get; set; }
         public string Ten_quyen { get; set; }
         public string Loai_dieu_khien { get; set; }
+        public Nullable<int> ID_goc { get; set; }
     
         public virtual ICollection<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
     }
