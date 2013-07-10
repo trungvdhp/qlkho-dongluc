@@ -35,6 +35,8 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void gridControl_Load()
         {
             KhachHangCtrl.LoadBindingSource(cATKhachHangBindingSource);
+            Utils.ReconfigGridView(gridView);
+            
         }
 
         private void InsertCommand()
@@ -97,6 +99,7 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             db = new Entities();
             gridControl_Load();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
@@ -142,10 +145,10 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void gridControl_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && gridView.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
                 DeleteCommand();
 
-            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
+            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && gridView.OptionsBehavior.Editable == true)
             {
                 gridView.CloseEditor();
                 gridView.UpdateCurrentRow();

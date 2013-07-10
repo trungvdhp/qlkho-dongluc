@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
@@ -45,6 +46,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = DateTime.Now;
+
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
@@ -156,7 +159,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
-            Utilities.ResetControls(this);
+            Utils.ResetControls(this);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
@@ -230,6 +233,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
         {
             InitForm();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
     }
 }

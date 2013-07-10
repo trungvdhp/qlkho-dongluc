@@ -31,7 +31,7 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_day_du = Ten_day_du;
             entity.ID_trang_thai = ID_trang_thai;
             entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
-            entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
+            entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
 
             if (ID_nhan_vien != null) entity.ID_nhan_vien = (int?)ID_nhan_vien;
 
@@ -53,7 +53,7 @@ namespace QLK_DongLuc.Controllers
             entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
 
             if(Mat_khau != "") 
-                entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
+                entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
 
             return db.SaveChanges();
         }
@@ -69,7 +69,7 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_day_du = Ten_day_du;
 
             if (Mat_khau != "") 
-                entity.Mat_khau = Utilities.CreateSHAHash(Mat_khau);
+                entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
 
             int rs = db.SaveChanges();
 
@@ -113,7 +113,7 @@ namespace QLK_DongLuc.Controllers
             {
                 if (db == null) db = new Entities();
 
-                string pass = Utilities.CreateSHAHash(Mat_khau);
+                string pass = Utils.CreateSHAHash(Mat_khau);
 
                 var user = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
 

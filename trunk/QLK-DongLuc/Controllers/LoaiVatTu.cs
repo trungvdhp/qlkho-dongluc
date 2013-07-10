@@ -21,6 +21,7 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.Properties.NullText = "";
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
 		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_nhom_vat_tu, Entities db = null)
 		{
@@ -33,6 +34,7 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.Properties.NullText = "";
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
 
 		/// <summary>
@@ -55,6 +57,7 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.Properties.NullText = "";
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
 	}
 }

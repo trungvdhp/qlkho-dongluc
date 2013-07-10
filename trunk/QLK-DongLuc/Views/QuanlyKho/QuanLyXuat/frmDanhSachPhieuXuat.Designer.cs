@@ -274,6 +274,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmDanhSachPhieuXuat";
             this.Text = "frmDanhSachPhieuXuat";
+            this.Load += new System.EventHandler(this.frmDanhSachPhieuXuat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -17,7 +17,7 @@ namespace QLK_DongLuc.Models
         public SYS_VaiTro()
         {
             this.SYS_NguoiDung = new HashSet<SYS_NguoiDung>();
-            this.SYS_Quyen = new HashSet<SYS_Quyen>();
+            this.SYS_VaiTroQuyen = new HashSet<SYS_VaiTroQuyen>();
         }
     
         public int ID_vai_tro { get; set; }
@@ -25,6 +25,6 @@ namespace QLK_DongLuc.Models
         public string Mo_ta { get; set; }
     
         public virtual ICollection<SYS_NguoiDung> SYS_NguoiDung { get; set; }
-        public virtual ICollection<SYS_Quyen> SYS_Quyen { get; set; }
+        public virtual ICollection<SYS_VaiTroQuyen> SYS_VaiTroQuyen { get; set; }
     }
 }

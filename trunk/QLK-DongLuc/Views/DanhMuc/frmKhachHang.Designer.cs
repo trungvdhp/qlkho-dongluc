@@ -72,6 +72,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 361);
             this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.Tag = "Bảng khung danh sách khách hàng";
             // 
             // gridControl
             // 
@@ -86,6 +87,7 @@
             this.repositoryItemSpinEdit2});
             this.gridControl.Size = new System.Drawing.Size(758, 285);
             this.gridControl.TabIndex = 3;
+            this.gridControl.Tag = "Lưới danh sách khách hàng";
             this.gridControl.UseEmbeddedNavigator = true;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView,
@@ -104,12 +106,12 @@
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.NewItemRowText = "Thêm mới dữ liệu tại đây";
-            this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsCustomization.AllowFilter = false;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridView.OptionsView.ShowAutoFilterRow = true;
-            this.gridView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            this.gridView.ViewCaption = "Khung nhìn lưới danh sách khách hàng";
             this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
             // 

@@ -50,6 +50,8 @@
             this.btnDeleteNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnScanControls = new DevExpress.XtraEditors.SimpleButton();
+            this.colTypeNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colTypeOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ControlTreeOld)).BeginInit();
@@ -82,7 +84,8 @@
             // 
             this.ControlTreeOld.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colTextOld,
-            this.colNameOld});
+            this.colNameOld,
+            this.colTypeOld});
             this.ControlTreeOld.DataSource = this.sYSQuyenBindingSourceOld;
             this.ControlTreeOld.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlTreeOld.KeyFieldName = "ID_quyen";
@@ -129,7 +132,7 @@
             this.colNameOld.OptionsColumn.ReadOnly = true;
             this.colNameOld.Visible = true;
             this.colNameOld.VisibleIndex = 1;
-            this.colNameOld.Width = 165;
+            this.colNameOld.Width = 100;
             // 
             // sYSQuyenBindingSourceOld
             // 
@@ -197,7 +200,8 @@
             // 
             this.ControlTreeNew.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colTextNew,
-            this.colNameNew});
+            this.colNameNew,
+            this.colTypeNew});
             this.ControlTreeNew.DataSource = this.sYSQuyenBindingSourceNew;
             this.ControlTreeNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ControlTreeNew.KeyFieldName = "ID_quyen";
@@ -246,7 +250,7 @@
             this.colNameNew.OptionsColumn.ReadOnly = true;
             this.colNameNew.Visible = true;
             this.colNameNew.VisibleIndex = 1;
-            this.colNameNew.Width = 165;
+            this.colNameNew.Width = 100;
             // 
             // sYSQuyenBindingSourceNew
             // 
@@ -310,6 +314,24 @@
             this.btnScanControls.Text = "Quét mã";
             this.btnScanControls.Click += new System.EventHandler(this.btnScanControls_Click);
             // 
+            // colTypeNew
+            // 
+            this.colTypeNew.Caption = "Type";
+            this.colTypeNew.FieldName = "Loai_dieu_khien";
+            this.colTypeNew.Name = "colTypeNew";
+            this.colTypeNew.OptionsColumn.ReadOnly = true;
+            this.colTypeNew.Visible = true;
+            this.colTypeNew.VisibleIndex = 2;
+            // 
+            // colTypeOld
+            // 
+            this.colTypeOld.Caption = "Type";
+            this.colTypeOld.FieldName = "Loai_dieu_khien";
+            this.colTypeOld.Name = "colTypeOld";
+            this.colTypeOld.OptionsColumn.ReadOnly = true;
+            this.colTypeOld.Visible = true;
+            this.colTypeOld.VisibleIndex = 2;
+            // 
             // frmQuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,6 +379,8 @@
         private DevExpress.XtraEditors.SimpleButton btnExpandAllOld;
         private DevExpress.XtraEditors.SimpleButton btnCollapseAllNew;
         private DevExpress.XtraEditors.SimpleButton btnExpandAllNew;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colTypeOld;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colTypeNew;
 
 
     }

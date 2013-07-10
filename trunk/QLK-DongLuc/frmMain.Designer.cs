@@ -592,7 +592,6 @@
             this.btnQuyen.Caption = "Quyền";
             this.btnQuyen.Id = 95;
             this.btnQuyen.Name = "btnQuyen";
-            this.btnQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuyen_ItemClick);
             // 
             // btnVaiTro
@@ -600,7 +599,6 @@
             this.btnVaiTro.Caption = "Vai trò";
             this.btnVaiTro.Id = 96;
             this.btnVaiTro.Name = "btnVaiTro";
-            this.btnVaiTro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnVaiTro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnVaiTro_ItemClick);
             // 
             // btnPhanQuyen
@@ -608,7 +606,7 @@
             this.btnPhanQuyen.Caption = "Phân quyền";
             this.btnPhanQuyen.Id = 97;
             this.btnPhanQuyen.Name = "btnPhanQuyen";
-            this.btnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhanQuyen_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 

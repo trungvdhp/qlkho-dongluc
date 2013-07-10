@@ -92,6 +92,7 @@ namespace QLK_DongLuc.Views.HeThong
         {
             db = new Entities();
             btnLamLai.PerformClick();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void txtMatKhauXacNhan_KeyDown(object sender, KeyEventArgs e)

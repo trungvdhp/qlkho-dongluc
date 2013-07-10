@@ -43,7 +43,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
         }
         private void frmXuatThanhLy_Load(object sender, EventArgs e)
         {
-
+            VaiTroQuyenCtrl.ReconfigFormControls(this);
         }
 
         private void grvPhieuxuatCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)

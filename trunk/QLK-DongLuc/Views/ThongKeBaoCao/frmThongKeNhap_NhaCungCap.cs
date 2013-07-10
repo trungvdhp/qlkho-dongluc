@@ -32,8 +32,10 @@ namespace QLK_DongLuc.Views.ThongKeBaoCao
 
         private void frmThongKeNhap_NhaCungCap_Load(object sender, EventArgs e)
         {
+            db = new Entities();
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             dteTuNgay.EditValue = dteDenNgay.EditValue = DateTime.Now;
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)

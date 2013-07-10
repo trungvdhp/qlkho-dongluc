@@ -102,6 +102,7 @@ namespace QLK_DongLuc.Views.HeThong
         {
             db = new Entities();
             NguoiDungCtrl.LoadBindingSource(viewNguoiDungBindingSource, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
     }
 }

@@ -7,6 +7,7 @@ using QLK_DongLuc.Models;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Views.HeThong;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Views.DanhMuc;
 
 namespace QLK_DongLuc
 {
@@ -29,11 +30,11 @@ namespace QLK_DongLuc
             {
                 ConnectionString = KetNoiCSDLCtrl.GetConnectionString();
                 Entities db = new Entities();
-                db.Database.Connection.Open();
+                var t = db.IMP_LoaiNhap.ToList();
             }
-            catch
+            catch(Exception ex)
             {
-                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ", "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ.\n" + ex.ToString(), "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 QLK_DongLuc.Views.HeThong.frmCauHinh frm = new QLK_DongLuc.Views.HeThong.frmCauHinh();
 
                 if (frm.ShowDialog() == DialogResult.OK)

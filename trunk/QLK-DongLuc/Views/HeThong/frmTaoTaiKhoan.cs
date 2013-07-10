@@ -126,9 +126,9 @@ namespace QLK_DongLuc.Views.HeThong
 
         private void frmTaoTaiKhoan_Load(object sender, EventArgs e)
         {
-
             db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVien, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
     }
 }

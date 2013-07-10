@@ -29,6 +29,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhân viên";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static int Insert(object Ho_dem, object Ten, object Gioi_tinh, object Ngay_sinh, object CMND, object Ngay_Cap, object Noi_cap, object Dien_thoai, object Dia_chi, object Email, Entities db = null)
@@ -131,6 +132,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhân viên";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
     }
 }

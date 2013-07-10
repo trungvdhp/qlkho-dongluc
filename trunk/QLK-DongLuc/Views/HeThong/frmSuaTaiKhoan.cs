@@ -118,6 +118,7 @@ namespace QLK_DongLuc.Views.HeThong
         private void frmSuaTaiKhoan_Load(object sender, EventArgs e)
         {
             btnLamLai.PerformClick();
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
     }
 }

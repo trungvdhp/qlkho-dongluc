@@ -71,7 +71,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
 
         private void LapPhieuXuatMoi_Load(object sender, EventArgs e)
         {
-
+            VaiTroQuyenCtrl.ReconfigFormControls(this);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

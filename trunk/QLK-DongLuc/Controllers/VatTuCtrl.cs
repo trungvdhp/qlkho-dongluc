@@ -37,6 +37,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
@@ -58,6 +59,7 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.NullText = "";
             gridLookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
             gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         //public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)

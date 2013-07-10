@@ -21,7 +21,7 @@ namespace QLK_DongLuc.Controllers
         {
             if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
-            lookUpEdit.Properties.DataSource = db.ViewCboKhachHang.ToList();
+            lookUpEdit.Properties.DataSource = db.SYS_VaiTro.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vai_tro", "Vai trò"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Mo_ta", "Mô tả"));
             lookUpEdit.Properties.DisplayMember = "Ten_vai_tro";
@@ -29,6 +29,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.NullText = "";
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn vai trò người dùng";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static int Insert(object Ten_vai_tro, object Mo_ta, Entities db = null)

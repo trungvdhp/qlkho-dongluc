@@ -98,7 +98,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 412);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 412);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -114,7 +114,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1008, 375);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(993, 375);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // grdPhieuNhap
@@ -131,7 +131,7 @@
             this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
-            this.grdPhieuNhap.Size = new System.Drawing.Size(702, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(687, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -277,7 +277,7 @@
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(711, 3);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(696, 3);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -414,7 +414,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1008, 37);
+            this.panel1.Size = new System.Drawing.Size(993, 37);
             this.panel1.TabIndex = 2;
             // 
             // btnThoat
@@ -422,7 +422,7 @@
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnThoat.Location = new System.Drawing.Point(979, 8);
+            this.btnThoat.Location = new System.Drawing.Point(964, 8);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(25, 25);
             this.btnThoat.TabIndex = 20;
@@ -550,7 +550,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 412);
+            this.ClientSize = new System.Drawing.Size(993, 412);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmPhieuNhap";
             this.Text = "Danh sách phiếu nhập";
