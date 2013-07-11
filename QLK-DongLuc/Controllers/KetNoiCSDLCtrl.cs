@@ -12,6 +12,12 @@ namespace QLK_DongLuc.Controllers
 {
     public class KetNoiCSDLCtrl
     {
+        public static DateTime GetDatabaseDate()
+        {
+            Entities db = new Entities();
+            return db.Database.SqlQuery<DateTime>("SELECT GetDate()").First();
+        }
+
         private static string DeCryptPass()
         {
             var ecr = Properties.Settings.Default.SSAP;
@@ -46,7 +52,7 @@ namespace QLK_DongLuc.Controllers
 
             try
             {
-                var databases = db.Database.SqlQuery<string>("select [name] from sys.databases").ToList();
+                var databases = db.Database.SqlQuery<string>("SELECT [name] FROM sys.databases").ToList();
 
                 return databases;
             }

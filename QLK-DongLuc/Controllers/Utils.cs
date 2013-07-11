@@ -159,7 +159,7 @@ namespace QLK_DongLuc.Controllers
                 }
                 else if (control is DateEdit)
                 {
-                    (control as DateEdit).EditValue = DateTime.Now;
+                    (control as DateEdit).EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
                 }
                 else if (control is GridControl)
                 {

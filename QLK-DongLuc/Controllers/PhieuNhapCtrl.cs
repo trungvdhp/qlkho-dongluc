@@ -20,7 +20,7 @@ namespace QLK_DongLuc.Controllers
             DateTime d;
 
             if(date == null || date.Equals("")) 
-                d = DateTime.Now;
+                d = KetNoiCSDLCtrl.GetDatabaseDate();
             else
                 d = (DateTime)date;
 
@@ -88,7 +88,7 @@ namespace QLK_DongLuc.Controllers
                 entity.Ngay_nhap = (DateTime)Ngay_nhap;
 
             entity.ID_nguoi_sua = Program.CurrentUser.ID_nguoi_dung;
-            entity.Ngay_sua = DateTime.Now;
+            entity.Ngay_sua = KetNoiCSDLCtrl.GetDatabaseDate();
             entity.Trang_thai = 0;
             entity.ID_loai_nhap = ID_loai_nhap;
 
@@ -186,7 +186,7 @@ namespace QLK_DongLuc.Controllers
                     pn.Ngay_nhap = (DateTime)Ngay_nhap;
 
                 pn.ID_nguoi_sua = Program.CurrentUser.ID_nguoi_dung;
-                pn.Ngay_sua = DateTime.Now;
+                pn.Ngay_sua = KetNoiCSDLCtrl.GetDatabaseDate();
                 //pn.ID_loai_nhap = ID_loai_nhap;
 
                 if (ID_loai_nhap == 2)
