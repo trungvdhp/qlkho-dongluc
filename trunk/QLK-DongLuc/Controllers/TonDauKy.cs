@@ -19,7 +19,7 @@ namespace QLK_DongLuc.Controllers
 				{
 					ID_kho = ID_kho,
 					ID_nhan_vien = ID_nhan_vien,
-					Ky = DateTime.Now
+                    Ky = KetNoiCSDLCtrl.GetDatabaseDate()
 				};
 				var ton = db.STO_KhoVatTuCT.Where(t => t.ID_kho == ID_kho).ToList();
 				foreach (var vt in ton)

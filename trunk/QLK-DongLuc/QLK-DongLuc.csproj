@@ -328,12 +328,6 @@
     <Compile Include="Views\HeThong\frmNguoiDung.Designer.cs">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmNhatKy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\HeThong\frmNhatKy.Designer.cs">
-      <DependentUpon>frmNhatKy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\HeThong\frmQuyen.cs">
       <SubType>Form</SubType>
     </Compile>

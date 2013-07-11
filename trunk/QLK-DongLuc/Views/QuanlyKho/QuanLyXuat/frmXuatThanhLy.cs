@@ -39,7 +39,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             KhoVatTuCtrl.LoadLookUpEdit(leKhoxuat, db);
             //
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            dtNgayxuat.EditValue = DateTime.Now;
+            dtNgayxuat.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
         }
         private void frmXuatThanhLy_Load(object sender, EventArgs e)
         {
@@ -182,7 +182,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyXuat
             leNhanvienxuat.Reset();
             mmGhichu.Text = "";
             grvPhieuxuatCT.RefreshData();
-            dtNgayxuat.EditValue = DateTime.Now;
+            dtNgayxuat.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

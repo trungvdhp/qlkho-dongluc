@@ -45,7 +45,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             }
 
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            dteNgayNhap.EditValue = DateTime.Now;
+            dteNgayNhap.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
 
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }

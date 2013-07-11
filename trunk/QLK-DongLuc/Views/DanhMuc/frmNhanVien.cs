@@ -138,7 +138,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             var Ngay_sinh = gridView.GetRowCellValue(e.RowHandle, "Ngay_sinh");
 
-            if (Ngay_sinh == null || (DateTime.Now.Year - ((DateTime)Ngay_sinh).Year <= 15))
+            if (Ngay_sinh == null || (KetNoiCSDLCtrl.GetDatabaseDate().Year - ((DateTime)Ngay_sinh).Year <= 15))
             {
                 bError = true;
                 sError += "\n Nhập ngày tháng không đúng. ";

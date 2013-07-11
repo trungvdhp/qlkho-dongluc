@@ -86,7 +86,7 @@ namespace QLK_DongLuc.Controllers
             entity.Tong_tien = Tong_tien;
             entity.Ghi_chu = Ghi_chu.ToString();
             entity.Trang_thai = (int)Trang_thai;
-            entity.Ngay_sua = DateTime.Now;
+            entity.Ngay_sua = KetNoiCSDLCtrl.GetDatabaseDate();
             entity.ID_nguoi_sua = (int)ID_nguoi_sua;
            // add đôi tượng khởi tạo và trong model
             string st = "Ma hoa don:" + entity.Ma_hoa_don+"Loai xuat:"+entity.ID_loai_xuat+"Ngay xuat:"+entity.Ngay_xuat+"tong tien: "+entity.Tong_tien;
@@ -181,7 +181,7 @@ namespace QLK_DongLuc.Controllers
             DateTime d;
 
             if (date == null || date.Equals(""))
-                d = DateTime.Now;
+                d = KetNoiCSDLCtrl.GetDatabaseDate();
             else
                 d = (DateTime)date;
 

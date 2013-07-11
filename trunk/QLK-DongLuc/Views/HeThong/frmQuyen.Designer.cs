@@ -34,6 +34,7 @@
             this.colTextOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNameOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colTypeOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRootOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.sYSQuyenBindingSourceOld = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
@@ -45,6 +46,7 @@
             this.colTextNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNameNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colTypeNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRootNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.sYSQuyenBindingSourceNew = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnCollapseAllNew = new DevExpress.XtraEditors.SimpleButton();
@@ -52,8 +54,6 @@
             this.btnDeleteNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnScanControls = new DevExpress.XtraEditors.SimpleButton();
-            this.colRootOld = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colRootNew = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ControlTreeOld)).BeginInit();
@@ -98,7 +98,6 @@
             this.ControlTreeOld.OptionsBehavior.AllowIndeterminateCheckState = true;
             this.ControlTreeOld.OptionsBehavior.AllowRecursiveNodeChecking = true;
             this.ControlTreeOld.OptionsBehavior.AutoMoveRowFocus = true;
-            this.ControlTreeOld.OptionsBehavior.Editable = false;
             this.ControlTreeOld.OptionsBehavior.EnableFiltering = true;
             this.ControlTreeOld.OptionsBehavior.EnterMovesNextColumn = true;
             this.ControlTreeOld.OptionsBehavior.ExpandNodesOnIncrementalSearch = true;
@@ -108,6 +107,7 @@
             this.ControlTreeOld.OptionsPrint.PrintAllNodes = true;
             this.ControlTreeOld.OptionsPrint.PrintFilledTreeIndent = true;
             this.ControlTreeOld.OptionsPrint.PrintPreview = true;
+            this.ControlTreeOld.OptionsSelection.MultiSelect = true;
             this.ControlTreeOld.OptionsView.ShowAutoFilterRow = true;
             this.ControlTreeOld.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.ShowAlways;
             this.ControlTreeOld.OptionsView.ShowPreview = true;
@@ -121,7 +121,6 @@
             this.colTextOld.FieldName = "Ten_quyen";
             this.colTextOld.MinWidth = 32;
             this.colTextOld.Name = "colTextOld";
-            this.colTextOld.OptionsColumn.ReadOnly = true;
             this.colTextOld.Visible = true;
             this.colTextOld.VisibleIndex = 0;
             this.colTextOld.Width = 300;
@@ -145,6 +144,19 @@
             this.colTypeOld.OptionsColumn.ReadOnly = true;
             this.colTypeOld.Visible = true;
             this.colTypeOld.VisibleIndex = 2;
+            // 
+            // colRootOld
+            // 
+            this.colRootOld.AppearanceCell.Options.UseTextOptions = true;
+            this.colRootOld.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colRootOld.Caption = "Group";
+            this.colRootOld.FieldName = "ID_goc";
+            this.colRootOld.Name = "colRootOld";
+            this.colRootOld.OptionsColumn.FixedWidth = true;
+            this.colRootOld.OptionsColumn.ReadOnly = true;
+            this.colRootOld.Visible = true;
+            this.colRootOld.VisibleIndex = 3;
+            this.colRootOld.Width = 50;
             // 
             // sYSQuyenBindingSourceOld
             // 
@@ -224,7 +236,6 @@
             this.ControlTreeNew.OptionsBehavior.AllowIndeterminateCheckState = true;
             this.ControlTreeNew.OptionsBehavior.AllowRecursiveNodeChecking = true;
             this.ControlTreeNew.OptionsBehavior.AutoMoveRowFocus = true;
-            this.ControlTreeNew.OptionsBehavior.Editable = false;
             this.ControlTreeNew.OptionsBehavior.EnableFiltering = true;
             this.ControlTreeNew.OptionsBehavior.EnterMovesNextColumn = true;
             this.ControlTreeNew.OptionsBehavior.ExpandNodesOnIncrementalSearch = true;
@@ -249,7 +260,6 @@
             this.colTextNew.FieldName = "Ten_quyen";
             this.colTextNew.MinWidth = 32;
             this.colTextNew.Name = "colTextNew";
-            this.colTextNew.OptionsColumn.ReadOnly = true;
             this.colTextNew.Visible = true;
             this.colTextNew.VisibleIndex = 0;
             this.colTextNew.Width = 300;
@@ -273,6 +283,19 @@
             this.colTypeNew.OptionsColumn.ReadOnly = true;
             this.colTypeNew.Visible = true;
             this.colTypeNew.VisibleIndex = 2;
+            // 
+            // colRootNew
+            // 
+            this.colRootNew.AppearanceCell.Options.UseTextOptions = true;
+            this.colRootNew.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colRootNew.Caption = "Group";
+            this.colRootNew.FieldName = "ID_goc";
+            this.colRootNew.Name = "colRootNew";
+            this.colRootNew.OptionsColumn.FixedWidth = true;
+            this.colRootNew.OptionsColumn.ReadOnly = true;
+            this.colRootNew.Visible = true;
+            this.colRootNew.VisibleIndex = 3;
+            this.colRootNew.Width = 50;
             // 
             // sYSQuyenBindingSourceNew
             // 
@@ -335,24 +358,6 @@
             this.btnScanControls.TabIndex = 12;
             this.btnScanControls.Text = "Quét mã";
             this.btnScanControls.Click += new System.EventHandler(this.btnScanControls_Click);
-            // 
-            // colRootOld
-            // 
-            this.colRootOld.Caption = "Gốc";
-            this.colRootOld.FieldName = "ID_goc";
-            this.colRootOld.Name = "colRootOld";
-            this.colRootOld.Visible = true;
-            this.colRootOld.VisibleIndex = 3;
-            this.colRootOld.Width = 40;
-            // 
-            // colRootNew
-            // 
-            this.colRootNew.Caption = "Gốc";
-            this.colRootNew.FieldName = "ID_goc";
-            this.colRootNew.Name = "colRootNew";
-            this.colRootNew.Visible = true;
-            this.colRootNew.VisibleIndex = 3;
-            this.colRootNew.Width = 40;
             // 
             // frmQuyen
             // 

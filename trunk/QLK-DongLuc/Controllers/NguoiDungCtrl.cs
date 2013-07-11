@@ -126,7 +126,7 @@ namespace QLK_DongLuc.Controllers
                     else
                         return null;
 
-                    user.Lan_dang_nhap_cuoi = DateTime.Now;
+                    user.Lan_dang_nhap_cuoi = KetNoiCSDLCtrl.GetDatabaseDate();
 
                     if (db.SaveChanges() == 0) return null;
                 }

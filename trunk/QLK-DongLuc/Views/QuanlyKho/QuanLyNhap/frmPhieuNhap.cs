@@ -39,7 +39,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 btnNhapMoi.Visible = false;
             }
 
-            dteNgayBatDau.EditValue = DateTime.Now;
+            dteNgayBatDau.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
