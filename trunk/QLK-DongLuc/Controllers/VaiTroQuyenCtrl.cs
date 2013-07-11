@@ -74,6 +74,140 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
+        public static int Inherit(int ID_parent, int ID_child, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var children = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_child);
+            var parent = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_parent);
+
+            foreach (var entity in parent)
+            {
+                if (children.FirstOrDefault(t => t.ID_quyen == entity.ID_quyen && t.ID_thuoc_tinh == entity.ID_thuoc_tinh) == null)
+                {
+                    db.SYS_VaiTroQuyen.Add(new SYS_VaiTroQuyen
+                    {
+                        ID_vai_tro = ID_child,
+                        ID_quyen = entity.ID_quyen,
+                        ID_thuoc_tinh = entity.ID_thuoc_tinh,
+                        Gia_tri = entity.Gia_tri
+                    });
+                }
+            }
+
+            return db.SaveChanges();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ID_parent"></param>
+        /// <param name="ID_child"></param>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        public static int Copy(int ID_parent, int ID_child, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var children = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_child);
+            var parent = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_parent);
+            db.SYS_VaiTroQuyen.RemoveRange(children);
+
+            foreach (var entity in parent)
+            {
+                db.SYS_VaiTroQuyen.Add(new SYS_VaiTroQuyen
+                {
+                    ID_vai_tro = ID_child,
+                    ID_quyen = entity.ID_quyen,
+                    ID_thuoc_tinh = entity.ID_thuoc_tinh,
+                    Gia_tri = entity.Gia_tri
+                });
+            }
+
+            return db.SaveChanges();
+        }
+
+        public static int Inherit(int ID_vai_tro, int ID_quyen, List<SYS_Quyen> quyens, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            // Lấy quyền trong bảng quyền
+            var quyen = quyens.First(t => t.ID_quyen == ID_quyen);
+            // Lọc các quyền cùng loại với quyen
+            List<int> ids = quyens.Where(t => t.ID_quyen != quyen.ID_quyen && t.Loai_dieu_khien == quyen.Loai_dieu_khien).Select(t => t.ID_quyen).ToList();
+            // Lấy danh sách các thuộc tính của các quyền nằm trong danh sách quyens
+            var t1 = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && ids.Contains(t.ID_quyen));
+            // Lấy danh sách các thuộc tính của quyền để kế thừa
+            var t2 = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && t.ID_quyen == ID_quyen);
+            quyens = quyens.Where(t => t.ID_quyen != ID_quyen).ToList();
+            // Gán các thuộc tính của quyền cho các quyền khác
+            foreach (var entity in t2)
+            {
+                foreach(var id in ids)
+                {
+                    if (t1.FirstOrDefault(t => t.ID_quyen == id && t.ID_thuoc_tinh == entity.ID_thuoc_tinh) == null)
+                    {
+                        db.SYS_VaiTroQuyen.Add(new SYS_VaiTroQuyen
+                        {
+                            ID_vai_tro = ID_vai_tro,
+                            ID_quyen = id,
+                            ID_thuoc_tinh = entity.ID_thuoc_tinh,
+                            Gia_tri = entity.Gia_tri
+                        });
+                    }
+                }
+            }
+
+            return db.SaveChanges();
+        }
+
+        public static int Copy(int ID_vai_tro, int ID_quyen, List<SYS_Quyen> quyens, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            // Lấy quyền trong bảng quyền
+            var quyen = quyens.First(t => t.ID_quyen == ID_quyen);
+            // Lọc các quyền cùng loại với quyen
+            List<int> ids = quyens.Where(t => t.ID_quyen != quyen.ID_quyen && t.Loai_dieu_khien == quyen.Loai_dieu_khien).Select(t => t.ID_quyen).ToList();
+            // Lấy danh sách các thuộc tính của các quyền nằm trong danh sách quyens
+            var t1 = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && ids.Contains(t.ID_quyen));
+            // Lấy danh sách các thuộc tính của quyền để kế thừa
+            var t2 = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro && t.ID_quyen == ID_quyen);
+            quyens = quyens.Where(t => t.ID_quyen != ID_quyen).ToList();
+            // Gán các thuộc tính của quyền cho các quyền khác
+
+            foreach (var id in ids)
+            {
+                // Xóa hết các thuộc tính cũ
+                db.SYS_VaiTroQuyen.RemoveRange(t1.Where(t => t.ID_quyen == id));
+                // Thêm các thuộc tính mới
+                foreach (var entity in t2)
+                {
+                    db.SYS_VaiTroQuyen.Add(new SYS_VaiTroQuyen
+                    {
+                        ID_vai_tro = ID_vai_tro,
+                        ID_quyen = id,
+                        ID_thuoc_tinh = entity.ID_thuoc_tinh,
+                        Gia_tri = entity.Gia_tri
+                    });
+                }
+            }
+
+            return db.SaveChanges();
+        }
+
+        public static int ClearAllProperties(int ID_vai_tro, List<SYS_Quyen> quyens, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            var t1 = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro);
+
+            foreach (var quyen in quyens)
+            {
+                db.SYS_VaiTroQuyen.RemoveRange(t1.Where(t => t.ID_quyen == quyen.ID_quyen));
+            }
+
+            return db.SaveChanges();
+        }
+
         public static void ReconfigFormControls(XtraForm form, Entities db = null)
         {
             if (db == null) db = new Entities();

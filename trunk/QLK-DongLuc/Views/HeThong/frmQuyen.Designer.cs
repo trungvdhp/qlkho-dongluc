@@ -117,7 +117,9 @@
             // 
             // colTextOld
             // 
-            this.colTextOld.Caption = "Text";
+            this.colTextOld.AppearanceCell.Options.UseTextOptions = true;
+            this.colTextOld.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colTextOld.Caption = "Tên";
             this.colTextOld.FieldName = "Ten_quyen";
             this.colTextOld.MinWidth = 32;
             this.colTextOld.Name = "colTextOld";
@@ -127,7 +129,7 @@
             // 
             // colNameOld
             // 
-            this.colNameOld.Caption = "Name";
+            this.colNameOld.Caption = "Ký hiệu";
             this.colNameOld.FieldName = "Ma_quyen";
             this.colNameOld.MinWidth = 32;
             this.colNameOld.Name = "colNameOld";
@@ -138,7 +140,7 @@
             // 
             // colTypeOld
             // 
-            this.colTypeOld.Caption = "Type";
+            this.colTypeOld.Caption = "Loại";
             this.colTypeOld.FieldName = "Loai_dieu_khien";
             this.colTypeOld.Name = "colTypeOld";
             this.colTypeOld.OptionsColumn.ReadOnly = true;
@@ -149,7 +151,9 @@
             // 
             this.colRootOld.AppearanceCell.Options.UseTextOptions = true;
             this.colRootOld.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colRootOld.Caption = "Group";
+            this.colRootOld.AppearanceHeader.Options.UseTextOptions = true;
+            this.colRootOld.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colRootOld.Caption = "Nhóm";
             this.colRootOld.FieldName = "ID_goc";
             this.colRootOld.Name = "colRootOld";
             this.colRootOld.OptionsColumn.FixedWidth = true;
@@ -256,7 +260,9 @@
             // 
             // colTextNew
             // 
-            this.colTextNew.Caption = "Text";
+            this.colTextNew.AppearanceCell.Options.UseTextOptions = true;
+            this.colTextNew.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colTextNew.Caption = "Tên";
             this.colTextNew.FieldName = "Ten_quyen";
             this.colTextNew.MinWidth = 32;
             this.colTextNew.Name = "colTextNew";
@@ -266,7 +272,7 @@
             // 
             // colNameNew
             // 
-            this.colNameNew.Caption = "Name";
+            this.colNameNew.Caption = "Ký hiệu";
             this.colNameNew.FieldName = "Ma_quyen";
             this.colNameNew.MinWidth = 32;
             this.colNameNew.Name = "colNameNew";
@@ -277,7 +283,7 @@
             // 
             // colTypeNew
             // 
-            this.colTypeNew.Caption = "Type";
+            this.colTypeNew.Caption = "Loại";
             this.colTypeNew.FieldName = "Loai_dieu_khien";
             this.colTypeNew.Name = "colTypeNew";
             this.colTypeNew.OptionsColumn.ReadOnly = true;
@@ -288,7 +294,9 @@
             // 
             this.colRootNew.AppearanceCell.Options.UseTextOptions = true;
             this.colRootNew.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colRootNew.Caption = "Group";
+            this.colRootNew.AppearanceHeader.Options.UseTextOptions = true;
+            this.colRootNew.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colRootNew.Caption = "Nhóm";
             this.colRootNew.FieldName = "ID_goc";
             this.colRootNew.Name = "colRootNew";
             this.colRootNew.OptionsColumn.FixedWidth = true;

@@ -14,11 +14,28 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraBars;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace QLK_DongLuc.Controllers
 {
 	class Utils
 	{
+        public static List<T> GetVisibleNodesData<T>(TreeList tree)
+        {
+            List<T> list = new List<T>();
+
+            foreach (TreeListNode node in tree.Nodes)
+            {
+                if (node.Visible)
+                {
+                    list.Add((T)tree.GetDataRecordByNode(node));
+                }
+            }
+
+            return list;
+        }
+
         public static void ReconfigGridView(GridView gridView)
         {
             if (gridView.OptionsBehavior.AllowAddRows == DevExpress.Utils.DefaultBoolean.False)
@@ -46,15 +63,22 @@ namespace QLK_DongLuc.Controllers
 
         public static void SetValue(object component, string propertyPath, object value)
         {
-            object propValue = component;
-            var props = propertyPath.Split('.');
-
-            for (int i = 0; i < props.Length - 1; i++)
+            try
             {
-                propValue = TypeDescriptor.GetProperties(propValue)[props[i]].GetValue(propValue);
-            }
+                object propValue = component;
+                var props = propertyPath.Split('.');
 
-            TypeDescriptor.GetProperties(propValue)[props[props.Length - 1]].SetValue(propValue, value);
+                for (int i = 0; i < props.Length - 1; i++)
+                {
+                    propValue = TypeDescriptor.GetProperties(propValue)[props[i]].GetValue(propValue);
+                }
+
+                TypeDescriptor.GetProperties(propValue)[props[props.Length - 1]].SetValue(propValue, value);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi gán giá trị cho thuộc tính của thành phần :" + component.ToString());
+            }
         }
 
         public static object FindControl(object parent, string controlName)
