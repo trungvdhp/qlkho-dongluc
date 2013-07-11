@@ -19,18 +19,38 @@ namespace QLK_DongLuc.Controllers
 {
     public class QuyenCtrl
     {
-        public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
-        {
-            if (db == null) db = new Entities();
-
-            bindingSource.DataSource = db.SYS_Quyen.OrderBy(t => t.Loai_dieu_khien).ToList();
-        }
-
         public static void LoadAllControls(BindingSource bindingSource)
         {
             var forms = GetFormList();
             bindingSource.DataSource = GetControls(forms).OrderBy(t => t.Loai_dieu_khien).ToList();
         }
+
+        /// <summary>
+        /// Load binding source quyền theo loại
+        /// </summary>
+        /// <param name="ID_vai_tro"></param>
+        /// <param name="type">type = 0 load toàn bộ, type = 1 load các quyền có ít nhất 1 thuộc tính được đặt của vai trò, type = 2 load các quyền mà chưa được được thuộc tính của vai trò</param>
+        /// <param name="bs">Binding Source</param>
+        /// <param name="db">Database Context</param>
+        public static void LoadBindingSource(BindingSource bs, int ID_vai_tro = 0, int type = 0, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            if(type == 0)
+            {
+                bs.DataSource = db.SYS_Quyen.OrderBy(t => t.Loai_dieu_khien).ToList();
+            }
+            else if (type == 1)
+            {
+                bs.DataSource = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro).Select(s => s.SYS_Quyen).Distinct().ToList();
+            }
+            else
+            {
+                var ids = db.SYS_VaiTroQuyen.Where(t => t.ID_vai_tro == ID_vai_tro).Select(s => s.ID_quyen).Distinct().ToList();
+                bs.DataSource = db.SYS_Quyen.Where(t => !ids.Contains(t.ID_quyen)).OrderBy(t => t.Loai_dieu_khien).ToList();
+            }
+        }
+
         #region Get controls
         /// <summary>
         /// Get sub classes

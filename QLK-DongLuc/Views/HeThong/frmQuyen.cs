@@ -20,12 +20,9 @@ namespace QLK_DongLuc.Views.HeThong
 {
     public partial class frmQuyen : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
-
         public frmQuyen()
         {
             InitializeComponent();
-            
         }
 
         private void btnScanControls_Click(object sender, EventArgs e)
@@ -117,8 +114,7 @@ namespace QLK_DongLuc.Views.HeThong
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            db = new Entities();
-            QuyenCtrl.LoadBindingSource(sYSQuyenBindingSourceOld, db);
+            QuyenCtrl.LoadBindingSource(sYSQuyenBindingSourceOld);
             btnExpandAllOld.PerformClick();
         }
 
@@ -126,7 +122,7 @@ namespace QLK_DongLuc.Views.HeThong
         {
             btnRefresh.PerformClick();
             btnScanControls.PerformClick();
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this);
         }
 
         private void btnDeleteOld_Click(object sender, EventArgs e)
@@ -159,7 +155,7 @@ namespace QLK_DongLuc.Views.HeThong
         {
             List<SYS_Quyen> list = (List<SYS_Quyen>)sYSQuyenBindingSourceOld.DataSource;
             var items = list.Select(t => t.ID_quyen).ToList();
-            db = new Entities();
+            Entities db = new Entities();
             var entyties = db.SYS_Quyen.Where(t => !items.Contains(t.ID_quyen));
             db.SYS_Quyen.RemoveRange(entyties);
 
@@ -177,13 +173,14 @@ namespace QLK_DongLuc.Views.HeThong
         {
             List<SYS_Quyen> list = (List<SYS_Quyen>)sYSQuyenBindingSourceNew.DataSource;
 
-            db = new Entities();
+            Entities db = new Entities();
             db.SYS_Quyen.RemoveRange(db.SYS_Quyen.ToList());
             db.SYS_Quyen.AddRange(list);
 
             if (db.SaveChanges() > 0)
             {
                 XtraMessageBox.Show("Lưu các quyền mới thành công", "Lưu thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnRefresh.PerformClick();
             }
             else
             {

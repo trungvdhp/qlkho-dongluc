@@ -273,7 +273,7 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmDanhSachPhieuXuat";
-            this.Text = "frmDanhSachPhieuXuat";
+            this.Text = "Danh sách phiếu xuất";
             this.Load += new System.EventHandler(this.frmDanhSachPhieuXuat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
