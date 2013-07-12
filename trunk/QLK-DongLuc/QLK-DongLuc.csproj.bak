@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QLK_DongLuc</RootNamespace>
     <AssemblyName>QLK-DongLuc</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -30,7 +30,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +39,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,41 +47,38 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Snap.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Snap.v12.2.Core, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Snap.v12.2.Extensions, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v12.2.UI, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v12.2.Wizard, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraNavBar.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraRichEdit.v12.2.Extensions, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.0.0-beta1\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="DevExpress.Charts.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v12.2.Core, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v12.2.Extensions, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.2.UI, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.2.UI, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v12.2.Wizard, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v12.2.Extensions, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v12.2.Extensions, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v12.2, Version=12.2.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0-beta1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.0.0-beta1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -121,9 +116,7 @@
     <Compile Include="Controllers\NhomVatTu.cs" />
     <Compile Include="Controllers\VaiTroCtrl.cs" />
     <Compile Include="Controllers\VatTuCtrl.cs" />
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmMain.cs" />
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
@@ -139,7 +132,6 @@
     <Compile Include="Models\CAT_SanPham.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\EXP_LoaiXuat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -158,7 +150,6 @@
     <Compile Include="Models\IMP_PhieuNhapCT.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +165,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities.cs" />
+    <Compile Include="Models\Kho.cs" />
     <Compile Include="Models\STO_KhoVatTu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -198,9 +191,6 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SYS_LoaiDieuKhien.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SYS_NguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -213,16 +203,10 @@
     <Compile Include="Models\SYS_ThongSoHeThong.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SYS_ThuocTinh.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SYS_TrangThaiNguoiDung.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SYS_VaiTro.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SYS_VaiTroQuyen.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TuyChonTimKiem.cs" />
@@ -261,159 +245,107 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\DanhMuc\frmKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmKhachHang.cs" />
     <Compile Include="Views\DanhMuc\frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmKhoVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmKhoVatTu.cs" />
     <Compile Include="Views\DanhMuc\frmKhoVatTu.Designer.cs">
       <DependentUpon>frmKhoVatTu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmLoaiVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmLoaiVatTu.cs" />
     <Compile Include="Views\DanhMuc\frmLoaiVatTu.Designer.cs">
       <DependentUpon>frmLoaiVatTu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmNhaCungCap.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmNhaCungCap.cs" />
     <Compile Include="Views\DanhMuc\frmNhaCungCap.Designer.cs">
       <DependentUpon>frmNhaCungCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmNhanVien.cs" />
     <Compile Include="Views\DanhMuc\frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmNhomVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmNhomVatTu.cs" />
     <Compile Include="Views\DanhMuc\frmNhomVatTu.Designer.cs">
       <DependentUpon>frmNhomVatTu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmSanPham.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmSanPham.cs" />
     <Compile Include="Views\DanhMuc\frmSanPham.Designer.cs">
       <DependentUpon>frmSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\DanhMuc\frmVatTu.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\DanhMuc\frmVatTu.cs" />
     <Compile Include="Views\DanhMuc\frmVatTu.Designer.cs">
       <DependentUpon>frmVatTu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmCauHinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmCauHinh.cs" />
     <Compile Include="Views\HeThong\frmCauHinh.Designer.cs">
       <DependentUpon>frmCauHinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmDangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmDangNhap.cs" />
     <Compile Include="Views\HeThong\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmNguoiDung.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmNguoiDung.cs" />
     <Compile Include="Views\HeThong\frmNguoiDung.Designer.cs">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmNhatKy.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmNhatKy.cs" />
     <Compile Include="Views\HeThong\frmNhatKy.Designer.cs">
       <DependentUpon>frmNhatKy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmQuyen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmQuyen.cs" />
     <Compile Include="Views\HeThong\frmQuyen.Designer.cs">
       <DependentUpon>frmQuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmSuaTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmSuaTaiKhoan.cs" />
     <Compile Include="Views\HeThong\frmSuaTaiKhoan.Designer.cs">
       <DependentUpon>frmSuaTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmSuaTaiKhoanCaNhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmSuaTaiKhoanCaNhan.cs" />
     <Compile Include="Views\HeThong\frmSuaTaiKhoanCaNhan.Designer.cs">
       <DependentUpon>frmSuaTaiKhoanCaNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmTaoTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmTaoTaiKhoan.cs" />
     <Compile Include="Views\HeThong\frmTaoTaiKhoan.Designer.cs">
       <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmVaiTro.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\HeThong\frmVaiTro.cs" />
     <Compile Include="Views\HeThong\frmVaiTro.Designer.cs">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.Designer.cs">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.Designer.cs">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.Designer.cs">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.Designer.cs">
       <DependentUpon>frmTonKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmDanhSachPhieuXuat.Designer.cs">
       <DependentUpon>frmDanhSachPhieuXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmLapPhieuXuatMoi.designer.cs">
       <DependentUpon>frmLapPhieuXuatMoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.cs" />
     <Compile Include="Views\QuanlyKho\QuanLyXuat\frmXuatThanhLy.Designer.cs">
       <DependentUpon>frmXuatThanhLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThongKeBaoCao\frmThongKeNhap_NhaCungCap.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Views\ThongKeBaoCao\frmThongKeNhap_NhaCungCap.cs" />
     <Compile Include="Views\ThongKeBaoCao\frmThongKeNhap_NhaCungCap.Designer.cs">
       <DependentUpon>frmThongKeNhap_NhaCungCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ThongKeBaoCao\rptThongKeNhap_NhaCungCap.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Views\ThongKeBaoCao\rptThongKeNhap_NhaCungCap.cs" />
     <Compile Include="Views\ThongKeBaoCao\rptThongKeNhap_NhaCungCap.Designer.cs">
       <DependentUpon>rptThongKeNhap_NhaCungCap.cs</DependentUpon>
     </Compile>
