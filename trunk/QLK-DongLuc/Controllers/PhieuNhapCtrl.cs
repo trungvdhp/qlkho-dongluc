@@ -104,7 +104,7 @@ namespace QLK_DongLuc.Controllers
                 if (So_chung_tu_goc != null) entity.So_chung_tu_goc = So_chung_tu_goc.ToString();
             }
 
-            if (Program.CurrentUser.ID_nhan_vien != null) entity.ID_nhan_vien_lap = Program.CurrentUser.ID_nhan_vien;
+            entity.ID_nhan_vien_lap = Program.CurrentUser.ID_nhan_vien;
 
             if (ID_nhan_vien_nhap != null) entity.ID_nhan_vien_nhap = (int)ID_nhan_vien_nhap;
 
@@ -134,12 +134,12 @@ namespace QLK_DongLuc.Controllers
                 entity.ID_phieu_nhap = ID_phieu_nhap;
                 db.IMP_PhieuNhapCT.Add(entity);
 
-                // Kiểm tra xem trong kho có vật tư trong phiếu nhập chi tiết hay không
-                var vt = db.STO_KhoVatTuCT.FirstOrDefault(t => t.ID_kho == pn.ID_kho && t.ID_vat_tu == entity.ID_vat_tu);
-
-                // Nếu là nhân viên và muốn xác thực phiếu nhập thì sẽ cập nhật vật tư và số lượng vào kho
-                if (Program.CurrentUser.ID_nhan_vien != null && pn.Trang_thai == 0 && Trang_thai == 1)
+                // Cập nhật vật tư và số lượng vào kho
+                if (pn.Trang_thai == 0 && Trang_thai == 1)
                 {
+                    // Kiểm tra xem trong kho có vật tư trong phiếu nhập chi tiết hay không
+                    var vt = db.STO_KhoVatTuCT.FirstOrDefault(t => t.ID_kho == pn.ID_kho && t.ID_vat_tu == entity.ID_vat_tu);
+
                     if (vt == null)
                     {
                         // Vật tư này trong kho hiện không có nên thêm vào
@@ -157,8 +157,85 @@ namespace QLK_DongLuc.Controllers
                         vt.So_luong +=  entity.So_luong;
                         vt.ID_phieu_nhap = entity.ID_phieu_nhap;
                     }
+                }
+            }
 
-                    
+            pn.Trang_thai = Trang_thai;
+
+            return db.SaveChanges();
+        }
+
+        // Thêm chi tiết của phiếu nhập cửa cuốn AustDoor
+        public static int AddDetails(int ID_phieu_nhap, int Trang_thai, GridView gridViewDetails, int ID_than_cua, double Chieu_dai_cua, double Chieu_rong_cua, int ID_mo_to, Entities db = null)
+        {
+            if (ID_phieu_nhap < 1) return 0;
+
+            if (db == null) db = new Entities();
+
+            int n = gridViewDetails.RowCount;
+            var pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
+            List<IMP_PhieuNhapCT> list = new List<IMP_PhieuNhapCT>();
+            // Thêm thân cửa vào phiếu nhập chi tiết
+            var than = new IMP_PhieuNhapCT
+            {
+                ID_phieu_nhap = ID_phieu_nhap,
+                ID_vat_tu = ID_than_cua,
+                So_luong = 1,
+                Chieu_dai = Chieu_dai_cua,
+                Chieu_rong = Chieu_rong_cua
+            };
+
+            list.Add(than);
+
+            var moTo = new IMP_PhieuNhapCT
+            {
+                ID_phieu_nhap = ID_phieu_nhap,
+                ID_vat_tu = ID_mo_to,
+                So_luong = 1
+            };
+
+            list.Add(moTo);
+
+            for (int i = 0; i < n; i++)
+            {
+                IMP_PhieuNhapCT entity = (IMP_PhieuNhapCT)gridViewDetails.GetRow(i);
+
+                if (entity == null || entity.ID_vat_tu == 0 || entity.So_luong == 0) continue;
+
+                entity.ID_phieu_nhap = ID_phieu_nhap;
+                list.Add(entity);
+            }
+
+            n = list.Count;
+
+            for (int i = 0; i < n; i++)
+            {
+                var entity = list[i];
+                db.IMP_PhieuNhapCT.Add(entity);
+
+                // Cập nhật vật tư và số lượng vào kho
+                if (pn.Trang_thai == 0 && Trang_thai == 1)
+                {
+                    // Kiểm tra xem trong kho có vật tư trong phiếu nhập chi tiết hay không
+                    var vt = db.STO_KhoVatTuCT.FirstOrDefault(t => t.ID_kho == pn.ID_kho && t.ID_vat_tu == entity.ID_vat_tu);
+
+                    if (vt == null)
+                    {
+                        // Vật tư này trong kho hiện không có nên thêm vào
+                        db.STO_KhoVatTuCT.Add(new STO_KhoVatTuCT
+                        {
+                            ID_kho = pn.ID_kho,
+                            ID_vat_tu = entity.ID_vat_tu,
+                            So_luong = entity.So_luong,
+                            ID_phieu_nhap = entity.ID_phieu_nhap
+                        });
+                    }
+                    else
+                    {
+                        // Trong kho đã có vật tư này nên cập nhật số lượng 
+                        vt.So_luong += entity.So_luong;
+                        vt.ID_phieu_nhap = entity.ID_phieu_nhap;
+                    }
                 }
             }
 
@@ -175,11 +252,12 @@ namespace QLK_DongLuc.Controllers
 
             if (pn == null) return 0;
 
-            if (Program.CurrentUser.ID_nhan_vien != null && Trang_thai == 0)
+            // Update Phieu nhap
+            if (pn.Trang_thai != -1)
             {
                 if (ID_kho == null || Ngay_nhap == null) return 0;
 
-                if (ID_kho != null)
+                if (pn.Trang_thai == 0 && ID_kho != null)
                     pn.ID_kho = (int)ID_kho;
 
                 if (Ngay_nhap != null)
@@ -240,8 +318,8 @@ namespace QLK_DongLuc.Controllers
                 // Kiểm tra xem trong kho có vật tư trong phiếu nhập chi tiết hay không
                 var vt = db.STO_KhoVatTuCT.FirstOrDefault(t => t.ID_kho == pn.ID_kho && t.ID_vat_tu == item.ID_vat_tu);
 
-                // Nếu là nhân viên và muốn xác thực phiếu nhập thì sẽ cập nhật vật tư và số lượng vào kho
-                if (Program.CurrentUser.ID_nhan_vien != null && pn.Trang_thai == 0 && Trang_thai == 1)
+                // Cập nhật vật tư và số lượng vào kho
+                if (pn.Trang_thai == 0 && Trang_thai == 1)
                 {
                     if (vt == null)
                     {
@@ -260,8 +338,8 @@ namespace QLK_DongLuc.Controllers
                     }
                 }
 
-                // Nếu là giám đốc và muốn xác thực thì cập nhật đơn giá nhập và phiếu nhập cuối và cập nhật tổng tiền vào kho (chắc chắn vật tư đã có trong kho vì trạng thái lúc sửa là đã xác thực
-                if (Program.CurrentUser.ID_nhan_vien == null && pn.Trang_thai == 1 && Trang_thai == -1)
+                // Xác thực thì cập nhật đơn giá nhập và phiếu nhập cuối và cập nhật tổng tiền vào kho
+                if (pn.Trang_thai != -1 && Trang_thai == -1)
                 {
                     pn.Tong_tien += (decimal)item.So_luong * (decimal)item.Don_gia;
                     vt.Don_gia_nhap = item.Don_gia;
@@ -270,8 +348,7 @@ namespace QLK_DongLuc.Controllers
             }
 
             // Xóa các chi tiết không có trong danh sách chi tiết mới 
-            // chỉ có nhân viên mới thêm sửa xóa các chi tiết phiếu nhập với trạng thái = 0
-            if (Program.CurrentUser.ID_nhan_vien != null && pn.Trang_thai == 0 && Trang_thai == 0)
+            if (pn.Trang_thai == 0 && Trang_thai == 0)
             {
                 var tmp = pn.IMP_PhieuNhapCT.Where(t => !ct.Contains(t.ID_vat_tu));
                 db.IMP_PhieuNhapCT.RemoveRange(tmp);
@@ -290,8 +367,7 @@ namespace QLK_DongLuc.Controllers
         /// <param name="db"></param>
         /// <returns>
         /// Trả về 0 nếu không tìm thấy phiếu nhập cần xóa hoặc có lỗi khi xóa phiếu nhập
-        /// Trả về -1 nếu người dùng xóa một phiếu mà phiếu đó đã bị giám đốc khóa hoặc phiếu đó không do người dùng tạo hoặc 
-        /// Trả về -2 nếu người dùng là giám đốc mà phiếu cần xóa đã được xác thực không thể xóa
+        /// Trả về -1 nếu người dùng xóa một phiếu mà phiếu có trạng thái khác 0
         /// Trả về > 0 nếu xóa thành công.
         /// </returns>
         public static int Delete(int ID_phieu_nhap, Entities db = null)

@@ -40,6 +40,21 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ten_kho, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+            var kho = db.STO_KhoVatTu.Where(t => t.Ten_kho.Contains(Ten_kho)).ToList();
+            lookUpEdit.Properties.DataSource = kho;
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_diem", "Địa điểm"));
+            lookUpEdit.Properties.DisplayMember = "Ten_kho";
+            lookUpEdit.Properties.ValueMember = "ID_kho";
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+            if (kho.Count > 0) lookUpEdit.ItemIndex = 0;
+        }
+
 		/// <summary>
 		/// Load các kho trong tồn đầu kỳ
 		/// </summary>

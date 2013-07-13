@@ -64,6 +64,7 @@
             this.repositoryItemSpinEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnKhoa = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).BeginInit();
@@ -246,7 +247,7 @@
             // btnThoat
             // 
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(242, 5);
+            this.btnThoat.Location = new System.Drawing.Point(318, 5);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(70, 25);
             this.btnThoat.TabIndex = 4;
@@ -256,7 +257,7 @@
             // btnIn
             // 
             this.btnIn.Image = ((System.Drawing.Image)(resources.GetObject("btnIn.Image")));
-            this.btnIn.Location = new System.Drawing.Point(166, 5);
+            this.btnIn.Location = new System.Drawing.Point(242, 5);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(70, 25);
             this.btnIn.TabIndex = 2;
@@ -277,6 +278,7 @@
             this.panelControl1.Controls.Add(this.btnThoat);
             this.panelControl1.Controls.Add(this.btnIn);
             this.panelControl1.Controls.Add(this.btnXacThuc);
+            this.panelControl1.Controls.Add(this.btnKhoa);
             this.panelControl1.Controls.Add(this.btnLuu);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
@@ -287,7 +289,7 @@
             // btnXacThuc
             // 
             this.btnXacThuc.Image = global::QLK_DongLuc.Properties.Resources.button_accept;
-            this.btnXacThuc.Location = new System.Drawing.Point(85, 5);
+            this.btnXacThuc.Location = new System.Drawing.Point(161, 5);
             this.btnXacThuc.Name = "btnXacThuc";
             this.btnXacThuc.Size = new System.Drawing.Size(75, 25);
             this.btnXacThuc.TabIndex = 1;
@@ -512,6 +514,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(783, 467);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // btnKhoa
+            // 
+            this.btnKhoa.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoa.Image")));
+            this.btnKhoa.Location = new System.Drawing.Point(85, 5);
+            this.btnKhoa.Name = "btnKhoa";
+            this.btnKhoa.Size = new System.Drawing.Size(70, 25);
+            this.btnKhoa.TabIndex = 1;
+            this.btnKhoa.Text = "Khóa";
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
+            // 
             // frmSuaPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,6 +601,7 @@
         private DevExpress.XtraEditors.SimpleButton btnXacThuc;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit3;
         private DevExpress.XtraEditors.SimpleButton btnSinhMaPhieu;
+        private DevExpress.XtraEditors.SimpleButton btnKhoa;
 
 
     }
