@@ -148,7 +148,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && gridView.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
                 DeleteCommand();
 
-            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle && gridView.OptionsBehavior.Editable == true)
+            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
             {
                 gridView.CloseEditor();
                 gridView.UpdateCurrentRow();
@@ -160,6 +160,7 @@ namespace QLK_DongLuc.Views.DanhMuc
                 {
                     XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
                 gridControl.ShowPrintPreview();
             }
         }

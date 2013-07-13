@@ -26,7 +26,6 @@ namespace QLK_DongLuc
     using QLK_DongLuc.Controllers;
     using DevExpress.XtraBars;
     using System.Reflection;
-    using DevExpress.Xpo.Metadata;
 
     public partial class frmMain : XtraForm
     {
@@ -434,6 +433,12 @@ namespace QLK_DongLuc
         private void btnPhanQuyen_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmVaiTroQuyen frm = new frmVaiTroQuyen();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnNhapMoiAustDoor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmNhapMoiCuaCuonAustDoor frm = new frmNhapMoiCuaCuonAustDoor();
             OpenForm(frm, tabControl);
         }
     }

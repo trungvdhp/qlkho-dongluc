@@ -13,8 +13,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
     public partial class frmPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
-
         public frmPhieuNhap()
         {
             InitializeComponent();
@@ -22,23 +20,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void frmPhieuNhap_Load(object sender, EventArgs e)
         {
-            db = new Entities();
+            Entities db = new Entities();
             TuyChonTimKiemCtrl.LoadLookUpEdit(ledTuyChon);
             PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-
-            if (Program.CurrentUser.ID_nhan_vien != null)
-            {
-                colNhan_vien_lap.Visible = false;
-                colTong_tien.Visible = false;
-                colDon_gia.Visible = false;
-            }
-            else
-            {
-                btnNhapLai.Visible = false;
-                btnNhapMoi.Visible = false;
-            }
-
             dteNgayBatDau.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
@@ -68,15 +53,19 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
 
+            if (pn == null) return;
+
+            if(pn.ID_trang_thai != 0)
+            {
+                XtraMessageBox.Show("Phiếu nhập này bị khóa và hàng đã vào kho nên không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (XtraMessageBox.Show("Các dữ liệu bị xóa sẽ không thể phục hồi!\nBạn có thực sự muốn xóa phiếu nhập này hay không?", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                int rs = PhieuNhapCtrl.Delete(pn.ID_phieu_nhap, db);
+                int rs = PhieuNhapCtrl.Delete(pn.ID_phieu_nhap);
 
-                if (rs == -1)
-                {
-                    XtraMessageBox.Show("Phiếu nhập này đã được xác thực hàng đã vào kho và không thể xóa!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (rs == 0)
+                if (rs == 0)
                 {
                     XtraMessageBox.Show("Xóa phiếu nhập không thành công!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -95,12 +84,19 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (pn != null)
             {
-                frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn.ID_phieu_nhap);
-
-                if (frm.ShowDialog() == DialogResult.OK)
+                if (pn.ID_trang_thai == -1)
                 {
-                    PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
-                    PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
+                    XtraMessageBox.Show("Phiếu nhập đã được xác thực nên không thể sửa!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn.ID_phieu_nhap);
+
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+                        PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
+                    }
                 }
             }
         }

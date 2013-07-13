@@ -39,7 +39,6 @@ namespace QLK_DongLuc
 
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    //Application.Run(new frmMain());
                 }
             }
 

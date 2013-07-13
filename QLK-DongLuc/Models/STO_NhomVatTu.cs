@@ -20,9 +20,11 @@ namespace QLK_DongLuc.Models
         }
     
         public int ID_nhom_vat_tu { get; set; }
+        public Nullable<int> ID_kho { get; set; }
         public string Ten_nhom_vat_tu { get; set; }
         public string Ghi_chu { get; set; }
     
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual ICollection<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }
     }
 }

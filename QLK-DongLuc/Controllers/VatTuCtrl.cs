@@ -23,14 +23,13 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Mo_ta", "Mô tả"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
             lookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
             lookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
 
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
 
             lookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
             lookUpEdit.Properties.ValueMember = "ID_vat_tu";
@@ -40,19 +39,44 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ten_loai_vat_tu, string Ten_nhom_vat_tu, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+            lookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ten_loai_vat_tu.Contains(Ten_loai_vat_tu) && t.Ten_nhom_vat_tu.Contains(Ten_nhom_vat_tu)).ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+           lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
+
+            if (Ten_loai_vat_tu.Contains("NAN"))
+            {
+                lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
+                lookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
+                lookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
+            }
+
+            lookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
+            lookUpEdit.Properties.ValueMember = "ID_vat_tu";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn " + Ten_loai_vat_tu != "" ? Ten_loai_vat_tu : Ten_nhom_vat_tu;
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
+
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
         {
             if (db == null) db = new Entities();
 
             gridLookUpEdit.Properties.Columns.Clear();
-            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
+            gridLookUpEdit.Properties.DataSource =  db.ViewCboVatTu.ToList();
+
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
             gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
             gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
             gridLookUpEdit.Properties.Columns["Don_vi"].Alignment = DevExpress.Utils.HorzAlignment.Near;
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
 
             gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
             gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
@@ -62,28 +86,49 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        //public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
-        //{
-        //    if (db == null) db = new Entities();
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, string Ten_loai_vat_tu, string Ten_nhom_vat_tu, Entities db = null)
+        {
+            if (db == null) db = new Entities();
 
-        //    gridLookUpEdit.Properties.Columns.Clear();
-        //    gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.ToList();
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
-        //    gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
-        //    gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
-        //    gridLookUpEdit.Properties.Columns["Don_vi"].Alignment = DevExpress.Utils.HorzAlignment.Near;
-        //    gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ten_loai_vat_tu.Contains(Ten_loai_vat_tu) && t.Ten_nhom_vat_tu.Contains(Ten_nhom_vat_tu)).ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
 
-        //    gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-        //    gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
-        //    gridLookUpEdit.Properties.NullText = "";
-        //    gridLookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
-        //    gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
-        //}
+            if (Ten_loai_vat_tu.Contains("NAN"))
+            {
+                gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
+                gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
+                gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
+                gridLookUpEdit.Properties.Columns["Don_vi"].Alignment = DevExpress.Utils.HorzAlignment.Near;
+            }
 
+            gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
+            gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
+            gridLookUpEdit.Properties.NullText = "";
+            gridLookUpEdit.Properties.NullValuePrompt = "Chọn " + Ten_loai_vat_tu != "" ? Ten_loai_vat_tu : Ten_nhom_vat_tu;
+            gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
 
+        public static void LoadThieBiAustDoorKhac(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
+        {
+             if (db == null) db = new Entities();
+
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => !t.Ten_loai_vat_tu.Contains("Thân cửa AustDoor") && !t.Ten_loai_vat_tu.Contains("Mô tơ cửa AustDoor") && t.Ten_nhom_vat_tu == "Cửa cuốn AustDoor").ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
+
+            gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
+            gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
+            gridLookUpEdit.Properties.NullText = "";
+            gridLookUpEdit.Properties.NullValuePrompt = "Chọn thiết bị cửa cuốn AustDoor";
+            gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
 
         public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
         {

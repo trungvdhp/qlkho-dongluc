@@ -39,12 +39,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 this.DialogResult = DialogResult.Cancel;
             }
 
-            if (Program.CurrentUser.ID_nhan_vien != null && Program.CurrentUser.ID_nhan_vien != pn.ID_nhan_vien_lap)
-            {
-                XtraMessageBox.Show("Bạn không thể xem các phiếu nhập không phải do bạn lập!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.DialogResult = DialogResult.Cancel;
-            }
-
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
@@ -53,8 +48,8 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             else
             {
-                txtChungTuGoc.Enabled = false;
-                ledNhaCungCap.Enabled = false;
+                txtChungTuGoc.Properties.ReadOnly = true;
+                ledNhaCungCap.Properties.ReadOnly = true;
             }
 
             ledNhanVienNhap.EditValue = pn.ID_nhan_vien_nhap;
@@ -66,88 +61,19 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource, db);
 
-            if (Program.CurrentUser.ID_nhan_vien == null)
+            if (pn.Trang_thai != 0)
             {
-                // Khóa nhập
-                ledNhanVienNhap.Properties.ReadOnly = true;
+                colID_vat_tu.OptionsColumn.ReadOnly = true;
+                colSo_luong.OptionsColumn.ReadOnly = true;
                 ledKhoNhap.Properties.ReadOnly = true;
-                ledNhaCungCap.Properties.ReadOnly = true;
-                mmoGhiChu.Properties.ReadOnly = true;
-                txtChungTuGoc.Properties.ReadOnly = true;
-                dteNgayNhap.Properties.ReadOnly = true;
-                btnSinhMaPhieu.Enabled = false;
-
-                // Khóa cột
-                colID_vat_tu.OptionsColumn.AllowEdit = false;
-                colSo_luong.OptionsColumn.AllowEdit = false;
-
                 grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-
-                if (pn.Trang_thai == -1)
-                {
-                    // Khóa cột
-                    colDon_gia.OptionsColumn.AllowEdit = false;
-                    colThanh_tien.OptionsColumn.AllowEdit = false;
-                    // Khóa nút
-                    btnLuu.Enabled = false;
-                    btnXacThuc.Enabled = false;
-
-                    this.Text = "Sửa phiếu nhập - Giám đốc đã xác thực đơn giá của phiếu nhập nên chỉ có thể xem";
-                }
-                else if (pn.Trang_thai == 0)
-                {
-                    // Khóa cột
-                    colDon_gia.OptionsColumn.AllowEdit = false;
-                    colThanh_tien.OptionsColumn.AllowEdit = false;
-                    // Khóa nút
-                    btnLuu.Enabled = false;
-                    btnXacThuc.Enabled = false;
-
-                    this.Text = "Sửa phiếu nhập - Nhân viên chưa xác thực hàng đã vào kho nên giám đốc chỉ có thể xem";
-                }
-                else
-                {
-                    this.Text = "Sửa phiếu nhập - Giám đốc nhập đơn giá";
-                }
+                grvPhieuNhapCT.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             }
-            else
-            {
-                // Ẩn cột
-                colDon_gia.Visible = false;
-                colThanh_tien.Visible = false;
-
-                if (pn.Trang_thai != 0)
-                {
-                    // Khóa nút
-                    btnLuu.Enabled = false;
-                    btnXacThuc.Enabled = false;
-                    btnSinhMaPhieu.Enabled = false;
-                    // Khóa nhập
-                    ledNhanVienNhap.Properties.ReadOnly = true;
-                    ledKhoNhap.Properties.ReadOnly = true;
-                    ledNhaCungCap.Properties.ReadOnly = true;
-                    mmoGhiChu.Properties.ReadOnly = true;
-                    txtChungTuGoc.Properties.ReadOnly = true;
-                    dteNgayNhap.Properties.ReadOnly = true;
-
-                    // Khóa cột
-                    colID_vat_tu.OptionsColumn.AllowEdit = false;
-                    colSo_luong.OptionsColumn.AllowEdit = false;
-
-                    grvPhieuNhapCT.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-
-                    this.Text = "Sửa phiếu nhập - Nhân viên đã xác thực hàng vào kho nên chỉ có thể xem";
-                }
-                else
-                    this.Text = "Nhân viên sửa phiếu nhập";
-            }
-
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
         {
-            if (Program.CurrentUser.ID_nhan_vien != null && e.KeyCode == Keys.Delete && grvPhieuNhapCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (Program.CurrentUser.ID_nhan_vien != null && e.KeyCode == Keys.Delete && grvPhieuNhapCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && grvPhieuNhapCT.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
             {
                 grvPhieuNhapCT.DeleteRow(grvPhieuNhapCT.FocusedRowHandle);
             }
@@ -237,8 +163,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            int Trang_thai = Program.CurrentUser.ID_nhan_vien == null ? 1 : 0;
-            Luu(Trang_thai);
+            Luu(0);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
@@ -317,13 +242,17 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnXacThuc_Click(object sender, EventArgs e)
         {
-            int Trang_thai = Program.CurrentUser.ID_nhan_vien == null ? -1 : 1;
-            Luu(Trang_thai);
+            Luu(-1);
         }
 
         private void btnSinhMaPhieu_Click(object sender, EventArgs e)
         {
             txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
+        }
+
+        private void btnKhoa_Click(object sender, EventArgs e)
+        {
+            Luu(1);
         }
     }
 }

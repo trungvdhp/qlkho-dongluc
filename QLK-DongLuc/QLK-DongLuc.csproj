@@ -108,9 +108,9 @@
     <Compile Include="Controllers\SanPhamCtrl.cs" />
     <Compile Include="Controllers\ThongKeNhapCtrl.cs" />
     <Compile Include="Controllers\ThongSoHeThongCtrl.cs" />
+    <Compile Include="Controllers\ThuocTinhCtrl.cs" />
     <Compile Include="Controllers\TonDauKy.cs" />
     <Compile Include="Controllers\TuyChonTimKiemCtrl.cs" />
-    <Compile Include="Controllers\Utilities.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
     <Compile Include="Controllers\LoaiVatTu.cs" />
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
@@ -119,7 +119,9 @@
     <Compile Include="Controllers\NhaCungCapCtrl.cs" />
     <Compile Include="Controllers\NhanVienCtrl.cs" />
     <Compile Include="Controllers\NhomVatTu.cs" />
+    <Compile Include="Controllers\Utils.cs" />
     <Compile Include="Controllers\VaiTroCtrl.cs" />
+    <Compile Include="Controllers\VaiTroQuyenCtrl.cs" />
     <Compile Include="Controllers\VatTuCtrl.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -327,12 +329,6 @@
     <Compile Include="Views\HeThong\frmNguoiDung.Designer.cs">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeThong\frmNhatKy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\HeThong\frmNhatKy.Designer.cs">
-      <DependentUpon>frmNhatKy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\HeThong\frmQuyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,11 +359,23 @@
     <Compile Include="Views\HeThong\frmVaiTro.Designer.cs">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\HeThong\frmVaiTroQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HeThong\frmVaiTroQuyen.Designer.cs">
+      <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.Designer.cs">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.Designer.cs">
+      <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -380,6 +388,12 @@
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.Designer.cs">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonDauKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonDauKy.Designer.cs">
+      <DependentUpon>frmTonDauKy.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.cs">
       <SubType>Form</SubType>
@@ -480,14 +494,23 @@
     <EmbeddedResource Include="Views\HeThong\frmVaiTro.resx">
       <DependentUpon>frmVaiTro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\HeThong\frmVaiTroQuyen.resx">
+      <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.resx">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.resx">
+      <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.resx">
       <DependentUpon>frmPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.resx">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyTonKho\frmTonDauKy.resx">
+      <DependentUpon>frmTonDauKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyTonKho\frmTonKho.resx">
       <DependentUpon>frmTonKho.cs</DependentUpon>
@@ -528,15 +551,25 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_KhachHang.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhaCungCap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhaCungCap1.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_NhanVien.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.CAT_SanPham.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.EXP_PhieuXuatCT.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.IMP_PhieuNhap.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.IMP_PhieuNhapCT.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_KhoVatTuCT.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_LoaiVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_NhomVatTu.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.STO_VatTu.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_Quyen.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_Quyen1.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_ThongSoHeThong.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_ThuocTinh.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_VaiTro.datasource" />
+    <None Include="Properties\DataSources\QLK_DongLuc.Models.SYS_VaiTroQuyen.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewNguoiDung.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewPhieuNhap.datasource" />
     <None Include="Properties\DataSources\QLK_DongLuc.Models.ViewThongKeNhap_NhaCungCap.datasource" />
@@ -591,15 +624,20 @@
     <Content Include="Images\DanhSachPhieuNhap_32x32.png" />
     <Content Include="Images\DanhSachPhieuXuat_32x32.png" />
     <Content Include="Images\Drafts_16x16.png" />
+    <Content Include="Images\HangTonKho_32x32.png" />
     <Content Include="Images\Inbox_16x16.png" />
+    <Content Include="Images\KhachHang_128x128.png" />
     <Content Include="Images\KhoVatTu_32x32.png" />
     <Content Include="Images\LapPhieuNhapLai_16x16.png" />
     <Content Include="Images\LapPhieuNhapMoi_16x16.png" />
     <Content Include="Images\LapPhieuXuatMoi_16x16.png" />
+    <Content Include="Images\LoaiVatTu_64x64.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\Mail_32x32.png" />
+    <Content Include="Images\NhaCungCap_32x32.png" />
     <Content Include="Images\NhanVien_32x32.png" />
     <Content Include="Images\NhatKyHeThong_32x32.png" />
+    <Content Include="Images\NhomVatTu_64x64.png" />
     <Content Include="Images\Organizer_32x32.png" />
     <Content Include="Images\Outbox_16x16.png" />
     <Content Include="Images\PhucHoi_32x32.png" />
@@ -628,10 +666,13 @@
     <Content Include="Images\Ribbon_Save_16x16.png" />
     <Content Include="Images\Ribbon_Save_32x32.png" />
     <Content Include="Images\Ribbon_Underline_16x16.png" />
+    <Content Include="Images\SanPham_32x32.png" />
     <Content Include="Images\SaoLuu_32x32.png" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\ThanhLyVatTu_16x16.png" />
+    <Content Include="Images\VatTu_32x32.png" />
     <None Include="Images\ThongKeNhap_NhaCungCap_32x32.bmp" />
+    <Content Include="Images\ThongKeHangTonKho_32x32.png" />
     <Content Include="Images\ThongTinNhacNho_32x32.png" />
     <Content Include="Images\Trash_16x16.png" />
   </ItemGroup>

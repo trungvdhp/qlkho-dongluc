@@ -18,6 +18,8 @@ namespace QLK_DongLuc.Models
         public int ID_vat_tu { get; set; }
         public double So_luong { get; set; }
         public Nullable<decimal> Don_gia { get; set; }
+        public Nullable<double> Chieu_dai { get; set; }
+        public Nullable<double> Chieu_rong { get; set; }
     
         public virtual IMP_PhieuNhap IMP_PhieuNhap { get; set; }
         public virtual STO_VatTu STO_VatTu { get; set; }
