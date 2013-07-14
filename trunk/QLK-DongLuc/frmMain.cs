@@ -158,7 +158,7 @@ namespace QLK_DongLuc
 
         private void btnNhapMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(1);
+            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
             OpenForm(frm, tabControl);
         }
 
@@ -378,8 +378,7 @@ namespace QLK_DongLuc
 
         private void btnNhapLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi(2);
-            frm.Text = "Lập phiếu nhập lại";
+            frmLapPhieuNhapLai frm = new frmLapPhieuNhapLai();
             OpenForm(frm, tabControl);
         }
 

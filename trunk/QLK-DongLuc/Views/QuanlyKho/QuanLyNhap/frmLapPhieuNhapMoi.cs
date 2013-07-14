@@ -16,43 +16,26 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
     public partial class frmLapPhieuNhapMoi : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
-        int ID_loai_nhap;
-
         public frmLapPhieuNhapMoi()
         {
             InitializeComponent();
         }
 
-        public frmLapPhieuNhapMoi(int _ID_loai_nhap = 1)
+        private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            ID_loai_nhap = _ID_loai_nhap;
-        }
-
-        private void InitForm()
-        {
-            db = new Entities();
+            Entities db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
-
-            if (ID_loai_nhap == 1)
-                NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
-            else
-            {
-                txtChungTuGoc.Enabled = false;
-                ledNhaCungCap.Enabled = false;
-            }
-
+            NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
-
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            Utils.ReconfigGridView(grvPhieuNhapCT);
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && grvPhieuNhapCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (e.KeyCode == Keys.Delete && grvPhieuNhapCT.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && grvPhieuNhapCT.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
             {
                 grvPhieuNhapCT.DeleteRow(grvPhieuNhapCT.FocusedRowHandle);
             }
@@ -93,7 +76,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
-            if (ID_loai_nhap == 1 && ledNhaCungCap.EditValue == null)
+            if (ledNhaCungCap.EditValue == null)
             {
                 XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledNhaCungCap.Focus();
@@ -127,21 +110,21 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, ID_loai_nhap, db);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm phiếu nhập không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Thêm phiếu nhập không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, db);
+                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    PhieuNhapCtrl.Delete(rs, db);
+                    PhieuNhapCtrl.Delete(rs);
 
                     return;
                 }
@@ -210,7 +193,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
-                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -227,13 +209,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void dteNgayNhap_EditValueChanged(object sender, EventArgs e)
         {
-            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
-        }
-
-        private void frmLapPhieuNhapMoi_Load(object sender, EventArgs e)
-        {
-            InitForm();
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue);
         }
     }
 }
