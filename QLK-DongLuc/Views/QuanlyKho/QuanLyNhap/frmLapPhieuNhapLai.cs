@@ -11,31 +11,22 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmNhapMoiCuaCuonAustDoor : DevExpress.XtraEditors.XtraForm
+    public partial class frmLapPhieuNhapLai : DevExpress.XtraEditors.XtraForm
     {
-        public frmNhapMoiCuaCuonAustDoor()
+        public frmLapPhieuNhapLai()
         {
             InitializeComponent();
         }
 
-        private void frmNhapMoiCuaCuonAustDoor_Load(object sender, EventArgs e)
+        private void frmLapPhieuNhapLai_Load(object sender, EventArgs e)
         {
             Entities db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
-            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, "Kho cửa cuốn", db);
-            NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
-            VatTuCtrl.LoadLookUpEdit(ledThanCua, "Thân cửa AustDoor", "", db);
-            VatTuCtrl.LoadLookUpEdit(ledMoTo, "Mô tơ cửa AustDoor", "", db);
-            VatTuCtrl.LoadThieBiAustDoorKhac(repositoryItemLookUpEdit1, db);
+            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
+            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             Utils.ReconfigGridView(grvPhieuNhapCT);
-        }
-
-        private void btnThemVatTuMoi_Click(object sender, EventArgs e)
-        {
-            DanhMuc.frmVatTu frm = new DanhMuc.frmVatTu();
-            frm.ShowDialog();
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
@@ -66,7 +57,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             if (ledNhanVienNhap.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một nhân viên nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Vui lòng chọn một nhân viên nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledNhanVienNhap.Focus();
                 result = 0;
                 return;
@@ -74,40 +65,16 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (ledKhoNhap.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một kho cửa cuốn.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Vui lòng chọn một kho nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ledKhoNhap.Focus();
-                result = 0;
-                return;
-            }
-
-            if (ledNhaCungCap.EditValue == null)
-            {
-                XtraMessageBox.Show("Vui lòng chọn một nhà cung cấp.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ledNhaCungCap.Focus();
                 result = 0;
                 return;
             }
 
             if (dteNgayNhap.EditValue == "")
             {
-                XtraMessageBox.Show("Vui lòng chọn một ngày nhập kho.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Vui lòng chọn một ngày nhập kho.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dteNgayNhap.Focus();
-                result = 0;
-                return;
-            }
-
-            if (ledThanCua.EditValue == null)
-            {
-                XtraMessageBox.Show("Vui lòng chọn một thân cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ledThanCua.Focus();
-                result = 0;
-                return;
-            }
-
-            if (ledMoTo.EditValue == null)
-            {
-                XtraMessageBox.Show("Vui lòng chọn một mô tơ cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ledMoTo.Focus();
                 result = 0;
                 return;
             }
@@ -130,26 +97,26 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue,null, ledKhoNhap.EditValue, null, dteNgayNhap.EditValue, mmoGhiChu.Text, 2);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm phiếu nhập không thành công. Vui lòng thử lại!", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Thêm phiếu nhập lại không thành công. Vui lòng thử lại!", "Thêm phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, (int)ledThanCua.EditValue, (double)sedChieuDai.Value, (double)sedChieuRong.Value, (int)ledMoTo.EditValue);
+                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập lại không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     PhieuNhapCtrl.Delete(rs);
 
                     return;
                 }
 
-                XtraMessageBox.Show("Thêm phiếu nhập thành công.", "Thêm phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Thêm phiếu nhập lại thành công.", "Thêm phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 btnLamLai.PerformClick();
             }
