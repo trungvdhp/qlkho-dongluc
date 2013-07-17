@@ -277,6 +277,21 @@
             // 
             // grbThongTinDoiTuongNhap
             // 
+<<<<<<< .mine
+            this.groupControl1.Controls.Add(this.ledKhoNhap);
+            this.groupControl1.Controls.Add(this.ledNhanVienNhap);
+            this.groupControl1.Controls.Add(this.mmoGhiChu);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(398, 0);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(389, 142);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Thông tin đối tượng nhập";
+=======
             this.grbThongTinDoiTuongNhap.Controls.Add(this.ledKhoNhap);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.ledNhanVienNhap);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.mmoGhiChu);
@@ -290,6 +305,7 @@
             this.grbThongTinDoiTuongNhap.Size = new System.Drawing.Size(389, 142);
             this.grbThongTinDoiTuongNhap.TabIndex = 0;
             this.grbThongTinDoiTuongNhap.Text = "Thông tin đối tượng nhập";
+>>>>>>> .r100
             // 
             // ledKhoNhap
             // 
@@ -349,6 +365,22 @@
             // 
             // grbThongTinNhaCungCap
             // 
+<<<<<<< .mine
+            this.groupControl2.Controls.Add(this.btnThemVatTuMoi);
+            this.groupControl2.Controls.Add(this.ledNhaCungCap);
+            this.groupControl2.Controls.Add(this.dteNgayNhap);
+            this.groupControl2.Controls.Add(this.txtChungTuGoc);
+            this.groupControl2.Controls.Add(this.labelControl7);
+            this.groupControl2.Controls.Add(this.labelControl6);
+            this.groupControl2.Controls.Add(this.labelControl5);
+            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl2.Location = new System.Drawing.Point(3, 0);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(389, 142);
+            this.groupControl2.TabIndex = 1;
+            this.groupControl2.Text = "Thông tin chứng từ nhà cung cấp";
+=======
             this.grbThongTinNhaCungCap.Controls.Add(this.btnThemVatTuMoi);
             this.grbThongTinNhaCungCap.Controls.Add(this.ledNhaCungCap);
             this.grbThongTinNhaCungCap.Controls.Add(this.dteNgayNhap);
@@ -363,6 +395,7 @@
             this.grbThongTinNhaCungCap.Size = new System.Drawing.Size(389, 142);
             this.grbThongTinNhaCungCap.TabIndex = 1;
             this.grbThongTinNhaCungCap.Text = "Thông tin chứng từ nhà cung cấp";
+>>>>>>> .r100
             // 
             // btnThemVatTuMoi
             // 
