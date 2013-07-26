@@ -25,23 +25,6 @@ namespace QLK_DongLuc
             Application.SetCompatibleTextRenderingDefault(false);
             DevExpress.Skins.SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("Office 2013");
-
-            try
-            {
-                ConnectionString = KetNoiCSDLCtrl.GetConnectionString();
-                Entities db = new Entities();
-                var t = db.IMP_LoaiNhap.ToList();
-            }
-            catch(Exception ex)
-            {
-                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ.\n" + ex.ToString(), "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                QLK_DongLuc.Views.HeThong.frmCauHinh frm = new QLK_DongLuc.Views.HeThong.frmCauHinh();
-
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                }
-            }
-
             CurrentUser = new SYS_NguoiDung();
             Application.Run(new frmMain());
         }

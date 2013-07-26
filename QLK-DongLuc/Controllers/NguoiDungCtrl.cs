@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class NguoiDungCtrl
+    public static class NguoiDungCtrl
     {
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
@@ -31,7 +32,7 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_day_du = Ten_day_du;
             entity.ID_trang_thai = ID_trang_thai;
             entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
-            entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
+            entity.Mat_khau = SecurityHelper.CreateSHAHash(Mat_khau);
 
             if (ID_nhan_vien != null) entity.ID_nhan_vien = (int?)ID_nhan_vien;
 
@@ -53,7 +54,7 @@ namespace QLK_DongLuc.Controllers
             entity.Thoi_gian_cho = TimeSpan.Parse(Thoi_gian_cho);
 
             if(Mat_khau != "") 
-                entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
+                entity.Mat_khau = SecurityHelper.CreateSHAHash(Mat_khau);
 
             return db.SaveChanges();
         }
@@ -69,7 +70,7 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_day_du = Ten_day_du;
 
             if (Mat_khau != "") 
-                entity.Mat_khau = Utils.CreateSHAHash(Mat_khau);
+                entity.Mat_khau = SecurityHelper.CreateSHAHash(Mat_khau);
 
             int rs = db.SaveChanges();
 
@@ -107,35 +108,58 @@ namespace QLK_DongLuc.Controllers
             return db.SaveChanges();
         }
 
-        public static SYS_NguoiDung Login(string Tai_khoan, string Mat_khau, Entities db = null)
+        public static int Login(string Tai_khoan, string Mat_khau, Entities db = null)
         {
             try
             {
                 if (db == null) db = new Entities();
 
-                string pass = Utils.CreateSHAHash(Mat_khau);
+                string pass = SecurityHelper.CreateSHAHash(Mat_khau);
 
                 var user = db.SYS_NguoiDung.FirstOrDefault(t => t.Tai_khoan == Tai_khoan && t.Mat_khau == pass);
 
                 if (user != null)
                 {
-                    if (user.ID_trang_thai == 3) return null;
-
                     if (user.ID_trang_thai == 1)
+                    {
                         user.ID_trang_thai = 2;
-                    else
-                        return null;
+                        user.Lan_dang_nhap_cuoi = DatabaseHelper.GetDatabaseDate();
+                        user.May_tram = MachineHelper.GetMachineInfo();
+                        //Đăng nhập thành công
+                        if (db.SaveChanges() > 0)
+                        {
+                            Program.CurrentUser = user;
 
-                    user.Lan_dang_nhap_cuoi = KetNoiCSDLCtrl.GetDatabaseDate();
+                            return 1;
+                        }
 
-                    if (db.SaveChanges() == 0) return null;
+                        return 0;
+                    }
+                    else if (user.ID_trang_thai == 2 && user.ID_nhan_vien == null)
+                    {
+                        // Tài khoản với vai trò giám đốc đang đăng nhập
+                        user.Lan_dang_nhap_cuoi = DatabaseHelper.GetDatabaseDate();
+                        user.May_tram = MachineHelper.GetMachineInfo();
+
+                        //Đăng nhập thành công
+                        if (db.SaveChanges() > 0)
+                        {
+                            Program.CurrentUser = user;
+
+                            return 2;
+                        }
+
+                        return 0;
+                    }
+
+                    return user.ID_trang_thai;
                 }
 
-                return user;
+                return 0;
             }
             catch (Exception)
             {
-                return null;
+                return 0;
             }
         }
 

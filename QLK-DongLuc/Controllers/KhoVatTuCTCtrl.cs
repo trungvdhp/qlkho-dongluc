@@ -9,7 +9,7 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class KhoVatTuCTCtrl
+    public static class KhoVatTuCTCtrl
     {
         public static void LoadBindingSource(int ID_kho, BindingSource bs, Entities db = null)
         {

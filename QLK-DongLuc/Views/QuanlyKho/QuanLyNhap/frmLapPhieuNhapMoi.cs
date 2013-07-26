@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Views.DanhMuc;
 
@@ -28,9 +29,9 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            dteNgayNhap.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
+            dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
-            Utils.ReconfigGridView(grvPhieuNhapCT);
+            GridHelper.ReconfigGridView(grvPhieuNhapCT);
         }
 
         private void grdPhieuNhapCT_KeyDown(object sender, KeyEventArgs e)
@@ -142,7 +143,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
-            Utils.ResetControls(this);
+            QLK_DongLuc.Helper.ControlHelper.ResetControls(this);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)

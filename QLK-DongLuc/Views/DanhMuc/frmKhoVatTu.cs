@@ -246,7 +246,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             if (kho.ID_phieu_nhap != null)
             {
-                QuanlyKho.QuanLyNhap.frmSuaPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmSuaPhieuNhap((int)kho.ID_phieu_nhap);
+                QuanlyKho.QuanLyNhap.frmSuaPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmSuaPhieuNhap(kho.IMP_PhieuNhap);
                 frm.ShowDialog();
             }
         }

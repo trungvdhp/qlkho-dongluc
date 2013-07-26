@@ -26,7 +26,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho
 		private void frmTonKho_Load(object sender, EventArgs e)
 		{
 			KhoVatTuCtrl.LoadLookUpEdit(ledKhoVT);
-			NhomVatTu.LoadLookUpEdit(ledNhomVT);
+			NhomVatTuCtrl.LoadLookUpEdit(ledNhomVT);
 			LoaiVatTu.LoadLookUpEdit(ledLoaiVT);
             VaiTroQuyenCtrl.ReconfigFormControls(this);
 		}

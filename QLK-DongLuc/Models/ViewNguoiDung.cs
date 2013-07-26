@@ -23,5 +23,6 @@ namespace QLK_DongLuc.Models
         public int ID_trang_thai { get; set; }
         public string Trang_thai { get; set; }
         public string Nhan_vien { get; set; }
+        public string May_tram { get; set; }
     }
 }

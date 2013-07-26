@@ -39,7 +39,7 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.grbThongTinNhaCungCap = new DevExpress.XtraEditors.GroupControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.pnlCommandButtons = new DevExpress.XtraEditors.PanelControl();
+            this.pnlThaoTac = new DevExpress.XtraEditors.PanelControl();
             this.btnXacThuc = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
@@ -78,8 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtChungTuGoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbThongTinNhaCungCap)).BeginInit();
             this.grbThongTinNhaCungCap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).BeginInit();
-            this.pnlCommandButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlThaoTac)).BeginInit();
+            this.pnlThaoTac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhanVienNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmoGhiChu.Properties)).BeginInit();
             this.tblPhieuNhap.SuspendLayout();
@@ -197,19 +197,19 @@
             this.labelControl6.TabIndex = 2;
             this.labelControl6.Text = "Mã cửa";
             // 
-            // pnlCommandButtons
+            // pnlThaoTac
             // 
-            this.pnlCommandButtons.Controls.Add(this.btnXacThuc);
-            this.pnlCommandButtons.Controls.Add(this.btnThoat);
-            this.pnlCommandButtons.Controls.Add(this.btnIn);
-            this.pnlCommandButtons.Controls.Add(this.btnLamLai);
-            this.pnlCommandButtons.Controls.Add(this.btnLuu);
-            this.pnlCommandButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCommandButtons.Location = new System.Drawing.Point(3, 3);
-            this.pnlCommandButtons.Name = "pnlCommandButtons";
-            this.pnlCommandButtons.Size = new System.Drawing.Size(812, 35);
-            this.pnlCommandButtons.TabIndex = 3;
-            this.pnlCommandButtons.Tag = "Cácthao tác";
+            this.pnlThaoTac.Controls.Add(this.btnXacThuc);
+            this.pnlThaoTac.Controls.Add(this.btnThoat);
+            this.pnlThaoTac.Controls.Add(this.btnIn);
+            this.pnlThaoTac.Controls.Add(this.btnLamLai);
+            this.pnlThaoTac.Controls.Add(this.btnLuu);
+            this.pnlThaoTac.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlThaoTac.Location = new System.Drawing.Point(3, 3);
+            this.pnlThaoTac.Name = "pnlThaoTac";
+            this.pnlThaoTac.Size = new System.Drawing.Size(812, 35);
+            this.pnlThaoTac.TabIndex = 3;
+            this.pnlThaoTac.Tag = "Cácthao tác";
             // 
             // btnXacThuc
             // 
@@ -358,7 +358,7 @@
             // 
             this.tblLapPhieuNhapAustDoor.ColumnCount = 1;
             this.tblLapPhieuNhapAustDoor.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLapPhieuNhapAustDoor.Controls.Add(this.pnlCommandButtons, 0, 0);
+            this.tblLapPhieuNhapAustDoor.Controls.Add(this.pnlThaoTac, 0, 0);
             this.tblLapPhieuNhapAustDoor.Controls.Add(this.tblPhieuNhap, 0, 1);
             this.tblLapPhieuNhapAustDoor.Controls.Add(this.tblPhieuNhapChiTiet, 0, 2);
             this.tblLapPhieuNhapAustDoor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -631,8 +631,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grbThongTinNhaCungCap)).EndInit();
             this.grbThongTinNhaCungCap.ResumeLayout(false);
             this.grbThongTinNhaCungCap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).EndInit();
-            this.pnlCommandButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlThaoTac)).EndInit();
+            this.pnlThaoTac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ledNhanVienNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmoGhiChu.Properties)).EndInit();
             this.tblPhieuNhap.ResumeLayout(false);
@@ -670,7 +670,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.GroupControl grbThongTinNhaCungCap;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.PanelControl pnlCommandButtons;
+        private DevExpress.XtraEditors.PanelControl pnlThaoTac;
         private DevExpress.XtraEditors.SimpleButton btnXacThuc;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnIn;

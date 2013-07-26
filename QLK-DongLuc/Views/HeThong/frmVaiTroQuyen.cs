@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList.Nodes;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.HeThong
@@ -206,7 +207,7 @@ namespace QLK_DongLuc.Views.HeThong
                 if(ControlTree.ActiveFilterString == "")
                     rs = VaiTroQuyenCtrl.Inherit((int)ledVaiTro.EditValue, quyen.ID_quyen, (List<SYS_Quyen>)sYSQuyenBindingSource.DataSource);
                 else
-                    rs = VaiTroQuyenCtrl.Inherit((int)ledVaiTro.EditValue, quyen.ID_quyen, Utils.GetVisibleNodesData<SYS_Quyen>(ControlTree));
+                    rs = VaiTroQuyenCtrl.Inherit((int)ledVaiTro.EditValue, quyen.ID_quyen, TreeHelper.GetVisibleNodesData<SYS_Quyen>(ControlTree));
 
                 if (rs > 0)
                 {
@@ -236,7 +237,7 @@ namespace QLK_DongLuc.Views.HeThong
                 if(ControlTree.ActiveFilterString == "")
                     rs = VaiTroQuyenCtrl.Copy((int)ledVaiTro.EditValue, quyen.ID_quyen, (List<SYS_Quyen>)sYSQuyenBindingSource.DataSource);
                 else
-                    rs = VaiTroQuyenCtrl.Copy((int)ledVaiTro.EditValue, quyen.ID_quyen, Utils.GetVisibleNodesData<SYS_Quyen>(ControlTree));
+                    rs = VaiTroQuyenCtrl.Copy((int)ledVaiTro.EditValue, quyen.ID_quyen, TreeHelper.GetVisibleNodesData<SYS_Quyen>(ControlTree));
 
                 if (rs > 0)
                 {
@@ -294,7 +295,7 @@ namespace QLK_DongLuc.Views.HeThong
                     if (ControlTree.ActiveFilterString == "")
                         rs = VaiTroQuyenCtrl.ClearAllProperties((int)ledVaiTro.EditValue,(List<SYS_Quyen>)sYSQuyenBindingSource.DataSource);
                     else
-                        rs = VaiTroQuyenCtrl.ClearAllProperties((int)ledVaiTro.EditValue, Utils.GetVisibleNodesData<SYS_Quyen>(ControlTree));
+                        rs = VaiTroQuyenCtrl.ClearAllProperties((int)ledVaiTro.EditValue, TreeHelper.GetVisibleNodesData<SYS_Quyen>(ControlTree));
 
                     if (rs > 0)
                     {

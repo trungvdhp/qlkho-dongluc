@@ -58,10 +58,10 @@ namespace QLK_DongLuc.Models
         public DbSet<ViewCboLoaiXuat> ViewCboLoaiXuat { get; set; }
         public DbSet<ViewCboNhanVien> ViewCboNhanVien { get; set; }
         public DbSet<ViewCboVatTu> ViewCboVatTu { get; set; }
-        public DbSet<ViewNguoiDung> ViewNguoiDung { get; set; }
         public DbSet<ViewPhieuNhap> ViewPhieuNhap { get; set; }
         public DbSet<ViewPhieuXuat> ViewPhieuXuat { get; set; }
         public DbSet<ViewThongKeNhap_NhaCungCap> ViewThongKeNhap_NhaCungCap { get; set; }
         public DbSet<ViewXuatVatTu_Kho> ViewXuatVatTu_Kho { get; set; }
+        public DbSet<ViewNguoiDung> ViewNguoiDung { get; set; }
     }
 }
