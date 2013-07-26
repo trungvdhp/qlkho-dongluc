@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLK_DongLuc.Models;
 
-namespace QLK_DongLuc.Controllers
+namespace QLK_DongLuc.Helper
 {
-    public class KetNoiCSDLCtrl
+    public static class DatabaseHelper
     {
         public static DateTime GetDatabaseDate()
         {
@@ -18,19 +18,51 @@ namespace QLK_DongLuc.Controllers
             return db.Database.SqlQuery<DateTime>("SELECT GetDate()").First();
         }
 
+        public static List<T> ExcuteSql<T>(string sql, Dictionary<string, object> filters)
+        {
+            List<T> list = new List<T>();
+            Entities db = new Entities();
+            sql += " where ";
+
+            foreach (var item in filters)
+            {
+                sql += item.Key + " = ";
+
+                if (item.Value.GetType() == typeof(string))
+                {
+                    sql += "'" + item.Value + "'";
+                }
+                else if(item.Value.GetType() == typeof(DateTime))
+                {
+                    sql += "#" + item.Value + "#";
+                }
+                else
+                {
+                    sql += item.Value;
+                }
+
+                sql += " && ";
+            }
+
+            sql = sql.Substring(0, sql.Length - 4);
+            list = db.Database.SqlQuery<T>(sql).ToList();
+
+            return list;
+        }
+
         private static string DeCryptPass()
         {
             var ecr = Properties.Settings.Default.SSAP;
             var key = "3/3JysB9VLsqWAE35jXoy7Hf6GtSRlFJO9tcP9pm1SPKXU0zfZKIXHLSa+8wkgBQe8bDfeBI2GoS6obZlcKrZw==";
 
-            return Utils.DeCryptMD5(ecr, key);
+            return SecurityHelper.DeCryptMD5(ecr, key);
         }
 
         public static string EnCryptPass(string pass)
         {
             var key = "3/3JysB9VLsqWAE35jXoy7Hf6GtSRlFJO9tcP9pm1SPKXU0zfZKIXHLSa+8wkgBQe8bDfeBI2GoS6obZlcKrZw==";
 
-            return Utils.EnCryptMD5(pass, key);
+            return SecurityHelper.EnCryptMD5(pass, key);
         }
 
         public static string GetConnectionString()
@@ -40,12 +72,12 @@ namespace QLK_DongLuc.Controllers
             var Database = Properties.Settings.Default.DB;
             var UserId = Properties.Settings.Default.UID;
 
-            return "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            return "Data Source=" + Datasource + ";Initial Catalog=" + Database + ";Persist Security Info=True;User ID=" + UserId + ";Password=" + Pass + ";MultipleActiveResultSets=True;";
         }
 
         public static List<string> GetDatabaseList(string Datasource, string UserId, string Pass)
         {
-            string connectionString = "data source=" + Datasource +";initial catalog=master;persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            string connectionString = "Data Source=" + Datasource + ";Initial Catalog=master;Persist Security Info=True;User ID=" + UserId + ";Password=" + Pass + ";MultipleActiveResultSets=True;";
 
             QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
             db.Database.Connection.ConnectionString = connectionString;
@@ -64,13 +96,13 @@ namespace QLK_DongLuc.Controllers
 
         public static string GetConnectionString(string Datasource, string UserId, string Pass, string Database)
         {
-            return "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            return "Data Source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;";
         }
 
         public static int ConnectDatabase(string Datasource, string UserId, string Pass, string Database)
         {
             QuanLyKhoDongLucEntities db = new QuanLyKhoDongLucEntities();
-            db.Database.Connection.ConnectionString = "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            db.Database.Connection.ConnectionString = "data source=" + Datasource + ";initial catalog=" + Database + ";persist security info=True;user id=" + UserId + ";password=" + Pass + ";MultipleActiveResultSets=True;";
 
             try
             {

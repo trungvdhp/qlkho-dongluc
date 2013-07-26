@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QLK_DongLuc.frmSplashScreen), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
@@ -78,6 +79,7 @@
             this.btnQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.btnVaiTro = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapMoiAustDoor = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -101,7 +103,6 @@
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.btnNhapMoiAustDoor = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -610,6 +611,13 @@
             this.btnPhanQuyen.Name = "btnPhanQuyen";
             this.btnPhanQuyen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhanQuyen_ItemClick);
             // 
+            // btnNhapMoiAustDoor
+            // 
+            this.btnNhapMoiAustDoor.Caption = "Nhập mới cửa cuốn AustDoor";
+            this.btnNhapMoiAustDoor.Id = 98;
+            this.btnNhapMoiAustDoor.Name = "btnNhapMoiAustDoor";
+            this.btnNhapMoiAustDoor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiAustDoor_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -793,13 +801,6 @@
             this.tabControl.TabIndex = 5;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             // 
-            // btnNhapMoiAustDoor
-            // 
-            this.btnNhapMoiAustDoor.Caption = "Nhập mới cửa cuốn AustDoor";
-            this.btnNhapMoiAustDoor.Id = 98;
-            this.btnNhapMoiAustDoor.Name = "btnNhapMoiAustDoor";
-            this.btnNhapMoiAustDoor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiAustDoor_ItemClick);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,6 +813,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHƯƠNG TRÌNH QUẢN LÝ KHO - CÔNG TY ĐỒNG LỰC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmMain_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();

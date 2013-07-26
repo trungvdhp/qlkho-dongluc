@@ -20,7 +20,7 @@ namespace QLK_DongLuc.Controllers
             DateTime d;
 
             if(date == null || date.Equals("")) 
-                d = KetNoiCSDLCtrl.GetDatabaseDate();
+                d = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             else
                 d = (DateTime)date;
 
@@ -39,6 +39,22 @@ namespace QLK_DongLuc.Controllers
                 bs.DataSource = db.ViewPhieuNhap.OrderByDescending(t => t.Ngay_nhap).ToList();
             else
                 bs.DataSource = db.ViewPhieuNhap.Where(t => t.ID_nhan_vien_lap == user.ID_nhan_vien).OrderByDescending(t => t.Ngay_nhap).ToList();
+        }
+
+        public static void LoadBindingSource(BindingSource bs, DateTime ngayBatDau, DateTime ngayKetThuc, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            ngayKetThuc = ngayKetThuc.AddDays(1);
+
+            if (Program.CurrentUser.ID_nhan_vien == null)
+            {
+                bs.DataSource = db.IMP_PhieuNhap.Where(t => t.Trang_thai != -1 && t.Ngay_nhap >= ngayBatDau && t.Ngay_nhap <= ngayKetThuc).OrderByDescending(o => o.Ngay_nhap).ToList();
+            }
+            else
+            {
+                bs.DataSource = db.IMP_PhieuNhap.Where(t => t.Trang_thai != -1 && t.Ngay_nhap >= ngayBatDau && t.Ngay_nhap <= ngayKetThuc && t.ID_nhan_vien_lap == Program.CurrentUser.ID_nhan_vien).OrderByDescending(o => o.Ngay_nhap).ToList();
+            }
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
@@ -88,7 +104,7 @@ namespace QLK_DongLuc.Controllers
                 entity.Ngay_nhap = (DateTime)Ngay_nhap;
 
             entity.ID_nguoi_sua = Program.CurrentUser.ID_nguoi_dung;
-            entity.Ngay_sua = KetNoiCSDLCtrl.GetDatabaseDate();
+            entity.Ngay_sua = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             entity.Trang_thai = 0;
             entity.ID_loai_nhap = ID_loai_nhap;
 
@@ -264,7 +280,7 @@ namespace QLK_DongLuc.Controllers
                     pn.Ngay_nhap = (DateTime)Ngay_nhap;
 
                 pn.ID_nguoi_sua = Program.CurrentUser.ID_nguoi_dung;
-                pn.Ngay_sua = KetNoiCSDLCtrl.GetDatabaseDate();
+                pn.Ngay_sua = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
                 //pn.ID_loai_nhap = ID_loai_nhap;
 
                 if (ID_loai_nhap == 2)

@@ -33,8 +33,9 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTONhomVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKho_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleKhoVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colGhi_chu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTONhomVatTuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,9 +71,12 @@
             // 
             this.gridControl.DataSource = this.sTONhomVatTuBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridControl_EmbeddedNavigator_ButtonClick);
             this.gridControl.Location = new System.Drawing.Point(13, 63);
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
+            this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rleKhoVatTu});
             this.gridControl.Size = new System.Drawing.Size(758, 285);
             this.gridControl.TabIndex = 0;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -79,34 +84,48 @@
             this.gridView});
             this.gridControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
             // 
+            // sTONhomVatTuBindingSource
+            // 
+            this.sTONhomVatTuBindingSource.DataSource = typeof(QLK_DongLuc.Models.STO_NhomVatTu);
+            // 
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID_nhom_vat_tu,
             this.colTen_nhom_vat_tu,
-            this.colGhi_chu});
+            this.colGhi_chu,
+            this.colKho_vat_tu});
             this.gridView.GridControl = this.gridControl;
+            this.gridView.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.gridView.Name = "gridView";
             this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
-            // 
-            // colID_nhom_vat_tu
-            // 
-            this.colID_nhom_vat_tu.Caption = "ID_nhom_vat_tu";
-            this.colID_nhom_vat_tu.FieldName = "ID_nhom_vat_tu";
-            this.colID_nhom_vat_tu.Name = "colID_nhom_vat_tu";
             // 
             // colTen_nhom_vat_tu
             // 
-            this.colTen_nhom_vat_tu.Caption = "Nhóm vật tư";
+            this.colTen_nhom_vat_tu.Caption = "Tên nhóm vật tư";
             this.colTen_nhom_vat_tu.FieldName = "Ten_nhom_vat_tu";
             this.colTen_nhom_vat_tu.Name = "colTen_nhom_vat_tu";
             this.colTen_nhom_vat_tu.Visible = true;
             this.colTen_nhom_vat_tu.VisibleIndex = 0;
+            // 
+            // colKho_vat_tu
+            // 
+            this.colKho_vat_tu.Caption = "Kho vật tư";
+            this.colKho_vat_tu.ColumnEdit = this.rleKhoVatTu;
+            this.colKho_vat_tu.FieldName = "ID_kho";
+            this.colKho_vat_tu.Name = "colKho_vat_tu";
+            this.colKho_vat_tu.Visible = true;
+            this.colKho_vat_tu.VisibleIndex = 2;
+            // 
+            // rleKhoVatTu
+            // 
+            this.rleKhoVatTu.AutoHeight = false;
+            this.rleKhoVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleKhoVatTu.Name = "rleKhoVatTu";
             // 
             // colGhi_chu
             // 
@@ -170,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTONhomVatTuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,15 +200,16 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevExpress.XtraGrid.GridControl gridControl;
-        private System.Windows.Forms.BindingSource sTONhomVatTuBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nhom_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_nhom_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colGhi_chu;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn colKho_vat_tu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoVatTu;
+        private System.Windows.Forms.BindingSource sTONhomVatTuBindingSource;
 
 
     }

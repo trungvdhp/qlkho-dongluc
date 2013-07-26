@@ -26,6 +26,7 @@ namespace QLK_DongLuc
     using QLK_DongLuc.Controllers;
     using DevExpress.XtraBars;
     using System.Reflection;
+    using QLK_DongLuc.Helper;
 
     public partial class frmMain : XtraForm
     {
@@ -34,10 +35,33 @@ namespace QLK_DongLuc
         TimeSpan interval;
         int RemainingTime;
         bool waiting = false;
+        frmDangNhap frmLogin;
 
         public frmMain()
         {
             InitializeComponent();
+
+            try
+            {
+                Program.ConnectionString = DatabaseHelper.GetConnectionString();
+                Entities db = new Entities();
+                var t = db.IMP_LoaiNhap.ToList();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ.\n" + ex.ToString(), "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                QLK_DongLuc.Views.HeThong.frmCauHinh frm = new QLK_DongLuc.Views.HeThong.frmCauHinh();
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+                else
+                {
+                    Application.ExitThread();
+                }
+            }
+
             interval = TimeSpan.FromMilliseconds((double)(tmrDongHo.Interval));
         }
 
@@ -152,7 +176,7 @@ namespace QLK_DongLuc
 
         private void barDanhSachPhieuNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmPhieuNhap frm = new frmPhieuNhap();
+            frmDanhSachPhieuNhap frm = new frmDanhSachPhieuNhap();
             OpenForm(frm, tabControl);
         }
 
@@ -176,9 +200,9 @@ namespace QLK_DongLuc
 
         private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmDangNhap frm = new frmDangNhap();
+            frmLogin = new frmDangNhap();
 
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (frmLogin.ShowDialog() == DialogResult.OK)
             {
                 btnDangNhap.Enabled = false;
                 btnDangXuat.Enabled = true;
@@ -355,7 +379,6 @@ namespace QLK_DongLuc
             btnDangNhap.PerformClick();
         }
 
-
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             //btnThoat.PerformClick();
@@ -422,7 +445,6 @@ namespace QLK_DongLuc
             OpenForm(frm, tabControl);
         }
 
-
         private void btnThongKeNhap_NhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmThongKeNhap_NhaCungCap frm = new frmThongKeNhap_NhaCungCap();
@@ -439,6 +461,11 @@ namespace QLK_DongLuc
         {
             frmNhapMoiCuaCuonAustDoor frm = new frmNhapMoiCuaCuonAustDoor();
             OpenForm(frm, tabControl);
+        }
+
+        private void frmMain_Activated(object sender, EventArgs e)
+        {
+            frmLogin.Activate();
         }
     }
 }

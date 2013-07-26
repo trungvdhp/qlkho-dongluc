@@ -167,7 +167,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\KetNoiCSDLCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCTCtrl.cs" />
     <Compile Include="Controllers\LoaiXuat.cs" />
     <Compile Include="Controllers\PhieuNhapCTCtrl.cs" />
@@ -188,8 +187,7 @@
     <Compile Include="Controllers\KhoVatTuCtrl.cs" />
     <Compile Include="Controllers\NhaCungCapCtrl.cs" />
     <Compile Include="Controllers\NhanVienCtrl.cs" />
-    <Compile Include="Controllers\NhomVatTu.cs" />
-    <Compile Include="Controllers\Utils.cs" />
+    <Compile Include="Controllers\NhomVatTuCtrl.cs" />
     <Compile Include="Controllers\VaiTroCtrl.cs" />
     <Compile Include="Controllers\VaiTroQuyenCtrl.cs" />
     <Compile Include="Controllers\VatTuCtrl.cs" />
@@ -199,6 +197,24 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashScreen.Designer.cs">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\ControlHelper.cs" />
+    <Compile Include="Helper\DatabaseHelper.cs" />
+    <Compile Include="Helper\DateEditHelper.cs" />
+    <Compile Include="Helper\DateTimeHelper.cs" />
+    <Compile Include="Helper\FormHelper.cs" />
+    <Compile Include="Helper\GridHelper.cs" />
+    <Compile Include="Helper\MachineHelper.cs" />
+    <Compile Include="Helper\SecurityHelper.cs" />
+    <Compile Include="Helper\SpinEditHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="Helper\TabControlHelper.cs" />
+    <Compile Include="Helper\TreeHelper.cs" />
     <Compile Include="Models\CAT_KhachHang.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -453,11 +469,11 @@
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.Designer.cs">
       <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.Designer.cs">
-      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.Designer.cs">
+      <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -510,6 +526,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashScreen.resx">
+      <DependentUpon>frmSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -578,12 +597,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.resx">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.resx">
       <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmPhieuNhap.resx">
-      <DependentUpon>frmPhieuNhap.cs</DependentUpon>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
+      <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.resx">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>

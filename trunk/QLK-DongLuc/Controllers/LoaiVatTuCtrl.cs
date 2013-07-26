@@ -10,7 +10,7 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class LoaiVatTuCtrl
+    public static class LoaiVatTuCtrl
     {
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {

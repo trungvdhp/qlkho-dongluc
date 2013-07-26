@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Controllers;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Helper;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -35,7 +36,7 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void gridControl_Load()
         {
             KhachHangCtrl.LoadBindingSource(cATKhachHangBindingSource);
-            Utils.ReconfigGridView(gridView);
+            GridHelper.ReconfigGridView(gridView);
             
         }
 

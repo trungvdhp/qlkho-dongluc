@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using QLK_DongLuc.Models;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class NhanVienCtrl
+    public static class NhanVienCtrl
     {
         public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
         {
@@ -30,6 +31,20 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhân viên";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
+
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.ViewCboNhanVien.ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ho_ten", "Họ tên"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Kho"));
+            gridLookUpEdit.Properties.DisplayMember = "Ho_ten";
+            gridLookUpEdit.Properties.ValueMember = "ID_nhan_vien";
+            gridLookUpEdit.Properties.NullText = "";
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static int Insert(object Ho_dem, object Ten, object Gioi_tinh, object Ngay_sinh, object CMND, object Ngay_Cap, object Noi_cap, object Dien_thoai, object Dia_chi, object Email, Entities db = null)

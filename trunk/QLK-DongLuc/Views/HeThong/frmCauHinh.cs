@@ -40,7 +40,7 @@ namespace QLK_DongLuc.Views.HeThong
                 return;
             }
 
-            var databases = KetNoiCSDLCtrl.GetDatabaseList(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text);
+            var databases = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseList(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text);
 
             if (databases.Count == 0)
             {
@@ -147,7 +147,7 @@ namespace QLK_DongLuc.Views.HeThong
                 return;
             }
             
-            int rs = KetNoiCSDLCtrl.ConnectDatabase(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text, ledCoSoDuLieu.EditValue.ToString());
+            int rs = QLK_DongLuc.Helper.DatabaseHelper.ConnectDatabase(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text, ledCoSoDuLieu.EditValue.ToString());
 
             if (rs == 0)
             {
@@ -160,10 +160,10 @@ namespace QLK_DongLuc.Views.HeThong
                 Settings.Default.DS = txtTenMayChu.Text;
                 Settings.Default.UID = txtTenDangNhap.Text;
                 Settings.Default.DB = ledCoSoDuLieu.EditValue.ToString();
-                Settings.Default.SSAP = KetNoiCSDLCtrl.EnCryptPass(txtMatKhau.Text);
+                Settings.Default.SSAP = QLK_DongLuc.Helper.DatabaseHelper.EnCryptPass(txtMatKhau.Text);
                 Settings.Default.Save();
 
-                Program.ConnectionString = KetNoiCSDLCtrl.GetConnectionString(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text, ledCoSoDuLieu.EditValue.ToString());
+                Program.ConnectionString = QLK_DongLuc.Helper.DatabaseHelper.GetConnectionString(txtTenMayChu.Text, txtTenDangNhap.Text, txtMatKhau.Text, ledCoSoDuLieu.EditValue.ToString());
 
                 this.DialogResult = DialogResult.OK;
             }

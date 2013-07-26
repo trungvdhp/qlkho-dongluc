@@ -228,7 +228,7 @@ namespace QLK_DongLuc.Controllers
             {
                 if (item.ID_quyen != current)
                 {
-                    obj = Utils.FindControl(form, item.SYS_Quyen.Ma_quyen);
+                    obj = QLK_DongLuc.Helper.ControlHelper.FindControl(form, item.SYS_Quyen.Ma_quyen);
                     current = item.ID_quyen;
                 }
 
@@ -274,7 +274,7 @@ namespace QLK_DongLuc.Controllers
                     value = item.Gia_tri;
                 }
 
-                Utils.SetValue(obj, item.SYS_ThuocTinh.Ky_hieu, value);
+                QLK_DongLuc.Helper.ControlHelper.SetValue(obj, item.SYS_ThuocTinh.Ky_hieu, value);
             }
         }
     }

@@ -5,21 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class KhoVatTuCtrl
+    public static class KhoVatTuCtrl
     {
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if (db == null) db = new Entities();
+
             bs.DataSource = db.STO_KhoVatTu.ToList();
         }
 
         public static void LoadComboBox(System.Windows.Forms.ComboBox cbo, Entities db = null)
         {
             if (db == null) db = new Entities();
+
             cbo.DisplayMember = "Ten_kho";
             cbo.ValueMember = "ID_kho";
             cbo.DataSource = db.STO_KhoVatTu.ToList();
@@ -28,6 +31,7 @@ namespace QLK_DongLuc.Controllers
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
         {
             if (db == null) db = new Entities();
+
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.STO_KhoVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
@@ -38,6 +42,20 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn kho";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
+
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.STO_KhoVatTu.ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_diem", "Địa điểm"));
+            gridLookUpEdit.Properties.DisplayMember = "Ten_kho";
+            gridLookUpEdit.Properties.ValueMember = "ID_kho";
+            gridLookUpEdit.Properties.NullText = "";
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ten_kho, Entities db = null)

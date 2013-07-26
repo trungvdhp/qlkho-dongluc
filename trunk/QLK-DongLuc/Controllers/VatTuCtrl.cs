@@ -68,7 +68,7 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new Entities();
 
             gridLookUpEdit.Properties.Columns.Clear();
-            gridLookUpEdit.Properties.DataSource =  db.ViewCboVatTu.ToList();
+            gridLookUpEdit.Properties.DataSource =  db.ViewCboVatTu.Where(t => !t.Ten_loai_vat_tu.Contains("NAN")).ToList();
 
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));

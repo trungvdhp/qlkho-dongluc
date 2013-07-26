@@ -14,11 +14,15 @@ namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmNhanVien : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
-
         public frmNhanVien()
         {
             InitializeComponent();
+        }
+
+        private void frmNhanVien_Load(object sender, EventArgs e)
+        {
+            gridControl_Load();
+            VaiTroQuyenCtrl.ReconfigFormControls(this);
         }
 
         private void gridControl_Load()
@@ -30,17 +34,17 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             int rs =
                  NhanVienCtrl.Insert(
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email"),
-                 db);
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
+                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email")
+                 );
 
             if (rs > 0)
                 XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -54,18 +58,18 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             int rs =
                 NhanVienCtrl.Update(
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email"),
-                db);
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
+                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email")
+                );
 
             if (rs > 0)
                 XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -84,19 +88,12 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (result == DialogResult.No)
                 return;
 
-            if (NhanVienCtrl.Delete(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"), db) > 0)
+            if (NhanVienCtrl.Delete(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien")) > 0)
                 XtraMessageBox.Show("Xóa dữ liệu thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 XtraMessageBox.Show("Xóa dữ liệu không thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             gridControl_Load();
-        }
-
-        private void frmNhanVien_Load(object sender, EventArgs e)
-        {
-            db = new Entities();
-            gridControl_Load();
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
         private void gridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -138,7 +135,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             var Ngay_sinh = gridView.GetRowCellValue(e.RowHandle, "Ngay_sinh");
 
-            if (Ngay_sinh == null || (KetNoiCSDLCtrl.GetDatabaseDate().Year - ((DateTime)Ngay_sinh).Year <= 15))
+            if (Ngay_sinh == null || (QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate().Year - ((DateTime)Ngay_sinh).Year <= 15))
             {
                 bError = true;
                 sError += "\n Nhập ngày tháng không đúng. ";

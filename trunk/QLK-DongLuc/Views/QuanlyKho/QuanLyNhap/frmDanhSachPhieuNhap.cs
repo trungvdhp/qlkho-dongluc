@@ -7,13 +7,14 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmPhieuNhap : DevExpress.XtraEditors.XtraForm
+    public partial class frmDanhSachPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
-        public frmPhieuNhap()
+        public frmDanhSachPhieuNhap()
         {
             InitializeComponent();
         }
@@ -21,10 +22,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void frmPhieuNhap_Load(object sender, EventArgs e)
         {
             Entities db = new Entities();
+            NhanVienCtrl.LoadLookUpEdit(rleNhanVienLap, db);
+            NhanVienCtrl.LoadLookUpEdit(rleNhanVienNhap, db);
             TuyChonTimKiemCtrl.LoadLookUpEdit(ledTuyChon);
-            PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource, db);
-            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            dteNgayBatDau.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
+            VatTuCtrl.LoadLookUpEdit(rleVatTu, db);
+            dteNgayBatDau.EditValue = DateTimeHelper.GetStartDateOfMonth(DatabaseHelper.GetDatabaseDate());
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
         }
 
@@ -72,28 +74,28 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 {
                     XtraMessageBox.Show("Xóa phiếu nhập thành công!", "Xóa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+                    btnTimKiem.PerformClick();
                 }
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
+            IMP_PhieuNhap pn = (IMP_PhieuNhap)grvPhieuNhap.GetFocusedRow();
 
             if (pn != null)
             {
-                if (pn.ID_trang_thai == -1)
+                if (pn.Trang_thai == -1)
                 {
                     XtraMessageBox.Show("Phiếu nhập đã được xác thực nên không thể sửa!", "Sửa phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn.ID_phieu_nhap);
+                    frmSuaPhieuNhap frm = new frmSuaPhieuNhap(pn);
 
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        PhieuNhapCtrl.LoadBindingSource(viewPhieuNhapBindingSource);
+                        btnTimKiem.PerformClick();
                         PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
                     }
                 }
@@ -124,19 +126,22 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void ledTuyChon_EditValueChanged(object sender, EventArgs e)
         {
-            var begin = (DateTime)dteNgayBatDau.EditValue;
-            var beginYear = new DateTime(begin.Year, 1, 1);
-            dteNgayBatDau.EditValue = beginYear;
+            dteNgayBatDau_EditValueChanged(sender, e);
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            grvPhieuNhap.ActiveFilterString = TuyChonTimKiemCtrl.GetDateFilterString(dteNgayBatDau.EditValue, dteNgayKetThuc.EditValue);
+            PhieuNhapCtrl.LoadBindingSource(iMPPhieuNhapBindingSource, (DateTime)dteNgayBatDau.EditValue, (DateTime)dteNgayKetThuc.EditValue);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             frmMain.CloseCurrentForm(this.Parent);
+        }
+
+        private void dteNgayKetThuc_EditValueChanged(object sender, EventArgs e)
+        {
+            btnTimKiem.PerformClick();
         }
     }
 }

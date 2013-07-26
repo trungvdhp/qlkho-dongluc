@@ -19,20 +19,32 @@ namespace QLK_DongLuc.Views.HeThong
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            var user = NguoiDungCtrl.Login(txtTenDangNhap.Text, txtMatKhau.Text);
+            int rs = NguoiDungCtrl.Login(txtTenDangNhap.Text, txtMatKhau.Text);
 
-            if (user == null)
+            if (rs == 0)
             {
-                XtraMessageBox.Show("1. Tên đăng nhập hoặc mật khẩu không đúng.\n\n2. Có thể tài khoản này đang đăng nhập hoặc đang bị khóa.\n\n3. Hoặc kết nối đến máy chủ không thành công\n\n4. Hoặc cơ sở dữ liệu không phù hợp\n\n* Vui lòng kiểm tra lại thông tin đăng nhập hoặc kết nối cơ sở dữ liệu*", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("1. Tên đăng nhập hoặc mật khẩu không đúng.\n\n2. Hoặc kết nối đến máy chủ không thành công\n\n3. Hoặc cơ sở dữ liệu không phù hợp\n\n* Vui lòng kiểm tra lại thông tin đăng nhập hoặc kết nối cơ sở dữ liệu*", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 txtMatKhau.Focus();
                 txtMatKhau.SelectAll();
             }
+            else if (rs == 1)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else if (rs == 2)
+            {
+                if (Program.CurrentUser == null)
+                    XtraMessageBox.Show("Tài khoản này đang đăng nhập ở một nơi khác.\n\nVui lòng liên hệ giám đốc để kiểm tra lại!", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    XtraMessageBox.Show("Đăng nhập thành công.\n\nPhát hiện tài khoản giám đốc đang đăng nhập ở một nơi khác!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.DialogResult = DialogResult.OK;
+                }
+            }
             else
             {
-                Program.CurrentUser = user;
-                //XtraMessageBox.Show("Đăng nhập thành công vào hệ thống!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
+                XtraMessageBox.Show("Tài khoản này đã bị khóa.\n\nVui lòng liên hệ giám đốc để kiểm tra lại!", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -97,7 +97,8 @@
       [ViewNguoiDung].[Thoi_gian_cho] AS [Thoi_gian_cho], 
       [ViewNguoiDung].[ID_trang_thai] AS [ID_trang_thai], 
       [ViewNguoiDung].[Trang_thai] AS [Trang_thai], 
-      [ViewNguoiDung].[Nhan_vien] AS [Nhan_vien]
+      [ViewNguoiDung].[Nhan_vien] AS [Nhan_vien], 
+      [ViewNguoiDung].[May_tram] AS [May_tram]
       FROM [dbo].[ViewNguoiDung] AS [ViewNguoiDung]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewPhieuNhap" EntityType="QuanLyKhoDongLucModel.Store.ViewPhieuNhap" store:Type="Views" store:Schema="dbo" store:Name="ViewPhieuNhap">
@@ -489,6 +490,7 @@
           </Key>
           <Property Name="ID_nhom_vat_tu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ID_kho" Type="int" />
+          <Property Name="Ma_nhom_vat_tu" Type="nvarchar" MaxLength="50" />
           <Property Name="Ten_nhom_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ghi_chu" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -549,6 +551,7 @@
           <Property Name="ID_trang_thai" Type="int" Nullable="false" />
           <Property Name="Lan_dang_nhap_cuoi" Type="datetime" />
           <Property Name="Thoi_gian_cho" Type="time" />
+          <Property Name="May_tram" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="SYS_NguoiDungVaiTro">
           <Key>
@@ -747,6 +750,7 @@
           <Property Name="ID_trang_thai" Type="int" Nullable="false" />
           <Property Name="Trang_thai" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Nhan_vien" Type="nvarchar" MaxLength="101" />
+          <Property Name="May_tram" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'QuanLyKhoDongLuc.dbo.ViewPhieuNhap' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1374,7 +1378,6 @@
           <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" />
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" />
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" />
-          <EntitySet Name="ViewNguoiDung" EntityType="QuanLyKhoDongLucModel.ViewNguoiDung" />
           <EntitySet Name="ViewPhieuNhap" EntityType="QuanLyKhoDongLucModel.ViewPhieuNhap" />
           <EntitySet Name="ViewPhieuXuat" EntityType="QuanLyKhoDongLucModel.ViewPhieuXuat" />
           <EntitySet Name="ViewThongKeNhap_NhaCungCap" EntityType="QuanLyKhoDongLucModel.ViewThongKeNhap_NhaCungCap" />
@@ -1527,6 +1530,7 @@
             <End Role="SYS_NguoiDung" EntitySet="SYS_NguoiDung" />
             <End Role="SYS_VaiTro" EntitySet="SYS_VaiTro" />
           </AssociationSet>
+          <EntitySet Name="ViewNguoiDung" EntityType="QuanLyKhoDongLucModel.ViewNguoiDung" />
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1732,6 +1736,7 @@
           </Key>
           <Property Type="Int32" Name="ID_nhom_vat_tu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="ID_kho" />
+          <Property Type="String" Name="Ma_nhom_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="STO_KhoVatTu" Relationship="QuanLyKhoDongLucModel.FK_STO_NhomVatTu_STO_KhoVatTu" FromRole="STO_NhomVatTu" ToRole="STO_KhoVatTu" />
@@ -1797,6 +1802,7 @@
           <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
           <Property Type="DateTime" Name="Lan_dang_nhap_cuoi" Precision="3" />
           <Property Type="Time" Name="Thoi_gian_cho" Precision="7" />
+          <Property Type="String" Name="May_tram" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CAT_KhachHang" Relationship="QuanLyKhoDongLucModel.FK_CAT_KhachHang_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="CAT_KhachHang" />
           <NavigationProperty Name="CAT_NhanVien" Relationship="QuanLyKhoDongLucModel.FK_SYS_NguoiDung_CAT_NhanVien" FromRole="SYS_NguoiDung" ToRole="CAT_NhanVien" />
           <NavigationProperty Name="EXP_PhieuXuat" Relationship="QuanLyKhoDongLucModel.FK_EXP_PhieuXuat_SYS_NguoiDung" FromRole="SYS_NguoiDung" ToRole="EXP_PhieuXuat" />
@@ -1965,24 +1971,6 @@
           <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Double" Name="Don_vi" />
           <Property Type="String" Name="Ma_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="ViewNguoiDung">
-          <Key>
-            <PropertyRef Name="ID_nguoi_dung" />
-            <PropertyRef Name="Tai_khoan" />
-            <PropertyRef Name="Ten_day_du" />
-            <PropertyRef Name="ID_trang_thai" />
-            <PropertyRef Name="Trang_thai" />
-          </Key>
-          <Property Type="Int32" Name="ID_nguoi_dung" Nullable="false" />
-          <Property Type="Int32" Name="ID_nhan_vien" />
-          <Property Type="String" Name="Tai_khoan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Ten_day_du" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Lan_dang_nhap_cuoi" Precision="3" />
-          <Property Type="Time" Name="Thoi_gian_cho" Precision="7" />
-          <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
-          <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Nhan_vien" MaxLength="101" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewPhieuNhap">
           <Key>
@@ -2520,6 +2508,25 @@
           <End Type="QuanLyKhoDongLucModel.SYS_NguoiDung" Role="SYS_NguoiDung" Multiplicity="*" />
           <End Type="QuanLyKhoDongLucModel.SYS_VaiTro" Role="SYS_VaiTro" Multiplicity="*" />
         </Association>
+        <EntityType Name="ViewNguoiDung">
+          <Key>
+            <PropertyRef Name="ID_nguoi_dung" />
+            <PropertyRef Name="Tai_khoan" />
+            <PropertyRef Name="Ten_day_du" />
+            <PropertyRef Name="ID_trang_thai" />
+            <PropertyRef Name="Trang_thai" />
+          </Key>
+          <Property Type="Int32" Name="ID_nguoi_dung" Nullable="false" />
+          <Property Type="Int32" Name="ID_nhan_vien" />
+          <Property Type="String" Name="Tai_khoan" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Ten_day_du" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Lan_dang_nhap_cuoi" Precision="3" />
+          <Property Type="Time" Name="Thoi_gian_cho" Precision="7" />
+          <Property Type="Int32" Name="ID_trang_thai" Nullable="false" />
+          <Property Type="String" Name="Trang_thai" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Nhan_vien" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="May_tram" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2695,6 +2702,7 @@
               <MappingFragment StoreEntitySet="STO_NhomVatTu">
                 <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
                 <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
+                <ScalarProperty Name="Ma_nhom_vat_tu" ColumnName="Ma_nhom_vat_tu" />
                 <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
                 <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
               </MappingFragment>
@@ -2743,6 +2751,7 @@
           <EntitySetMapping Name="SYS_NguoiDung">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.SYS_NguoiDung">
               <MappingFragment StoreEntitySet="SYS_NguoiDung">
+                <ScalarProperty Name="May_tram" ColumnName="May_tram" />
                 <ScalarProperty Name="Thoi_gian_cho" ColumnName="Thoi_gian_cho" />
                 <ScalarProperty Name="Lan_dang_nhap_cuoi" ColumnName="Lan_dang_nhap_cuoi" />
                 <ScalarProperty Name="ID_trang_thai" ColumnName="ID_trang_thai" />
@@ -2902,21 +2911,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewNguoiDung">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewNguoiDung">
-              <MappingFragment StoreEntitySet="ViewNguoiDung">
-                <ScalarProperty Name="Nhan_vien" ColumnName="Nhan_vien" />
-                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
-                <ScalarProperty Name="ID_trang_thai" ColumnName="ID_trang_thai" />
-                <ScalarProperty Name="Thoi_gian_cho" ColumnName="Thoi_gian_cho" />
-                <ScalarProperty Name="Lan_dang_nhap_cuoi" ColumnName="Lan_dang_nhap_cuoi" />
-                <ScalarProperty Name="Ten_day_du" ColumnName="Ten_day_du" />
-                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
-                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
-                <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ViewPhieuNhap">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewPhieuNhap">
               <MappingFragment StoreEntitySet="ViewPhieuNhap">
@@ -3013,6 +3007,22 @@
               <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="ViewNguoiDung">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewNguoiDung">
+              <MappingFragment StoreEntitySet="ViewNguoiDung">
+                <ScalarProperty Name="May_tram" ColumnName="May_tram" />
+                <ScalarProperty Name="Nhan_vien" ColumnName="Nhan_vien" />
+                <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+                <ScalarProperty Name="ID_trang_thai" ColumnName="ID_trang_thai" />
+                <ScalarProperty Name="Thoi_gian_cho" ColumnName="Thoi_gian_cho" />
+                <ScalarProperty Name="Lan_dang_nhap_cuoi" ColumnName="Lan_dang_nhap_cuoi" />
+                <ScalarProperty Name="Ten_day_du" ColumnName="Ten_day_du" />
+                <ScalarProperty Name="Tai_khoan" ColumnName="Tai_khoan" />
+                <ScalarProperty Name="ID_nhan_vien" ColumnName="ID_nhan_vien" />
+                <ScalarProperty Name="ID_nguoi_dung" ColumnName="ID_nguoi_dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

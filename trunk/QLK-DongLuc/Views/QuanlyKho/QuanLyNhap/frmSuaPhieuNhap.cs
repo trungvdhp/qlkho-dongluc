@@ -15,20 +15,17 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
     public partial class frmSuaPhieuNhap : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
         IMP_PhieuNhap pn;
 
         public frmSuaPhieuNhap()
         {
             InitializeComponent();
-            db = new Entities();
         }
 
-        public frmSuaPhieuNhap(int ID_phieu_nhap)
+        public frmSuaPhieuNhap(IMP_PhieuNhap phieuNhap)
         {
             InitializeComponent();
-            db = new Entities();
-            pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
+            pn = phieuNhap;
         }
 
         private void frmSuaPhieuNhap_Load(object sender, EventArgs e)
@@ -39,6 +36,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 this.DialogResult = DialogResult.Cancel;
             }
 
+            Entities db = new Entities();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
@@ -147,7 +145,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Update(pn.ID_phieu_nhap, grvPhieuNhapCT, ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, pn.ID_loai_nhap, Trang_thai, db);
+                rs = PhieuNhapCtrl.Update(pn.ID_phieu_nhap, grvPhieuNhapCT, ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, pn.ID_loai_nhap, Trang_thai);
 
                 if (rs == 0)
                 {
@@ -247,7 +245,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnSinhMaPhieu_Click(object sender, EventArgs e)
         {
-            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue, db);
+            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue);
         }
 
         private void btnKhoa_Click(object sender, EventArgs e)

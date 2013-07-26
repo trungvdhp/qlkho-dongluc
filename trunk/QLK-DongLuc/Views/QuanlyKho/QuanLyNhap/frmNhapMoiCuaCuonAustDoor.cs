@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
@@ -27,9 +28,9 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             VatTuCtrl.LoadLookUpEdit(ledThanCua, "Thân cửa AustDoor", "", db);
             VatTuCtrl.LoadLookUpEdit(ledMoTo, "Mô tơ cửa AustDoor", "", db);
             VatTuCtrl.LoadThieBiAustDoorKhac(repositoryItemLookUpEdit1, db);
-            dteNgayNhap.EditValue = KetNoiCSDLCtrl.GetDatabaseDate();
+            dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
-            Utils.ReconfigGridView(grvPhieuNhapCT);
+            GridHelper.ReconfigGridView(grvPhieuNhapCT);
         }
 
         private void btnThemVatTuMoi_Click(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
-            Utils.ResetControls(this);
+            QLK_DongLuc.Helper.ControlHelper.ResetControls(this);
         }
 
         private void grvPhieuNhapCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)

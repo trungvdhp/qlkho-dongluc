@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    partial class frmPhieuNhap
+    partial class frmDanhSachPhieuNhap
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuNhap));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDanhSachPhieuNhap));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhap = new DevExpress.XtraGrid.GridControl();
-            this.viewPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iMPPhieuNhapBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhap = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTen_loai_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_kho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgay_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSo_chung_tu_goc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_nha_cung_cap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNhan_vien_lap = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNhan_vien_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID_nhan_vien_lap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleNhanVienLap = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colID_nhan_vien_nhap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleNhanVienNhap = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colNgay_sua = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTong_tien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleLoaiNhap = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleKhoNhap = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
             this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDon_gia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
@@ -69,12 +73,16 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewPhieuNhapBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhanVienLap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhanVienNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleLoaiNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -119,7 +127,7 @@
             // 
             // grdPhieuNhap
             // 
-            this.grdPhieuNhap.DataSource = this.viewPhieuNhapBindingSource;
+            this.grdPhieuNhap.DataSource = this.iMPPhieuNhapBindingSource;
             this.grdPhieuNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdPhieuNhap.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
@@ -131,15 +139,20 @@
             this.grdPhieuNhap.Location = new System.Drawing.Point(3, 3);
             this.grdPhieuNhap.MainView = this.grvPhieuNhap;
             this.grdPhieuNhap.Name = "grdPhieuNhap";
+            this.grdPhieuNhap.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rleLoaiNhap,
+            this.rleKhoNhap,
+            this.rleNhanVienLap,
+            this.rleNhanVienNhap});
             this.grdPhieuNhap.Size = new System.Drawing.Size(687, 369);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhap});
             // 
-            // viewPhieuNhapBindingSource
+            // iMPPhieuNhapBindingSource
             // 
-            this.viewPhieuNhapBindingSource.DataSource = typeof(QLK_DongLuc.Models.ViewPhieuNhap);
+            this.iMPPhieuNhapBindingSource.DataSource = typeof(QLK_DongLuc.Models.IMP_PhieuNhap);
             // 
             // grvPhieuNhap
             // 
@@ -151,8 +164,8 @@
             this.colNgay_nhap,
             this.colSo_chung_tu_goc,
             this.colTen_nha_cung_cap,
-            this.colNhan_vien_lap,
-            this.colNhan_vien_nhap,
+            this.colID_nhan_vien_lap,
+            this.colID_nhan_vien_nhap,
             this.colNgay_sua,
             this.colTong_tien,
             this.colTrang_thai});
@@ -171,7 +184,7 @@
             // colTen_loai_nhap
             // 
             this.colTen_loai_nhap.Caption = "Loại nhập";
-            this.colTen_loai_nhap.FieldName = "Ten_loai_nhap";
+            this.colTen_loai_nhap.FieldName = "IMP_LoaiNhap.Ten_loai_nhap";
             this.colTen_loai_nhap.Name = "colTen_loai_nhap";
             this.colTen_loai_nhap.Visible = true;
             this.colTen_loai_nhap.VisibleIndex = 0;
@@ -180,7 +193,7 @@
             // colTen_kho
             // 
             this.colTen_kho.Caption = "Kho nhập";
-            this.colTen_kho.FieldName = "Ten_kho";
+            this.colTen_kho.FieldName = "STO_KhoVatTu.Ten_kho";
             this.colTen_kho.Name = "colTen_kho";
             this.colTen_kho.Visible = true;
             this.colTen_kho.VisibleIndex = 1;
@@ -214,29 +227,45 @@
             // colTen_nha_cung_cap
             // 
             this.colTen_nha_cung_cap.Caption = "Nhà cung cấp";
-            this.colTen_nha_cung_cap.FieldName = "Ten_nha_cung_cap";
+            this.colTen_nha_cung_cap.FieldName = "CAT_NhaCungCap.Ten_nha_cung_cap";
             this.colTen_nha_cung_cap.Name = "colTen_nha_cung_cap";
             this.colTen_nha_cung_cap.Visible = true;
             this.colTen_nha_cung_cap.VisibleIndex = 4;
             this.colTen_nha_cung_cap.Width = 89;
             // 
-            // colNhan_vien_lap
+            // colID_nhan_vien_lap
             // 
-            this.colNhan_vien_lap.Caption = "Nhân viên lập";
-            this.colNhan_vien_lap.FieldName = "Nhan_vien_lap";
-            this.colNhan_vien_lap.Name = "colNhan_vien_lap";
-            this.colNhan_vien_lap.Visible = true;
-            this.colNhan_vien_lap.VisibleIndex = 5;
-            this.colNhan_vien_lap.Width = 78;
+            this.colID_nhan_vien_lap.Caption = "Nhân viên lập";
+            this.colID_nhan_vien_lap.ColumnEdit = this.rleNhanVienLap;
+            this.colID_nhan_vien_lap.FieldName = "ID_nhan_vien_lap";
+            this.colID_nhan_vien_lap.Name = "colID_nhan_vien_lap";
+            this.colID_nhan_vien_lap.Visible = true;
+            this.colID_nhan_vien_lap.VisibleIndex = 5;
+            this.colID_nhan_vien_lap.Width = 78;
             // 
-            // colNhan_vien_nhap
+            // rleNhanVienLap
             // 
-            this.colNhan_vien_nhap.Caption = "Nhân viên nhập";
-            this.colNhan_vien_nhap.FieldName = "Nhan_vien_nhap";
-            this.colNhan_vien_nhap.Name = "colNhan_vien_nhap";
-            this.colNhan_vien_nhap.Visible = true;
-            this.colNhan_vien_nhap.VisibleIndex = 6;
-            this.colNhan_vien_nhap.Width = 78;
+            this.rleNhanVienLap.AutoHeight = false;
+            this.rleNhanVienLap.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleNhanVienLap.Name = "rleNhanVienLap";
+            // 
+            // colID_nhan_vien_nhap
+            // 
+            this.colID_nhan_vien_nhap.Caption = "Nhân viên nhập";
+            this.colID_nhan_vien_nhap.ColumnEdit = this.rleNhanVienNhap;
+            this.colID_nhan_vien_nhap.FieldName = "ID_nhan_vien_nhap";
+            this.colID_nhan_vien_nhap.Name = "colID_nhan_vien_nhap";
+            this.colID_nhan_vien_nhap.Visible = true;
+            this.colID_nhan_vien_nhap.VisibleIndex = 6;
+            this.colID_nhan_vien_nhap.Width = 78;
+            // 
+            // rleNhanVienNhap
+            // 
+            this.rleNhanVienNhap.AutoHeight = false;
+            this.rleNhanVienNhap.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleNhanVienNhap.Name = "rleNhanVienNhap";
             // 
             // colNgay_sua
             // 
@@ -273,6 +302,20 @@
             this.colTrang_thai.VisibleIndex = 9;
             this.colTrang_thai.Width = 81;
             // 
+            // rleLoaiNhap
+            // 
+            this.rleLoaiNhap.AutoHeight = false;
+            this.rleLoaiNhap.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleLoaiNhap.Name = "rleLoaiNhap";
+            // 
+            // rleKhoNhap
+            // 
+            this.rleKhoNhap.AutoHeight = false;
+            this.rleKhoNhap.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleKhoNhap.Name = "rleKhoNhap";
+            // 
             // grdPhieuNhapCT
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
@@ -281,7 +324,7 @@
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
+            this.rleVatTu,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
             this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
@@ -318,7 +361,7 @@
             // colID_vat_tu
             // 
             this.colID_vat_tu.Caption = "Vật tư";
-            this.colID_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
+            this.colID_vat_tu.ColumnEdit = this.rleVatTu;
             this.colID_vat_tu.FieldName = "ID_vat_tu";
             this.colID_vat_tu.Name = "colID_vat_tu";
             this.colID_vat_tu.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
@@ -326,12 +369,12 @@
             this.colID_vat_tu.VisibleIndex = 0;
             this.colID_vat_tu.Width = 92;
             // 
-            // repositoryItemLookUpEdit1
+            // rleVatTu
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.rleVatTu.AutoHeight = false;
+            this.rleVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.rleVatTu.Name = "rleVatTu";
             // 
             // colSo_luong
             // 
@@ -456,6 +499,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteNgayKetThuc.Size = new System.Drawing.Size(90, 20);
             this.dteNgayKetThuc.TabIndex = 17;
+            this.dteNgayKetThuc.EditValueChanged += new System.EventHandler(this.dteNgayKetThuc_EditValueChanged);
             // 
             // dteNgayBatDau
             // 
@@ -546,24 +590,28 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Từ ngày:";
             // 
-            // frmPhieuNhap
+            // frmDanhSachPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 412);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "frmPhieuNhap";
+            this.Name = "frmDanhSachPhieuNhap";
             this.Text = "Danh sách phiếu nhập";
             this.Load += new System.EventHandler(this.frmPhieuNhap_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewPhieuNhapBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhanVienLap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhanVienNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleLoaiNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -586,21 +634,20 @@
         private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
         private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
         private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleVatTu;
         private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn colDon_gia;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
         private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
-        private System.Windows.Forms.BindingSource viewPhieuNhapBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_loai_nhap;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_kho;
         private DevExpress.XtraGrid.Columns.GridColumn colNgay_nhap;
         private DevExpress.XtraGrid.Columns.GridColumn colSo_chung_tu_goc;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_nha_cung_cap;
         private DevExpress.XtraGrid.Columns.GridColumn colTong_tien;
-        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_lap;
-        private DevExpress.XtraGrid.Columns.GridColumn colNhan_vien_nhap;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_nhan_vien_lap;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_nhan_vien_nhap;
         private DevExpress.XtraGrid.Columns.GridColumn colNgay_sua;
         private DevExpress.XtraGrid.Columns.GridColumn colTrang_thai;
         private System.Windows.Forms.Panel panel1;
@@ -615,5 +662,10 @@
         private DevExpress.XtraEditors.LookUpEdit ledTuyChon;
         private DevExpress.XtraEditors.SimpleButton btnNhapLai;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
+        private System.Windows.Forms.BindingSource iMPPhieuNhapBindingSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleLoaiNhap;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoNhap;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhanVienLap;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhanVienNhap;
     }
 }

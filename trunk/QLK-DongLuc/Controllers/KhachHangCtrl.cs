@@ -9,7 +9,7 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class KhachHangCtrl
+    public static class KhachHangCtrl
     {
         public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
         {

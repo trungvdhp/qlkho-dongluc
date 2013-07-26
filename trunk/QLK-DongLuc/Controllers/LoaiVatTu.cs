@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QLK_DongLuc.Controllers
 {
-	class LoaiVatTu
+	public static class LoaiVatTu
 	{
 		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
 		{

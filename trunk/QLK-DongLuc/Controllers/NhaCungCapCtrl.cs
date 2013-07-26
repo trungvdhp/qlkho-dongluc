@@ -9,7 +9,7 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Controllers
 {
-    public class NhaCungCapCtrl
+    public static class NhaCungCapCtrl
     {
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
