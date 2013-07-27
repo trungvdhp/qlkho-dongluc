@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Repository;
 
 namespace QLK_DongLuc.Controllers
 {
@@ -32,36 +33,44 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
 
-        public static int Insert(object Ten_nhom_vat_tu, object Ghi_chu, object ID_kho, Entities db = null)
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
         {
             if (db == null) db = new Entities();
+            gridLookUpEdit.Properties.Columns.Clear();
+            gridLookUpEdit.Properties.DataSource = db.STO_NhomVatTu.ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Nhóm vật tư"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("STO_KhoVatTu.Ten_kho", "Kho"));
+            gridLookUpEdit.Properties.DisplayMember = "Ten_nhom_vat_tu";
+            gridLookUpEdit.Properties.ValueMember = "ID_nhom_vat_tu";
+            gridLookUpEdit.Properties.NullText = "";
+            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
 
-            if (Ten_nhom_vat_tu == null) return 0;
+        public static int Insert(STO_NhomVatTu nhomVatTu, Entities db = null)
+        {
+            if (nhomVatTu == null || nhomVatTu.ID_kho == null || nhomVatTu.Ten_nhom_vat_tu == null) return 0;
 
-            db.STO_NhomVatTu.Add(new STO_NhomVatTu
-            {
-                Ten_nhom_vat_tu = Ten_nhom_vat_tu.ToString(),
-                Ghi_chu = Ghi_chu.ToString(),
-                ID_kho = (int?)ID_kho
-            });
+            if (db == null) db = new Entities();
+
+            db.STO_NhomVatTu.Add(nhomVatTu);
 
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_nhom_vat_tu, object Ten_nhom_vat_tu, object Ghi_chu, object ID_kho, Entities db = null)
+        public static int Update(STO_NhomVatTu nhomVatTu, Entities db = null)
         {
-            if (ID_nhom_vat_tu == null || Ten_nhom_vat_tu == null) return 0;
+            if (nhomVatTu == null || nhomVatTu.ID_nhom_vat_tu == null || nhomVatTu.ID_kho == null || nhomVatTu.Ten_nhom_vat_tu == null) return 0;
 
             if (db == null) db = new Entities();
 
-            int id = (int)ID_nhom_vat_tu;
-            var entity = db.STO_NhomVatTu.FirstOrDefault(t => t.ID_nhom_vat_tu == id);
+            var entity = db.STO_NhomVatTu.FirstOrDefault(t => t.ID_nhom_vat_tu == nhomVatTu.ID_nhom_vat_tu);
 
             if (entity == null) return 0;
 
-            entity.Ten_nhom_vat_tu = Ten_nhom_vat_tu.ToString();
-            entity.Ghi_chu = Ghi_chu.ToString();
-            entity.ID_kho = (int?)ID_kho;
+            entity.ID_kho = nhomVatTu.ID_kho;
+            entity.Ten_nhom_vat_tu = nhomVatTu.Ten_nhom_vat_tu;
+            entity.Ghi_chu = nhomVatTu.Ghi_chu;
+            entity.Ma_nhom_vat_tu = nhomVatTu.Ma_nhom_vat_tu;
 
             return db.SaveChanges();
         }
@@ -79,7 +88,14 @@ namespace QLK_DongLuc.Controllers
 
             db.STO_NhomVatTu.Remove(entity);
 
-            return db.SaveChanges();
+            try
+            {
+                return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 	}
 }

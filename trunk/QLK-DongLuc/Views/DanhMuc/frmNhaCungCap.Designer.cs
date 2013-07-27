@@ -131,10 +131,10 @@
             this.gridView.Name = "gridView";
             this.gridView.NewItemRowText = "Thêm mới dữ liệu tại đây";
             this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gridView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
             // 
@@ -149,7 +149,7 @@
             this.colTen_nha_cung_cap.FieldName = "Ten_nha_cung_cap";
             this.colTen_nha_cung_cap.Name = "colTen_nha_cung_cap";
             this.colTen_nha_cung_cap.Visible = true;
-            this.colTen_nha_cung_cap.VisibleIndex = 1;
+            this.colTen_nha_cung_cap.VisibleIndex = 0;
             // 
             // colNguoi_dai_dien
             // 
@@ -157,7 +157,7 @@
             this.colNguoi_dai_dien.FieldName = "Nguoi_dai_dien";
             this.colNguoi_dai_dien.Name = "colNguoi_dai_dien";
             this.colNguoi_dai_dien.Visible = true;
-            this.colNguoi_dai_dien.VisibleIndex = 2;
+            this.colNguoi_dai_dien.VisibleIndex = 1;
             // 
             // colDien_thoai
             // 
@@ -165,7 +165,7 @@
             this.colDien_thoai.FieldName = "Dien_thoai";
             this.colDien_thoai.Name = "colDien_thoai";
             this.colDien_thoai.Visible = true;
-            this.colDien_thoai.VisibleIndex = 3;
+            this.colDien_thoai.VisibleIndex = 2;
             // 
             // colDia_chi
             // 
@@ -173,7 +173,7 @@
             this.colDia_chi.FieldName = "Dia_chi";
             this.colDia_chi.Name = "colDia_chi";
             this.colDia_chi.Visible = true;
-            this.colDia_chi.VisibleIndex = 4;
+            this.colDia_chi.VisibleIndex = 3;
             // 
             // colEmail
             // 
@@ -181,7 +181,7 @@
             this.colEmail.FieldName = "Email";
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
-            this.colEmail.VisibleIndex = 5;
+            this.colEmail.VisibleIndex = 4;
             // 
             // colSo_tai_khoan
             // 
@@ -189,7 +189,7 @@
             this.colSo_tai_khoan.FieldName = "So_tai_khoan";
             this.colSo_tai_khoan.Name = "colSo_tai_khoan";
             this.colSo_tai_khoan.Visible = true;
-            this.colSo_tai_khoan.VisibleIndex = 6;
+            this.colSo_tai_khoan.VisibleIndex = 5;
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -243,13 +243,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 361);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // frmNhacCungCap
+            // frmNhaCungCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "frmNhacCungCap";
+            this.Name = "frmNhaCungCap";
             this.Text = "Danh sách nhà cung cấp";
             this.Load += new System.EventHandler(this.frmNhacCungCap_Load);
             this.groupBox1.ResumeLayout(false);

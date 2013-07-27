@@ -33,9 +33,10 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTONhomVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colTen_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKho_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rleKhoVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colTen_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMa_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhi_chu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -91,9 +92,10 @@
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colKho_vat_tu,
             this.colTen_nhom_vat_tu,
-            this.colGhi_chu,
-            this.colKho_vat_tu});
+            this.colMa_nhom_vat_tu,
+            this.colGhi_chu});
             this.gridView.GridControl = this.gridControl;
             this.gridView.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.gridView.Name = "gridView";
@@ -101,15 +103,9 @@
             this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gridView.OptionsView.ShowAutoFilterRow = true;
+            this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
-            // 
-            // colTen_nhom_vat_tu
-            // 
-            this.colTen_nhom_vat_tu.Caption = "Tên nhóm vật tư";
-            this.colTen_nhom_vat_tu.FieldName = "Ten_nhom_vat_tu";
-            this.colTen_nhom_vat_tu.Name = "colTen_nhom_vat_tu";
-            this.colTen_nhom_vat_tu.Visible = true;
-            this.colTen_nhom_vat_tu.VisibleIndex = 0;
             // 
             // colKho_vat_tu
             // 
@@ -118,7 +114,7 @@
             this.colKho_vat_tu.FieldName = "ID_kho";
             this.colKho_vat_tu.Name = "colKho_vat_tu";
             this.colKho_vat_tu.Visible = true;
-            this.colKho_vat_tu.VisibleIndex = 2;
+            this.colKho_vat_tu.VisibleIndex = 0;
             // 
             // rleKhoVatTu
             // 
@@ -127,13 +123,29 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.rleKhoVatTu.Name = "rleKhoVatTu";
             // 
+            // colTen_nhom_vat_tu
+            // 
+            this.colTen_nhom_vat_tu.Caption = "Tên nhóm vật tư";
+            this.colTen_nhom_vat_tu.FieldName = "Ten_nhom_vat_tu";
+            this.colTen_nhom_vat_tu.Name = "colTen_nhom_vat_tu";
+            this.colTen_nhom_vat_tu.Visible = true;
+            this.colTen_nhom_vat_tu.VisibleIndex = 1;
+            // 
+            // colMa_nhom_vat_tu
+            // 
+            this.colMa_nhom_vat_tu.Caption = "Mã nhóm vật tư";
+            this.colMa_nhom_vat_tu.FieldName = "Ma_nhom_vat_tu";
+            this.colMa_nhom_vat_tu.Name = "colMa_nhom_vat_tu";
+            this.colMa_nhom_vat_tu.Visible = true;
+            this.colMa_nhom_vat_tu.VisibleIndex = 2;
+            // 
             // colGhi_chu
             // 
             this.colGhi_chu.Caption = "Diễn giải";
             this.colGhi_chu.FieldName = "Ghi_chu";
             this.colGhi_chu.Name = "colGhi_chu";
             this.colGhi_chu.Visible = true;
-            this.colGhi_chu.VisibleIndex = 1;
+            this.colGhi_chu.VisibleIndex = 3;
             // 
             // groupBox1
             // 
@@ -210,6 +222,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKho_vat_tu;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoVatTu;
         private System.Windows.Forms.BindingSource sTONhomVatTuBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colMa_nhom_vat_tu;
 
 
     }

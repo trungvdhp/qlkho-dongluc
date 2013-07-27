@@ -84,7 +84,8 @@ namespace QLK_DongLuc.Controllers
 		{
 			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
-			lookUpEdit.Properties.DataSource = db.STO_TonDauKy.Where(t => t.Ky >= From && t.Ky <= To).Select(t => new { 
+			lookUpEdit.Properties.DataSource = db.STO_TonDauKy.Where(t => t.Ky >= From && t.Ky <= To).Select(t => new 
+            { 
 				Ten_kho = t.STO_KhoVatTu.Ten_kho,
 				ID_kho = t.ID_kho,
 				Dia_diem = t.STO_KhoVatTu.Dia_diem,
@@ -98,5 +99,56 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
 		}
+
+        public static int Insert(STO_KhoVatTu kho, Entities db = null)
+        {
+            if (kho == null || kho.Ten_kho == null) return 0;
+
+            if (db == null) db = new Entities();
+
+            db.STO_KhoVatTu.Add(kho);
+
+            return db.SaveChanges();
+        }
+
+        public static int Update(STO_KhoVatTu kho, Entities db = null)
+        {
+            if (kho == null || kho.ID_kho == null || kho.Ten_kho == null) return 0;
+
+            if (db == null) db = new Entities();
+
+            var entity = db.STO_KhoVatTu.FirstOrDefault(t => t.ID_kho == kho.ID_kho);
+
+            if (entity == null) return 0;
+
+            entity.Ten_kho = kho.Ten_kho;
+            entity.Dia_diem = kho.Dia_diem;
+            entity.Ma_kho = kho.Ma_kho;
+
+            return db.SaveChanges();
+        }
+
+        public static int Delete(object ID_kho, Entities db = null)
+        {
+            if (ID_kho == null) return 0;
+
+            if (db == null) db = new Entities();
+
+            int id = (int)ID_kho;
+            var entity = db.STO_KhoVatTu.FirstOrDefault(p => p.ID_kho == id);
+
+            if (entity == null) return 0;
+
+            db.STO_KhoVatTu.Remove(entity);
+
+            try
+            {
+                return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

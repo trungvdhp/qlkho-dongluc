@@ -15,6 +15,7 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
+
             bs.DataSource = db.STO_LoaiVatTu.ToList();
         }
 
@@ -25,8 +26,50 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.Columns.Clear();
             lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Thuộc nhóm"));
 
+            lookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
+            lookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
+
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_nhom_vat_tu, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            lookUpEdit.Properties.Columns.Clear();
+            lookUpEdit.Properties.DataSource = db.STO_LoaiVatTu.Where(t => t.ID_nhom_vat_tu == ID_nhom_vat_tu).ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
+
+            lookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
+            lookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+        }
+
+        /// <summary>
+        /// Load các loại vật tư tồn đầu kỳ 
+        /// </summary>
+        /// <param name="lookUpEdit"></param>
+        /// <param name="ID_ton"></param>
+        /// <param name="db"></param>
+        public static void LoadLookUpEditTonKho(LookUpEdit lookUpEdit, int ID_ton, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+
+            lookUpEdit.Properties.DataSource = db.STO_TonDauKyCT.Where(t => t.ID_ton == ID_ton).Select(t => new
+            {
+                ID_loai_vat_tu = t.STO_VatTu.ID_loai_vat_tu,
+                Ten_loai_vat_tu = t.STO_VatTu.Ten_vat_tu,
+            }).Distinct().ToList();
+
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             lookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
             lookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
             lookUpEdit.Properties.NullText = "";
@@ -42,68 +85,65 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Thuộc nhóm"));
 
             gridLookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
             gridLookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
             gridLookUpEdit.Properties.NullText = "";
-            gridLookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
-            gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        //public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+        public static int Insert(STO_LoaiVatTu loaiVatTu, Entities db = null)
+        {
+            if (loaiVatTu == null || loaiVatTu.Ten_loai_vat_tu == null || loaiVatTu.ID_nhom_vat_tu == null)
+                return 0;
 
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            if (db == null) db = new Entities();
 
-        //    var entity = new STO_VatTu();
-        //    entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-        //    entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
+            db.STO_LoaiVatTu.Add(loaiVatTu);
 
-        //    if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+            return db.SaveChanges();
+        }
 
-        //    if (Don_vi != null && Don_vi != "") entity.Don_vi = double.Parse(Don_vi.ToString());
+        public static int Update(STO_LoaiVatTu loaiVatTu, Entities db = null)
+        {
+            if (loaiVatTu == null || loaiVatTu.ID_loai_vat_tu == null || loaiVatTu.Ten_loai_vat_tu == null || loaiVatTu.ID_nhom_vat_tu == null) return 0;
 
-        //    if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            if (db == null) db = new Entities();
 
-        //    db.STO_VatTu.Add(entity);
+            var entity = db.STO_LoaiVatTu.FirstOrDefault(t => t.ID_loai_vat_tu == loaiVatTu.ID_loai_vat_tu);
 
-        //    return db.SaveChanges();
-        //}
+            if (entity == null) return 0;
 
-        //public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            entity.ID_nhom_vat_tu = loaiVatTu.ID_nhom_vat_tu;
+            entity.Ten_loai_vat_tu = loaiVatTu.Ten_loai_vat_tu;
+            entity.Ghi_chu = loaiVatTu.Ghi_chu;
+            entity.Ma_loai_vat_tu = loaiVatTu.Ma_loai_vat_tu;
 
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
+            return db.SaveChanges();
+        }
 
-        //    int id = (int)ID_vat_tu;
-        //    var entity = db.STO_VatTu.First(p => p.ID_vat_tu == id);
-        //    entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-        //    entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
+        public static int Delete(object ID_loai_vat_tu, Entities db = null)
+        {
+            if (ID_loai_vat_tu == null) return 0;
 
-        //    if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
+            if (db == null) db = new Entities();
 
-        //    if (Don_vi != null && Don_vi != "") entity.Don_vi = double.Parse(Don_vi.ToString());
+            int id = (int)ID_loai_vat_tu;
+            var entity = db.STO_LoaiVatTu.FirstOrDefault(p => p.ID_loai_vat_tu == id);
 
-        //    if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            if (entity == null) return 0;
 
-        //    return db.SaveChanges();
-        //}
+            db.STO_LoaiVatTu.Remove(entity);
 
-        //public static int Delete(object ID_vat_tu, QuanLyKhoDongLucEntities db = null)
-        //{
-        //    if (ID_vat_tu == null) return 0;
-
-        //    if (db == null) db = new QuanLyKhoDongLucEntities();
-
-        //    int id = (int)ID_vat_tu;
-        //    var entity = db.STO_VatTu.First(p => p.ID_vat_tu == id);
-        //    db.STO_VatTu.Remove(entity);
-
-        //    return db.SaveChanges();
-        //}
+            try
+            {
+                return db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

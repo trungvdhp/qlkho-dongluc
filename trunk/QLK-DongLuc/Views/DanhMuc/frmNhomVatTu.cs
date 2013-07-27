@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -21,8 +22,11 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmNhomVatTu_Load(object sender, EventArgs e)
         {
-            gridControl_Load();
-            VaiTroQuyenCtrl.ReconfigFormControls(this);
+            Entities db = new Entities();
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
+            NhomVatTuCtrl.LoadBindingSource(sTONhomVatTuBindingSource, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            GridHelper.ReconfigGridView(gridView);
         }
 
         private void gridControl_Load()
@@ -35,88 +39,76 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void InsertCommand()
         {
             var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
-            int rs =
-                 NhomVatTuCtrl.Insert(
-                     nhom.Ten_nhom_vat_tu,
-                     nhom.Ghi_chu,
-                     nhom.ID_kho
-                );
+            int rs = NhomVatTuCtrl.Insert(nhom);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Thêm dữ liệu không thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowInsertError();
+                gridControl_Load();
+            }
         }
 
         private void UpdateCommand()
         {
             var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
-            int rs =
-                NhomVatTuCtrl.Update(
-                    nhom.ID_nhom_vat_tu,
-                    nhom.Ten_nhom_vat_tu,
-                    nhom.Ghi_chu,
-                    nhom.ID_kho
-                );
+            int rs = NhomVatTuCtrl.Update(nhom);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowUpdateError();
+                gridControl_Load();
+            }
         }
 
         private void DeleteCommand()
         {
             if (gridView.FocusedRowHandle < 0) return;
 
-            var result = XtraMessageBox.Show("Chắc chắn xóa dữ liệu này?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = NotifyHelper.ShowDeleteConfirm();
 
-            if (result == DialogResult.No)
-                return;
+            if (result == DialogResult.Yes)
+            {
+                var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
+                int rs = NhomVatTuCtrl.Delete(nhom.ID_nhom_vat_tu);
 
-            var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
-
-            if (NhomVatTuCtrl.Delete(nhom.ID_nhom_vat_tu) > 0)
-                XtraMessageBox.Show("Xóa dữ liệu thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Xóa dữ liệu không thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+                if (rs > 0)
+                {
+                    gridControl_Load();
+                }
+                else
+                {
+                    NotifyHelper.ShowDeleteError();
+                }
+            }
         }
 
         private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             bool bError = false;
-            string sError = "";
 
-            if (gridView.GetRowCellValue(e.RowHandle, "Ten_nhom_vat_tu").ToString().Trim() == "")
+            var Ten_nhom_vat_tu = gridView.GetRowCellValue(e.RowHandle, colTen_nhom_vat_tu);
+
+            if (Ten_nhom_vat_tu == null || Ten_nhom_vat_tu.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "Vui lòng điền tên nhóm vật tư. ";
+                gridView.SetColumnError(colTen_nhom_vat_tu, Properties.Settings.Default.NullOrEmpty);
             }
 
-            var ID_kho = gridView.GetRowCellValue(e.RowHandle, "ID_kho");
+            var ID_kho = gridView.GetRowCellValue(e.RowHandle, colKho_vat_tu);
 
             if (ID_kho == null)
             {
                 bError = true;
-                sError += "\n Chưa chọn kho vật tư. ";
+                gridView.SetColumnError(colKho_vat_tu, Properties.Settings.Default.NullOrEmpty);
             }
 
             if (bError)
             {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
                 return;
             }
 
-            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-
-            if (view.IsNewItemRow(e.RowHandle))
+            if (gridView.IsNewItemRow(e.RowHandle))
                 InsertCommand();
             else
                 UpdateCommand();
@@ -139,8 +131,9 @@ namespace QLK_DongLuc.Views.DanhMuc
             {
                 if (!gridControl.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotifyHelper.ShowPrintError();
                 }
+
                 gridControl.ShowPrintPreview();
             }
         }
@@ -154,6 +147,11 @@ namespace QLK_DongLuc.Views.DanhMuc
 
                 e.Handled = true;
             }
+        }
+
+        private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }

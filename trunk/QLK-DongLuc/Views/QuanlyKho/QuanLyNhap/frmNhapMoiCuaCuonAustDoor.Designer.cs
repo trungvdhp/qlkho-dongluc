@@ -65,12 +65,16 @@
             this.grbThietBiChinh = new DevExpress.XtraEditors.GroupControl();
             this.sedChieuRong = new DevExpress.XtraEditors.SpinEdit();
             this.sedChieuDai = new DevExpress.XtraEditors.SpinEdit();
-            this.ledMoTo = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledMoToCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.ledThanCua = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledThanCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.ledChotCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.ledKhoaCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
@@ -98,8 +102,10 @@
             this.grbThietBiChinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledMoTo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledThanCua.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledMoToCuaCuon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledThanCuaCuon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl5
@@ -494,9 +500,13 @@
             // 
             this.grbThietBiChinh.Controls.Add(this.sedChieuRong);
             this.grbThietBiChinh.Controls.Add(this.sedChieuDai);
-            this.grbThietBiChinh.Controls.Add(this.ledMoTo);
+            this.grbThietBiChinh.Controls.Add(this.ledKhoaCuaCuon);
+            this.grbThietBiChinh.Controls.Add(this.labelControl12);
+            this.grbThietBiChinh.Controls.Add(this.ledChotCuaCuon);
+            this.grbThietBiChinh.Controls.Add(this.labelControl11);
+            this.grbThietBiChinh.Controls.Add(this.ledMoToCuaCuon);
             this.grbThietBiChinh.Controls.Add(this.labelControl8);
-            this.grbThietBiChinh.Controls.Add(this.ledThanCua);
+            this.grbThietBiChinh.Controls.Add(this.ledThanCuaCuon);
             this.grbThietBiChinh.Controls.Add(this.labelControl10);
             this.grbThietBiChinh.Controls.Add(this.labelControl9);
             this.grbThietBiChinh.Controls.Add(this.labelControl1);
@@ -558,17 +568,17 @@
             this.sedChieuDai.TabIndex = 4;
             this.sedChieuDai.Tag = "Nhập chiều dài cửa cuốn AustDoor";
             // 
-            // ledMoTo
+            // ledMoToCuaCuon
             // 
-            this.ledMoTo.Location = new System.Drawing.Point(95, 95);
-            this.ledMoTo.Name = "ledMoTo";
-            this.ledMoTo.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.ledMoTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ledMoToCuaCuon.Location = new System.Drawing.Point(95, 95);
+            this.ledMoToCuaCuon.Name = "ledMoToCuaCuon";
+            this.ledMoToCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledMoToCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledMoTo.Properties.NullText = "";
-            this.ledMoTo.Size = new System.Drawing.Size(280, 20);
-            this.ledMoTo.TabIndex = 3;
-            this.ledMoTo.Tag = "Chọn mô tơ cửa cuốn AustDoor";
+            this.ledMoToCuaCuon.Properties.NullText = "";
+            this.ledMoToCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledMoToCuaCuon.TabIndex = 3;
+            this.ledMoToCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
             // 
             // labelControl8
             // 
@@ -578,17 +588,17 @@
             this.labelControl8.TabIndex = 2;
             this.labelControl8.Text = "Mô tơ cửa cuốn";
             // 
-            // ledThanCua
+            // ledThanCuaCuon
             // 
-            this.ledThanCua.Location = new System.Drawing.Point(95, 35);
-            this.ledThanCua.Name = "ledThanCua";
-            this.ledThanCua.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.ledThanCua.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ledThanCuaCuon.Location = new System.Drawing.Point(95, 35);
+            this.ledThanCuaCuon.Name = "ledThanCuaCuon";
+            this.ledThanCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledThanCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledThanCua.Properties.NullText = "";
-            this.ledThanCua.Size = new System.Drawing.Size(280, 20);
-            this.ledThanCua.TabIndex = 3;
-            this.ledThanCua.Tag = "Chọn thân cửa cuốn AustDoor";
+            this.ledThanCuaCuon.Properties.NullText = "";
+            this.ledThanCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledThanCuaCuon.TabIndex = 3;
+            this.ledThanCuaCuon.Tag = "Chọn thân cửa cuốn AustDoor";
             // 
             // labelControl10
             // 
@@ -613,6 +623,46 @@
             this.labelControl1.Size = new System.Drawing.Size(71, 13);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Thân cửa cuốn";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(14, 128);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(70, 13);
+            this.labelControl11.TabIndex = 2;
+            this.labelControl11.Text = "Chốt cửa cuốn";
+            // 
+            // ledChotCuaCuon
+            // 
+            this.ledChotCuaCuon.Location = new System.Drawing.Point(95, 125);
+            this.ledChotCuaCuon.Name = "ledChotCuaCuon";
+            this.ledChotCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledChotCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledChotCuaCuon.Properties.NullText = "";
+            this.ledChotCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledChotCuaCuon.TabIndex = 3;
+            this.ledChotCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(14, 158);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(71, 13);
+            this.labelControl12.TabIndex = 2;
+            this.labelControl12.Text = "Khóa cửa cuốn";
+            // 
+            // ledKhoaCuaCuon
+            // 
+            this.ledKhoaCuaCuon.Location = new System.Drawing.Point(95, 155);
+            this.ledKhoaCuaCuon.Name = "ledKhoaCuaCuon";
+            this.ledKhoaCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledKhoaCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledKhoaCuaCuon.Properties.NullText = "";
+            this.ledKhoaCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledKhoaCuaCuon.TabIndex = 3;
+            this.ledKhoaCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
             // 
             // frmNhapMoiCuaCuonAustDoor
             // 
@@ -653,8 +703,10 @@
             this.grbThietBiChinh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledMoTo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledThanCua.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledMoToCuaCuon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledThanCuaCuon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -694,13 +746,17 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.GroupControl grbThietBiChinh;
-        private DevExpress.XtraEditors.LookUpEdit ledMoTo;
+        private DevExpress.XtraEditors.LookUpEdit ledMoToCuaCuon;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LookUpEdit ledThanCua;
+        private DevExpress.XtraEditors.LookUpEdit ledThanCuaCuon;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SpinEdit sedChieuRong;
         private DevExpress.XtraEditors.SpinEdit sedChieuDai;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LookUpEdit ledKhoaCuaCuon;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LookUpEdit ledChotCuaCuon;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
     }
 }

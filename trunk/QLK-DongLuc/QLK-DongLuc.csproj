@@ -181,7 +181,6 @@
     <Compile Include="Controllers\TonDauKy.cs" />
     <Compile Include="Controllers\TuyChonTimKiemCtrl.cs" />
     <Compile Include="Controllers\PhieuNhapCtrl.cs" />
-    <Compile Include="Controllers\LoaiVatTu.cs" />
     <Compile Include="Controllers\LoaiVatTuCtrl.cs" />
     <Compile Include="Controllers\KhachHangCtrl.cs" />
     <Compile Include="Controllers\KhoVatTuCtrl.cs" />
@@ -210,6 +209,7 @@
     <Compile Include="Helper\FormHelper.cs" />
     <Compile Include="Helper\GridHelper.cs" />
     <Compile Include="Helper\MachineHelper.cs" />
+    <Compile Include="Helper\NotifyHelper.cs" />
     <Compile Include="Helper\SecurityHelper.cs" />
     <Compile Include="Helper\SpinEditHelper.cs" />
     <Compile Include="Helper\StringHelper.cs" />

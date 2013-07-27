@@ -35,43 +35,33 @@ namespace QLK_DongLuc.Controllers
         }
 
 
-        public static int Insert(object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, Entities db = null)
+        public static int Insert(CAT_NhaCungCap nhaCungCap, Entities db = null)
         {
-            if (Ten_nha_cung_cap == null) return 0;
+            if (nhaCungCap == null || nhaCungCap.Ten_nha_cung_cap == null) return 0;
 
             if (db == null) db = new Entities();
 
-            var entity = new CAT_NhaCungCap();
-
-            entity.Ten_nha_cung_cap = Ten_nha_cung_cap.ToString().Trim();
-            entity.Nguoi_dai_dien   = (Nguoi_dai_dien != null)  ? Nguoi_dai_dien.ToString().Trim()  : string.Empty;
-            entity.Dien_thoai       = (Dien_thoai != null)      ? Dien_thoai.ToString().Trim()      : string.Empty;
-            entity.Dia_chi          = (Dia_chi != null)         ? Dia_chi.ToString().Trim()         : string.Empty;
-            entity.Email            = (Email != null)           ? Email.ToString().Trim()           : string.Empty;
-            entity.So_tai_khoan     = (So_tai_khoan != null)    ? So_tai_khoan.ToString().Trim()    : string.Empty;
-
-            db.CAT_NhaCungCap.Add(entity);
+            db.CAT_NhaCungCap.Add(nhaCungCap);
 
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_nha_cung_cap, object Ten_nha_cung_cap, object Nguoi_dai_dien, object Dien_thoai, object Dia_chi, object Email, object So_tai_khoan, Entities db = null)
+        public static int Update(CAT_NhaCungCap nhaCungCap, Entities db = null)
         {
-            if (ID_nha_cung_cap == null || Ten_nha_cung_cap == null) return 0;
+            if (nhaCungCap == null || nhaCungCap.ID_nha_cung_cap == null || nhaCungCap.Ten_nha_cung_cap == null) return 0;
 
             if (db == null) db = new Entities();
 
-            int id = (int)ID_nha_cung_cap;
-            var entity = db.CAT_NhaCungCap.FirstOrDefault(p => p.ID_nha_cung_cap == id);
+            var entity = db.CAT_NhaCungCap.FirstOrDefault(p => p.ID_nha_cung_cap == nhaCungCap.ID_nha_cung_cap);
 
             if (entity == null) return 0;
 
-            entity.Ten_nha_cung_cap = Ten_nha_cung_cap.ToString().Trim();
-            entity.Nguoi_dai_dien   = (Nguoi_dai_dien != null)  ? Nguoi_dai_dien.ToString().Trim()  : string.Empty;
-            entity.Dien_thoai       = (Dien_thoai != null)      ? Dien_thoai.ToString().Trim()      : string.Empty;
-            entity.Dia_chi          = (Dia_chi != null)         ? Dia_chi.ToString().Trim()         : string.Empty;
-            entity.Email            = (Email != null)           ? Email.ToString().Trim()           : string.Empty;
-            entity.So_tai_khoan     = (So_tai_khoan != null)    ? So_tai_khoan.ToString().Trim()    : string.Empty;
+            entity.Ten_nha_cung_cap = nhaCungCap.Ten_nha_cung_cap;
+            entity.Nguoi_dai_dien   = nhaCungCap.Nguoi_dai_dien;
+            entity.Dien_thoai       = nhaCungCap.Dien_thoai;
+            entity.Dia_chi          = nhaCungCap.Dia_chi;
+            entity.Email            = nhaCungCap.Email;
+            entity.So_tai_khoan     = nhaCungCap.So_tai_khoan;
 
             return db.SaveChanges();
         }

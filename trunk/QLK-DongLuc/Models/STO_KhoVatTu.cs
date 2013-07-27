@@ -25,6 +25,7 @@ namespace QLK_DongLuc.Models
         }
     
         public int ID_kho { get; set; }
+        public string Ma_kho { get; set; }
         public string Ten_kho { get; set; }
         public string Dia_diem { get; set; }
     

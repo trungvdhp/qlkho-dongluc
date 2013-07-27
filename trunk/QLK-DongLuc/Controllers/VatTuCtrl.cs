@@ -130,70 +130,32 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static int Insert(object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
+        public static int Insert(STO_VatTu vatTu, Entities db = null)
         {
-            if (ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            if (vatTu == null || vatTu.ID_loai_vat_tu == null || vatTu.Ten_vat_tu == null) return 0;
 
             if (db == null) db = new Entities();
 
-            var entity = new STO_VatTu();
-            entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-            entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
-
-            if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
-
-            if (Don_vi != null)
-            {
-                double dv;
-                double.TryParse(Don_vi.ToString(), out dv);
-                if (dv == 0)
-                    entity.Don_vi = null;
-                else
-                    entity.Don_vi = dv;
-            }
-            else
-            {
-                entity.Don_vi = null;
-            }
-
-            if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
-
-            db.STO_VatTu.Add(entity);
+            db.STO_VatTu.Add(vatTu);
 
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_vat_tu, object ID_loai_vat_tu, object Ten_vat_tu, object Ma_vat_tu, object Don_vi, object Mo_ta, Entities db = null)
+        public static int Update(STO_VatTu vatTu, Entities db = null)
         {
-            if (ID_vat_tu == null || ID_loai_vat_tu == null || Ten_vat_tu == null) return 0;
+            if (vatTu == null || vatTu.ID_vat_tu == null || vatTu.ID_loai_vat_tu == null || vatTu.Ten_vat_tu == null) return 0;
 
             if (db == null) db = new Entities();
 
-            int id = (int)ID_vat_tu;
-            var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == id);
+            var entity = db.STO_VatTu.FirstOrDefault(p => p.ID_vat_tu == vatTu.ID_vat_tu);
 
             if (entity == null) return 0;
 
-            entity.ID_loai_vat_tu = (int)ID_loai_vat_tu;
-            entity.Ten_vat_tu = Ten_vat_tu.ToString().Trim();
-
-            if (Ma_vat_tu != null) entity.Ma_vat_tu = Ma_vat_tu.ToString().Trim();
-
-            if (Don_vi != null)
-            {
-                double dv;
-                double.TryParse(Don_vi.ToString(), out dv);
-                if (dv == 0)
-                    entity.Don_vi = null;
-                else
-                    entity.Don_vi = dv;
-            }
-            else
-            {
-                entity.Don_vi = null;
-            }
-
-            if (Mo_ta != null) entity.Mo_ta = Mo_ta.ToString().Trim();
+            entity.ID_loai_vat_tu = vatTu.ID_loai_vat_tu;
+            entity.Ten_vat_tu = vatTu.Ten_vat_tu;
+            entity.Ma_vat_tu = vatTu.Ma_vat_tu;
+            entity.Don_vi = vatTu.Don_vi;
+            entity.Mo_ta = vatTu.Mo_ta;
 
             return db.SaveChanges();
         }

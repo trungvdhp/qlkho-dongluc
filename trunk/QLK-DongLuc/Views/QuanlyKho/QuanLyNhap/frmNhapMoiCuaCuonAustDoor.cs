@@ -23,10 +23,10 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         {
             Entities db = new Entities();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
-            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, "Kho cửa cuốn", db);
+            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, "CCDB", db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
-            VatTuCtrl.LoadLookUpEdit(ledThanCua, "Thân cửa AustDoor", "", db);
-            VatTuCtrl.LoadLookUpEdit(ledMoTo, "Mô tơ cửa AustDoor", "", db);
+            VatTuCtrl.LoadLookUpEdit(ledThanCuaCuon, "Thân cửa AustDoor", "", db);
+            VatTuCtrl.LoadLookUpEdit(ledMoToCuaCuon, "Mô tơ cửa AustDoor", "", db);
             VatTuCtrl.LoadThieBiAustDoorKhac(repositoryItemLookUpEdit1, db);
             dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
@@ -97,18 +97,18 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                 return;
             }
 
-            if (ledThanCua.EditValue == null)
+            if (ledThanCuaCuon.EditValue == null)
             {
                 XtraMessageBox.Show("Vui lòng chọn một thân cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ledThanCua.Focus();
+                ledThanCuaCuon.Focus();
                 result = 0;
                 return;
             }
 
-            if (ledMoTo.EditValue == null)
+            if (ledMoToCuaCuon.EditValue == null)
             {
                 XtraMessageBox.Show("Vui lòng chọn một mô tơ cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ledMoTo.Focus();
+                ledMoToCuaCuon.Focus();
                 result = 0;
                 return;
             }
@@ -139,7 +139,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     return;
                 }
 
-                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, (int)ledThanCua.EditValue, (double)sedChieuDai.Value, (double)sedChieuRong.Value, (int)ledMoTo.EditValue);
+                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, (int)ledThanCuaCuon.EditValue, (double)sedChieuDai.Value, (double)sedChieuRong.Value, (int)ledMoToCuaCuon.EditValue);
 
                 if (rs == 0)
                 {

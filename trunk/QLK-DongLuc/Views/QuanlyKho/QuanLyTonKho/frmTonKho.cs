@@ -25,15 +25,16 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho
 
 		private void frmTonKho_Load(object sender, EventArgs e)
 		{
-			KhoVatTuCtrl.LoadLookUpEdit(ledKhoVT);
-			NhomVatTuCtrl.LoadLookUpEdit(ledNhomVT);
-			LoaiVatTu.LoadLookUpEdit(ledLoaiVT);
-            VaiTroQuyenCtrl.ReconfigFormControls(this);
+            Entities db = new Entities();
+			KhoVatTuCtrl.LoadLookUpEdit(ledKhoVT, db);
+			NhomVatTuCtrl.LoadLookUpEdit(ledNhomVT, db);
+			LoaiVatTuCtrl.LoadLookUpEdit(ledLoaiVT, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
 		}
 
 		private void ledNhomVT_TextChanged(object sender, EventArgs e)
 		{
-			LoaiVatTu.LoadLookUpEdit(ledLoaiVT, Convert.ToInt32(ledNhomVT.EditValue));
+			LoaiVatTuCtrl.LoadLookUpEdit(ledLoaiVT, Convert.ToInt32(ledNhomVT.EditValue));
 		}
 
 		private void btnLoadGrid_Click(object sender, EventArgs e)

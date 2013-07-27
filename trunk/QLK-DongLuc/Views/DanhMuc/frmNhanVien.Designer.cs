@@ -35,20 +35,21 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.cATNhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID_nhan_vien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colID_kho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHo_dem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGioi_tinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colNgay_sinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dteNgaySinh = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colCMND = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgay_cap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleNgayCap = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.colNoi_cap = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDien_thoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDia_chi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTrang_thai = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID_kho = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleKhoVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -58,6 +59,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cATNhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgaySinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgaySinh.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNgayCap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNgayCap.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -106,7 +112,10 @@
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemSpinEdit1,
             this.repositoryItemLookUpEdit1,
-            this.repositoryItemCheckEdit1});
+            this.repositoryItemCheckEdit1,
+            this.rleKhoVatTu,
+            this.dteNgaySinh,
+            this.rleNgayCap});
             this.gridControl.Size = new System.Drawing.Size(758, 265);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -122,8 +131,6 @@
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID_nhan_vien,
-            this.colID_kho,
             this.colHo_dem,
             this.colTen,
             this.colGioi_tinh,
@@ -134,28 +141,19 @@
             this.colDien_thoai,
             this.colDia_chi,
             this.colEmail,
-            this.colTrang_thai});
+            this.colID_kho});
             this.gridView.GridControl = this.gridControl;
+            this.gridView.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.gridView.Name = "gridView";
             this.gridView.NewItemRowText = "Thêm mới dữ liệu tại đây";
             this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridView.OptionsView.ShowAutoFilterRow = true;
-            this.gridView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
-            // 
-            // colID_nhan_vien
-            // 
-            this.colID_nhan_vien.FieldName = "ID_nhan_vien";
-            this.colID_nhan_vien.Name = "colID_nhan_vien";
-            // 
-            // colID_kho
-            // 
-            this.colID_kho.FieldName = "ID_kho";
-            this.colID_kho.Name = "colID_kho";
             // 
             // colHo_dem
             // 
@@ -164,6 +162,7 @@
             this.colHo_dem.Name = "colHo_dem";
             this.colHo_dem.Visible = true;
             this.colHo_dem.VisibleIndex = 0;
+            this.colHo_dem.Width = 66;
             // 
             // colTen
             // 
@@ -172,15 +171,19 @@
             this.colTen.Name = "colTen";
             this.colTen.Visible = true;
             this.colTen.VisibleIndex = 1;
+            this.colTen.Width = 66;
             // 
             // colGioi_tinh
             // 
-            this.colGioi_tinh.Caption = "Giới tính nam";
+            this.colGioi_tinh.Caption = "GT Nam";
             this.colGioi_tinh.ColumnEdit = this.repositoryItemCheckEdit1;
             this.colGioi_tinh.FieldName = "Gioi_tinh";
             this.colGioi_tinh.Name = "colGioi_tinh";
+            this.colGioi_tinh.OptionsColumn.FixedWidth = true;
+            this.colGioi_tinh.ToolTip = "Giới tính Nam";
             this.colGioi_tinh.Visible = true;
             this.colGioi_tinh.VisibleIndex = 2;
+            this.colGioi_tinh.Width = 45;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -194,12 +197,30 @@
             // colNgay_sinh
             // 
             this.colNgay_sinh.Caption = "Ngày sinh";
+            this.colNgay_sinh.ColumnEdit = this.dteNgaySinh;
             this.colNgay_sinh.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_sinh.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_sinh.FieldName = "Ngay_sinh";
             this.colNgay_sinh.Name = "colNgay_sinh";
             this.colNgay_sinh.Visible = true;
             this.colNgay_sinh.VisibleIndex = 3;
+            this.colNgay_sinh.Width = 69;
+            // 
+            // dteNgaySinh
+            // 
+            this.dteNgaySinh.AutoHeight = false;
+            this.dteNgaySinh.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteNgaySinh.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteNgaySinh.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgaySinh.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteNgaySinh.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteNgaySinh.Mask.EditMask = "dd/MM/yyyy";
+            this.dteNgaySinh.MinValue = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dteNgaySinh.Name = "dteNgaySinh";
+            this.dteNgaySinh.NullDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dteNgaySinh.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // colCMND
             // 
@@ -208,16 +229,34 @@
             this.colCMND.Name = "colCMND";
             this.colCMND.Visible = true;
             this.colCMND.VisibleIndex = 4;
+            this.colCMND.Width = 69;
             // 
             // colNgay_cap
             // 
             this.colNgay_cap.Caption = "Ngày cấp";
+            this.colNgay_cap.ColumnEdit = this.rleNgayCap;
             this.colNgay_cap.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colNgay_cap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colNgay_cap.FieldName = "Ngay_cap";
             this.colNgay_cap.Name = "colNgay_cap";
             this.colNgay_cap.Visible = true;
             this.colNgay_cap.VisibleIndex = 5;
+            this.colNgay_cap.Width = 69;
+            // 
+            // rleNgayCap
+            // 
+            this.rleNgayCap.AutoHeight = false;
+            this.rleNgayCap.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleNgayCap.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.rleNgayCap.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.rleNgayCap.EditFormat.FormatString = "dd/MM/yyyy";
+            this.rleNgayCap.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.rleNgayCap.Mask.EditMask = "dd/MM/yyyy";
+            this.rleNgayCap.MinValue = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.rleNgayCap.Name = "rleNgayCap";
+            this.rleNgayCap.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
             // colNoi_cap
             // 
@@ -226,6 +265,7 @@
             this.colNoi_cap.Name = "colNoi_cap";
             this.colNoi_cap.Visible = true;
             this.colNoi_cap.VisibleIndex = 6;
+            this.colNoi_cap.Width = 69;
             // 
             // colDien_thoai
             // 
@@ -234,6 +274,7 @@
             this.colDien_thoai.Name = "colDien_thoai";
             this.colDien_thoai.Visible = true;
             this.colDien_thoai.VisibleIndex = 7;
+            this.colDien_thoai.Width = 69;
             // 
             // colDia_chi
             // 
@@ -242,6 +283,7 @@
             this.colDia_chi.Name = "colDia_chi";
             this.colDia_chi.Visible = true;
             this.colDia_chi.VisibleIndex = 8;
+            this.colDia_chi.Width = 69;
             // 
             // colEmail
             // 
@@ -250,11 +292,24 @@
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 9;
+            this.colEmail.Width = 69;
             // 
-            // colTrang_thai
+            // colID_kho
             // 
-            this.colTrang_thai.FieldName = "Trang_thai";
-            this.colTrang_thai.Name = "colTrang_thai";
+            this.colID_kho.Caption = "Kho";
+            this.colID_kho.ColumnEdit = this.rleKhoVatTu;
+            this.colID_kho.FieldName = "ID_kho";
+            this.colID_kho.Name = "colID_kho";
+            this.colID_kho.Visible = true;
+            this.colID_kho.VisibleIndex = 10;
+            this.colID_kho.Width = 80;
+            // 
+            // rleKhoVatTu
+            // 
+            this.rleKhoVatTu.AutoHeight = false;
+            this.rleKhoVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleKhoVatTu.Name = "rleKhoVatTu";
             // 
             // repositoryItemSpinEdit1
             // 
@@ -316,6 +371,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cATNhanVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgaySinh.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteNgaySinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNgayCap.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNgayCap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -336,7 +396,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.BindingSource cATNhanVienBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_nhan_vien;
         private DevExpress.XtraGrid.Columns.GridColumn colID_kho;
         private DevExpress.XtraGrid.Columns.GridColumn colHo_dem;
         private DevExpress.XtraGrid.Columns.GridColumn colTen;
@@ -349,7 +408,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDien_thoai;
         private DevExpress.XtraGrid.Columns.GridColumn colDia_chi;
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
-        private DevExpress.XtraGrid.Columns.GridColumn colTrang_thai;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoVatTu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit dteNgaySinh;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit rleNgayCap;
 
 
 
