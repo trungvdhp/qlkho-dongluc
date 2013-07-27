@@ -14,5 +14,41 @@
     <Setting Name="UID" Type="System.String" Scope="User">
       <Value Profile="(Default)">sa</Value>
     </Setting>
+    <Setting Name="NullOrEmpty" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Không được để trống</Value>
+    </Setting>
+    <Setting Name="InvalidDate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ngày tháng không hợp lệ</Value>
+    </Setting>
+    <Setting Name="InsertErrorText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Thêm dữ liệu không thành công</Value>
+    </Setting>
+    <Setting Name="UpdateErrorText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Không có thay đổi nào được cập nhật</Value>
+    </Setting>
+    <Setting Name="DeleteErrorText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xóa dữ liệu không thành công</Value>
+    </Setting>
+    <Setting Name="DeleteConfirmText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Bạn có chắc chắn muốn xóa dữ liệu này?</Value>
+    </Setting>
+    <Setting Name="PrintErrorText" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Không thể in dữ liệu</Value>
+    </Setting>
+    <Setting Name="InsertErrorCaption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Lỗi thêm dữ liệu</Value>
+    </Setting>
+    <Setting Name="UpdateErrorCaption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Lỗi cập nhật dữ liệu</Value>
+    </Setting>
+    <Setting Name="DeleteErrorCaption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Lỗi xóa dữ liệu</Value>
+    </Setting>
+    <Setting Name="PringErrorCaption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Lỗi in dữ liệu</Value>
+    </Setting>
+    <Setting Name="DeleteConfirmCaption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Xác nhận xóa dữ liệu</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

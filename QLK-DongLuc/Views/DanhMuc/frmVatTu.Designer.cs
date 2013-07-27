@@ -30,9 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleLoaiVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colMa_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDon_vi = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -48,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleLoaiVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).BeginInit();
@@ -59,16 +58,17 @@
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID_vat_tu,
             this.colID_loai_vat_tu,
             this.colMa_vat_tu,
             this.colTen_vat_tu,
             this.colDon_vi,
             this.colMo_ta});
             this.gridView.GridControl = this.gridControl;
+            this.gridView.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.gridView.Name = "gridView";
             this.gridView.NewItemRowText = "Thêm mới dữ liệu tại đây";
             this.gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView.OptionsView.EnableAppearanceOddRow = true;
             this.gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -77,26 +77,21 @@
             this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
             // 
-            // colID_vat_tu
-            // 
-            this.colID_vat_tu.FieldName = "ID_vat_tu";
-            this.colID_vat_tu.Name = "colID_vat_tu";
-            // 
             // colID_loai_vat_tu
             // 
             this.colID_loai_vat_tu.Caption = "Loại vật tư";
-            this.colID_loai_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
+            this.colID_loai_vat_tu.ColumnEdit = this.rleLoaiVatTu;
             this.colID_loai_vat_tu.FieldName = "ID_loai_vat_tu";
             this.colID_loai_vat_tu.Name = "colID_loai_vat_tu";
             this.colID_loai_vat_tu.Visible = true;
             this.colID_loai_vat_tu.VisibleIndex = 0;
             // 
-            // repositoryItemLookUpEdit1
+            // rleLoaiVatTu
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.rleLoaiVatTu.AutoHeight = false;
+            this.rleLoaiVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.rleLoaiVatTu.Name = "rleLoaiVatTu";
             // 
             // colMa_vat_tu
             // 
@@ -162,7 +157,7 @@
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
+            this.rleLoaiVatTu,
             this.repositoryItemSpinEdit2});
             this.gridControl.Size = new System.Drawing.Size(758, 265);
             this.gridControl.TabIndex = 3;
@@ -262,7 +257,7 @@
             this.Text = "Danh sách vật tư - chủng loại";
             this.Load += new System.EventHandler(this.frmVatTu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleLoaiVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).EndInit();
@@ -278,7 +273,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
         private DevExpress.XtraGrid.GridControl gridControl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colID_loai_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colDon_vi;
@@ -291,7 +285,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.Columns.GridColumn colMa_vat_tu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleLoaiVatTu;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
 
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -21,79 +22,152 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
-            gridControl_Load();
-            VaiTroQuyenCtrl.ReconfigFormControls(this);
+            Entities db = new Entities();
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
+            NhanVienCtrl.LoadBindingSource(cATNhanVienBindingSource, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            GridHelper.ReconfigGridView(gridView);
         }
 
         private void gridControl_Load()
         {
-            NhanVienCtrl.LoadBindingSource(cATNhanVienBindingSource);
+            Entities db = new Entities();
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
+            NhanVienCtrl.LoadBindingSource(cATNhanVienBindingSource, db);
         }
 
         private void InsertCommand()
         {
-            int rs =
-                 NhanVienCtrl.Insert(
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
-                     gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email")
-                 );
+            var nhanVien = (CAT_NhanVien)gridView.GetFocusedRow();
+            int rs = NhanVienCtrl.Insert(nhanVien);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Thêm dữ liệu không thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowInsertError();
+                gridControl_Load();
+            }
         }
 
         private void UpdateCommand()
         {
-            int rs =
-                NhanVienCtrl.Update(
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ho_dem"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Gioi_tinh"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_sinh"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "CMND"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ngay_cap"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Noi_cap"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dien_thoai"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Dia_chi"),
-                    gridView.GetRowCellValue(gridView.FocusedRowHandle, "Email")
-                );
+            var nhanVien = (CAT_NhanVien)gridView.GetFocusedRow();
+            int rs = NhanVienCtrl.Update(nhanVien);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowUpdateError();
+                gridControl_Load();
+            }
         }
 
         private void DeleteCommand()
         {
             if (gridView.FocusedRowHandle < 0) return;
 
-            var result = XtraMessageBox.Show("Chắc chắn xóa dữ liệu này?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = NotifyHelper.ShowDeleteConfirm();
 
-            if (result == DialogResult.No)
+            if (result == DialogResult.Yes)
+            {
+                var nhanVien = (CAT_NhanVien)gridView.GetFocusedRow();
+                int rs = NhanVienCtrl.Delete(nhanVien.ID_nhan_vien);
+
+                if (rs > 0)
+                {
+                    gridControl_Load();
+                }
+                else
+                {
+                    NotifyHelper.ShowDeleteError();
+                }
+            }
+        }
+
+        private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            bool bError = false;
+
+            var Ho_dem = gridView.GetRowCellValue(e.RowHandle, colHo_dem);
+
+            if (Ho_dem == null || Ho_dem.ToString().Trim() == "")
+            {
+                bError = true;
+                gridView.SetColumnError(colHo_dem, Properties.Settings.Default.NullOrEmpty);
+            }
+
+            var Ten = gridView.GetRowCellValue(e.RowHandle, colTen);
+
+            if (Ten == null || Ten.ToString().Trim() == "")
+            {
+                bError = true;
+                gridView.SetColumnError(colTen, Properties.Settings.Default.NullOrEmpty);
+            }
+
+            var Ngay_sinh = gridView.GetRowCellValue(e.RowHandle, colNgay_sinh);
+
+            if (Ngay_sinh == null || (QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate().Year - ((DateTime)Ngay_sinh).Year <= 15) || ((DateTime)Ngay_sinh).Year < 1900)
+            {
+                bError = true;
+                gridView.SetColumnError(colNgay_sinh, Properties.Settings.Default.InvalidDate);
+            }
+
+            var CMND = gridView.GetRowCellValue(e.RowHandle, colCMND);
+
+            if (CMND == null || CMND.ToString().Trim() == "")
+            {
+                bError = true;
+                gridView.SetColumnError(colCMND, Properties.Settings.Default.NullOrEmpty);
+            }
+
+            var Ngay_cap = gridView.GetRowCellValue(e.RowHandle, colNgay_cap);
+
+            if (Ngay_cap != null && ((DateTime)Ngay_cap).Year < 1900)
+            {
+                bError = true;
+                gridView.SetColumnError(colNgay_cap, Properties.Settings.Default.InvalidDate);
+            }
+
+            var Dien_thoai = gridView.GetRowCellValue(e.RowHandle, colDien_thoai);
+
+            if (Dien_thoai == null || Dien_thoai.ToString().Trim() == "")
+            {
+                bError = true;
+                gridView.SetColumnError(colNgay_sinh, Properties.Settings.Default.NullOrEmpty);
+            }
+
+            if (bError)
+            {
+                e.Valid = false;
                 return;
+            }
 
-            if (NhanVienCtrl.Delete(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien")) > 0)
-                XtraMessageBox.Show("Xóa dữ liệu thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (gridView.IsNewItemRow(e.RowHandle))
+                InsertCommand();
             else
-                XtraMessageBox.Show("Xóa dữ liệu không thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                UpdateCommand();
+        }
 
-            gridControl_Load();
+        private void gridControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && gridView.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
+            {
+                DeleteCommand();
+            }
+
+            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
+            {
+                gridView.CloseEditor();
+                gridView.UpdateCurrentRow();
+            }
+
+            if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
+            {
+                if (!gridControl.IsPrintingAvailable)
+                {
+                    NotifyHelper.ShowPrintError();
+                }
+
+                gridControl.ShowPrintPreview();
+            }
         }
 
         private void gridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -110,87 +184,6 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
-
-        private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            bool bError = false;
-            string sError = "";
-
-            var Ho_dem = gridView.GetRowCellValue(e.RowHandle, "Ho_dem");
-
-            if (Ho_dem == null || Ho_dem.ToString().Trim() == "")
-            {
-                bError = true;
-                sError += "\n Chưa điền họ đệm nhân viên. ";
-            }
-
-            var Ten = gridView.GetRowCellValue(e.RowHandle, "Ten");
-
-            if (Ten == null || Ten.ToString().Trim() == "")
-            {
-                bError = true;
-                sError += "\n Chưa điền tên nhân viên. ";
-            }
-
-            var Ngay_sinh = gridView.GetRowCellValue(e.RowHandle, "Ngay_sinh");
-
-            if (Ngay_sinh == null || (QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate().Year - ((DateTime)Ngay_sinh).Year <= 15))
-            {
-                bError = true;
-                sError += "\n Nhập ngày tháng không đúng. ";
-            }
-
-            var CMND = gridView.GetRowCellValue(e.RowHandle, "CMND");
-
-            if (CMND == null || CMND.ToString().Trim() == "")
-            {
-                bError = true;
-                sError += "\n Chưa điền chứng minh của nhân viên. ";
-            }
-
-            var Dien_thoai = gridView.GetRowCellValue(e.RowHandle, "Dien_thoai");
-
-            if (Dien_thoai == null || Dien_thoai.ToString().Trim() == "")
-            {
-                bError = true;
-                sError += "\n Chưa điền điện thoại của nhân viên. ";
-            }
-
-            if (bError)
-            {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
-                e.Valid = false;
-                return;
-            }
-
-            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-
-            if (view.IsNewItemRow(e.RowHandle))
-                InsertCommand();
-            else
-                UpdateCommand();
-        }
-
-        private void gridControl_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
-                DeleteCommand();
-
-            if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
-            {
-                gridView.CloseEditor();
-                gridView.UpdateCurrentRow();
-            }
-
-            if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
-            {
-                if (!gridControl.IsPrintingAvailable)
-                {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                gridControl.ShowPrintPreview();
-            }
         }
     }
 }

@@ -9,118 +9,102 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Models;
 using QLK_DongLuc.Controllers;
+using QLK_DongLuc.Helper;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
     public partial class frmVatTu : DevExpress.XtraEditors.XtraForm
     {
-        Entities db;
-
         public frmVatTu()
         {
             InitializeComponent();
         }
 
+        private void frmVatTu_Load(object sender, EventArgs e)
+        {
+            Entities db = new Entities();
+            LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
+            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            GridHelper.ReconfigGridView(gridView);
+        }
+
         private void gridControl_Load()
         {
-            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource);
+            Entities db = new Entities();
+            LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
+            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
         }
 
         private void InsertCommand()
         {
-            int rs =
-                 VatTuCtrl.Insert(
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_loai_vat_tu"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_vat_tu"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ma_vat_tu"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Don_vi"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Mo_ta"),
-                 db);
+            var vt = (STO_VatTu)gridView.GetFocusedRow();
+            int rs = VatTuCtrl.Insert(vt);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Thêm dữ liệu không thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowInsertError();
+                gridControl_Load();
+            }
         }
 
         private void UpdateCommand()
         {
-            int rs = 
-                VatTuCtrl.Update(
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_vat_tu"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_loai_vat_tu"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_vat_tu"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ma_vat_tu"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Don_vi"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Mo_ta"),
-                db);
+            var vt = (STO_VatTu)gridView.GetFocusedRow();
+            int rs = VatTuCtrl.Update(vt);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowUpdateError();
+                gridControl_Load();
+            }
         }
 
         private void DeleteCommand()
         {
             if (gridView.FocusedRowHandle < 0) return;
 
-            var result = XtraMessageBox.Show("Chắc chắn xóa dữ liệu này?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = NotifyHelper.ShowDeleteConfirm();
 
-            if (result == DialogResult.No)
-                return;
+            if (result == DialogResult.Yes)
+            {
+                var vt = (STO_VatTu)gridView.GetFocusedRow();
+                int rs = VatTuCtrl.Delete(vt.ID_vat_tu);
 
-            if (VatTuCtrl.Delete(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_vat_tu"), db) > 0)
-                XtraMessageBox.Show("Xóa dữ liệu thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Xóa dữ liệu không thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
-        }
-
-        private void frmVatTu_Load(object sender, EventArgs e)
-        {
-            db = new Entities();
-            gridControl_Load();
-            LoaiVatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
-        }
-
-        private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+                if (rs > 0)
+                {
+                    gridControl_Load();
+                }
+                else
+                {
+                    NotifyHelper.ShowDeleteError();
+                }
+            }
         }
 
         private void gridView_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             bool bError = false;
-            string sError = "";
 
-            var ID_loai_vat_tu = gridView.GetRowCellValue(e.RowHandle, "ID_loai_vat_tu");
+            var ID_loai_vat_tu = gridView.GetRowCellValue(e.RowHandle, colID_loai_vat_tu);
 
             if (ID_loai_vat_tu.Equals(0))
             {
                 bError = true;
-                sError += "\n Chưa chọn loại vật tư. ";
+                gridView.SetColumnError(colID_loai_vat_tu, Properties.Settings.Default.NullOrEmpty);
             }
 
-            var Ten_vat_tu = gridView.GetRowCellValue(e.RowHandle, "Ten_vat_tu");
+            var Ten_vat_tu = gridView.GetRowCellValue(e.RowHandle, colTen_vat_tu);
 
             if (Ten_vat_tu == null || Ten_vat_tu.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "\n Chưa điền tên vật tư (chủng loại). ";
+                gridView.SetColumnError(colTen_vat_tu, Properties.Settings.Default.NullOrEmpty);
             }
 
             if (bError)
             {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
-                //XtraMessageBox.Show(sError, "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -134,8 +118,10 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void gridControl_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && gridView.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
+            {
                 DeleteCommand();
+            }
 
             if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
             {
@@ -147,8 +133,9 @@ namespace QLK_DongLuc.Views.DanhMuc
             {
                 if (!gridControl.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotifyHelper.ShowPrintError();
                 }
+
                 gridControl.ShowPrintPreview();
             }
         }
@@ -157,11 +144,16 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             if (e.Button.ButtonType == NavigatorButtonType.Remove)
             {
-                if(gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+                if (gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
                     DeleteCommand();
 
                 e.Handled = true;
             }
+        }
+
+        private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }

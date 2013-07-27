@@ -16,6 +16,8 @@ namespace QLK_DongLuc.Helper
         /// <param name="gridView">GridView</param>
         public static void ReconfigGridView(DevExpress.XtraGrid.Views.Grid.GridView gridView)
         {
+            gridView.BestFitColumns();
+
             if (gridView.OptionsBehavior.ReadOnly == true)
             {
                 gridView.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
@@ -47,7 +49,7 @@ namespace QLK_DongLuc.Helper
             gridView.OptionsCustomization.AllowSort = allowSort;
 
             //AutoSizeColumn
-            gridView.BestFitColumns();
+            //gridView.BestFitColumns();
 
             if (bestFitColumns != null)
             {

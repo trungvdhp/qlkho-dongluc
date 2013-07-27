@@ -11,7 +11,7 @@ namespace QLK_DongLuc.Controllers
 {
     public static class KhoVatTuCTCtrl
     {
-        public static void LoadBindingSource(int ID_kho, BindingSource bs, Entities db = null)
+        public static void LoadBindingSource(BindingSource bs, int ID_kho, Entities db = null)
         {
             if (db == null) db = new Entities();
 
@@ -27,12 +27,12 @@ namespace QLK_DongLuc.Controllers
             if (entity == null) return 0;
 
             if (kho.Don_gia_nhap != null)
-                entity.Don_gia_nhap = (decimal)kho.Don_gia_nhap;
+                entity.Don_gia_nhap = kho.Don_gia_nhap;
             else
                 entity.Don_gia_nhap = null;
 
             if (kho.Don_gia_xuat != null)
-                entity.Don_gia_xuat = (decimal)kho.Don_gia_xuat;
+                entity.Don_gia_xuat = kho.Don_gia_xuat;
             else
                 entity.Don_gia_xuat = null;
 

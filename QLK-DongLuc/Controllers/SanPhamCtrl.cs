@@ -14,7 +14,13 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bindingSource, Entities db = null)
         {
             if (db == null) db = new Entities();
-            bindingSource.DataSource = db.CAT_SanPham.ToList();
+
+            var user = Program.CurrentUser;
+
+            if (user.ID_nhan_vien == null)
+                bindingSource.DataSource = db.CAT_SanPham.OrderByDescending(t => t.ID_san_pham).ToList();
+            else
+                bindingSource.DataSource = db.CAT_SanPham.Where(t => t.ID_nhan_vien == user.ID_nhan_vien).OrderByDescending(o => o.ID_san_pham).ToList();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
@@ -39,41 +45,32 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static int Insert(object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, Entities db = null)
+        public static int Insert(CAT_SanPham sanPham, Entities db = null)
         {
-            if (Ma_san_pham == null) return 0;
+            if (sanPham == null || sanPham.Ma_san_pham == null) return 0;
 
             if (db == null) db = new Entities();
 
-            var entity = new CAT_SanPham();
-
-            entity.Ma_san_pham = Ma_san_pham.ToString().Trim();
-            entity.Ten_san_pham = (Ten_san_pham != null) ? Ten_san_pham.ToString().Trim() : "";
-            entity.ID_nhan_vien = (int)ID_nhan_vien;
-            entity.ID_khach_hang = (int)ID_khach_hang;
-            entity.Chi_phi_lap_dat = (decimal)0;
-
-            db.CAT_SanPham.Add(entity);
+            db.CAT_SanPham.Add(sanPham);
 
             return db.SaveChanges();
         }
 
-        public static int Update(object ID_san_pham, object Ma_san_pham, object Ten_san_pham, object ID_nhan_vien, object ID_khach_hang, object Chi_phi_lap_dat, Entities db = null)
+        public static int Update(CAT_SanPham sanPham, Entities db = null)
         {
-            if (ID_san_pham == null) return 0;
+            if (sanPham == null || sanPham.ID_san_pham == null || sanPham.Ma_san_pham == null) return 0;
 
             if (db == null) db = new Entities();
 
-            int id = (int)ID_san_pham;
-            var entity = db.CAT_SanPham.FirstOrDefault(p => p.ID_san_pham == id);
+            var entity = db.CAT_SanPham.FirstOrDefault(p => p.ID_san_pham == sanPham.ID_san_pham);
 
             if (entity == null) return 0;
 
-            entity.Ma_san_pham = Ma_san_pham.ToString().Trim();
-            entity.Ten_san_pham = (Ten_san_pham != null) ? Ten_san_pham.ToString().Trim() : "";
-            entity.ID_nhan_vien = (int)ID_nhan_vien;
-            entity.ID_khach_hang = (int)ID_khach_hang;
-            entity.Chi_phi_lap_dat = (decimal)0;
+            entity.Ma_san_pham = sanPham.Ma_san_pham;
+            entity.Ten_san_pham = sanPham.Ten_san_pham;
+            entity.ID_nhan_vien = sanPham.ID_nhan_vien;
+            entity.ID_khach_hang = sanPham.ID_khach_hang;
+            entity.Chi_phi_lap_dat = sanPham.Chi_phi_lap_dat;
 
             return db.SaveChanges();
         }

@@ -28,7 +28,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
-            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
+            VatTuCtrl.LoadLookUpEdit(rleVatTu, db);
             dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(grvPhieuNhapCT);

@@ -47,60 +47,41 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static int Insert(object Ho_dem, object Ten, object Gioi_tinh, object Ngay_sinh, object CMND, object Ngay_Cap, object Noi_cap, object Dien_thoai, object Dia_chi, object Email, Entities db = null)
+        public static int Insert(CAT_NhanVien nv, Entities db = null)
         {
             if (db == null) db = new Entities();
 
-            var entity = new CAT_NhanVien();
+            if (nv == null || nv.Ho_dem == null || nv.Ten == null || nv.Gioi_tinh == null || nv.Ngay_sinh == null || nv.CMND == null) return 0;
 
-            entity.ID_kho = (int?)null;
+            nv.Trang_thai = 1;
 
-            entity.Ho_dem = Ho_dem.ToString().Trim();
-            entity.Ten = Ten.ToString().Trim();
-            entity.Gioi_tinh = (int)Gioi_tinh;
-            entity.Ngay_sinh = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", Ngay_sinh));
-            entity.CMND = CMND.ToString().Trim();
-            entity.Ngay_cap = (Ngay_Cap != null) ? DateTime.Parse(String.Format("{0:yyyy/MM/dd}", Ngay_Cap)) : (DateTime?)null;
-            entity.Noi_cap = (Noi_cap != null) ? (string)Noi_cap : string.Empty;
-            entity.Dien_thoai = Dien_thoai.ToString().Trim();
-            entity.Dia_chi = (Dia_chi != null) ? (string)Dia_chi : string.Empty;
-            entity.Email = (Email != null) ? (string)Email : string.Empty;
-            entity.Trang_thai = (int)1;
+            db.CAT_NhanVien.Add(nv);
 
-            db.CAT_NhanVien.Add(entity);
-            int result = 0;
-            try
-            {
-                result = db.SaveChanges();
-            }
-            catch (Exception e) { MessageBox.Show(e.Message); }
-            return result;
+            return db.SaveChanges();
         }
 
-        public static int Update(object ID_nhan_vien, object Ho_dem, object Ten, object Gioi_tinh, object Ngay_sinh, object CMND, object Ngay_Cap, object Noi_cap, object Dien_thoai, object Dia_chi, object Email, Entities db = null)
+        public static int Update(CAT_NhanVien nv, Entities db = null)
         {
-            if (ID_nhan_vien == null ) return 0;
+            if (nv == null || nv.ID_nhan_vien == null ) return 0;
 
             if (db == null) db = new Entities();
 
-            int id = (int)ID_nhan_vien;
-            var entity = db.CAT_NhanVien.FirstOrDefault(p => p.ID_nhan_vien == id);
+            var entity = db.CAT_NhanVien.FirstOrDefault(p => p.ID_nhan_vien == nv.ID_nhan_vien);
 
             if (entity == null) return 0;
 
-            entity.ID_kho = (int?)null;
+            entity.ID_kho = nv.ID_kho;
 
-            entity.Ho_dem = Ho_dem.ToString().Trim();
-            entity.Ten = Ten.ToString().Trim();
-            entity.Gioi_tinh = (int)Gioi_tinh;
-            entity.Ngay_sinh = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", Ngay_sinh));
-            entity.CMND = CMND.ToString().Trim();
-            entity.Ngay_cap = (Ngay_Cap != null) ? DateTime.Parse(String.Format("{0:yyyy/MM/dd}", Ngay_Cap)) : (DateTime?)null;
-            entity.Noi_cap = (Noi_cap != null) ? (string)Noi_cap : string.Empty;
-            entity.Dien_thoai = Dien_thoai.ToString().Trim();
-            entity.Dia_chi = (Dia_chi != null) ? (string)Dia_chi : string.Empty;
-            entity.Email = (Email != null) ? (string)Email : string.Empty;
-            entity.Trang_thai = (int)1;
+            entity.Ho_dem = nv.Ho_dem;
+            entity.Ten = nv.Ten;
+            entity.Gioi_tinh = nv.Gioi_tinh;
+            entity.Ngay_sinh = nv.Ngay_sinh;
+            entity.CMND = nv.CMND;
+            entity.Ngay_cap = nv.Ngay_cap;
+            entity.Noi_cap = nv.Noi_cap;
+            entity.Dien_thoai = nv.Dien_thoai;
+            entity.Dia_chi = nv.Dia_chi;
+            entity.Email = nv.Email;
 
             return db.SaveChanges();
         }

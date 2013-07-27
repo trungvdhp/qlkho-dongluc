@@ -32,10 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapPhieuNhapMoi));
             this.tblLapPhieuNhapMoi = new System.Windows.Forms.TableLayoutPanel();
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.pnlCommandButtons = new DevExpress.XtraEditors.PanelControl();
@@ -60,11 +59,11 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tblLapPhieuNhapMoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).BeginInit();
             this.pnlCommandButtons.SuspendLayout();
@@ -80,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChungTuGoc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tblLapPhieuNhapMoi
@@ -109,7 +109,7 @@
             this.grdPhieuNhapCT.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
+            this.rleVatTu,
             this.repositoryItemSpinEdit1});
             this.grdPhieuNhapCT.Size = new System.Drawing.Size(784, 299);
             this.grdPhieuNhapCT.TabIndex = 2;
@@ -140,19 +140,19 @@
             // colID_vat_tu
             // 
             this.colID_vat_tu.Caption = "Vật tư";
-            this.colID_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
+            this.colID_vat_tu.ColumnEdit = this.rleVatTu;
             this.colID_vat_tu.FieldName = "ID_vat_tu";
             this.colID_vat_tu.Name = "colID_vat_tu";
             this.colID_vat_tu.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colID_vat_tu.Visible = true;
             this.colID_vat_tu.VisibleIndex = 0;
             // 
-            // repositoryItemLookUpEdit1
+            // rleVatTu
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.rleVatTu.AutoHeight = false;
+            this.rleVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.rleVatTu.Name = "rleVatTu";
             // 
             // colSo_luong
             // 
@@ -436,6 +436,10 @@
             this.labelControl5.TabIndex = 1;
             this.labelControl5.Text = "Nhà cung cấp";
             // 
+            // iMPPhieuNhapCTBindingSource
+            // 
+            this.iMPPhieuNhapCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.IMP_PhieuNhapCT);
+            // 
             // frmLapPhieuNhapMoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,9 +453,8 @@
             this.Load += new System.EventHandler(this.frmLapPhieuNhapMoi_Load);
             this.tblLapPhieuNhapMoi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).EndInit();
             this.pnlCommandButtons.ResumeLayout(false);
@@ -469,6 +472,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChungTuGoc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,10 +504,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LookUpEdit ledKhoNhap;
         private DevExpress.XtraEditors.LookUpEdit ledNhaCungCap;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
-        private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleVatTu;
         private DevExpress.XtraEditors.SimpleButton btnThemVatTuMoi;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.SimpleButton btnXacThuc;
+        private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLK_DongLuc.Controllers;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Helper;
 
 namespace QLK_DongLuc.Views.DanhMuc
 {
@@ -19,6 +20,24 @@ namespace QLK_DongLuc.Views.DanhMuc
         public frmSanPham()
         {
             InitializeComponent();
+        }
+
+        private void frmSanPham_Load(object sender, EventArgs e)
+        {
+            db = new Entities();
+            KhachHangCtrl.LoadLookUpEdit(rleKhachHang, db);
+            NhanVienCtrl.LoadLookUpEdit(rleNhanVienKinhDoanh, db);
+            SanPhamCtrl.LoadBindingSource(cATSanPhamBindingSource, db);
+            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            GridHelper.ReconfigGridView(gridView);
+        }
+
+        private void gridControl_Load()
+        {
+            db = new Entities();
+            KhachHangCtrl.LoadLookUpEdit(rleKhachHang, db);
+            NhanVienCtrl.LoadLookUpEdit(rleNhanVienKinhDoanh, db);
+            SanPhamCtrl.LoadBindingSource(cATSanPhamBindingSource, db);
         }
 
         private void gridControl_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -32,74 +51,50 @@ namespace QLK_DongLuc.Views.DanhMuc
             }
         }
 
-        private void gridControl_Load()
-        {
-            SanPhamCtrl.LoadBindingSource(cATSanPhamBindingSource);
-        }
-
         private void InsertCommand()
         {
-            int rs =
-                 SanPhamCtrl.Insert(
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ma_san_pham"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_san_pham"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_khach_hang"),
-                 gridView.GetRowCellValue(gridView.FocusedRowHandle, "Chi_phi_lap_dat"),
-                 db);
+            var sanPham = (CAT_SanPham)gridView.GetFocusedRow();
+            int rs = SanPhamCtrl.Insert(sanPham);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Thêm dữ liệu thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Thêm dữ liệu không thành công.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowInsertError();
+                gridControl_Load();
+            }
         }
 
         private void UpdateCommand()
         {
-            int rs =
-                SanPhamCtrl.Update(
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_san_pham"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ma_san_pham"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Ten_san_pham"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_nhan_vien"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_khach_hang"),
-                gridView.GetRowCellValue(gridView.FocusedRowHandle, "Chi_phi_lap_dat"),
-                db);
+            var sanPham = (CAT_SanPham)gridView.GetFocusedRow();
+            int rs = SanPhamCtrl.Update(sanPham);
 
-            if (rs > 0)
-                XtraMessageBox.Show("Sửa dữ liệu thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Sửa dữ liệu không thành công.", "Sửa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
+            if (rs == 0)
+            {
+                NotifyHelper.ShowUpdateError();
+                gridControl_Load();
+            }
         }
 
         private void DeleteCommand()
         {
             if (gridView.FocusedRowHandle < 0) return;
 
-            var result = XtraMessageBox.Show("Chắc chắn xóa dữ liệu này?", "Xóa dữ liệu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = NotifyHelper.ShowDeleteConfirm();
 
-            if (result == DialogResult.No)
-                return;
+            if (result == DialogResult.Yes)
+            {
+                var sanPham = (CAT_SanPham)gridView.GetFocusedRow();
+                int rs = SanPhamCtrl.Delete(sanPham.ID_san_pham);
 
-            if (SanPhamCtrl.Delete(gridView.GetRowCellValue(gridView.FocusedRowHandle, "ID_san_pham"), db) > 0)
-                XtraMessageBox.Show("Xóa dữ liệu thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                XtraMessageBox.Show("Xóa dữ liệu không thành công.", "Xóa dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            gridControl_Load();
-        }
-
-        private void frmSanPham_Load(object sender, EventArgs e)
-        {
-            db = new Entities();
-            gridControl_Load();
-            cATKhachHangBindingSource.DataSource = db.CAT_KhachHang.ToList();
-            cATNhanVienBindingSource.DataSource = db.CAT_NhanVien.ToList();
-            VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+                if (rs > 0)
+                {
+                    gridControl_Load();
+                }
+                else
+                {
+                    NotifyHelper.ShowDeleteError();
+                }
+            }
         }
 
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
@@ -112,40 +107,37 @@ namespace QLK_DongLuc.Views.DanhMuc
             bool bError = false;
             string sError = "";
 
-            var Ma_san_pham = gridView.GetRowCellValue(e.RowHandle, "Ma_san_pham");
+            var Ma_san_pham = gridView.GetRowCellValue(e.RowHandle, colMa_san_pham);
 
             if (Ma_san_pham == null || Ma_san_pham.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "\n Chưa điền mã vật tư. ";
+                gridView.SetColumnError(colMa_san_pham, Properties.Settings.Default.NullOrEmpty);
             }
 
-            var ID_nhan_vien = gridView.GetRowCellValue(e.RowHandle, "Ma_san_pham");
+            var ID_nhan_vien = gridView.GetRowCellValue(e.RowHandle, colID_nhan_vien);
 
             if (ID_nhan_vien == null || ID_nhan_vien.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "\n Chưa chọn nhân viên kinh doanh. ";
+                gridView.SetColumnError(colID_nhan_vien, Properties.Settings.Default.NullOrEmpty);
             }
 
-            var ID_khach_hang = gridView.GetRowCellValue(e.RowHandle, "Ma_san_pham");
+            var ID_khach_hang = gridView.GetRowCellValue(e.RowHandle, colID_khach_hang);
 
             if (ID_khach_hang == null || ID_khach_hang.ToString().Trim() == "")
             {
                 bError = true;
-                sError += "\n Chưa chọn khách hàng. ";
+                gridView.SetColumnError(colID_khach_hang, Properties.Settings.Default.NullOrEmpty);
             }
 
             if (bError)
             {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
                 return;
             }
 
-            DevExpress.XtraGrid.Views.Grid.GridView view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-
-            if (view.IsNewItemRow(e.RowHandle))
+            if (gridView.IsNewItemRow(e.RowHandle))
                 InsertCommand();
             else
                 UpdateCommand();
@@ -153,8 +145,10 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void gridControl_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
+            if (e.KeyCode == Keys.Delete && gridView.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing && gridView.OptionsBehavior.AllowDeleteRows == DevExpress.Utils.DefaultBoolean.True)
+            {
                 DeleteCommand();
+            }
 
             if (e.KeyCode == Keys.Enter && gridView.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
             {
@@ -166,8 +160,9 @@ namespace QLK_DongLuc.Views.DanhMuc
             {
                 if (!gridControl.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Not available printing.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotifyHelper.ShowPrintError();
                 }
+
                 gridControl.ShowPrintPreview();
             }
         }

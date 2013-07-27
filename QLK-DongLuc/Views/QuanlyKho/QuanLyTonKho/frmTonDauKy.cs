@@ -64,7 +64,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyTonKho
 
 		private void ledTonDauKy_EditValueChanged(object sender, EventArgs e)
 		{
-			LoaiVatTu.LoadLookUpEditTonKho(ledLoaiVT, Convert.ToInt32(ledTonDauKy.EditValue));
+			LoaiVatTuCtrl.LoadLookUpEditTonKho(ledLoaiVT, Convert.ToInt32(ledTonDauKy.EditValue));
 		}
 	}
 }
