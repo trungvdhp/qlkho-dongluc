@@ -182,7 +182,7 @@ namespace QLK_DongLuc.Controllers
         }
 
         // Thêm chi tiết của phiếu nhập cửa cuốn AustDoor
-        public static int AddDetails(int ID_phieu_nhap, int Trang_thai, GridView gridViewDetails, int ID_than_cua, double Chieu_dai_cua, double Chieu_rong_cua, int ID_mo_to, Entities db = null)
+        public static int AddDetails(int ID_phieu_nhap, int Trang_thai, GridView gridViewDetails, int ID_than_cua, double Chieu_dai_cua, double Chieu_rong_cua, int ID_mo_to, int ID_chot, int ID_khoa, Entities db = null)
         {
             if (ID_phieu_nhap < 1) return 0;
 
@@ -191,6 +191,7 @@ namespace QLK_DongLuc.Controllers
             int n = gridViewDetails.RowCount;
             var pn = db.IMP_PhieuNhap.FirstOrDefault(t => t.ID_phieu_nhap == ID_phieu_nhap);
             List<IMP_PhieuNhapCT> list = new List<IMP_PhieuNhapCT>();
+
             // Thêm thân cửa vào phiếu nhập chi tiết
             var than = new IMP_PhieuNhapCT
             {
@@ -203,6 +204,7 @@ namespace QLK_DongLuc.Controllers
 
             list.Add(than);
 
+            // Thêm mô tơ cửa
             var moTo = new IMP_PhieuNhapCT
             {
                 ID_phieu_nhap = ID_phieu_nhap,
@@ -211,6 +213,26 @@ namespace QLK_DongLuc.Controllers
             };
 
             list.Add(moTo);
+
+            // Thêm chốt cửa
+            var chot = new IMP_PhieuNhapCT
+            {
+                ID_phieu_nhap = ID_phieu_nhap,
+                ID_vat_tu = ID_chot,
+                So_luong = 1
+            };
+
+            list.Add(chot);
+
+            // Them khóa cửa
+            var khoa = new IMP_PhieuNhapCT
+            {
+                ID_phieu_nhap = ID_phieu_nhap,
+                ID_vat_tu = ID_khoa,
+                So_luong = 1
+            };
+
+            list.Add(khoa);
 
             for (int i = 0; i < n; i++)
             {

@@ -79,12 +79,15 @@
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.Store.ViewCboVatTu" store:Type="Views" store:Schema="dbo" store:Name="ViewCboVatTu">
             <DefiningQuery>SELECT 
       [ViewCboVatTu].[ID_vat_tu] AS [ID_vat_tu], 
+      [ViewCboVatTu].[Ma_vat_tu] AS [Ma_vat_tu], 
+      [ViewCboVatTu].[Ma_loai_vat_tu] AS [Ma_loai_vat_tu], 
+      [ViewCboVatTu].[Ma_nhom_vat_tu] AS [Ma_nhom_vat_tu], 
       [ViewCboVatTu].[Ten_vat_tu] AS [Ten_vat_tu], 
-      [ViewCboVatTu].[Mo_ta] AS [Mo_ta], 
-      [ViewCboVatTu].[Ten_loai_vat_tu] AS [Ten_loai_vat_tu], 
-      [ViewCboVatTu].[Ten_nhom_vat_tu] AS [Ten_nhom_vat_tu], 
       [ViewCboVatTu].[Don_vi] AS [Don_vi], 
-      [ViewCboVatTu].[Ma_vat_tu] AS [Ma_vat_tu]
+      [ViewCboVatTu].[Mo_ta] AS [Mo_ta], 
+      [ViewCboVatTu].[ID_kho] AS [ID_kho], 
+      [ViewCboVatTu].[Ten_loai_vat_tu] AS [Ten_loai_vat_tu], 
+      [ViewCboVatTu].[Ten_nhom_vat_tu] AS [Ten_nhom_vat_tu]
       FROM [dbo].[ViewCboVatTu] AS [ViewCboVatTu]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewNguoiDung" EntityType="QuanLyKhoDongLucModel.Store.ViewNguoiDung" store:Type="Views" store:Schema="dbo" store:Name="ViewNguoiDung">
@@ -721,16 +724,20 @@
           <Key>
             <PropertyRef Name="ID_vat_tu" />
             <PropertyRef Name="Ten_vat_tu" />
+            <PropertyRef Name="ID_kho" />
             <PropertyRef Name="Ten_loai_vat_tu" />
             <PropertyRef Name="Ten_nhom_vat_tu" />
           </Key>
           <Property Name="ID_vat_tu" Type="int" Nullable="false" />
+          <Property Name="Ma_vat_tu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ma_loai_vat_tu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ma_nhom_vat_tu" Type="nvarchar" MaxLength="50" />
           <Property Name="Ten_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Don_vi" Type="float" />
           <Property Name="Mo_ta" Type="ntext" />
+          <Property Name="ID_kho" Type="int" Nullable="false" />
           <Property Name="Ten_loai_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ten_nhom_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Don_vi" Type="float" />
-          <Property Name="Ma_vat_tu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'QuanLyKhoDongLuc.dbo.ViewNguoiDung' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -1965,16 +1972,20 @@
           <Key>
             <PropertyRef Name="ID_vat_tu" />
             <PropertyRef Name="Ten_vat_tu" />
+            <PropertyRef Name="ID_kho" />
             <PropertyRef Name="Ten_loai_vat_tu" />
             <PropertyRef Name="Ten_nhom_vat_tu" />
           </Key>
           <Property Type="Int32" Name="ID_vat_tu" Nullable="false" />
+          <Property Type="String" Name="Ma_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ma_loai_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ma_nhom_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="Don_vi" />
           <Property Type="String" Name="Mo_ta" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
           <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="Don_vi" />
-          <Property Type="String" Name="Ma_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewNguoiDung">
           <Key>
@@ -2907,12 +2918,15 @@
           <EntitySetMapping Name="ViewCboVatTu">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboVatTu">
               <MappingFragment StoreEntitySet="ViewCboVatTu">
-                <ScalarProperty Name="Ma_vat_tu" ColumnName="Ma_vat_tu" />
-                <ScalarProperty Name="Don_vi" ColumnName="Don_vi" />
                 <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
                 <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
                 <ScalarProperty Name="Mo_ta" ColumnName="Mo_ta" />
+                <ScalarProperty Name="Don_vi" ColumnName="Don_vi" />
                 <ScalarProperty Name="Ten_vat_tu" ColumnName="Ten_vat_tu" />
+                <ScalarProperty Name="Ma_nhom_vat_tu" ColumnName="Ma_nhom_vat_tu" />
+                <ScalarProperty Name="Ma_loai_vat_tu" ColumnName="Ma_loai_vat_tu" />
+                <ScalarProperty Name="Ma_vat_tu" ColumnName="Ma_vat_tu" />
                 <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -463,11 +463,11 @@
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.Designer.cs">
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonDongBo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.Designer.cs">
-      <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonDongBo.Designer.cs">
+      <DependentUpon>frmNhapMoiCuaCuonDongBo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.cs">
       <SubType>Form</SubType>
@@ -599,8 +599,8 @@
       <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonAustDoor.resx">
-      <DependentUpon>frmNhapMoiCuaCuonAustDoor.cs</DependentUpon>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonDongBo.resx">
+      <DependentUpon>frmNhapMoiCuaCuonDongBo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>

@@ -24,8 +24,8 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.DataSource = db.CAT_NhaCungCap.ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nha_cung_cap", "Nhà cung cấp"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nguoi_dai_dien", "Người đại diện"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dien_thoai", "Điện thoại"));
-
+            //lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dien_thoai", "Điện thoại"));
+            lookUpEdit.Properties.BestFit();
             lookUpEdit.Properties.DisplayMember = "Ten_nha_cung_cap";
             lookUpEdit.Properties.ValueMember = "ID_nha_cung_cap";
             lookUpEdit.Properties.NullText = "";

@@ -459,7 +459,7 @@ namespace QLK_DongLuc
 
         private void btnNhapMoiAustDoor_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmNhapMoiCuaCuonAustDoor frm = new frmNhapMoiCuaCuonAustDoor();
+            frmNhapMoiCuaCuonDongBo frm = new frmNhapMoiCuaCuonDongBo();
             OpenForm(frm, tabControl);
         }
 

@@ -58,14 +58,15 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ten_kho, Entities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ma_kho, Entities db = null)
         {
             if (db == null) db = new Entities();
             lookUpEdit.Properties.Columns.Clear();
-            var kho = db.STO_KhoVatTu.Where(t => t.Ten_kho.Contains(Ten_kho)).ToList();
+            var kho = db.STO_KhoVatTu.Where(t => t.Ma_kho.Contains(Ma_kho)).ToList();
             lookUpEdit.Properties.DataSource = kho;
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_kho", "Tên kho"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Dia_diem", "Địa điểm"));
+            lookUpEdit.Properties.BestFit();
             lookUpEdit.Properties.DisplayMember = "Ten_kho";
             lookUpEdit.Properties.ValueMember = "ID_kho";
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;

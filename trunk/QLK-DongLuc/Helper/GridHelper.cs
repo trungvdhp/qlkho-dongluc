@@ -29,7 +29,7 @@ namespace QLK_DongLuc.Helper
             {
                 gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
             }
-            else
+            else if(gridView.OptionsBehavior.AllowAddRows == DevExpress.Utils.DefaultBoolean.True)
             {
                 gridView.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             }
