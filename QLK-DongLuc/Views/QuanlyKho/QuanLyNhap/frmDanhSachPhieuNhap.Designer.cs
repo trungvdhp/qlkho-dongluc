@@ -237,7 +237,7 @@
             // 
             this.colID_nhan_vien_lap.Caption = "Nhân viên lập";
             this.colID_nhan_vien_lap.ColumnEdit = this.rleNhanVienLap;
-            this.colID_nhan_vien_lap.FieldName = "ID_nhan_vien_lap";
+            this.colID_nhan_vien_lap.FieldName = "CAT_NhanVien";
             this.colID_nhan_vien_lap.Name = "colID_nhan_vien_lap";
             this.colID_nhan_vien_lap.Visible = true;
             this.colID_nhan_vien_lap.VisibleIndex = 5;

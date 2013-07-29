@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    partial class frmNhapMoiCuaCuonAustDoor
+    partial class frmNhapMoiCuaCuonDongBo
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapMoiCuaCuonAustDoor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapMoiCuaCuonDongBo));
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnThemVatTuMoi = new DevExpress.XtraEditors.SimpleButton();
@@ -59,22 +59,22 @@
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.grbThietBiChinh = new DevExpress.XtraEditors.GroupControl();
             this.sedChieuRong = new DevExpress.XtraEditors.SpinEdit();
             this.sedChieuDai = new DevExpress.XtraEditors.SpinEdit();
+            this.ledKhoaCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.ledChotCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.ledMoToCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.ledThanCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.ledChotCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.ledKhoaCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
@@ -96,16 +96,16 @@
             this.grbThietBiKhac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbThietBiChinh)).BeginInit();
             this.grbThietBiChinh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledMoToCuaCuon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledThanCuaCuon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl5
@@ -164,11 +164,19 @@
             // 
             this.txtChungTuGoc.Location = new System.Drawing.Point(94, 30);
             this.txtChungTuGoc.Name = "txtChungTuGoc";
-            this.txtChungTuGoc.Properties.NullValuePrompt = "Nhập mã cửa cuốn AustDoor";
+            this.txtChungTuGoc.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtChungTuGoc.Properties.DisplayFormat.FormatString = "[A-Z][A-Z][0-9]{4}-.+";
+            this.txtChungTuGoc.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtChungTuGoc.Properties.EditFormat.FormatString = "[A-Z][A-Z][0-9]{4}-.+";
+            this.txtChungTuGoc.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.txtChungTuGoc.Properties.Mask.EditMask = "[A-Z][A-Z][0-9]{4}-.+";
+            this.txtChungTuGoc.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtChungTuGoc.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtChungTuGoc.Properties.NullValuePrompt = "Nhập mã cửa cuốn";
             this.txtChungTuGoc.Properties.NullValuePromptShowForEmptyValue = true;
             this.txtChungTuGoc.Size = new System.Drawing.Size(280, 20);
             this.txtChungTuGoc.TabIndex = 4;
-            this.txtChungTuGoc.Tag = "Nhập mã cửa";
+            this.txtChungTuGoc.Tag = "Nhập mã cửa cuốn";
             // 
             // labelControl7
             // 
@@ -414,7 +422,7 @@
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
+            this.rleVatTu,
             this.repositoryItemSpinEdit1});
             this.grdPhieuNhapCT.Size = new System.Drawing.Size(398, 199);
             this.grdPhieuNhapCT.TabIndex = 3;
@@ -444,20 +452,20 @@
             // colID_vat_tu
             // 
             this.colID_vat_tu.Caption = "Vật tư";
-            this.colID_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
+            this.colID_vat_tu.ColumnEdit = this.rleVatTu;
             this.colID_vat_tu.FieldName = "ID_vat_tu";
             this.colID_vat_tu.Name = "colID_vat_tu";
             this.colID_vat_tu.Visible = true;
             this.colID_vat_tu.VisibleIndex = 0;
             this.colID_vat_tu.Width = 277;
             // 
-            // repositoryItemLookUpEdit1
+            // rleVatTu
             // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.rleVatTu.AutoHeight = false;
+            this.rleVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "";
+            this.rleVatTu.Name = "rleVatTu";
+            this.rleVatTu.NullText = "";
             // 
             // colSo_luong
             // 
@@ -568,6 +576,46 @@
             this.sedChieuDai.TabIndex = 4;
             this.sedChieuDai.Tag = "Nhập chiều dài cửa cuốn AustDoor";
             // 
+            // ledKhoaCuaCuon
+            // 
+            this.ledKhoaCuaCuon.Location = new System.Drawing.Point(95, 155);
+            this.ledKhoaCuaCuon.Name = "ledKhoaCuaCuon";
+            this.ledKhoaCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledKhoaCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledKhoaCuaCuon.Properties.NullText = "";
+            this.ledKhoaCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledKhoaCuaCuon.TabIndex = 3;
+            this.ledKhoaCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(14, 158);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(71, 13);
+            this.labelControl12.TabIndex = 2;
+            this.labelControl12.Text = "Khóa cửa cuốn";
+            // 
+            // ledChotCuaCuon
+            // 
+            this.ledChotCuaCuon.Location = new System.Drawing.Point(95, 125);
+            this.ledChotCuaCuon.Name = "ledChotCuaCuon";
+            this.ledChotCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.ledChotCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledChotCuaCuon.Properties.NullText = "";
+            this.ledChotCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledChotCuaCuon.TabIndex = 3;
+            this.ledChotCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(14, 128);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(70, 13);
+            this.labelControl11.TabIndex = 2;
+            this.labelControl11.Text = "Chốt cửa cuốn";
+            // 
             // ledMoToCuaCuon
             // 
             this.ledMoToCuaCuon.Location = new System.Drawing.Point(95, 95);
@@ -624,55 +672,15 @@
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Thân cửa cuốn";
             // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(14, 128);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(70, 13);
-            this.labelControl11.TabIndex = 2;
-            this.labelControl11.Text = "Chốt cửa cuốn";
-            // 
-            // ledChotCuaCuon
-            // 
-            this.ledChotCuaCuon.Location = new System.Drawing.Point(95, 125);
-            this.ledChotCuaCuon.Name = "ledChotCuaCuon";
-            this.ledChotCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.ledChotCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledChotCuaCuon.Properties.NullText = "";
-            this.ledChotCuaCuon.Size = new System.Drawing.Size(280, 20);
-            this.ledChotCuaCuon.TabIndex = 3;
-            this.ledChotCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(14, 158);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(71, 13);
-            this.labelControl12.TabIndex = 2;
-            this.labelControl12.Text = "Khóa cửa cuốn";
-            // 
-            // ledKhoaCuaCuon
-            // 
-            this.ledKhoaCuaCuon.Location = new System.Drawing.Point(95, 155);
-            this.ledKhoaCuaCuon.Name = "ledKhoaCuaCuon";
-            this.ledKhoaCuaCuon.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.ledKhoaCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledKhoaCuaCuon.Properties.NullText = "";
-            this.ledKhoaCuaCuon.Size = new System.Drawing.Size(280, 20);
-            this.ledKhoaCuaCuon.TabIndex = 3;
-            this.ledKhoaCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
-            // 
-            // frmNhapMoiCuaCuonAustDoor
+            // frmNhapMoiCuaCuonDongBo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 411);
             this.Controls.Add(this.tblLapPhieuNhapAustDoor);
-            this.Name = "frmNhapMoiCuaCuonAustDoor";
-            this.Text = "Lập phiếu nhập mới cửa cuốn AustDoor";
-            this.Load += new System.EventHandler(this.frmNhapMoiCuaCuonAustDoor_Load);
+            this.Name = "frmNhapMoiCuaCuonDongBo";
+            this.Text = "Lập phiếu nhập mới cửa cuốn đồng bộ";
+            this.Load += new System.EventHandler(this.frmNhapMoiCuaCuonDongBo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).EndInit();
@@ -696,17 +704,17 @@
             this.grbThietBiKhac.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbThietBiChinh)).EndInit();
             this.grbThietBiChinh.ResumeLayout(false);
             this.grbThietBiChinh.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledMoToCuaCuon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledThanCuaCuon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledChotCuaCuon.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -742,7 +750,7 @@
         private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
         private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
         private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleVatTu;
         private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.GroupControl grbThietBiChinh;

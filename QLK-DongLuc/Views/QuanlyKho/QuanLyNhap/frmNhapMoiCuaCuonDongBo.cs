@@ -12,22 +12,28 @@ using QLK_DongLuc.Models;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmNhapMoiCuaCuonAustDoor : DevExpress.XtraEditors.XtraForm
+    public partial class frmNhapMoiCuaCuonDongBo : DevExpress.XtraEditors.XtraForm
     {
-        public frmNhapMoiCuaCuonAustDoor()
+        public frmNhapMoiCuaCuonDongBo()
         {
             InitializeComponent();
         }
 
-        private void frmNhapMoiCuaCuonAustDoor_Load(object sender, EventArgs e)
+        private void frmNhapMoiCuaCuonDongBo_Load(object sender, EventArgs e)
         {
             Entities db = new Entities();
+            List<string> Ma_nhom_vat_tu_bo = new List<string>();
+            List<string> Ma_loai_vat_tu_bo = new List<string>();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
             KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, "CCDB", db);
             NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
-            VatTuCtrl.LoadLookUpEdit(ledThanCuaCuon, "Thân cửa AustDoor", "", db);
-            VatTuCtrl.LoadLookUpEdit(ledMoToCuaCuon, "Mô tơ cửa AustDoor", "", db);
-            VatTuCtrl.LoadThieBiAustDoorKhac(repositoryItemLookUpEdit1, db);
+            VatTuCtrl.LoadLookUpEdit(ledThanCuaCuon, "CCDB", "ThanCCDB", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo,db);
+            VatTuCtrl.LoadLookUpEdit(ledMoToCuaCuon, "CCDB", "MoToCCDB", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo, db);
+            VatTuCtrl.LoadLookUpEdit(ledKhoaCuaCuon, "CCDB", "KhoaCCDB", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo, db);
+            VatTuCtrl.LoadLookUpEdit(ledChotCuaCuon, "CCDB", "ChotCCDB", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo, db);
+            Ma_nhom_vat_tu_bo = new List<string>() { " "};
+            Ma_loai_vat_tu_bo = new List<string>() { "ThanCCDB", "MoToCCDB", "KhoaCCDB", "ChotCCDB" };
+            VatTuCtrl.LoadLookUpEdit(rleVatTu,"CCDB", "", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo, db);
             dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(grvPhieuNhapCT);
@@ -99,7 +105,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (ledThanCuaCuon.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một thân cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Vui lòng chọn một thân cửa cuốn.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ledThanCuaCuon.Focus();
                 result = 0;
                 return;
@@ -107,16 +113,24 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (ledMoToCuaCuon.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một mô tơ cửa cuốn AustDoor.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Vui lòng chọn một mô tơ cửa cuốn.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ledMoToCuaCuon.Focus();
                 result = 0;
                 return;
             }
 
-            if (grvPhieuNhapCT.RowCount < 2)
+            if (ledChotCuaCuon.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu nhập.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                grvPhieuNhapCT.Focus();
+                XtraMessageBox.Show("Vui lòng chọn một chốt cửa cuốn.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ledChotCuaCuon.Focus();
+                result = 0;
+                return;
+            }
+
+            if (ledKhoaCuaCuon.EditValue == null)
+            {
+                XtraMessageBox.Show("Vui lòng chọn một khóa cửa cuốn.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ledKhoaCuaCuon.Focus();
                 result = 0;
                 return;
             }
@@ -131,7 +145,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 1);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 3);
 
                 if (rs == 0)
                 {
@@ -139,7 +153,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
                     return;
                 }
 
-                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, (int)ledThanCuaCuon.EditValue, (double)sedChieuDai.Value, (double)sedChieuRong.Value, (int)ledMoToCuaCuon.EditValue);
+                rs = PhieuNhapCtrl.AddDetails(rs, Trang_thai, grvPhieuNhapCT, (int)ledThanCuaCuon.EditValue, (double)sedChieuDai.Value, (double)sedChieuRong.Value, (int)ledMoToCuaCuon.EditValue, (int)ledChotCuaCuon.EditValue, (int)ledKhoaCuaCuon.EditValue);
 
                 if (rs == 0)
                 {
@@ -163,6 +177,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
+            frmNhapMoiCuaCuonDongBo_Load(sender, e);
             QLK_DongLuc.Helper.ControlHelper.ResetControls(this);
         }
 

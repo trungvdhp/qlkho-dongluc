@@ -29,7 +29,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Tùy chọn tìm kiếm";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-            lookUpEdit.EditValue = 1;
+            lookUpEdit.EditValue = 3;
         }
 
         public static string GetDateFilterString(object beginDate, object endDate)

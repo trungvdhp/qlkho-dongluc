@@ -39,16 +39,17 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ten_loai_vat_tu, string Ten_nhom_vat_tu, Entities db = null)
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, string Ma_nhom_vat_tu_lay, string Ma_loai_vat_tu_lay, List<string> Ma_nhom_vat_tu_bo = null, List<string> Ma_loai_vat_tu_bo = null, Entities db = null)
         {
             if (db == null) db = new Entities();
+
             lookUpEdit.Properties.Columns.Clear();
-            lookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ten_loai_vat_tu.Contains(Ten_loai_vat_tu) && t.Ten_nhom_vat_tu.Contains(Ten_nhom_vat_tu)).ToList();
+            lookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ma_nhom_vat_tu.Contains(Ma_nhom_vat_tu_lay) && t.Ma_loai_vat_tu.Contains(Ma_loai_vat_tu_lay) && !Ma_nhom_vat_tu_bo.Contains(t.Ma_nhom_vat_tu) && !Ma_loai_vat_tu_bo.Contains(t.Ma_loai_vat_tu)).ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
 
-            if (Ten_loai_vat_tu.Contains("NAN"))
+            if (Ma_nhom_vat_tu_lay.Contains("NAN"))
             {
                 lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
                 lookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
@@ -58,7 +59,7 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
             lookUpEdit.Properties.ValueMember = "ID_vat_tu";
             lookUpEdit.Properties.NullText = "";
-            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn " + Ten_loai_vat_tu != "" ? Ten_loai_vat_tu : Ten_nhom_vat_tu;
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn vật tư";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
@@ -86,47 +87,25 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, string Ten_loai_vat_tu, string Ten_nhom_vat_tu, Entities db = null)
+        public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, string Ma_nhom_vat_tu_lay, string Ma_loai_vat_tu_lay, List<string> Ma_nhom_vat_tu_bo = null, List<string> Ma_loai_vat_tu_bo = null, Entities db = null)
         {
             if (db == null) db = new Entities();
-
             gridLookUpEdit.Properties.Columns.Clear();
-            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ten_loai_vat_tu.Contains(Ten_loai_vat_tu) && t.Ten_nhom_vat_tu.Contains(Ten_nhom_vat_tu)).ToList();
+            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => t.Ma_nhom_vat_tu.Contains(Ma_nhom_vat_tu_lay) && t.Ma_loai_vat_tu.Contains(Ma_loai_vat_tu_lay) && !Ma_nhom_vat_tu_bo.Any(x => t.Ma_nhom_vat_tu.Contains(x)) && !Ma_loai_vat_tu_bo.Any(x => t.Ma_loai_vat_tu.Contains(x))).ToList();
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
 
-            if (Ten_loai_vat_tu.Contains("NAN"))
+            if (Ma_nhom_vat_tu_lay.Contains("NAN"))
             {
                 gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
                 gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
                 gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
-                gridLookUpEdit.Properties.Columns["Don_vi"].Alignment = DevExpress.Utils.HorzAlignment.Near;
             }
 
             gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
             gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
             gridLookUpEdit.Properties.NullText = "";
-            gridLookUpEdit.Properties.NullValuePrompt = "Chọn " + Ten_loai_vat_tu != "" ? Ten_loai_vat_tu : Ten_nhom_vat_tu;
-            gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
-        }
-
-        public static void LoadThieBiAustDoorKhac(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
-        {
-             if (db == null) db = new Entities();
-
-            gridLookUpEdit.Properties.Columns.Clear();
-            gridLookUpEdit.Properties.DataSource = db.ViewCboVatTu.Where(t => !t.Ten_loai_vat_tu.Contains("Thân cửa AustDoor") && !t.Ten_loai_vat_tu.Contains("Mô tơ cửa AustDoor") && t.Ten_nhom_vat_tu == "Cửa cuốn AustDoor").ToList();
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
-
-            gridLookUpEdit.Properties.DisplayMember = "Ten_vat_tu";
-            gridLookUpEdit.Properties.ValueMember = "ID_vat_tu";
-            gridLookUpEdit.Properties.NullText = "";
-            gridLookUpEdit.Properties.NullValuePrompt = "Chọn thiết bị cửa cuốn AustDoor";
-            gridLookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 

@@ -28,11 +28,13 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             VatTuCtrl.LoadLookUpEdit(rleVatTu, db);
             dteNgayBatDau.EditValue = DateTimeHelper.GetStartDateOfMonth(DatabaseHelper.GetDatabaseDate());
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
+            GridHelper.ReconfigGridView(grvPhieuNhap);
+            GridHelper.ReconfigGridView(grvPhieuNhapCT);
         }
 
         private void grvPhieuNhap_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            ViewPhieuNhap pn = (ViewPhieuNhap)grvPhieuNhap.GetFocusedRow();
+            IMP_PhieuNhap pn = (IMP_PhieuNhap)grvPhieuNhap.GetFocusedRow();
 
             if(pn != null)
                 PhieuNhapCTCtrl.LoadBindingSource(pn.ID_phieu_nhap, iMPPhieuNhapCTBindingSource);
