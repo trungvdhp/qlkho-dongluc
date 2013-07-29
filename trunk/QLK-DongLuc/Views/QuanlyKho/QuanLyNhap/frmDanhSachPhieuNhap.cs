@@ -42,13 +42,13 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnNhapMoi_Click(object sender, EventArgs e)
         {
-            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
+            frmNhapMoi frm = new frmNhapMoi();
             frm.ShowDialog();
         }
 
         private void btnNhapLai_Click(object sender, EventArgs e)
         {
-            frmLapPhieuNhapLai frm = new frmLapPhieuNhapLai();
+            frmNhapLai frm = new frmNhapLai();
             frm.ShowDialog();
         }
 

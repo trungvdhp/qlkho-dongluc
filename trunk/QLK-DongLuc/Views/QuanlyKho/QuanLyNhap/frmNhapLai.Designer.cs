@@ -1,6 +1,6 @@
 ﻿namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    partial class frmLapPhieuNhapMoi
+    partial class frmNhapLai
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLapPhieuNhapMoi));
-            this.tblLapPhieuNhapMoi = new System.Windows.Forms.TableLayoutPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhapLai));
             this.grdPhieuNhapCT = new DevExpress.XtraGrid.GridControl();
+            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grvPhieuNhapCT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rleVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.pnlCommandButtons = new DevExpress.XtraEditors.PanelControl();
@@ -43,7 +43,7 @@
             this.btnIn = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamLai = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
-            this.tblPhieuNhap = new System.Windows.Forms.TableLayoutPanel();
+            this.tblLapPhieuNhapMoi = new System.Windows.Forms.TableLayoutPanel();
             this.grbThongTinDoiTuongNhap = new DevExpress.XtraEditors.GroupControl();
             this.ledKhoNhap = new DevExpress.XtraEditors.LookUpEdit();
             this.ledNhanVienNhap = new DevExpress.XtraEditors.LookUpEdit();
@@ -51,72 +51,46 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.grbThongTinNhaCungCap = new DevExpress.XtraEditors.GroupControl();
-            this.btnThemVatTuMoi = new DevExpress.XtraEditors.SimpleButton();
-            this.ledNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
             this.dteNgayNhap = new DevExpress.XtraEditors.DateEdit();
-            this.txtChungTuGoc = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.iMPPhieuNhapCTBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblLapPhieuNhapMoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).BeginInit();
             this.pnlCommandButtons.SuspendLayout();
-            this.tblPhieuNhap.SuspendLayout();
+            this.tblLapPhieuNhapMoi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grbThongTinDoiTuongNhap)).BeginInit();
             this.grbThongTinDoiTuongNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledKhoNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhanVienNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmoGhiChu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grbThongTinNhaCungCap)).BeginInit();
-            this.grbThongTinNhaCungCap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChungTuGoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tblLapPhieuNhapMoi
-            // 
-            this.tblLapPhieuNhapMoi.ColumnCount = 1;
-            this.tblLapPhieuNhapMoi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLapPhieuNhapMoi.Controls.Add(this.grdPhieuNhapCT, 0, 2);
-            this.tblLapPhieuNhapMoi.Controls.Add(this.pnlCommandButtons, 0, 0);
-            this.tblLapPhieuNhapMoi.Controls.Add(this.tblPhieuNhap, 0, 1);
-            this.tblLapPhieuNhapMoi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblLapPhieuNhapMoi.Location = new System.Drawing.Point(0, 0);
-            this.tblLapPhieuNhapMoi.Name = "tblLapPhieuNhapMoi";
-            this.tblLapPhieuNhapMoi.RowCount = 3;
-            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLapPhieuNhapMoi.Size = new System.Drawing.Size(790, 488);
-            this.tblLapPhieuNhapMoi.TabIndex = 0;
-            this.tblLapPhieuNhapMoi.Tag = "Bảng khung bố trí các nhóm dữ liệu nhập";
             // 
             // grdPhieuNhapCT
             // 
             this.grdPhieuNhapCT.DataSource = this.iMPPhieuNhapCTBindingSource;
             this.grdPhieuNhapCT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 186);
+            this.grdPhieuNhapCT.Location = new System.Drawing.Point(3, 148);
             this.grdPhieuNhapCT.MainView = this.grvPhieuNhapCT;
             this.grdPhieuNhapCT.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grdPhieuNhapCT.Name = "grdPhieuNhapCT";
             this.grdPhieuNhapCT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.rleVatTu,
+            this.repositoryItemLookUpEdit1,
             this.repositoryItemSpinEdit1});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(784, 299);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(769, 309);
             this.grdPhieuNhapCT.TabIndex = 2;
             this.grdPhieuNhapCT.Tag = "Lưới nhập các chi tiết vật tư của phiếu nhập mới";
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
             this.grdPhieuNhapCT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdPhieuNhapCT_KeyDown);
+            // 
+            // iMPPhieuNhapCTBindingSource
+            // 
+            this.iMPPhieuNhapCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.IMP_PhieuNhapCT);
             // 
             // grvPhieuNhapCT
             // 
@@ -140,19 +114,19 @@
             // colID_vat_tu
             // 
             this.colID_vat_tu.Caption = "Vật tư";
-            this.colID_vat_tu.ColumnEdit = this.rleVatTu;
+            this.colID_vat_tu.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.colID_vat_tu.FieldName = "ID_vat_tu";
             this.colID_vat_tu.Name = "colID_vat_tu";
             this.colID_vat_tu.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.colID_vat_tu.Visible = true;
             this.colID_vat_tu.VisibleIndex = 0;
             // 
-            // rleVatTu
+            // repositoryItemLookUpEdit1
             // 
-            this.rleVatTu.AutoHeight = false;
-            this.rleVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rleVatTu.Name = "rleVatTu";
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             // 
             // colSo_luong
             // 
@@ -205,7 +179,7 @@
             this.pnlCommandButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCommandButtons.Location = new System.Drawing.Point(3, 3);
             this.pnlCommandButtons.Name = "pnlCommandButtons";
-            this.pnlCommandButtons.Size = new System.Drawing.Size(784, 35);
+            this.pnlCommandButtons.Size = new System.Drawing.Size(769, 35);
             this.pnlCommandButtons.TabIndex = 3;
             this.pnlCommandButtons.Tag = "Cácthao tác";
             // 
@@ -258,25 +232,29 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // tblPhieuNhap
+            // tblLapPhieuNhapMoi
             // 
-            this.tblPhieuNhap.ColumnCount = 2;
-            this.tblPhieuNhap.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPhieuNhap.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblPhieuNhap.Controls.Add(this.grbThongTinDoiTuongNhap, 0, 0);
-            this.tblPhieuNhap.Controls.Add(this.grbThongTinNhaCungCap, 0, 0);
-            this.tblPhieuNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPhieuNhap.Location = new System.Drawing.Point(0, 41);
-            this.tblPhieuNhap.Margin = new System.Windows.Forms.Padding(0);
-            this.tblPhieuNhap.Name = "tblPhieuNhap";
-            this.tblPhieuNhap.RowCount = 1;
-            this.tblPhieuNhap.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblPhieuNhap.Size = new System.Drawing.Size(790, 145);
-            this.tblPhieuNhap.TabIndex = 1;
-            this.tblPhieuNhap.Tag = "Bảng khung bố trí dữ liệu phiếu nhập";
+            this.tblLapPhieuNhapMoi.ColumnCount = 1;
+            this.tblLapPhieuNhapMoi.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblLapPhieuNhapMoi.Controls.Add(this.grbThongTinDoiTuongNhap, 0, 1);
+            this.tblLapPhieuNhapMoi.Controls.Add(this.grdPhieuNhapCT, 0, 2);
+            this.tblLapPhieuNhapMoi.Controls.Add(this.pnlCommandButtons, 0, 0);
+            this.tblLapPhieuNhapMoi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblLapPhieuNhapMoi.Location = new System.Drawing.Point(0, 0);
+            this.tblLapPhieuNhapMoi.Name = "tblLapPhieuNhapMoi";
+            this.tblLapPhieuNhapMoi.RowCount = 3;
+            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tblLapPhieuNhapMoi.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tblLapPhieuNhapMoi.Size = new System.Drawing.Size(775, 460);
+            this.tblLapPhieuNhapMoi.TabIndex = 1;
+            this.tblLapPhieuNhapMoi.Tag = "Bảng khung bố trí các nhóm dữ liệu nhập";
             // 
             // grbThongTinDoiTuongNhap
             // 
+            this.grbThongTinDoiTuongNhap.Controls.Add(this.dteNgayNhap);
+            this.grbThongTinDoiTuongNhap.Controls.Add(this.labelControl7);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.ledKhoNhap);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.ledNhanVienNhap);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.mmoGhiChu);
@@ -284,11 +262,11 @@
             this.grbThongTinDoiTuongNhap.Controls.Add(this.labelControl3);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.labelControl2);
             this.grbThongTinDoiTuongNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbThongTinDoiTuongNhap.Location = new System.Drawing.Point(3, 0);
+            this.grbThongTinDoiTuongNhap.Location = new System.Drawing.Point(3, 41);
             this.grbThongTinDoiTuongNhap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grbThongTinDoiTuongNhap.Name = "grbThongTinDoiTuongNhap";
-            this.grbThongTinDoiTuongNhap.Size = new System.Drawing.Size(389, 142);
-            this.grbThongTinDoiTuongNhap.TabIndex = 0;
+            this.grbThongTinDoiTuongNhap.Size = new System.Drawing.Size(769, 104);
+            this.grbThongTinDoiTuongNhap.TabIndex = 4;
             this.grbThongTinDoiTuongNhap.Text = "Thông tin đối tượng nhập";
             // 
             // ledKhoNhap
@@ -318,14 +296,14 @@
             // 
             // mmoGhiChu
             // 
-            this.mmoGhiChu.Location = new System.Drawing.Point(95, 87);
+            this.mmoGhiChu.Location = new System.Drawing.Point(468, 59);
             this.mmoGhiChu.Name = "mmoGhiChu";
-            this.mmoGhiChu.Size = new System.Drawing.Size(280, 48);
+            this.mmoGhiChu.Size = new System.Drawing.Size(280, 40);
             this.mmoGhiChu.TabIndex = 3;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(14, 92);
+            this.labelControl4.Location = new System.Drawing.Point(401, 62);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(35, 13);
             this.labelControl4.TabIndex = 0;
@@ -347,46 +325,10 @@
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Nhân viên nhập";
             // 
-            // grbThongTinNhaCungCap
-            // 
-            this.grbThongTinNhaCungCap.Controls.Add(this.btnThemVatTuMoi);
-            this.grbThongTinNhaCungCap.Controls.Add(this.ledNhaCungCap);
-            this.grbThongTinNhaCungCap.Controls.Add(this.dteNgayNhap);
-            this.grbThongTinNhaCungCap.Controls.Add(this.txtChungTuGoc);
-            this.grbThongTinNhaCungCap.Controls.Add(this.labelControl7);
-            this.grbThongTinNhaCungCap.Controls.Add(this.labelControl6);
-            this.grbThongTinNhaCungCap.Controls.Add(this.labelControl5);
-            this.grbThongTinNhaCungCap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbThongTinNhaCungCap.Location = new System.Drawing.Point(398, 0);
-            this.grbThongTinNhaCungCap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.grbThongTinNhaCungCap.Name = "grbThongTinNhaCungCap";
-            this.grbThongTinNhaCungCap.Size = new System.Drawing.Size(389, 142);
-            this.grbThongTinNhaCungCap.TabIndex = 1;
-            this.grbThongTinNhaCungCap.Text = "Thông tin chứng từ nhà cung cấp";
-            // 
-            // btnThemVatTuMoi
-            // 
-            this.btnThemVatTuMoi.Location = new System.Drawing.Point(94, 113);
-            this.btnThemVatTuMoi.Name = "btnThemVatTuMoi";
-            this.btnThemVatTuMoi.Size = new System.Drawing.Size(280, 25);
-            this.btnThemVatTuMoi.TabIndex = 7;
-            this.btnThemVatTuMoi.Text = "Thêm danh mục vật tư mới";
-            this.btnThemVatTuMoi.Click += new System.EventHandler(this.btnThemVatTuMoi_Click);
-            // 
-            // ledNhaCungCap
-            // 
-            this.ledNhaCungCap.Location = new System.Drawing.Point(94, 58);
-            this.ledNhaCungCap.Name = "ledNhaCungCap";
-            this.ledNhaCungCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledNhaCungCap.Properties.NullText = "";
-            this.ledNhaCungCap.Size = new System.Drawing.Size(280, 20);
-            this.ledNhaCungCap.TabIndex = 5;
-            // 
             // dteNgayNhap
             // 
             this.dteNgayNhap.EditValue = new System.DateTime(2013, 6, 27, 9, 30, 22, 0);
-            this.dteNgayNhap.Location = new System.Drawing.Point(94, 87);
+            this.dteNgayNhap.Location = new System.Drawing.Point(468, 30);
             this.dteNgayNhap.Name = "dteNgayNhap";
             this.dteNgayNhap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -400,114 +342,71 @@
             this.dteNgayNhap.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteNgayNhap.Size = new System.Drawing.Size(280, 20);
-            this.dteNgayNhap.TabIndex = 6;
-            this.dteNgayNhap.EditValueChanged += new System.EventHandler(this.dteNgayNhap_EditValueChanged);
-            // 
-            // txtChungTuGoc
-            // 
-            this.txtChungTuGoc.Location = new System.Drawing.Point(94, 30);
-            this.txtChungTuGoc.Name = "txtChungTuGoc";
-            this.txtChungTuGoc.Properties.NullValuePrompt = "Nhập số chứng từ gốc";
-            this.txtChungTuGoc.Properties.NullValuePromptShowForEmptyValue = true;
-            this.txtChungTuGoc.Size = new System.Drawing.Size(280, 20);
-            this.txtChungTuGoc.TabIndex = 4;
+            this.dteNgayNhap.TabIndex = 8;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(15, 90);
+            this.labelControl7.Location = new System.Drawing.Point(401, 33);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(52, 13);
-            this.labelControl7.TabIndex = 3;
+            this.labelControl7.TabIndex = 7;
             this.labelControl7.Text = "Ngày nhập";
             // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(15, 33);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(66, 13);
-            this.labelControl6.TabIndex = 2;
-            this.labelControl6.Text = "Chứng từ gốc";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(15, 61);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(65, 13);
-            this.labelControl5.TabIndex = 1;
-            this.labelControl5.Text = "Nhà cung cấp";
-            // 
-            // iMPPhieuNhapCTBindingSource
-            // 
-            this.iMPPhieuNhapCTBindingSource.DataSource = typeof(QLK_DongLuc.Models.IMP_PhieuNhapCT);
-            // 
-            // frmLapPhieuNhapMoi
+            // frmLapPhieuNhapLai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 488);
+            this.ClientSize = new System.Drawing.Size(775, 460);
             this.Controls.Add(this.tblLapPhieuNhapMoi);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "frmLapPhieuNhapMoi";
-            this.Text = "Lập phiếu nhập mới";
-            this.Load += new System.EventHandler(this.frmLapPhieuNhapMoi_Load);
-            this.tblLapPhieuNhapMoi.ResumeLayout(false);
+            this.Name = "frmLapPhieuNhapLai";
+            this.Text = "Lập phiếu nhập lại";
+            this.Load += new System.EventHandler(this.frmLapPhieuNhapLai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhapCT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvPhieuNhapCT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rleVatTu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlCommandButtons)).EndInit();
             this.pnlCommandButtons.ResumeLayout(false);
-            this.tblPhieuNhap.ResumeLayout(false);
+            this.tblLapPhieuNhapMoi.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grbThongTinDoiTuongNhap)).EndInit();
             this.grbThongTinDoiTuongNhap.ResumeLayout(false);
             this.grbThongTinDoiTuongNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ledKhoNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledNhanVienNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mmoGhiChu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grbThongTinNhaCungCap)).EndInit();
-            this.grbThongTinNhaCungCap.ResumeLayout(false);
-            this.grbThongTinNhaCungCap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ledNhaCungCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayNhap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChungTuGoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iMPPhieuNhapCTBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tblLapPhieuNhapMoi;
+        private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
+        private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
+        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraEditors.PanelControl pnlCommandButtons;
-        private System.Windows.Forms.TableLayoutPanel tblPhieuNhap;
+        private DevExpress.XtraEditors.SimpleButton btnXacThuc;
         private DevExpress.XtraEditors.SimpleButton btnThoat;
         private DevExpress.XtraEditors.SimpleButton btnIn;
         private DevExpress.XtraEditors.SimpleButton btnLamLai;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
-        private DevExpress.XtraGrid.GridControl grdPhieuNhapCT;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvPhieuNhapCT;
-        private DevExpress.XtraGrid.Columns.GridColumn colID_vat_tu;
-        private DevExpress.XtraGrid.Columns.GridColumn colSo_luong;
+        private System.Windows.Forms.TableLayoutPanel tblLapPhieuNhapMoi;
         private DevExpress.XtraEditors.GroupControl grbThongTinDoiTuongNhap;
+        private DevExpress.XtraEditors.LookUpEdit ledKhoNhap;
         private DevExpress.XtraEditors.LookUpEdit ledNhanVienNhap;
         private DevExpress.XtraEditors.MemoEdit mmoGhiChu;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.GroupControl grbThongTinNhaCungCap;
         private DevExpress.XtraEditors.DateEdit dteNgayNhap;
-        private DevExpress.XtraEditors.TextEdit txtChungTuGoc;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LookUpEdit ledKhoNhap;
-        private DevExpress.XtraEditors.LookUpEdit ledNhaCungCap;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleVatTu;
-        private DevExpress.XtraEditors.SimpleButton btnThemVatTuMoi;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
-        private DevExpress.XtraEditors.SimpleButton btnXacThuc;
-        private System.Windows.Forms.BindingSource iMPPhieuNhapCTBindingSource;
+
+
     }
 }

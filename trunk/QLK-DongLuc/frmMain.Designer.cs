@@ -80,6 +80,8 @@
             this.btnVaiTro = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhanQuyen = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhapMoiAustDoor = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapMoiNAN = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapMoiThanhCuaNhua = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -179,10 +181,12 @@
             this.btnQuyen,
             this.btnVaiTro,
             this.btnPhanQuyen,
-            this.btnNhapMoiAustDoor});
+            this.btnNhapMoiAustDoor,
+            this.btnNhapMoiNAN,
+            this.btnNhapMoiThanhCuaNhua});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 99;
+            this.ribbonControl.MaxItemId = 101;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -618,6 +622,20 @@
             this.btnNhapMoiAustDoor.Name = "btnNhapMoiAustDoor";
             this.btnNhapMoiAustDoor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiAustDoor_ItemClick);
             // 
+            // btnNhapMoiNAN
+            // 
+            this.btnNhapMoiNAN.Caption = "Nhập mới NAN";
+            this.btnNhapMoiNAN.Id = 99;
+            this.btnNhapMoiNAN.Name = "btnNhapMoiNAN";
+            this.btnNhapMoiNAN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiNAN_ItemClick);
+            // 
+            // btnNhapMoiThanhCuaNhua
+            // 
+            this.btnNhapMoiThanhCuaNhua.Caption = "Nhập mới thanh cửa nhựa";
+            this.btnNhapMoiThanhCuaNhua.Id = 100;
+            this.btnNhapMoiThanhCuaNhua.Name = "btnNhapMoiThanhCuaNhua";
+            this.btnNhapMoiThanhCuaNhua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiThanhCuaNhua_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -720,6 +738,8 @@
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoi);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapLai);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiAustDoor);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiNAN);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiThanhCuaNhua);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "Quản lý nhập";
             // 
@@ -899,6 +919,8 @@
         private DevExpress.XtraBars.BarButtonItem btnVaiTro;
         private DevExpress.XtraBars.BarButtonItem btnPhanQuyen;
         private DevExpress.XtraBars.BarButtonItem btnNhapMoiAustDoor;
+        private DevExpress.XtraBars.BarButtonItem btnNhapMoiNAN;
+        private DevExpress.XtraBars.BarButtonItem btnNhapMoiThanhCuaNhua;
 
     }
 }

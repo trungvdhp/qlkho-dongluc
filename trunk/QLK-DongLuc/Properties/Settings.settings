@@ -50,5 +50,11 @@
     <Setting Name="DeleteConfirmCaption" Type="System.String" Scope="User">
       <Value Profile="(Default)">Xác nhận xóa dữ liệu</Value>
     </Setting>
+    <Setting Name="NotGreaterThanZero" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dữ liệu phải lớn hơn 0</Value>
+    </Setting>
+    <Setting Name="Duplicated" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dữ liệu bị lặp lại</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
