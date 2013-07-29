@@ -9,19 +9,19 @@ namespace QLK_DongLuc.Helper
 {
     public static class NotifyHelper
     {
-        public static void ShowInsertError()
+        public static DialogResult ShowInsertError()
         {
-            XtraMessageBox.Show(Properties.Settings.Default.InsertErrorText, Properties.Settings.Default.InsertErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return XtraMessageBox.Show(Properties.Settings.Default.InsertErrorText, Properties.Settings.Default.InsertErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static void ShowUpdateError()
+        public static DialogResult ShowUpdateError()
         {
-            XtraMessageBox.Show(Properties.Settings.Default.UpdateErrorText, Properties.Settings.Default.UpdateErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return XtraMessageBox.Show(Properties.Settings.Default.UpdateErrorText, Properties.Settings.Default.UpdateErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public static void ShowDeleteError()
+        public static DialogResult ShowDeleteError()
         {
-            XtraMessageBox.Show(Properties.Settings.Default.DeleteErrorText, Properties.Settings.Default.DeleteErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return XtraMessageBox.Show(Properties.Settings.Default.DeleteErrorText, Properties.Settings.Default.DeleteErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static DialogResult ShowDeleteConfirm()
@@ -29,9 +29,24 @@ namespace QLK_DongLuc.Helper
             return XtraMessageBox.Show(Properties.Settings.Default.DeleteConfirmText, Properties.Settings.Default.DeleteErrorCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
-        public static void ShowPrintError()
+        public static DialogResult ShowPrintError()
         {
-            XtraMessageBox.Show(Properties.Settings.Default.PrintErrorText, Properties.Settings.Default.PringErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return XtraMessageBox.Show(Properties.Settings.Default.PrintErrorText, Properties.Settings.Default.PringErrorCaption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        public static DialogResult ShowError(string error, string caption)
+        {
+            return XtraMessageBox.Show(error, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static DialogResult ShowInfo(string info, string caption)
+        {
+            return XtraMessageBox.Show(info, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static DialogResult ShowWarning(string warning, string caption)
+        {
+            return XtraMessageBox.Show(warning, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

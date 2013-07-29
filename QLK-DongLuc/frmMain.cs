@@ -182,7 +182,7 @@ namespace QLK_DongLuc
 
         private void btnNhapMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLapPhieuNhapMoi frm = new frmLapPhieuNhapMoi();
+            frmNhapMoi frm = new frmNhapMoi();
             OpenForm(frm, tabControl);
         }
 
@@ -401,7 +401,7 @@ namespace QLK_DongLuc
 
         private void btnNhapLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLapPhieuNhapLai frm = new frmLapPhieuNhapLai();
+            frmNhapLai frm = new frmNhapLai();
             OpenForm(frm, tabControl);
         }
 
@@ -466,6 +466,18 @@ namespace QLK_DongLuc
         private void frmMain_Activated(object sender, EventArgs e)
         {
             frmLogin.Activate();
+        }
+
+        private void btnNhapMoiNAN_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmNhapMoiNAN frm = new frmNhapMoiNAN();
+            OpenForm(frm, tabControl);
+        }
+
+        private void btnNhapMoiThanhCuaNhua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmNhapMoiThanhCuaNhua frm = new frmNhapMoiThanhCuaNhua();
+            OpenForm(frm, tabControl);
         }
     }
 }

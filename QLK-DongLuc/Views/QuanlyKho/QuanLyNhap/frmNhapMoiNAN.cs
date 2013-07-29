@@ -9,22 +9,26 @@ using DevExpress.XtraEditors;
 using QLK_DongLuc.Controllers;
 using QLK_DongLuc.Helper;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Views.DanhMuc;
 
 namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 {
-    public partial class frmLapPhieuNhapLai : DevExpress.XtraEditors.XtraForm
+    public partial class frmNhapMoiNAN : DevExpress.XtraEditors.XtraForm
     {
-        public frmLapPhieuNhapLai()
+        public frmNhapMoiNAN()
         {
             InitializeComponent();
         }
 
-        private void frmLapPhieuNhapLai_Load(object sender, EventArgs e)
+        private void frmNhapMoiNAN_Load(object sender, EventArgs e)
         {
             Entities db = new Entities();
+            List<string> Ma_nhom_vat_tu_bo = new List<string>();
+            List<string> Ma_loai_vat_tu_bo = new List<string>();
             NhanVienCtrl.LoadLookUpEdit(ledNhanVienNhap, db);
-            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, db);
-            VatTuCtrl.LoadLookUpEdit(repositoryItemLookUpEdit1, db);
+            KhoVatTuCtrl.LoadLookUpEdit(ledKhoNhap, "NLCC", db);
+            NhaCungCapCtrl.LoadLookUpEdit(ledNhaCungCap, db);
+            VatTuCtrl.LoadLookUpEdit(rleVatTu, "NAN", "", Ma_nhom_vat_tu_bo, Ma_loai_vat_tu_bo, db);
             dteNgayNhap.EditValue = QLK_DongLuc.Helper.DatabaseHelper.GetDatabaseDate();
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(grvPhieuNhapCT);
@@ -47,18 +51,19 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 if (!grdPhieuNhapCT.IsPrintingAvailable)
                 {
-                    XtraMessageBox.Show("Không in được.", "Lỗi in dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    NotifyHelper.ShowPrintError();
                 }
 
                 grdPhieuNhapCT.ShowPrintPreview();
             }
         }
 
+
         private void KiemTraDuLieu(ref int result)
         {
             if (ledNhanVienNhap.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một nhân viên nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotifyHelper.ShowError("Chưa chọn nhân viên nhập", "Lỗi thêm dữ liệu");
                 ledNhanVienNhap.Focus();
                 result = 0;
                 return;
@@ -66,15 +71,23 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (ledKhoNhap.EditValue == null)
             {
-                XtraMessageBox.Show("Vui lòng chọn một kho nhập.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotifyHelper.ShowError("Chưa chọn nhân kho nhập", "Lỗi thêm dữ liệu");
                 ledKhoNhap.Focus();
+                result = 0;
+                return;
+            }
+
+            if (ledNhaCungCap.EditValue == null)
+            {
+                NotifyHelper.ShowError("Chưa chọn nhà cung cấp", "Lỗi thêm dữ liệu");
+                ledNhaCungCap.Focus();
                 result = 0;
                 return;
             }
 
             if (dteNgayNhap.EditValue == "")
             {
-                XtraMessageBox.Show("Vui lòng chọn một ngày nhập kho.", "Thêm dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotifyHelper.ShowError("Chưa chọn ngày nhập kho", "Lỗi thêm dữ liệu");
                 dteNgayNhap.Focus();
                 result = 0;
                 return;
@@ -82,7 +95,7 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (grvPhieuNhapCT.RowCount < 2)
             {
-                XtraMessageBox.Show("Vui lòng nhập ít nhất một chi tiết phiếu nhập.", "Thêm chi tiết phiếu nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NotifyHelper.ShowError("Chưa nhập chi tiết phiếu nhập nào", "Lỗi thêm dữ liệu");
                 grvPhieuNhapCT.Focus();
                 result = 0;
                 return;
@@ -98,11 +111,11 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (rs == 1)
             {
-                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue,null, ledKhoNhap.EditValue, null, dteNgayNhap.EditValue, mmoGhiChu.Text, 2);
+                rs = PhieuNhapCtrl.Insert(ledNhanVienNhap.EditValue, ledNhaCungCap.EditValue, ledKhoNhap.EditValue, txtChungTuGoc.Text, dteNgayNhap.EditValue, mmoGhiChu.Text, 4);
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm phiếu nhập lại không thành công. Vui lòng thử lại!", "Thêm phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NotifyHelper.ShowError("Thêm phiếu nhập không thành công", "Lỗi thêm phiếu nhập");
                     return;
                 }
 
@@ -110,14 +123,13 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
                 if (rs == 0)
                 {
-                    XtraMessageBox.Show("Thêm chi tiết phiếu nhập lại không thành công. Vui lòng thử lại!", "Thêm chi tiết phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    NotifyHelper.ShowError("Thêm các chi tiết phiếu nhập không thành công", "Lỗi thêm chi tiết phiếu nhập");
                     PhieuNhapCtrl.Delete(rs);
 
                     return;
                 }
 
-                XtraMessageBox.Show("Thêm phiếu nhập lại thành công.", "Thêm phiếu nhập lại", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                NotifyHelper.ShowInfo("Thêm phiếu nhập thành công", "Thêm phiếu nhập");
 
                 btnLamLai.PerformClick();
             }
@@ -130,28 +142,34 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
+            frmNhapMoiNAN_Load(sender, e);
             QLK_DongLuc.Helper.ControlHelper.ResetControls(this);
+        }
+
+        private void btnThemVatTuMoi_Click(object sender, EventArgs e)
+        {
+            frmVatTu frm = new frmVatTu();
+            frm.ShowDialog();
         }
 
         private void grvPhieuNhapCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             bool bError = false;
-            string sError = "";
 
-            var ID_vat_tu = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "ID_vat_tu");
+            var ID_vat_tu = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, colID_vat_tu);
 
             if (ID_vat_tu.Equals(0))
             {
                 bError = true;
-                sError += "\n Chưa chọn vật tư.";
+                grvPhieuNhapCT.SetColumnError(colID_vat_tu, Properties.Settings.Default.NullOrEmpty);
             }
 
-            var So_luong = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, "So_luong");
+            var So_luong = grvPhieuNhapCT.GetRowCellValue(e.RowHandle, colSo_luong);
 
             if (So_luong == null || double.Parse(So_luong.ToString()) == 0)
             {
                 bError = true;
-                sError += "\n Số lượng phải lớn hơn 0.";
+                grvPhieuNhapCT.SetColumnError(colSo_luong, Properties.Settings.Default.NotGreaterThanZero);
             }
 
             int n = grvPhieuNhapCT.RowCount;
@@ -160,12 +178,12 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
             {
                 if (i != e.RowHandle)
                 {
-                    var id = grvPhieuNhapCT.GetRowCellValue(i, "ID_vat_tu");
+                    var id = grvPhieuNhapCT.GetRowCellValue(i, colID_vat_tu);
 
                     if (ID_vat_tu.Equals(id))
                     {
                         bError = true;
-                        sError += "\n Vật tư đã nhập phải khác với các vật tư đã chọn.";
+                        grvPhieuNhapCT.SetColumnError(colID_vat_tu, Properties.Settings.Default.Duplicated);
                         break;
                     }
                 }
@@ -173,7 +191,6 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
 
             if (bError)
             {
-                e.ErrorText = sError + "\n Bạn có muốn sửa lại không?\n";
                 e.Valid = false;
                 return;
             }
@@ -187,6 +204,16 @@ namespace QLK_DongLuc.Views.QuanlyKho.QuanLyNhap
         private void btnXacThuc_Click(object sender, EventArgs e)
         {
             Luu(1);
+        }
+
+        private void dteNgayNhap_EditValueChanged(object sender, EventArgs e)
+        {
+            txtChungTuGoc.Text = PhieuNhapCtrl.GetNextCode(dteNgayNhap.EditValue);
+        }
+
+        private void grvPhieuNhapCT_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
         }
     }
 }

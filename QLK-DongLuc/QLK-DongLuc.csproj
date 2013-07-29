@@ -451,17 +451,17 @@
     <Compile Include="Views\HeThong\frmVaiTroQuyen.Designer.cs">
       <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapLai.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapLai.Designer.cs">
-      <DependentUpon>frmLapPhieuNhapLai.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLai.Designer.cs">
+      <DependentUpon>frmNhapLai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.cs">
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.Designer.cs">
-      <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoi.Designer.cs">
+      <DependentUpon>frmNhapMoi.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonDongBo.cs">
       <SubType>Form</SubType>
@@ -480,6 +480,48 @@
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.Designer.cs">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapCuaCuonDongBo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapCuaCuonDongBo.Designer.cs">
+      <DependentUpon>frmSuaPhieuNhapCuaCuonDongBo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLaiNAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLaiNAN.Designer.cs">
+      <DependentUpon>frmNhapLaiNAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLaiThanhCuaNhua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapLaiThanhCuaNhua.Designer.cs">
+      <DependentUpon>frmNhapLaiThanhCuaNhua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiNAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiNAN.Designer.cs">
+      <DependentUpon>frmNhapMoiNAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiThanhCuaNhua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiThanhCuaNhua.Designer.cs">
+      <DependentUpon>frmNhapMoiThanhCuaNhua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapNAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapNAN.Designer.cs">
+      <DependentUpon>frmSuaPhieuNhapNAN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapThanhCuaNhua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhapThanhCuaNhua.Designer.cs">
+      <DependentUpon>frmSuaPhieuNhapThanhCuaNhua.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\QuanlyKho\QuanLyTonKho\frmTonDauKy.cs">
       <SubType>Form</SubType>
@@ -592,11 +634,11 @@
     <EmbeddedResource Include="Views\HeThong\frmVaiTroQuyen.resx">
       <DependentUpon>frmVaiTroQuyen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapLai.resx">
-      <DependentUpon>frmLapPhieuNhapLai.cs</DependentUpon>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapLai.resx">
+      <DependentUpon>frmNhapLai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmLapPhieuNhapMoi.resx">
-      <DependentUpon>frmLapPhieuNhapMoi.cs</DependentUpon>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoi.resx">
+      <DependentUpon>frmNhapMoi.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiCuaCuonDongBo.resx">
@@ -604,6 +646,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmDanhSachPhieuNhap.resx">
       <DependentUpon>frmDanhSachPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiNAN.resx">
+      <DependentUpon>frmNhapMoiNAN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmNhapMoiThanhCuaNhua.resx">
+      <DependentUpon>frmNhapMoiThanhCuaNhua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\QuanlyKho\QuanLyNhap\frmSuaPhieuNhap.resx">
       <DependentUpon>frmSuaPhieuNhap.cs</DependentUpon>

@@ -214,5 +214,29 @@ namespace QLK_DongLuc.Properties {
                 this["DeleteConfirmCaption"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dữ liệu phải lớn hơn 0")]
+        public string NotGreaterThanZero {
+            get {
+                return ((string)(this["NotGreaterThanZero"]));
+            }
+            set {
+                this["NotGreaterThanZero"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dữ liệu bị lặp lại")]
+        public string Duplicated {
+            get {
+                return ((string)(this["Duplicated"]));
+            }
+            set {
+                this["Duplicated"] = value;
+            }
+        }
     }
 }
