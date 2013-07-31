@@ -49,7 +49,7 @@ namespace QLK_DongLuc
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ.\n" + ex.ToString(), "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Không thể mở kết nối đến máy chủ.\n", "Kết nối máy chủ thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 QLK_DongLuc.Views.HeThong.frmCauHinh frm = new QLK_DongLuc.Views.HeThong.frmCauHinh();
 
                 if (frm.ShowDialog() == DialogResult.OK)
@@ -429,10 +429,6 @@ namespace QLK_DongLuc
             frm.ShowDialog();
         }
 
-        private void iAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-        }
-
         private void btnQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmQuyen frm = new frmQuyen();
@@ -465,7 +461,7 @@ namespace QLK_DongLuc
 
         private void frmMain_Activated(object sender, EventArgs e)
         {
-            frmLogin.Activate();
+            //frmLogin.Activate(); 
         }
 
         private void btnNhapMoiNAN_ItemClick(object sender, ItemClickEventArgs e)

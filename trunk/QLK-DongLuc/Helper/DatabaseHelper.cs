@@ -84,7 +84,7 @@ namespace QLK_DongLuc.Helper
 
             try
             {
-                var databases = db.Database.SqlQuery<string>("SELECT [name] FROM sys.databases").ToList();
+                var databases = db.Database.SqlQuery<string>("SELECT [name] FROM sys.databases where [name] = 'QuanLyKhoDongLuc'").ToList();
 
                 return databases;
             }

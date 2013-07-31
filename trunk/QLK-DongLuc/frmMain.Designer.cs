@@ -617,14 +617,14 @@
             // 
             // btnNhapMoiAustDoor
             // 
-            this.btnNhapMoiAustDoor.Caption = "Nhập mới cửa cuốn AustDoor";
+            this.btnNhapMoiAustDoor.Caption = "Nhập mới cửa cuốn đồng bộ";
             this.btnNhapMoiAustDoor.Id = 98;
             this.btnNhapMoiAustDoor.Name = "btnNhapMoiAustDoor";
             this.btnNhapMoiAustDoor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiAustDoor_ItemClick);
             // 
             // btnNhapMoiNAN
             // 
-            this.btnNhapMoiNAN.Caption = "Nhập mới NAN";
+            this.btnNhapMoiNAN.Caption = "Nhập mới NAN cửa cuốn";
             this.btnNhapMoiNAN.Id = 99;
             this.btnNhapMoiNAN.Name = "btnNhapMoiNAN";
             this.btnNhapMoiNAN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiNAN_ItemClick);

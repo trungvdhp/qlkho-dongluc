@@ -96,9 +96,9 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ma_vat_tu", "Mã vật tư"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_vat_tu", "Tên vật tư"));
 
-            if (Ma_nhom_vat_tu_lay.Contains("NAN"))
+            if (Ma_nhom_vat_tu_lay.Contains("NAN") || Ma_nhom_vat_tu_lay.Contains("PROFILE"))
             {
-                gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Đơn vị"));
+                gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Don_vi", "Khẩu độ"));
                 gridLookUpEdit.Properties.Columns["Don_vi"].FormatString = "N2";
                 gridLookUpEdit.Properties.Columns["Don_vi"].FormatType = DevExpress.Utils.FormatType.Numeric;
             }
