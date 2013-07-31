@@ -168,7 +168,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.05556F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.94444F));
             this.tableLayoutPanel2.Controls.Add(this.grdKhoVatTu, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.grdKhoVatTuCT, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.grdKhoVatTuCT, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 60);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);

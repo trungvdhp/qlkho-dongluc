@@ -169,6 +169,7 @@
             this.Name = "frmCauHinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cấu hình kết nối cơ sở dữ liệu";
+            this.Load += new System.EventHandler(this.frmCauHinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtTenMayChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();

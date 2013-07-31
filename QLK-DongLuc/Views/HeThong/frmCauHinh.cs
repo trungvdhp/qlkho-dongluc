@@ -168,5 +168,10 @@ namespace QLK_DongLuc.Views.HeThong
                 this.DialogResult = DialogResult.OK;
             }
         }
+
+        private void frmCauHinh_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
