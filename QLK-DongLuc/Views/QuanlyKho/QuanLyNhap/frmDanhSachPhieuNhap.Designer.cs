@@ -70,6 +70,8 @@
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdPhieuNhap)).BeginInit();
@@ -91,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,9 +106,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 412);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
@@ -117,12 +119,12 @@
             this.tableLayoutPanel2.Controls.Add(this.grdPhieuNhap, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.grdPhieuNhapCT, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 37);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 80);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(993, 375);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(993, 332);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // grdPhieuNhap
@@ -144,7 +146,7 @@
             this.rleKhoNhap,
             this.rleNhanVienLap,
             this.rleNhanVienNhap});
-            this.grdPhieuNhap.Size = new System.Drawing.Size(687, 369);
+            this.grdPhieuNhap.Size = new System.Drawing.Size(687, 326);
             this.grdPhieuNhap.TabIndex = 11;
             this.grdPhieuNhap.UseEmbeddedNavigator = true;
             this.grdPhieuNhap.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -177,7 +179,7 @@
             this.grvPhieuNhap.OptionsView.EnableAppearanceEvenRow = true;
             this.grvPhieuNhap.OptionsView.EnableAppearanceOddRow = true;
             this.grvPhieuNhap.OptionsView.ShowAutoFilterRow = true;
-            this.grvPhieuNhap.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.ShowAlways;
+            this.grvPhieuNhap.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.grvPhieuNhap.OptionsView.ShowFooter = true;
             this.grvPhieuNhap.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvPhieuNhap_FocusedRowChanged);
             // 
@@ -283,7 +285,7 @@
             // colTong_tien
             // 
             this.colTong_tien.Caption = "Tổng tiền";
-            this.colTong_tien.DisplayFormat.FormatString = "N0";
+            this.colTong_tien.DisplayFormat.FormatString = "(VNĐ) {0:N0}";
             this.colTong_tien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTong_tien.FieldName = "Tong_tien";
             this.colTong_tien.Name = "colTong_tien";
@@ -327,7 +329,7 @@
             this.rleVatTu,
             this.repositoryItemSpinEdit1,
             this.repositoryItemSpinEdit2});
-            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 369);
+            this.grdPhieuNhapCT.Size = new System.Drawing.Size(294, 326);
             this.grdPhieuNhapCT.TabIndex = 10;
             this.grdPhieuNhapCT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvPhieuNhapCT});
@@ -442,6 +444,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.radioGroup1);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.ledTuyChon);
             this.panel1.Controls.Add(this.dteNgayKetThuc);
@@ -457,7 +461,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 37);
+            this.panel1.Size = new System.Drawing.Size(993, 80);
             this.panel1.TabIndex = 2;
             // 
             // btnThoat
@@ -590,6 +594,29 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Từ ngày:";
             // 
+            // radioGroup1
+            // 
+            this.radioGroup1.EditValue = 1;
+            this.radioGroup1.Location = new System.Drawing.Point(154, 37);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Theo cửa đồng bộ"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Theo NAN cửa cuốn"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Theo THANH cửa nhựa"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(4, "Theo các vật tư khác")});
+            this.radioGroup1.Size = new System.Drawing.Size(466, 40);
+            this.radioGroup1.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Thống kê nhập theo:";
+            // 
             // frmDanhSachPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,6 +648,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayKetThuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNgayBatDau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -667,5 +695,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoNhap;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhanVienLap;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhanVienNhap;
+        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
     }
 }

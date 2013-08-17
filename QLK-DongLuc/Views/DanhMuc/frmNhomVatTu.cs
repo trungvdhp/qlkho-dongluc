@@ -25,8 +25,11 @@ namespace QLK_DongLuc.Views.DanhMuc
             Entities db = new Entities();
             KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
             NhomVatTuCtrl.LoadBindingSource(sTONhomVatTuBindingSource, db);
+            NhomVatTuCtrl.LoadLookUpEdit(lookUpEdit, db);
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(gridView);
+            GridHelper.HAlignmentAllHeaderColumns(gridView);
+            GridHelper.BestFitAllColumns(gridView);
         }
 
         private void gridControl_Load()
@@ -152,6 +155,12 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void frmNhomVatTu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.ID_nhom_vat_tu = (int)lookUpEdit.EditValue;
+            Properties.Settings.Default.Save();
         }
     }
 }

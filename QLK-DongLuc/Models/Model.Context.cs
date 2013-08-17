@@ -35,10 +35,7 @@ namespace QLK_DongLuc.Models
         public DbSet<IMP_LoaiNhap> IMP_LoaiNhap { get; set; }
         public DbSet<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
         public DbSet<IMP_PhieuNhapCT> IMP_PhieuNhapCT { get; set; }
-        public DbSet<STO_KhoVatTu> STO_KhoVatTu { get; set; }
         public DbSet<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }
-        public DbSet<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }
-        public DbSet<STO_NhomVatTu> STO_NhomVatTu { get; set; }
         public DbSet<STO_TonDauKy> STO_TonDauKy { get; set; }
         public DbSet<STO_TonDauKyCT> STO_TonDauKyCT { get; set; }
         public DbSet<STO_VatTu> STO_VatTu { get; set; }
@@ -63,5 +60,9 @@ namespace QLK_DongLuc.Models
         public DbSet<ViewPhieuXuat> ViewPhieuXuat { get; set; }
         public DbSet<ViewThongKeNhap_NhaCungCap> ViewThongKeNhap_NhaCungCap { get; set; }
         public DbSet<ViewXuatVatTu_Kho> ViewXuatVatTu_Kho { get; set; }
+        public DbSet<STO_KhoVatTu> STO_KhoVatTu { get; set; }
+        public DbSet<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }
+        public DbSet<STO_NhomVatTu> STO_NhomVatTu { get; set; }
+        public DbSet<ViewPhieuNhapCT> ViewPhieuNhapCT { get; set; }
     }
 }

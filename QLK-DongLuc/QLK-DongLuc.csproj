@@ -338,6 +338,9 @@
     <Compile Include="Models\ViewPhieuNhap.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewPhieuNhapCT.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewPhieuXuat.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -349,6 +352,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DanhMuc\frmKhoVT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DanhMuc\frmKhoVT.Designer.cs">
+      <DependentUpon>frmKhoVT.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\DanhMuc\frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -583,6 +592,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\DanhMuc\frmKhoVT.resx">
+      <DependentUpon>frmKhoVT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\DanhMuc\frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>

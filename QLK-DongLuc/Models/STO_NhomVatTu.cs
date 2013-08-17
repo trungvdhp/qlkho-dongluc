@@ -24,6 +24,7 @@ namespace QLK_DongLuc.Models
         public string Ten_nhom_vat_tu { get; set; }
         public string Ma_nhom_vat_tu { get; set; }
         public string Ghi_chu { get; set; }
+        public Nullable<bool> Trang_thai { get; set; }
     
         public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual ICollection<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }

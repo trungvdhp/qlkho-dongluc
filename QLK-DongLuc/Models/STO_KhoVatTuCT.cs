@@ -22,7 +22,7 @@ namespace QLK_DongLuc.Models
         public Nullable<int> ID_phieu_nhap { get; set; }
     
         public virtual IMP_PhieuNhap IMP_PhieuNhap { get; set; }
-        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual STO_VatTu STO_VatTu { get; set; }
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
     }
 }

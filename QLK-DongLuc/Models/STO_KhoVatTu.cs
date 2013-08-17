@@ -28,6 +28,7 @@ namespace QLK_DongLuc.Models
         public string Ma_kho { get; set; }
         public string Ten_kho { get; set; }
         public string Dia_diem { get; set; }
+        public Nullable<bool> Trang_thai { get; set; }
     
         public virtual ICollection<CAT_NhanVien> CAT_NhanVien { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }

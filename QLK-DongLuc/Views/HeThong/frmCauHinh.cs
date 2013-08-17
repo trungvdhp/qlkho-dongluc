@@ -50,6 +50,7 @@ namespace QLK_DongLuc.Views.HeThong
             {
                 ledCoSoDuLieu.Properties.DataSource = databases;
                 ledCoSoDuLieu.Properties.ShowHeader = false;
+                ledCoSoDuLieu.ItemIndex = 0;
 
                 XtraMessageBox.Show("Kết nối thành công đến máy chủ!", "Kết nối máy chủ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -56,5 +56,14 @@
     <Setting Name="Duplicated" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dữ liệu bị lặp lại</Value>
     </Setting>
+    <Setting Name="ID_kho" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ID_nhom_vat_tu" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ID_loai_vat_tu" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

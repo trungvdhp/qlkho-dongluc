@@ -32,7 +32,7 @@ namespace QLK_DongLuc.Models
         public virtual ICollection<EXP_PhieuXuatCT> EXP_PhieuXuatCT { get; set; }
         public virtual ICollection<IMP_PhieuNhapCT> IMP_PhieuNhapCT { get; set; }
         public virtual ICollection<STO_KhoVatTuCT> STO_KhoVatTuCT { get; set; }
-        public virtual STO_LoaiVatTu STO_LoaiVatTu { get; set; }
         public virtual ICollection<STO_TonDauKyCT> STO_TonDauKyCT { get; set; }
+        public virtual STO_LoaiVatTu STO_LoaiVatTu { get; set; }
     }
 }

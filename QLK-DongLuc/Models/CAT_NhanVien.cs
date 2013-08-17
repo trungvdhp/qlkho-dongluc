@@ -38,12 +38,12 @@ namespace QLK_DongLuc.Models
         public string Email { get; set; }
         public int Trang_thai { get; set; }
     
-        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual ICollection<CAT_SanPham> CAT_SanPham { get; set; }
         public virtual ICollection<EXP_PhieuXuat> EXP_PhieuXuat { get; set; }
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap { get; set; }
         public virtual ICollection<IMP_PhieuNhap> IMP_PhieuNhap1 { get; set; }
         public virtual ICollection<STO_TonDauKy> STO_TonDauKy { get; set; }
         public virtual ICollection<SYS_NguoiDung> SYS_NguoiDung { get; set; }
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
     }
 }

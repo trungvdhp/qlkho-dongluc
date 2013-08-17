@@ -16,14 +16,39 @@ namespace QLK_DongLuc.Controllers
         {
             if (db == null) db = new Entities();
 
-            bindingSource.DataSource = db.STO_NhomVatTu.ToList();
+            if (Properties.Settings.Default.ID_kho == 0)
+                bindingSource.DataSource = db.STO_NhomVatTu.ToList();
+            else
+                bindingSource.DataSource = db.STO_NhomVatTu.Where(w => w.ID_kho == Properties.Settings.Default.ID_kho).ToList();
+        }
+
+        public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_kho, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+            lookUpEdit.Properties.Columns.Clear();
+
+            lookUpEdit.Properties.DataSource = db.STO_NhomVatTu.Where(w => w.ID_kho == ID_kho).ToList();
+
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Nhóm vật tư"));
+            lookUpEdit.Properties.DisplayMember = "Ten_nhom_vat_tu";
+            lookUpEdit.Properties.ValueMember = "ID_nhom_vat_tu";
+            lookUpEdit.Properties.NullText = "";
+            lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhóm vật tư";
+            lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+                lookUpEdit.ItemIndex = 0;
         }
 
 		public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
 		{
 			if (db == null) db = new Entities();
 			lookUpEdit.Properties.Columns.Clear();
-			lookUpEdit.Properties.DataSource = db.STO_NhomVatTu.ToList();
+            if (Properties.Settings.Default.ID_kho == 0)
+                lookUpEdit.Properties.DataSource = db.STO_NhomVatTu.ToList();
+            else
+                lookUpEdit.Properties.DataSource = db.STO_NhomVatTu.Where(w => w.ID_kho == Properties.Settings.Default.ID_kho).ToList();
+			
 			lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Nhóm vật tư"));
 			lookUpEdit.Properties.DisplayMember = "Ten_nhom_vat_tu";
 			lookUpEdit.Properties.ValueMember = "ID_nhom_vat_tu";
@@ -31,6 +56,11 @@ namespace QLK_DongLuc.Controllers
 			lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn nhóm vật tư";
 			lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+            if (Properties.Settings.Default.ID_nhom_vat_tu != 0)
+                lookUpEdit.EditValue = Properties.Settings.Default.ID_nhom_vat_tu;
+            else
+                lookUpEdit.ItemIndex = 0;
 		}
 
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
