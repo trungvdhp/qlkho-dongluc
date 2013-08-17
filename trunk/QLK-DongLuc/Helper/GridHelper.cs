@@ -42,6 +42,24 @@ namespace QLK_DongLuc.Helper
             //else
             gridView.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
         }
+        public static void HAlignmentAllHeaderColumns(DevExpress.XtraGrid.Views.Grid.GridView gridView)
+        {
+            for (int i = 0; i < gridView.Columns.Count; i++)
+            {
+                gridView.Columns[i].AppearanceHeader.Options.UseTextOptions = true;
+                gridView.Columns[i].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            }
+        }
+        public static void BestFitAllColumns(DevExpress.XtraGrid.Views.Grid.GridView gridView)
+        {
+            gridView.BestFitColumns();
+
+            for (int i = 0; i < gridView.Columns.Count; i++)
+            {
+                gridView.Columns[i].BestFit();
+            }
+        }
+
 
         public static void ConfigGridView(DevExpress.XtraGrid.Views.Grid.GridView gridView, string[] bestFitColumns = null, string[] invisibleColumns = null, bool readOnly = false, string[] readOnlyColumns = null, bool allowGroup = false, string[] groupColumns = null, bool merge = false, string[] mergeColumns = null, bool allowFilter = true, bool allowSort = true)
         {

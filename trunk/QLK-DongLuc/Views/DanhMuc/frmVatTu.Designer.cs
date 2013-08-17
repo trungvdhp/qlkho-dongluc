@@ -41,11 +41,12 @@
             this.sTOVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.ledKhoVatTu = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledNhomVatTu = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledLoaiVatTu = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rleLoaiVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
@@ -53,6 +54,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledLoaiVatTu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView
@@ -82,8 +86,6 @@
             this.colID_loai_vat_tu.ColumnEdit = this.rleLoaiVatTu;
             this.colID_loai_vat_tu.FieldName = "ID_loai_vat_tu";
             this.colID_loai_vat_tu.Name = "colID_loai_vat_tu";
-            this.colID_loai_vat_tu.Visible = true;
-            this.colID_loai_vat_tu.VisibleIndex = 0;
             // 
             // rleLoaiVatTu
             // 
@@ -98,7 +100,7 @@
             this.colMa_vat_tu.FieldName = "Ma_vat_tu";
             this.colMa_vat_tu.Name = "colMa_vat_tu";
             this.colMa_vat_tu.Visible = true;
-            this.colMa_vat_tu.VisibleIndex = 2;
+            this.colMa_vat_tu.VisibleIndex = 1;
             // 
             // colTen_vat_tu
             // 
@@ -106,16 +108,16 @@
             this.colTen_vat_tu.FieldName = "Ten_vat_tu";
             this.colTen_vat_tu.Name = "colTen_vat_tu";
             this.colTen_vat_tu.Visible = true;
-            this.colTen_vat_tu.VisibleIndex = 1;
+            this.colTen_vat_tu.VisibleIndex = 0;
             // 
             // colDon_vi
             // 
             this.colDon_vi.Caption = "Khẩu độ";
             this.colDon_vi.ColumnEdit = this.repositoryItemSpinEdit2;
+            this.colDon_vi.DisplayFormat.FormatString = "{0:N1} (m)";
+            this.colDon_vi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colDon_vi.FieldName = "Don_vi";
             this.colDon_vi.Name = "colDon_vi";
-            this.colDon_vi.Visible = true;
-            this.colDon_vi.VisibleIndex = 3;
             // 
             // repositoryItemSpinEdit2
             // 
@@ -145,7 +147,7 @@
             this.colMo_ta.FieldName = "Mo_ta";
             this.colMo_ta.Name = "colMo_ta";
             this.colMo_ta.Visible = true;
-            this.colMo_ta.VisibleIndex = 4;
+            this.colMo_ta.VisibleIndex = 3;
             // 
             // gridControl
             // 
@@ -185,10 +187,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelControl2);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.ledLoaiVatTu);
+            this.groupBox1.Controls.Add(this.ledNhomVatTu);
+            this.groupBox1.Controls.Add(this.ledKhoVatTu);
             this.groupBox1.Controls.Add(this.labelControl3);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
@@ -198,53 +201,64 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chú thích:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl2.Location = new System.Drawing.Point(91, 28);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(301, 26);
-            this.labelControl2.TabIndex = 16;
-            this.labelControl2.Text = "Chủng loại: là tên của vật tư (VD: Chốt nhựa, Chốt đồng,  ...) \r\n                " +
-    "   hay chủng loại của Nan cửa (VD: L1.0, L1.2, ...)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(400, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(325, 26);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Nếu là vật tư thì không cần nhập khẩu độ, ngược lại\r\nNếu là chủng loại của Nan củ" +
-    "a thì phải nhập khẩu độ (3.2, 3.3, ...)";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl3.Location = new System.Drawing.Point(91, 60);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(264, 13);
-            this.labelControl3.TabIndex = 14;
-            this.labelControl3.Text = "Diễn giải: là ghi chú, giải thích về  vật tư hay chủng loại";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(400, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "(Bắt buộc phải nhập)";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl1.Location = new System.Drawing.Point(91, 9);
+            this.labelControl1.Location = new System.Drawing.Point(293, 31);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(303, 13);
+            this.labelControl1.Size = new System.Drawing.Size(64, 13);
             this.labelControl1.TabIndex = 11;
-            this.labelControl1.Text = "Loại vật tư: là tên của loại vật tư (VD: Chốt, Nan cửa cuốn ...) ";
+            this.labelControl1.Text = "Nhóm vật tư:";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl2.Location = new System.Drawing.Point(569, 31);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(59, 13);
+            this.labelControl2.TabIndex = 12;
+            this.labelControl2.Text = "Loại vật tư: ";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl3.Location = new System.Drawing.Point(23, 31);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(55, 13);
+            this.labelControl3.TabIndex = 13;
+            this.labelControl3.Text = "Kho vật tư:";
+            // 
+            // ledKhoVatTu
+            // 
+            this.ledKhoVatTu.Location = new System.Drawing.Point(84, 28);
+            this.ledKhoVatTu.Name = "ledKhoVatTu";
+            this.ledKhoVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledKhoVatTu.Size = new System.Drawing.Size(189, 20);
+            this.ledKhoVatTu.TabIndex = 14;
+            this.ledKhoVatTu.EditValueChanged += new System.EventHandler(this.ledKhoVatTu_EditValueChanged);
+            // 
+            // ledNhomVatTu
+            // 
+            this.ledNhomVatTu.Location = new System.Drawing.Point(363, 28);
+            this.ledNhomVatTu.Name = "ledNhomVatTu";
+            this.ledNhomVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledNhomVatTu.Size = new System.Drawing.Size(189, 20);
+            this.ledNhomVatTu.TabIndex = 15;
+            this.ledNhomVatTu.EditValueChanged += new System.EventHandler(this.ledNhomVatTu_EditValueChanged);
+            // 
+            // ledLoaiVatTu
+            // 
+            this.ledLoaiVatTu.Location = new System.Drawing.Point(634, 28);
+            this.ledLoaiVatTu.Name = "ledLoaiVatTu";
+            this.ledLoaiVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ledLoaiVatTu.Size = new System.Drawing.Size(189, 20);
+            this.ledLoaiVatTu.TabIndex = 16;
+            this.ledLoaiVatTu.EditValueChanged += new System.EventHandler(this.ledLoaiVatTu_EditValueChanged);
             // 
             // frmVatTu
             // 
@@ -263,6 +277,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledLoaiVatTu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,14 +295,15 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMo_ta;
         private System.Windows.Forms.BindingSource sTOVatTuBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.Columns.GridColumn colMa_vat_tu;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleLoaiVatTu;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit2;
+        private DevExpress.XtraEditors.LookUpEdit ledNhomVatTu;
+        private DevExpress.XtraEditors.LookUpEdit ledKhoVatTu;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LookUpEdit ledLoaiVatTu;
 
 
     }

@@ -24,9 +24,16 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             Entities db = new Entities();
             LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
-            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
+            
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(gridView);
+            GridHelper.HAlignmentAllHeaderColumns(gridView);
+            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
+            GridHelper.BestFitAllColumns(gridView);
+            //-------------------------------------------------------
+            KhoVatTuCtrl.LoadLookUpEdit(ledKhoVatTu, db);
+            NhomVatTuCtrl.LoadLookUpEdit(ledNhomVatTu, db);
+            LoaiVatTuCtrl.LoadLookUpEdit(ledLoaiVatTu, db);
         }
 
         private void gridControl_Load()
@@ -154,6 +161,46 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void gridView_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
             e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ledLoaiVatTu_EditValueChanged(object sender, EventArgs e)
+        {
+            Entities db = new Entities();
+            var ID_loai_vat_tu = int.Parse(ledLoaiVatTu.EditValue.ToString());
+            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, ID_loai_vat_tu, db);
+
+            string[] Ma_nhom = { "NAN", "PROFILE" };
+
+            var result = (from p in db.STO_LoaiVatTu
+                              join p1 in db.STO_NhomVatTu on p.ID_nhom_vat_tu equals p1.ID_nhom_vat_tu 
+                                  where p.ID_loai_vat_tu == ID_loai_vat_tu && Ma_nhom.Contains(p.Ma_loai_vat_tu)
+                              select p).ToList();
+            if (result.Any())
+            {
+                gridView.Columns["Don_vi"].Visible = true;
+                gridView.Columns["Don_vi"].VisibleIndex = 2;
+            }
+            else
+            {
+                gridView.Columns["Don_vi"].Visible = false;
+            }
+
+            GridHelper.BestFitAllColumns(gridView);
+        }
+
+        private void ledKhoVatTu_EditValueChanged(object sender, EventArgs e)
+        {
+            NhomVatTuCtrl.LoadLookUpEdit(ledNhomVatTu, (int)ledKhoVatTu.EditValue ,null);
+        }
+
+        private void ledNhomVatTu_EditValueChanged(object sender, EventArgs e)
+        {
+            LoaiVatTuCtrl.LoadLookUpEdit(ledLoaiVatTu, (int)ledNhomVatTu.EditValue, null);
         }
     }
 }

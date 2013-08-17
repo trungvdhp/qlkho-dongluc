@@ -15,7 +15,15 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
+
             bs.DataSource = db.STO_VatTu.ToList();
+        }
+
+        public static void LoadBindingSource(BindingSource bs, int ID_loai_vat_tu, Entities db = null)
+        {
+            if (db == null) db = new Entities();
+
+            bs.DataSource = db.STO_VatTu.Where(w => w.ID_loai_vat_tu == ID_loai_vat_tu).ToList();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)

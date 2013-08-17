@@ -39,10 +39,7 @@
             this.colGhi_chu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMa_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -50,6 +47,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rleNhomVatTu)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -64,7 +62,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 361);
@@ -75,12 +73,12 @@
             this.gridControl.DataSource = this.sTOLoaiVatTuBindingSource;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.gridControl_EmbeddedNavigator_ButtonClick);
-            this.gridControl.Location = new System.Drawing.Point(13, 83);
+            this.gridControl.Location = new System.Drawing.Point(13, 53);
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rleNhomVatTu});
-            this.gridControl.Size = new System.Drawing.Size(758, 265);
+            this.gridControl.Size = new System.Drawing.Size(758, 295);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -148,69 +146,37 @@
             this.colMa_loai_vat_tu.Caption = "Mã loại vật tư";
             this.colMa_loai_vat_tu.FieldName = "Ma_loai_vat_tu";
             this.colMa_loai_vat_tu.Name = "colMa_loai_vat_tu";
-            this.colMa_loai_vat_tu.Visible = true;
-            this.colMa_loai_vat_tu.VisibleIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.labelControl3);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.lookUpEdit);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
             this.groupBox1.Location = new System.Drawing.Point(13, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(758, 74);
+            this.groupBox1.Size = new System.Drawing.Size(758, 44);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chú thích:";
             // 
-            // label2
+            // lookUpEdit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(382, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "(Bắt buộc phải nhập)";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl3.Location = new System.Drawing.Point(121, 54);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(211, 13);
-            this.labelControl3.TabIndex = 9;
-            this.labelControl3.Text = "Diễn giải: là ghi chú, giải thích về  loại vật tư";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(406, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "(Bắt buộc phải nhập)";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl2.Location = new System.Drawing.Point(121, 35);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(255, 13);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Nhóm vật tư: Lựa chọn nhóm vật tư chứa  loại vật tư";
+            this.lookUpEdit.Location = new System.Drawing.Point(359, 17);
+            this.lookUpEdit.Name = "lookUpEdit";
+            this.lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit.Size = new System.Drawing.Size(182, 20);
+            this.lookUpEdit.TabIndex = 5;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl1.Location = new System.Drawing.Point(121, 16);
+            this.labelControl1.Location = new System.Drawing.Point(202, 20);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(279, 13);
-            this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Loại vật tư: là tên của loại vật tư (VD: loại Giá đỡ, Tụ, ...) ";
+            this.labelControl1.Size = new System.Drawing.Size(151, 13);
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Lựa chọn nhóm vật tư làm việc:";
             // 
             // frmLoaiVatTu
             // 
@@ -220,6 +186,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmLoaiVatTu";
             this.Text = "Danh sách loại vật tư";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoaiVatTu_FormClosing);
             this.Load += new System.EventHandler(this.frmLoaiVatTu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
@@ -228,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rleNhomVatTu)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,14 +209,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colID_nhom_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colGhi_chu;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private System.Windows.Forms.Label label2;
         private DevExpress.XtraGrid.Columns.GridColumn colMa_loai_vat_tu;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhomVatTu;
         private System.Windows.Forms.BindingSource sTOLoaiVatTuBindingSource;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
 
 
     }

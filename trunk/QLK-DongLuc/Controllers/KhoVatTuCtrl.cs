@@ -15,8 +15,8 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if (db == null) db = new Entities();
-
-            bs.DataSource = db.STO_KhoVatTu.ToList();
+            var result = db.STO_KhoVatTu.ToList();
+            bs.DataSource = result.ToList();
         }
 
         public static void LoadComboBox(System.Windows.Forms.ComboBox cbo, Entities db = null)
@@ -42,6 +42,11 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn kho";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+            if (Properties.Settings.Default.ID_kho != 0)
+                lookUpEdit.EditValue = Properties.Settings.Default.ID_kho;
+            else
+                lookUpEdit.ItemIndex = 0;
         }
 
         public static void LoadLookUpEdit(RepositoryItemLookUpEdit gridLookUpEdit, Entities db = null)
@@ -125,6 +130,7 @@ namespace QLK_DongLuc.Controllers
             entity.Ten_kho = kho.Ten_kho;
             entity.Dia_diem = kho.Dia_diem;
             entity.Ma_kho = kho.Ma_kho;
+            entity.Trang_thai = kho.Trang_thai;
 
             return db.SaveChanges();
         }

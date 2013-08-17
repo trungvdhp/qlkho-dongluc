@@ -12,6 +12,7 @@ using DevExpress.Skins;
 using DevExpress.Xpo.XtraData;
 using DevExpress.LookAndFeel;
 using QLK_DongLuc.Models;
+using QLK_DongLuc.Helper;
 
 
 namespace QLK_DongLuc
@@ -152,20 +153,21 @@ namespace QLK_DongLuc
 
         private void btnKhoVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmKhoVatTu frm = new frmKhoVatTu();
-            OpenForm(frm, tabControl);
+            FormHelper.OpenWindowForm(new frmKhoVT());
         }
 
         private void btnNhomVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmNhomVatTu frm = new frmNhomVatTu();
-            OpenForm(frm, tabControl);
+            FormHelper.OpenWindowForm(new frmNhomVatTu());
+            //frmNhomVatTu frm = new frmNhomVatTu();
+            //OpenForm(frm, tabControl);
         }
 
         private void btnLoaiVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmLoaiVatTu frm = new frmLoaiVatTu();
-            OpenForm(frm, tabControl);
+            FormHelper.OpenWindowForm(new frmLoaiVatTu());
+            //frmLoaiVatTu frm = new frmLoaiVatTu();
+            //OpenForm(frm, tabControl);
         }
 
         private void btnVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -220,8 +222,8 @@ namespace QLK_DongLuc
                     btnPhucHoi.Enabled = true;
 
                     // Chuc nang quan ly kho
-                    btnNhapMoi.Enabled = false;
-                    btnNhapLai.Enabled = false;
+                    btnNhapMoi.Enabled = true;
+                    //btnNhapLai.Enabled = true;
 
                     // Chức năng quản lý danh mục
                     btnNhomVatTu.Enabled = true;
@@ -243,7 +245,7 @@ namespace QLK_DongLuc
 
                     // Chuc nang quan ly kho
                     btnNhapMoi.Enabled = true;
-                    btnNhapLai.Enabled = true;
+                    //btnNhapLai.Enabled = true;
 
                     // Chức năng quản lý danh mục
                     btnNhomVatTu.Enabled = false;

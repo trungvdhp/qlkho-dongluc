@@ -15,8 +15,10 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
-
-            bs.DataSource = db.STO_LoaiVatTu.ToList();
+            if (Properties.Settings.Default.ID_nhom_vat_tu == 0)
+                bs.DataSource = db.STO_LoaiVatTu.ToList();
+            else
+                bs.DataSource = db.STO_LoaiVatTu.Where(w => w.ID_nhom_vat_tu == Properties.Settings.Default.ID_nhom_vat_tu).ToList();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
@@ -24,7 +26,10 @@ namespace QLK_DongLuc.Controllers
             if (db == null) db = new Entities();
 
             lookUpEdit.Properties.Columns.Clear();
-            lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
+            if (Properties.Settings.Default.ID_nhom_vat_tu == 0)
+                lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
+            else
+                lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.Where(w => w.ID_nhom_vat_tu == Properties.Settings.Default.ID_nhom_vat_tu).ToList();
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Thuộc nhóm"));
 
@@ -34,6 +39,11 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+            if (Properties.Settings.Default.ID_loai_vat_tu != 0)
+                lookUpEdit.EditValue = Properties.Settings.Default.ID_loai_vat_tu;
+            else
+                lookUpEdit.ItemIndex = 0;
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, int ID_nhom_vat_tu, Entities db = null)
@@ -50,6 +60,8 @@ namespace QLK_DongLuc.Controllers
             lookUpEdit.ToolTip = lookUpEdit.Properties.NullValuePrompt = "Chọn loại vật tư";
             lookUpEdit.Properties.NullValuePromptShowForEmptyValue = true;
             lookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
+
+            lookUpEdit.ItemIndex = 0;
         }
 
         /// <summary>

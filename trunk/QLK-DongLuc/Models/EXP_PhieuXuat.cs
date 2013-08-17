@@ -35,8 +35,8 @@ namespace QLK_DongLuc.Models
         public virtual CAT_NhanVien CAT_NhanVien { get; set; }
         public virtual CAT_SanPham CAT_SanPham { get; set; }
         public virtual EXP_LoaiXuat EXP_LoaiXuat { get; set; }
-        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
         public virtual SYS_NguoiDung SYS_NguoiDung { get; set; }
         public virtual ICollection<EXP_PhieuXuatCT> EXP_PhieuXuatCT { get; set; }
+        public virtual STO_KhoVatTu STO_KhoVatTu { get; set; }
     }
 }

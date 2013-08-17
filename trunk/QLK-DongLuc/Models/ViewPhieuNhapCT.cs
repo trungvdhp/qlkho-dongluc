@@ -12,15 +12,17 @@ namespace QLK_DongLuc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ViewCboLoaiVatTu
+    public partial class ViewPhieuNhapCT
     {
-        public int ID_loai_vat_tu { get; set; }
-        public string Ten_loai_vat_tu { get; set; }
-        public string Ghi_chu { get; set; }
-        public string Ten_nhom_vat_tu { get; set; }
+        public int ID_phieu_nhap { get; set; }
+        public int ID_vat_tu { get; set; }
+        public double So_luong { get; set; }
+        public Nullable<decimal> Don_gia { get; set; }
+        public Nullable<double> Chieu_dai { get; set; }
+        public Nullable<double> Chieu_rong { get; set; }
         public int ID_nhom_vat_tu { get; set; }
-        public string Ma_nhom_vat_tu { get; set; }
-        public string Ma_loai_vat_tu { get; set; }
-        public int ID_kho { get; set; }
+        public string Ten_vat_tu { get; set; }
+        public string Ten_loai_vat_tu { get; set; }
+        public int ID_loai_vat_tu { get; set; }
     }
 }
