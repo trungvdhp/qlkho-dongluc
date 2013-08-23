@@ -51,17 +51,17 @@
             this.lblCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.lblCopyright.Location = new System.Drawing.Point(23, 286);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(115, 13);
+            this.lblCopyright.Size = new System.Drawing.Size(121, 13);
             this.lblCopyright.TabIndex = 6;
-            this.lblCopyright.Text = "Copyright © 1998-2011";
+            this.lblCopyright.Text = "Copyright © 2012 - 2013";
             // 
             // lblStatus
             // 
-            this.lblStatus.Location = new System.Drawing.Point(23, 206);
+            this.lblStatus.Location = new System.Drawing.Point(23, 212);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(87, 13);
+            this.lblStatus.Size = new System.Drawing.Size(143, 13);
             this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "Đang khởi động...";
+            this.lblStatus.Text = "Đang nạp dữ liệu khởi động...";
             // 
             // picLogo
             // 

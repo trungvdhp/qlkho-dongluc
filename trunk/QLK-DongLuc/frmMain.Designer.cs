@@ -82,6 +82,9 @@
             this.btnNhapMoiAustDoor = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhapMoiNAN = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhapMoiThanhCuaNhua = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.fileRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -105,9 +108,6 @@
             this.tmrTracker = new System.Windows.Forms.Timer(this.components);
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -648,6 +648,27 @@
             this.btnNhapMoiThanhCuaNhua.Name = "btnNhapMoiThanhCuaNhua";
             this.btnNhapMoiThanhCuaNhua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapMoiThanhCuaNhua_ItemClick);
             // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Nhập lại NAN cửa cuốn";
+            this.barButtonItem2.Enabled = false;
+            this.barButtonItem2.Id = 101;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Nhập lại cửa đồng bộ";
+            this.barButtonItem3.Enabled = false;
+            this.barButtonItem3.Id = 102;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Nhập lại THANH cửa nhựa";
+            this.barButtonItem4.Enabled = false;
+            this.barButtonItem4.Id = 103;
+            this.barButtonItem4.Name = "barButtonItem4";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -755,8 +776,8 @@
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoi);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiNAN);
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiAustDoor);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiThanhCuaNhua);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapMoiAustDoor);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnDanhSachPhieuNhap);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnNhapLai);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem2);
@@ -847,27 +868,6 @@
             this.tabControl.Size = new System.Drawing.Size(891, 393);
             this.tabControl.TabIndex = 5;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Nhập lại NAN cửa cuốn";
-            this.barButtonItem2.Enabled = false;
-            this.barButtonItem2.Id = 101;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "Nhập lại cửa đồng bộ";
-            this.barButtonItem3.Enabled = false;
-            this.barButtonItem3.Id = 102;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "Nhập lại THANH cửa nhựa";
-            this.barButtonItem4.Enabled = false;
-            this.barButtonItem4.Id = 103;
-            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // frmMain
             // 

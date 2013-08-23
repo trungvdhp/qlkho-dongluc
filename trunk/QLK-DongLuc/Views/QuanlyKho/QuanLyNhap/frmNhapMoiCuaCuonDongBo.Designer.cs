@@ -63,6 +63,10 @@
             this.colSo_luong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.grbThietBiChinh = new DevExpress.XtraEditors.GroupControl();
+            this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
+            this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.sedChieuRong = new DevExpress.XtraEditors.SpinEdit();
             this.sedChieuDai = new DevExpress.XtraEditors.SpinEdit();
             this.ledKhoaCuaCuon = new DevExpress.XtraEditors.LookUpEdit();
@@ -100,6 +104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbThietBiChinh)).BeginInit();
             this.grbThietBiChinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).BeginInit();
@@ -196,10 +202,10 @@
             this.grbThongTinNhaCungCap.Controls.Add(this.labelControl6);
             this.grbThongTinNhaCungCap.Controls.Add(this.labelControl5);
             this.grbThongTinNhaCungCap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbThongTinNhaCungCap.Location = new System.Drawing.Point(413, 0);
+            this.grbThongTinNhaCungCap.Location = new System.Drawing.Point(3, 0);
             this.grbThongTinNhaCungCap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grbThongTinNhaCungCap.Name = "grbThongTinNhaCungCap";
-            this.grbThongTinNhaCungCap.Size = new System.Drawing.Size(402, 142);
+            this.grbThongTinNhaCungCap.Size = new System.Drawing.Size(404, 142);
             this.grbThongTinNhaCungCap.TabIndex = 1;
             this.grbThongTinNhaCungCap.Text = "Thông tin chứng từ nhà cung cấp";
             // 
@@ -348,10 +354,10 @@
             this.grbThongTinDoiTuongNhap.Controls.Add(this.labelControl3);
             this.grbThongTinDoiTuongNhap.Controls.Add(this.labelControl2);
             this.grbThongTinDoiTuongNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbThongTinDoiTuongNhap.Location = new System.Drawing.Point(3, 0);
+            this.grbThongTinDoiTuongNhap.Location = new System.Drawing.Point(413, 0);
             this.grbThongTinDoiTuongNhap.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grbThongTinDoiTuongNhap.Name = "grbThongTinDoiTuongNhap";
-            this.grbThongTinDoiTuongNhap.Size = new System.Drawing.Size(404, 142);
+            this.grbThongTinDoiTuongNhap.Size = new System.Drawing.Size(402, 142);
             this.grbThongTinDoiTuongNhap.TabIndex = 0;
             this.grbThongTinDoiTuongNhap.Text = "Thông tin đối tượng nhập";
             // 
@@ -506,6 +512,10 @@
             // 
             // grbThietBiChinh
             // 
+            this.grbThietBiChinh.Controls.Add(this.spinEdit2);
+            this.grbThietBiChinh.Controls.Add(this.spinEdit1);
+            this.grbThietBiChinh.Controls.Add(this.labelControl14);
+            this.grbThietBiChinh.Controls.Add(this.labelControl13);
             this.grbThietBiChinh.Controls.Add(this.sedChieuRong);
             this.grbThietBiChinh.Controls.Add(this.sedChieuDai);
             this.grbThietBiChinh.Controls.Add(this.ledKhoaCuaCuon);
@@ -525,6 +535,82 @@
             this.grbThietBiChinh.Size = new System.Drawing.Size(404, 222);
             this.grbThietBiChinh.TabIndex = 0;
             this.grbThietBiChinh.Text = "Thiết bị chính";
+            // 
+            // spinEdit2
+            // 
+            this.spinEdit2.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit2.Location = new System.Drawing.Point(310, 155);
+            this.spinEdit2.Name = "spinEdit2";
+            this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spinEdit2.Properties.DisplayFormat.FormatString = "D";
+            this.spinEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinEdit2.Properties.EditFormat.FormatString = "D";
+            this.spinEdit2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinEdit2.Properties.Mask.EditMask = "D";
+            this.spinEdit2.Properties.MaxValue = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.spinEdit2.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.spinEdit2.Size = new System.Drawing.Size(64, 20);
+            this.spinEdit2.TabIndex = 8;
+            this.spinEdit2.Tag = "Nhập chiều rộng cửa cuốn AustDoor";
+            // 
+            // spinEdit1
+            // 
+            this.spinEdit1.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit1.Location = new System.Drawing.Point(310, 129);
+            this.spinEdit1.Name = "spinEdit1";
+            this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spinEdit1.Properties.DisplayFormat.FormatString = "D";
+            this.spinEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinEdit1.Properties.EditFormat.FormatString = "D";
+            this.spinEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spinEdit1.Properties.Mask.EditMask = "D";
+            this.spinEdit1.Properties.MaxValue = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.spinEdit1.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.spinEdit1.Size = new System.Drawing.Size(64, 20);
+            this.spinEdit1.TabIndex = 7;
+            this.spinEdit1.Tag = "Nhập chiều rộng cửa cuốn AustDoor";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(253, 158);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(46, 13);
+            this.labelControl14.TabIndex = 6;
+            this.labelControl14.Text = "Số lượng:";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(253, 132);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(46, 13);
+            this.labelControl13.TabIndex = 5;
+            this.labelControl13.Text = "Số lượng:";
             // 
             // sedChieuRong
             // 
@@ -584,7 +670,7 @@
             this.ledKhoaCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ledKhoaCuaCuon.Properties.NullText = "";
-            this.ledKhoaCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledKhoaCuaCuon.Size = new System.Drawing.Size(152, 20);
             this.ledKhoaCuaCuon.TabIndex = 3;
             this.ledKhoaCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
             // 
@@ -604,7 +690,7 @@
             this.ledChotCuaCuon.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ledChotCuaCuon.Properties.NullText = "";
-            this.ledChotCuaCuon.Size = new System.Drawing.Size(280, 20);
+            this.ledChotCuaCuon.Size = new System.Drawing.Size(152, 20);
             this.ledChotCuaCuon.TabIndex = 3;
             this.ledChotCuaCuon.Tag = "Chọn mô tơ cửa cuốn AustDoor";
             // 
@@ -709,6 +795,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grbThietBiChinh)).EndInit();
             this.grbThietBiChinh.ResumeLayout(false);
             this.grbThietBiChinh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuRong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sedChieuDai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledKhoaCuaCuon.Properties)).EndInit();
@@ -766,5 +854,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LookUpEdit ledChotCuaCuon;
         private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.SpinEdit spinEdit2;
+        private DevExpress.XtraEditors.SpinEdit spinEdit1;
     }
 }

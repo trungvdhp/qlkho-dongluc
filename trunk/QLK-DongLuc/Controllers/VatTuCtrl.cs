@@ -16,14 +16,18 @@ namespace QLK_DongLuc.Controllers
         {
             if(db == null) db = new Entities();
 
-            bs.DataSource = db.STO_VatTu.ToList();
+            bs.DataSource = db.ViewCboVatTu.ToList();
         }
 
         public static void LoadBindingSource(BindingSource bs, int ID_loai_vat_tu, Entities db = null)
         {
             if (db == null) db = new Entities();
 
-            bs.DataSource = db.STO_VatTu.Where(w => w.ID_loai_vat_tu == ID_loai_vat_tu).ToList();
+            var lst = db.ViewCboVatTu.Where(w => w.ID_loai_vat_tu == ID_loai_vat_tu).ToList();
+            if (lst.Any())
+                bs.DataSource = lst.ToList();
+            else
+                bs.DataSource = new List<ViewCboVatTu>();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
@@ -117,18 +121,26 @@ namespace QLK_DongLuc.Controllers
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static int Insert(STO_VatTu vatTu, Entities db = null)
+        public static int Insert(ViewCboVatTu vatTu, Entities db = null)
         {
             if (vatTu == null || vatTu.ID_loai_vat_tu == null || vatTu.Ten_vat_tu == null) return 0;
 
             if (db == null) db = new Entities();
 
-            db.STO_VatTu.Add(vatTu);
+            var entity = new STO_VatTu();
+
+            entity.ID_loai_vat_tu = vatTu.ID_loai_vat_tu;
+            entity.Ten_vat_tu = vatTu.Ten_vat_tu;
+            entity.Ma_vat_tu = vatTu.Ma_vat_tu;
+            entity.Don_vi = vatTu.Don_vi;
+            entity.Mo_ta = vatTu.Mo_ta;
+
+            db.STO_VatTu.Add(entity);
 
             return db.SaveChanges();
         }
 
-        public static int Update(STO_VatTu vatTu, Entities db = null)
+        public static int Update(ViewCboVatTu vatTu, Entities db = null)
         {
             if (vatTu == null || vatTu.ID_vat_tu == null || vatTu.ID_loai_vat_tu == null || vatTu.Ten_vat_tu == null) return 0;
 

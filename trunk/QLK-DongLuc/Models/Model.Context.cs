@@ -51,7 +51,6 @@ namespace QLK_DongLuc.Models
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<ViewCatSanPham> ViewCatSanPham { get; set; }
         public DbSet<ViewCboKhachHang> ViewCboKhachHang { get; set; }
-        public DbSet<ViewCboLoaiVatTu> ViewCboLoaiVatTu { get; set; }
         public DbSet<ViewCboLoaiXuat> ViewCboLoaiXuat { get; set; }
         public DbSet<ViewCboNhanVien> ViewCboNhanVien { get; set; }
         public DbSet<ViewCboVatTu> ViewCboVatTu { get; set; }
@@ -64,5 +63,6 @@ namespace QLK_DongLuc.Models
         public DbSet<STO_LoaiVatTu> STO_LoaiVatTu { get; set; }
         public DbSet<STO_NhomVatTu> STO_NhomVatTu { get; set; }
         public DbSet<ViewPhieuNhapCT> ViewPhieuNhapCT { get; set; }
+        public DbSet<ViewCboLoaiVatTu> ViewCboLoaiVatTu { get; set; }
     }
 }

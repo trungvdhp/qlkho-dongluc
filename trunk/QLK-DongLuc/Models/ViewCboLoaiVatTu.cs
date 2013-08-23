@@ -16,11 +16,12 @@ namespace QLK_DongLuc.Models
     {
         public int ID_loai_vat_tu { get; set; }
         public string Ten_loai_vat_tu { get; set; }
-        public string Ghi_chu { get; set; }
         public string Ten_nhom_vat_tu { get; set; }
         public int ID_nhom_vat_tu { get; set; }
         public string Ma_nhom_vat_tu { get; set; }
         public string Ma_loai_vat_tu { get; set; }
         public int ID_kho { get; set; }
+        public string Ten_kho { get; set; }
+        public string Ghi_chu { get; set; }
     }
 }

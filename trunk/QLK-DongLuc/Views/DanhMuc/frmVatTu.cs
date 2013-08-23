@@ -42,13 +42,18 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             Entities db = new Entities();
             LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
-            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
+            NhomVatTuCtrl.LoadLookUpEdit(rleNhomVatTu, db);
+            VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, (int)ledLoaiVatTu.EditValue, db);
             GridHelper.BestFitAllColumns(gridView);
         }
 
         private void InsertCommand()
         {
             var vt = (ViewCboVatTu)gridView.GetFocusedRow();
+
+            vt.ID_loai_vat_tu = (int)ledLoaiVatTu.EditValue;
+
             int rs = VatTuCtrl.Insert(vt);
 
             if (rs == 0)
@@ -63,6 +68,9 @@ namespace QLK_DongLuc.Views.DanhMuc
             gridView.SetRowCellValue(gridView.FocusedRowHandle, gridView.Columns["ID_loai_vat_tu"], ID_loai_vat_tu);
 
             var vt = (ViewCboVatTu)gridView.GetFocusedRow();
+
+            vt.ID_loai_vat_tu = (int)ledLoaiVatTu.EditValue;
+
             int rs = VatTuCtrl.Update(vt);
 
             if (rs == 0)
@@ -98,13 +106,13 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             bool bError = false;
 
-            var ID_loai_vat_tu = gridView.GetRowCellValue(e.RowHandle, colID_loai_vat_tu);
+            //var ID_loai_vat_tu = gridView.GetRowCellValue(e.RowHandle, colID_loai_vat_tu);
 
-            if (ID_loai_vat_tu.Equals(0))
-            {
-                bError = true;
-                gridView.SetColumnError(colID_loai_vat_tu, Properties.Settings.Default.NullOrEmpty);
-            }
+            //if (ID_loai_vat_tu.Equals(0))
+            //{
+            //    bError = true;
+            //    gridView.SetColumnError(colID_loai_vat_tu, Properties.Settings.Default.NullOrEmpty);
+            //}
 
             var Ten_vat_tu = gridView.GetRowCellValue(e.RowHandle, colTen_vat_tu);
 
@@ -189,7 +197,7 @@ namespace QLK_DongLuc.Views.DanhMuc
             if (result.Any())
             {
                 gridView.Columns["Don_vi"].Visible = true;
-                gridView.Columns["Don_vi"].VisibleIndex = 2;
+                gridView.Columns["Don_vi"].VisibleIndex = 5;
             }
             else
             {

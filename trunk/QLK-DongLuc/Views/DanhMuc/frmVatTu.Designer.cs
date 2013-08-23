@@ -36,17 +36,20 @@
             this.colTen_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDon_vi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.colMo_ta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTOVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.ledKhoVatTu = new DevExpress.XtraEditors.LookUpEdit();
-            this.ledNhomVatTu = new DevExpress.XtraEditors.LookUpEdit();
             this.ledLoaiVatTu = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledNhomVatTu = new DevExpress.XtraEditors.LookUpEdit();
+            this.ledKhoVatTu = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rleKhoVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.rleNhomVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rleLoaiVatTu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).BeginInit();
@@ -54,19 +57,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.sTOVatTuBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledLoaiVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhomVatTu)).BeginInit();
             this.SuspendLayout();
             // 
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
             this.colID_loai_vat_tu,
             this.colMa_vat_tu,
             this.colTen_vat_tu,
-            this.colDon_vi,
-            this.colMo_ta});
+            this.colDon_vi});
             this.gridView.GridControl = this.gridControl;
             this.gridView.GroupPanelText = "Kéo tiêu đề cột vào đây để nhóm theo cột đó";
             this.gridView.Name = "gridView";
@@ -86,6 +92,9 @@
             this.colID_loai_vat_tu.ColumnEdit = this.rleLoaiVatTu;
             this.colID_loai_vat_tu.FieldName = "ID_loai_vat_tu";
             this.colID_loai_vat_tu.Name = "colID_loai_vat_tu";
+            this.colID_loai_vat_tu.OptionsColumn.ReadOnly = true;
+            this.colID_loai_vat_tu.Visible = true;
+            this.colID_loai_vat_tu.VisibleIndex = 2;
             // 
             // rleLoaiVatTu
             // 
@@ -100,7 +109,7 @@
             this.colMa_vat_tu.FieldName = "Ma_vat_tu";
             this.colMa_vat_tu.Name = "colMa_vat_tu";
             this.colMa_vat_tu.Visible = true;
-            this.colMa_vat_tu.VisibleIndex = 1;
+            this.colMa_vat_tu.VisibleIndex = 3;
             // 
             // colTen_vat_tu
             // 
@@ -108,7 +117,7 @@
             this.colTen_vat_tu.FieldName = "Ten_vat_tu";
             this.colTen_vat_tu.Name = "colTen_vat_tu";
             this.colTen_vat_tu.Visible = true;
-            this.colTen_vat_tu.VisibleIndex = 0;
+            this.colTen_vat_tu.VisibleIndex = 4;
             // 
             // colDon_vi
             // 
@@ -141,14 +150,6 @@
             this.repositoryItemSpinEdit2.NullValuePrompt = "Nhập khẩu độ";
             this.repositoryItemSpinEdit2.NullValuePromptShowForEmptyValue = true;
             // 
-            // colMo_ta
-            // 
-            this.colMo_ta.Caption = "Diễn giải";
-            this.colMo_ta.FieldName = "Mo_ta";
-            this.colMo_ta.Name = "colMo_ta";
-            this.colMo_ta.Visible = true;
-            this.colMo_ta.VisibleIndex = 3;
-            // 
             // gridControl
             // 
             this.gridControl.DataSource = this.sTOVatTuBindingSource;
@@ -159,7 +160,9 @@
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rleLoaiVatTu,
-            this.repositoryItemSpinEdit2});
+            this.repositoryItemSpinEdit2,
+            this.rleKhoVatTu,
+            this.rleNhomVatTu});
             this.gridControl.Size = new System.Drawing.Size(758, 265);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -203,42 +206,15 @@
             this.groupBox1.Text = "Chú thích:";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // labelControl1
+            // ledLoaiVatTu
             // 
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl1.Location = new System.Drawing.Point(293, 31);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(64, 13);
-            this.labelControl1.TabIndex = 11;
-            this.labelControl1.Text = "Nhóm vật tư:";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl2.Location = new System.Drawing.Point(569, 31);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(59, 13);
-            this.labelControl2.TabIndex = 12;
-            this.labelControl2.Text = "Loại vật tư: ";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelControl3.Location = new System.Drawing.Point(23, 31);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(55, 13);
-            this.labelControl3.TabIndex = 13;
-            this.labelControl3.Text = "Kho vật tư:";
-            // 
-            // ledKhoVatTu
-            // 
-            this.ledKhoVatTu.Location = new System.Drawing.Point(84, 28);
-            this.ledKhoVatTu.Name = "ledKhoVatTu";
-            this.ledKhoVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ledLoaiVatTu.Location = new System.Drawing.Point(634, 28);
+            this.ledLoaiVatTu.Name = "ledLoaiVatTu";
+            this.ledLoaiVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledKhoVatTu.Size = new System.Drawing.Size(189, 20);
-            this.ledKhoVatTu.TabIndex = 14;
-            this.ledKhoVatTu.EditValueChanged += new System.EventHandler(this.ledKhoVatTu_EditValueChanged);
+            this.ledLoaiVatTu.Size = new System.Drawing.Size(189, 20);
+            this.ledLoaiVatTu.TabIndex = 16;
+            this.ledLoaiVatTu.EditValueChanged += new System.EventHandler(this.ledLoaiVatTu_EditValueChanged);
             // 
             // ledNhomVatTu
             // 
@@ -250,15 +226,76 @@
             this.ledNhomVatTu.TabIndex = 15;
             this.ledNhomVatTu.EditValueChanged += new System.EventHandler(this.ledNhomVatTu_EditValueChanged);
             // 
-            // ledLoaiVatTu
+            // ledKhoVatTu
             // 
-            this.ledLoaiVatTu.Location = new System.Drawing.Point(634, 28);
-            this.ledLoaiVatTu.Name = "ledLoaiVatTu";
-            this.ledLoaiVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.ledKhoVatTu.Location = new System.Drawing.Point(84, 28);
+            this.ledKhoVatTu.Name = "ledKhoVatTu";
+            this.ledKhoVatTu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ledLoaiVatTu.Size = new System.Drawing.Size(189, 20);
-            this.ledLoaiVatTu.TabIndex = 16;
-            this.ledLoaiVatTu.EditValueChanged += new System.EventHandler(this.ledLoaiVatTu_EditValueChanged);
+            this.ledKhoVatTu.Size = new System.Drawing.Size(189, 20);
+            this.ledKhoVatTu.TabIndex = 14;
+            this.ledKhoVatTu.EditValueChanged += new System.EventHandler(this.ledKhoVatTu_EditValueChanged);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl3.Location = new System.Drawing.Point(23, 31);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(55, 13);
+            this.labelControl3.TabIndex = 13;
+            this.labelControl3.Text = "Kho vật tư:";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl2.Location = new System.Drawing.Point(569, 31);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(59, 13);
+            this.labelControl2.TabIndex = 12;
+            this.labelControl2.Text = "Loại vật tư: ";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl1.Location = new System.Drawing.Point(293, 31);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(64, 13);
+            this.labelControl1.TabIndex = 11;
+            this.labelControl1.Text = "Nhóm vật tư:";
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Kho vật tư";
+            this.gridColumn1.ColumnEdit = this.rleKhoVatTu;
+            this.gridColumn1.FieldName = "ID_kho";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Nhóm vật tư";
+            this.gridColumn2.ColumnEdit = this.rleNhomVatTu;
+            this.gridColumn2.FieldName = "ID_nhom_vat_tu";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // rleKhoVatTu
+            // 
+            this.rleKhoVatTu.AutoHeight = false;
+            this.rleKhoVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleKhoVatTu.Name = "rleKhoVatTu";
+            // 
+            // rleNhomVatTu
+            // 
+            this.rleNhomVatTu.AutoHeight = false;
+            this.rleNhomVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleNhomVatTu.Name = "rleNhomVatTu";
             // 
             // frmVatTu
             // 
@@ -277,9 +314,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ledLoaiVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledNhomVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ledKhoVatTu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleNhomVatTu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,7 +331,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colID_loai_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colTen_vat_tu;
         private DevExpress.XtraGrid.Columns.GridColumn colDon_vi;
-        private DevExpress.XtraGrid.Columns.GridColumn colMo_ta;
         private System.Windows.Forms.BindingSource sTOVatTuBindingSource;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -304,6 +342,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LookUpEdit ledLoaiVatTu;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoVatTu;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleNhomVatTu;
 
 
     }
