@@ -23,8 +23,7 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void frmLoaiVatTu_Load(object sender, EventArgs e)
         {
             Entities db = new Entities();
-            NhomVatTuCtrl.LoadLookUpEdit(rleNhomVatTu, db);
-            LoaiVatTuCtrl.LoadBindingSource(sTOLoaiVatTuBindingSource, db);
+            gridControl_Load();
 
             LoaiVatTuCtrl.LoadLookUpEdit(lookUpEdit, db);
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
@@ -37,12 +36,17 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             Entities db = new Entities();
             NhomVatTuCtrl.LoadLookUpEdit(rleNhomVatTu, db);
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
             LoaiVatTuCtrl.LoadBindingSource(sTOLoaiVatTuBindingSource, db);
+            GridHelper.BestFitAllColumns(gridView);
         }
 
         private void InsertCommand()
         {
-            var loai = (STO_LoaiVatTu)gridView.GetFocusedRow();
+            var loai = (ViewCboLoaiVatTu)gridView.GetFocusedRow();
+
+            loai.ID_nhom_vat_tu = Properties.Settings.Default.ID_nhom_vat_tu;
+
             int rs = LoaiVatTuCtrl.Insert(loai);
 
             if (rs == 0)
@@ -54,7 +58,10 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void UpdateCommand()
         {
-            var loai = (STO_LoaiVatTu)gridView.GetFocusedRow();
+            var loai = (ViewCboLoaiVatTu)gridView.GetFocusedRow();
+
+            loai.ID_nhom_vat_tu = Properties.Settings.Default.ID_nhom_vat_tu;
+
             int rs = LoaiVatTuCtrl.Update(loai);
 
             if (rs == 0)
@@ -72,7 +79,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             if (result == DialogResult.Yes)
             {
-                var loai = (STO_LoaiVatTu)gridView.GetFocusedRow();
+                var loai = (ViewCboLoaiVatTu)gridView.GetFocusedRow();
                 int rs = LoaiVatTuCtrl.Delete(loai.ID_loai_vat_tu);
 
                 if (rs > 0)

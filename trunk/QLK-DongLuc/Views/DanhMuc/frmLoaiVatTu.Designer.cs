@@ -33,6 +33,7 @@
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.sTOLoaiVatTuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_nhom_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rleNhomVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colTen_loai_vat_tu = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,6 +42,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.rleKhoVatTu = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sTOLoaiVatTuBindingSource)).BeginInit();
@@ -48,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rleNhomVatTu)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -77,7 +80,8 @@
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.rleNhomVatTu});
+            this.rleNhomVatTu,
+            this.rleKhoVatTu});
             this.gridControl.Size = new System.Drawing.Size(758, 295);
             this.gridControl.TabIndex = 3;
             this.gridControl.UseEmbeddedNavigator = true;
@@ -92,6 +96,7 @@
             // gridView
             // 
             this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
             this.colID_nhom_vat_tu,
             this.colTen_loai_vat_tu,
             this.colGhi_chu,
@@ -109,14 +114,25 @@
             this.gridView.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView_InvalidRowException);
             this.gridView.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView_ValidateRow);
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Kho vật tư";
+            this.gridColumn1.ColumnEdit = this.rleKhoVatTu;
+            this.gridColumn1.FieldName = "ID_kho";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
             // colID_nhom_vat_tu
             // 
             this.colID_nhom_vat_tu.Caption = "Nhóm vật tư";
             this.colID_nhom_vat_tu.ColumnEdit = this.rleNhomVatTu;
             this.colID_nhom_vat_tu.FieldName = "ID_nhom_vat_tu";
             this.colID_nhom_vat_tu.Name = "colID_nhom_vat_tu";
+            this.colID_nhom_vat_tu.OptionsColumn.ReadOnly = true;
             this.colID_nhom_vat_tu.Visible = true;
-            this.colID_nhom_vat_tu.VisibleIndex = 0;
+            this.colID_nhom_vat_tu.VisibleIndex = 1;
             // 
             // rleNhomVatTu
             // 
@@ -131,15 +147,13 @@
             this.colTen_loai_vat_tu.FieldName = "Ten_loai_vat_tu";
             this.colTen_loai_vat_tu.Name = "colTen_loai_vat_tu";
             this.colTen_loai_vat_tu.Visible = true;
-            this.colTen_loai_vat_tu.VisibleIndex = 1;
+            this.colTen_loai_vat_tu.VisibleIndex = 2;
             // 
             // colGhi_chu
             // 
             this.colGhi_chu.Caption = "Diễn giải";
             this.colGhi_chu.FieldName = "Ghi_chu";
             this.colGhi_chu.Name = "colGhi_chu";
-            this.colGhi_chu.Visible = true;
-            this.colGhi_chu.VisibleIndex = 2;
             // 
             // colMa_loai_vat_tu
             // 
@@ -166,7 +180,7 @@
             this.lookUpEdit.Name = "lookUpEdit";
             this.lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit.Size = new System.Drawing.Size(182, 20);
+            this.lookUpEdit.Size = new System.Drawing.Size(267, 20);
             this.lookUpEdit.TabIndex = 5;
             // 
             // labelControl1
@@ -174,9 +188,16 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Location = new System.Drawing.Point(202, 20);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(151, 13);
+            this.labelControl1.Size = new System.Drawing.Size(141, 13);
             this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Lựa chọn nhóm vật tư làm việc:";
+            this.labelControl1.Text = "Lựa chọn loại vật tư làm việc:";
+            // 
+            // rleKhoVatTu
+            // 
+            this.rleKhoVatTu.AutoHeight = false;
+            this.rleKhoVatTu.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rleKhoVatTu.Name = "rleKhoVatTu";
             // 
             // frmLoaiVatTu
             // 
@@ -196,6 +217,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rleKhoVatTu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,6 +236,8 @@
         private System.Windows.Forms.BindingSource sTOLoaiVatTuBindingSource;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rleKhoVatTu;
 
 
     }

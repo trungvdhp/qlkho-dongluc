@@ -24,6 +24,8 @@ namespace QLK_DongLuc.Views.DanhMuc
         {
             Entities db = new Entities();
             LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
+            KhoVatTuCtrl.LoadLookUpEdit(rleKhoVatTu, db);
+            NhomVatTuCtrl.LoadLookUpEdit(rleNhomVatTu, db);
             
             VaiTroQuyenCtrl.ReconfigFormControls(this, db);
             GridHelper.ReconfigGridView(gridView);
@@ -41,11 +43,12 @@ namespace QLK_DongLuc.Views.DanhMuc
             Entities db = new Entities();
             LoaiVatTuCtrl.LoadLookUpEdit(rleLoaiVatTu, db);
             VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, db);
+            GridHelper.BestFitAllColumns(gridView);
         }
 
         private void InsertCommand()
         {
-            var vt = (STO_VatTu)gridView.GetFocusedRow();
+            var vt = (ViewCboVatTu)gridView.GetFocusedRow();
             int rs = VatTuCtrl.Insert(vt);
 
             if (rs == 0)
@@ -57,7 +60,9 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         private void UpdateCommand()
         {
-            var vt = (STO_VatTu)gridView.GetFocusedRow();
+            gridView.SetRowCellValue(gridView.FocusedRowHandle, gridView.Columns["ID_loai_vat_tu"], ID_loai_vat_tu);
+
+            var vt = (ViewCboVatTu)gridView.GetFocusedRow();
             int rs = VatTuCtrl.Update(vt);
 
             if (rs == 0)
@@ -75,7 +80,7 @@ namespace QLK_DongLuc.Views.DanhMuc
 
             if (result == DialogResult.Yes)
             {
-                var vt = (STO_VatTu)gridView.GetFocusedRow();
+                var vt = (ViewCboVatTu)gridView.GetFocusedRow();
                 int rs = VatTuCtrl.Delete(vt.ID_vat_tu);
 
                 if (rs > 0)
@@ -168,10 +173,11 @@ namespace QLK_DongLuc.Views.DanhMuc
 
         }
 
+        int ID_loai_vat_tu = 0;
         private void ledLoaiVatTu_EditValueChanged(object sender, EventArgs e)
         {
             Entities db = new Entities();
-            var ID_loai_vat_tu = int.Parse(ledLoaiVatTu.EditValue.ToString());
+            ID_loai_vat_tu = int.Parse(ledLoaiVatTu.EditValue.ToString());
             VatTuCtrl.LoadBindingSource(sTOVatTuBindingSource, ID_loai_vat_tu, db);
 
             string[] Ma_nhom = { "NAN", "PROFILE" };

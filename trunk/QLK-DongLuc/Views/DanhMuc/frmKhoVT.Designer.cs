@@ -94,7 +94,6 @@
             // 
             this.grdKhoVatTu.DataSource = this.sTOKhoVatTuBindingSource;
             this.grdKhoVatTu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdKhoVatTu.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.grdKhoVatTu_EmbeddedNavigator_ButtonClick);
             this.grdKhoVatTu.Location = new System.Drawing.Point(0, 50);
             this.grdKhoVatTu.MainView = this.grvKhoVatTu;
             this.grdKhoVatTu.Margin = new System.Windows.Forms.Padding(0);
@@ -109,7 +108,6 @@
             this.grdKhoVatTu.UseEmbeddedNavigator = true;
             this.grdKhoVatTu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvKhoVatTu});
-            this.grdKhoVatTu.Click += new System.EventHandler(this.grdKhoVatTu_Click);
             this.grdKhoVatTu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.grdKhoVatTu_KeyDown);
             // 
             // grvKhoVatTu
@@ -128,8 +126,7 @@
             this.grvKhoVatTu.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grvKhoVatTu.OptionsView.ShowGroupPanel = false;
             this.grvKhoVatTu.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grvKhoVatTu_FocusedRowChanged);
-            this.grvKhoVatTu.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.grvKhoVatTu_InvalidRowException);
-            this.grvKhoVatTu.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvKhoVatTu_ValidateRow);
+             this.grvKhoVatTu.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grvKhoVatTu_ValidateRow);
             // 
             // colID_kho
             // 

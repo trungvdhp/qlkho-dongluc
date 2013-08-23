@@ -78,19 +78,6 @@ namespace QLK_DongLuc.Views.DanhMuc
             }
         }
 
-        private void UpdateKhoVatTuCT()
-        {
-            //STO_KhoVatTuCT khoCT = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
-            //var rs = KhoVatTuCTCtrl.Update(khoCT);
-
-            //if (rs == 0)
-            //{
-            //    NotifyHelper.ShowUpdateError();
-            //    grvKhoVatTuCT_Load();
-            //}
-
-        }
-
         private void DeleteKhoVatTu()
         {
             if (grvKhoVatTu.FocusedRowHandle < 0) return;
@@ -168,103 +155,6 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void grvKhoVatTu_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             grvKhoVatTuCT_Load();
-        }
-
-        private void grvKhoVatTuCT_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            //STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
-
-            //if (kho.STO_VatTu.STO_LoaiVatTu.Ma_loai_vat_tu == "NAN")
-            //{
-            //    bool bError = false;
-            //    string sError = "";
-
-            //    var Don_gia_nhap = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, colDon_gia_nhap);
-
-            //    if (Don_gia_nhap != null)
-            //    {
-            //        bError = true;
-            //        grvKhoVatTuCT.SetColumnError(colDon_gia_nhap, "Không nhập đơn giá nhập cho vật tư loại NAN");
-            //    }
-
-            //    var Don_gia_xuat = grvKhoVatTuCT.GetRowCellValue(e.RowHandle, colDon_gia_xuat);
-
-            //    if (Don_gia_xuat != null)
-            //    {
-            //        bError = true;
-            //        grvKhoVatTuCT.SetColumnError(colDon_gia_xuat, "Không nhập đơn giá xuất cho vật tư loại NAN");
-            //    }
-
-            //    if (bError)
-            //    {
-            //        e.Valid = false;
-            //        return;
-            //    }
-            //}
-
-            //if (grvKhoVatTuCT.IsNewItemRow(e.RowHandle))
-            //{
-            //}
-            //else
-            //{
-            //    UpdateKhoVatTuCT();
-            //}
-        }
-
-        private void grdKhoVatTuCT_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.Enter && grvKhoVatTuCT.FocusedRowHandle != DevExpress.XtraGrid.GridControl.NewItemRowHandle)
-            //{
-            //    grvKhoVatTuCT.CloseEditor();
-            //    grvKhoVatTuCT.UpdateCurrentRow();
-            //}
-
-            //if (e.KeyCode == Keys.Control | e.KeyCode == Keys.P)
-            //{
-            //    if (!grdKhoVatTuCT.IsPrintingAvailable)
-            //    {
-            //        NotifyHelper.ShowPrintError();
-            //    }
-
-            //    grdKhoVatTuCT.ShowPrintPreview();
-            //}
-        }
-
-        private void grvKhoVatTuCT_DoubleClick(object sender, EventArgs e)
-        {
-            //STO_KhoVatTuCT kho = (STO_KhoVatTuCT)grvKhoVatTuCT.GetFocusedRow();
-
-            //if (kho.ID_phieu_nhap != null)
-            //{
-            //    QuanlyKho.QuanLyNhap.frmSuaPhieuNhap frm = new QuanlyKho.QuanLyNhap.frmSuaPhieuNhap(kho.IMP_PhieuNhap);
-            //    frm.ShowDialog();
-            //}
-        }
-
-        private void grdKhoVatTu_EmbeddedNavigator_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
-        {
-            if (e.Button.ButtonType == NavigatorButtonType.Remove)
-            {
-                if (grvKhoVatTu.State != DevExpress.XtraGrid.Views.Grid.GridState.Editing)
-                    DeleteKhoVatTu();
-
-                e.Handled = true;
-            }
-        }
-
-        private void grvKhoVatTu_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-            //e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
-
-        private void grvKhoVatTuCT_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
-        {
-            //e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
-        }
-
-        private void grdKhoVatTu_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmKhoVT_FormClosing(object sender, FormClosingEventArgs e)
