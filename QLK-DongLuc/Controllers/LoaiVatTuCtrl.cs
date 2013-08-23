@@ -15,10 +15,11 @@ namespace QLK_DongLuc.Controllers
         public static void LoadBindingSource(BindingSource bs, Entities db = null)
         {
             if(db == null) db = new Entities();
+
             if (Properties.Settings.Default.ID_nhom_vat_tu == 0)
-                bs.DataSource = db.STO_LoaiVatTu.ToList();
+                bs.DataSource = db.ViewCboLoaiVatTu.ToList();
             else
-                bs.DataSource = db.STO_LoaiVatTu.Where(w => w.ID_nhom_vat_tu == Properties.Settings.Default.ID_nhom_vat_tu).ToList();
+                bs.DataSource = db.ViewCboLoaiVatTu.Where(w => w.ID_nhom_vat_tu == Properties.Settings.Default.ID_nhom_vat_tu).ToList();
         }
 
         public static void LoadLookUpEdit(LookUpEdit lookUpEdit, Entities db = null)
@@ -30,8 +31,8 @@ namespace QLK_DongLuc.Controllers
                 lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
             else
                 lookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.Where(w => w.ID_nhom_vat_tu == Properties.Settings.Default.ID_nhom_vat_tu).ToList();
+            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
             lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
-            lookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Thuộc nhóm"));
 
             lookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
             lookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
@@ -96,28 +97,35 @@ namespace QLK_DongLuc.Controllers
 
             gridLookUpEdit.Properties.Columns.Clear();
             gridLookUpEdit.Properties.DataSource = db.ViewCboLoaiVatTu.ToList();
+            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_nhom_vat_tu", "Thuộc nhóm"));
             gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Loại vật tư"));
-            gridLookUpEdit.Properties.Columns.Add(new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ten_loai_vat_tu", "Thuộc nhóm"));
-
+            
             gridLookUpEdit.Properties.DisplayMember = "Ten_loai_vat_tu";
             gridLookUpEdit.Properties.ValueMember = "ID_loai_vat_tu";
             gridLookUpEdit.Properties.NullText = "";
             gridLookUpEdit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.True;
         }
 
-        public static int Insert(STO_LoaiVatTu loaiVatTu, Entities db = null)
+        public static int Insert(ViewCboLoaiVatTu loaiVatTu, Entities db = null)
         {
             if (loaiVatTu == null || loaiVatTu.Ten_loai_vat_tu == null || loaiVatTu.ID_nhom_vat_tu == null)
                 return 0;
 
             if (db == null) db = new Entities();
 
-            db.STO_LoaiVatTu.Add(loaiVatTu);
+            var entity = new STO_LoaiVatTu();
+
+            entity.ID_nhom_vat_tu = loaiVatTu.ID_nhom_vat_tu;
+            entity.Ten_loai_vat_tu = loaiVatTu.Ten_loai_vat_tu;
+            entity.Ghi_chu = loaiVatTu.Ghi_chu;
+            entity.Ma_loai_vat_tu = loaiVatTu.Ma_loai_vat_tu;
+
+            db.STO_LoaiVatTu.Add(entity);
 
             return db.SaveChanges();
         }
 
-        public static int Update(STO_LoaiVatTu loaiVatTu, Entities db = null)
+        public static int Update(ViewCboLoaiVatTu loaiVatTu, Entities db = null)
         {
             if (loaiVatTu == null || loaiVatTu.ID_loai_vat_tu == null || loaiVatTu.Ten_loai_vat_tu == null || loaiVatTu.ID_nhom_vat_tu == null) return 0;
 

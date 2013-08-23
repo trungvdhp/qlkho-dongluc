@@ -63,6 +63,7 @@
       [ViewCboLoaiVatTu].[Ma_nhom_vat_tu] AS [Ma_nhom_vat_tu], 
       [ViewCboLoaiVatTu].[Ma_loai_vat_tu] AS [Ma_loai_vat_tu], 
       [ViewCboLoaiVatTu].[ID_kho] AS [ID_kho], 
+      [ViewCboLoaiVatTu].[Ten_kho] AS [Ten_kho], 
       [ViewCboLoaiVatTu].[Ghi_chu] AS [Ghi_chu]
       FROM [dbo].[ViewCboLoaiVatTu] AS [ViewCboLoaiVatTu]</DefiningQuery>
           </EntitySet>
@@ -711,6 +712,7 @@
             <PropertyRef Name="Ten_nhom_vat_tu" />
             <PropertyRef Name="ID_nhom_vat_tu" />
             <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="Ten_kho" />
           </Key>
           <Property Name="ID_loai_vat_tu" Type="int" Nullable="false" />
           <Property Name="Ten_loai_vat_tu" Type="nvarchar" Nullable="false" MaxLength="50" />
@@ -719,6 +721,7 @@
           <Property Name="Ma_nhom_vat_tu" Type="nvarchar" MaxLength="50" />
           <Property Name="Ma_loai_vat_tu" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_kho" Type="int" Nullable="false" />
+          <Property Name="Ten_kho" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Ghi_chu" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -1437,7 +1440,6 @@
           <EntitySet Name="sysdiagrams" EntityType="QuanLyKhoDongLucModel.sysdiagrams" />
           <EntitySet Name="ViewCatSanPham" EntityType="QuanLyKhoDongLucModel.ViewCatSanPham" />
           <EntitySet Name="ViewCboKhachHang" EntityType="QuanLyKhoDongLucModel.ViewCboKhachHang" />
-          <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
           <EntitySet Name="ViewCboLoaiXuat" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiXuat" />
           <EntitySet Name="ViewCboNhanVien" EntityType="QuanLyKhoDongLucModel.ViewCboNhanVien" />
           <EntitySet Name="ViewCboVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboVatTu" />
@@ -1598,6 +1600,7 @@
             <End Role="STO_LoaiVatTu" EntitySet="STO_LoaiVatTu" />
             <End Role="STO_VatTu" EntitySet="STO_VatTu" />
           </AssociationSet>
+          <EntitySet Name="ViewCboLoaiVatTu" EntityType="QuanLyKhoDongLucModel.ViewCboLoaiVatTu" />
         </EntityContainer>
         <EntityType Name="CAT_KhachHang">
           <Key>
@@ -1956,23 +1959,6 @@
           <Property Type="String" Name="Ho_ten" Nullable="false" MaxLength="101" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Dia_chi" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Dien_thoai" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ViewCboLoaiVatTu">
-          <Key>
-            <PropertyRef Name="ID_loai_vat_tu" />
-            <PropertyRef Name="Ten_loai_vat_tu" />
-            <PropertyRef Name="Ten_nhom_vat_tu" />
-            <PropertyRef Name="ID_nhom_vat_tu" />
-            <PropertyRef Name="ID_kho" />
-          </Key>
-          <Property Type="Int32" Name="ID_loai_vat_tu" Nullable="false" />
-          <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_nhom_vat_tu" Nullable="false" />
-          <Property Type="String" Name="Ma_nhom_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Ma_loai_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="ID_kho" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewCboLoaiXuat">
           <Key>
@@ -2634,6 +2620,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ViewCboLoaiVatTu">
+          <Key>
+            <PropertyRef Name="ID_loai_vat_tu" />
+            <PropertyRef Name="Ten_loai_vat_tu" />
+            <PropertyRef Name="Ten_nhom_vat_tu" />
+            <PropertyRef Name="ID_nhom_vat_tu" />
+            <PropertyRef Name="ID_kho" />
+            <PropertyRef Name="Ten_kho" />
+          </Key>
+          <Property Type="Int32" Name="ID_loai_vat_tu" Nullable="false" />
+          <Property Type="String" Name="Ten_loai_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ten_nhom_vat_tu" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_nhom_vat_tu" Nullable="false" />
+          <Property Type="String" Name="Ma_nhom_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ma_loai_vat_tu" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_kho" Nullable="false" />
+          <Property Type="String" Name="Ten_kho" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Ghi_chu" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2947,20 +2952,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewCboLoaiVatTu">
-            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiVatTu">
-              <MappingFragment StoreEntitySet="ViewCboLoaiVatTu">
-                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
-                <ScalarProperty Name="Ma_loai_vat_tu" ColumnName="Ma_loai_vat_tu" />
-                <ScalarProperty Name="Ma_nhom_vat_tu" ColumnName="Ma_nhom_vat_tu" />
-                <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
-                <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
-                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
-                <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
-                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ViewCboLoaiXuat">
             <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiXuat">
               <MappingFragment StoreEntitySet="ViewCboLoaiXuat">
@@ -3157,6 +3148,21 @@
                 <ScalarProperty Name="So_luong" ColumnName="So_luong" />
                 <ScalarProperty Name="ID_vat_tu" ColumnName="ID_vat_tu" />
                 <ScalarProperty Name="ID_phieu_nhap" ColumnName="ID_phieu_nhap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewCboLoaiVatTu">
+            <EntityTypeMapping TypeName="QuanLyKhoDongLucModel.ViewCboLoaiVatTu">
+              <MappingFragment StoreEntitySet="ViewCboLoaiVatTu">
+                <ScalarProperty Name="Ghi_chu" ColumnName="Ghi_chu" />
+                <ScalarProperty Name="Ten_kho" ColumnName="Ten_kho" />
+                <ScalarProperty Name="ID_kho" ColumnName="ID_kho" />
+                <ScalarProperty Name="Ma_loai_vat_tu" ColumnName="Ma_loai_vat_tu" />
+                <ScalarProperty Name="Ma_nhom_vat_tu" ColumnName="Ma_nhom_vat_tu" />
+                <ScalarProperty Name="ID_nhom_vat_tu" ColumnName="ID_nhom_vat_tu" />
+                <ScalarProperty Name="Ten_nhom_vat_tu" ColumnName="Ten_nhom_vat_tu" />
+                <ScalarProperty Name="Ten_loai_vat_tu" ColumnName="Ten_loai_vat_tu" />
+                <ScalarProperty Name="ID_loai_vat_tu" ColumnName="ID_loai_vat_tu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

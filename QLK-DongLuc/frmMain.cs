@@ -165,9 +165,8 @@ namespace QLK_DongLuc
 
         private void btnLoaiVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FormHelper.OpenWindowForm(new frmLoaiVatTu());
-            //frmLoaiVatTu frm = new frmLoaiVatTu();
-            //OpenForm(frm, tabControl);
+            frmLoaiVatTu frm = new frmLoaiVatTu();
+            OpenForm(frm, tabControl);
         }
 
         private void btnVatTu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
