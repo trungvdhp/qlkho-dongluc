@@ -42,6 +42,9 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void InsertCommand()
         {
             var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
+
+            nhom.ID_kho = Properties.Settings.Default.ID_kho;
+
             int rs = NhomVatTuCtrl.Insert(nhom);
 
             if (rs == 0)
@@ -54,6 +57,9 @@ namespace QLK_DongLuc.Views.DanhMuc
         private void UpdateCommand()
         {
             var nhom = (STO_NhomVatTu)gridView.GetFocusedRow();
+
+            nhom.ID_kho = Properties.Settings.Default.ID_kho;
+
             int rs = NhomVatTuCtrl.Update(nhom);
 
             if (rs == 0)

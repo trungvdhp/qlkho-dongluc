@@ -113,6 +113,7 @@
             this.colKho_vat_tu.ColumnEdit = this.rleKhoVatTu;
             this.colKho_vat_tu.FieldName = "ID_kho";
             this.colKho_vat_tu.Name = "colKho_vat_tu";
+            this.colKho_vat_tu.OptionsColumn.ReadOnly = true;
             this.colKho_vat_tu.Visible = true;
             this.colKho_vat_tu.VisibleIndex = 0;
             // 
@@ -142,8 +143,6 @@
             this.colGhi_chu.Caption = "Diễn giải";
             this.colGhi_chu.FieldName = "Ghi_chu";
             this.colGhi_chu.Name = "colGhi_chu";
-            this.colGhi_chu.Visible = true;
-            this.colGhi_chu.VisibleIndex = 2;
             // 
             // groupBox1
             // 
@@ -164,7 +163,7 @@
             this.lookUpEdit.Name = "lookUpEdit";
             this.lookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit.Size = new System.Drawing.Size(182, 20);
+            this.lookUpEdit.Size = new System.Drawing.Size(261, 20);
             this.lookUpEdit.TabIndex = 3;
             // 
             // labelControl1
